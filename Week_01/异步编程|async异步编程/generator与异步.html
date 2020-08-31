@@ -1,0 +1,43 @@
+<!-- generator模拟async/await -->
+<!-- async generator 对应的 for await of 语法 -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    // 一旦看见这样一个 return promise 这样的一种结构，你就可以把它理解为，
+    // 这个其实也是一种 async 函数
+    function sleep(t) {
+        return new Promise((resolve,reject)=>{
+            setTimeout(resolve,t)
+        })
+    }
+
+    async function*  counter() {
+         let i=0;
+         while(true) {
+             await sleep(1000);
+             yield i++;
+         }
+    }
+
+    (async function() {
+        for await (let v of counter()){
+            console.log(v);
+        }
+    })();
+
+
+
+
+
+</script>
+</body>
+</html>

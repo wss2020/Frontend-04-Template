@@ -1,4 +1,4 @@
-<!-- 回调地狱   逐层嵌套 -->
+<!-- 现在不推荐这样用了，这是早期人民的一个智慧 -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +8,7 @@
     <title>Document</title>
     <style>
 
-        .light {
+        div {
             display: inline-block;
             width: 100px;
             height: 100px;
@@ -55,28 +55,45 @@
         document.getElementsByClassName('yellow')[0].classList.add('light');
     }
 
+    // 一旦看见这样一个 return promise 这样的一种结构，你就可以把它理解为，
+    // 这个其实也是一种 async 函数
     function sleep(t) {
         return new Promise((resolve,reject)=>{
             setTimeout(resolve,t)
         })
     }
 
-    function go() {
-        green();
-        sleep(10000).then(()=>{
+    function* go() {
+        while (true) {
+            green();
+            yield sleep(10000);
             yellow();
-            return sleep(2000);
-        }).then(()=>{
+            yield sleep(2000);
             red();
-            return sleep(5000);
-        }).then(go)
+            yield sleep(5000);
+        }
     }
 
+    function run(iterator) {
+        let {value,done} = iterator.next();
+        if(done)
+            return;
+        if(value instanceof Promise)
+            value.then(()=>{
+                run(iterator)
+            })
+    }
 
+    function co(generator) {
+        return function () {
+            return run(generator())
+        }
+    }
 
-
+    go= co(go);
 
     go();
+
 
 
 </script>

@@ -1,0 +1,98 @@
+<!--<!DOCTYPE html>-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    .cell{
+        display: inline-block;
+        line-height: 7px;
+        width: 6px;
+        height:6px;
+        background-color: gray;
+        border-bottom:solid 1px white;
+        border-right: solid 1px white;
+        vertical-align: middle;
+    }
+    #container{
+        width: 701px;
+    }
+</style>
+
+<div id="container">
+
+</div>
+
+<!--保存，按住 我们把这个map的json保存起来-->
+<button onclick="localStorage['map'] = JSON.stringify(map)">
+    save
+</button>
+
+
+<script>
+    // 地图上有10000个格子，我们可以用一个 100x100 的二维数组表示,但是二维数组的开销还是比较大的，所以这里用一维数组表示它。
+    // 初始化一个长度为10000的数组，对其进行fill.
+    // 用100*y + x 来找它在地图里面对应的位置，俗称用一维数字来表示一个二维矩阵的技巧。
+    // 就是用我们同余的特性。
+
+    // 初始化的时候，如果localStorage里有map了，就拿它的，没有就创建一个空的。
+    let map = localStorage["map"] ? JSON.parse(localStorage["map"]) : Array(10000).fill(0);
+
+
+    let container = document.getElementById("container");
+    for(let y=0; y<100; y++){
+        for(let x=0; x<100; x++){
+            // 画地图
+            let cell = document.createElement("div");
+            cell.classList.add("cell");
+
+            // ==1 意思为
+            //   有墙用1来表示，  没墙我们用0来表示
+            if(map[100*y + x] == 1)
+                cell.style.backgroundColor = "black";
+
+
+            // 编辑地图
+            cell.addEventListener("mousemove",()=>{
+                if(mousedown){
+                    if(clear){
+                        cell.style.backgroundColor = "";
+                        map[100*y + x] = 0;
+                    }else{
+                        cell.style.backgroundColor = "black";
+                        map[100*y + x] = 1;
+                    }
+                }
+            });
+            container.appendChild(cell);
+        }
+    }
+
+    let mousedown = false;
+    let clear = false;
+
+    document.addEventListener("mousedown",e=>{
+        mousedown = true;
+        // 按住右键
+        clear = (e.which === 3)
+    });
+    //  按住右键 清除 强状态
+    document.addEventListener("mouseup",()=>mousedown=false);
+    //  组织菜单弹出
+    document.addEventListener("contextmenu",e=>e.preventDefault());
+
+    function path(map,start,end) {
+
+    }
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

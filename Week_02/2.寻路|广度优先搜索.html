@@ -1,0 +1,151 @@
+<!--<!DOCTYPE html>-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    .cell {
+        display: inline-block;
+        line-height: 7px;
+        width: 6px;
+        height: 6px;
+        background-color: gray;
+        border-bottom: solid 1px white;
+        border-right: solid 1px white;
+        vertical-align: middle;
+    }
+
+    #container {
+        width: 701px;
+    }
+</style>
+
+<div id="container">
+
+</div>
+
+<!--保存，按住 我们把这个map的json保存起来-->
+<button onclick="localStorage['map'] = JSON.stringify(map)">
+    save
+</button>
+
+
+<script>
+    let map = localStorage["map"] ? JSON.parse(localStorage["map"]) : Array(10000).fill(0);
+    let container = document.getElementById("container");
+    for (let y = 0; y < 100; y++) {
+        for (let x = 0; x < 100; x++) {
+            let cell = document.createElement("div");
+            cell.classList.add("cell");
+            if (map[100 * y + x] == 1)
+                cell.style.backgroundColor = "black";
+            cell.addEventListener("mousemove", () => {
+                if (mousedown) {
+                    if (clear) {
+                        cell.style.backgroundColor = "";
+                        map[100 * y + x] = 0;
+                    } else {
+                        cell.style.backgroundColor = "black";
+                        map[100 * y + x] = 1;
+                    }
+                }
+            });
+            container.appendChild(cell);
+        }
+    }
+
+    let mousedown = false;
+    let clear = false;
+    document.addEventListener("mousedown", e => {
+        mousedown = true;
+        clear = (e.which === 3)
+    });
+    document.addEventListener("mouseup", () => mousedown = false);
+    document.addEventListener("contextmenu", e => e.preventDefault());
+
+
+    // 接下来，我们来写，寻路广度优先算法
+    // 第一个参数 map是地图， 第二个参数是起点， 第三个参数是终点
+    // 我们会把所有点，加入到这个集合里，那么注意这个点，
+    // 这个集合就是所有搜索算法的灵魂，所有搜索算法的差异部分，其实完全就在于这个 queue 集合里面
+    function path(map, start, end) {
+        // queue 是一种数据结构，先进先出，一边进，一边出。
+        // js有没有数据结构，js的数组，就是一个天然的队列，它也是一个天然的栈
+        // 如果 push 和 shift 相对， 或者pop 和 unshift相对， 那么就是队列，
+        // 如果 push 和 pop 两个一起使用，那么就是栈。 shift 和 unshift 同理（一般不用，性能低。）
+
+
+        // 我们这里选择的是 push 和 shift ，作为一个队列的入列和出列的两个方法。
+        // 我们首先已经把这个 queue 里面加了这个 start 了，那么我们在第一遍循环的时候，
+           // 我们就把start 的4个周围的节点，加进这个队列里，然后我们逐个的去把，所有这个队列里面的点，它周围的点，全都都
+        // 加进这个队列，一直到这个队列变空为主，这就是广度优先搜索的主要的内容。
+        var queue = [start];
+
+        // 入队的逻辑
+        function insert(x, y) {
+
+            // 前两个判断，用来处理边缘的case
+            // 如果遇到边，那么我们就 insert 不了，什么也不做。
+            if (x < 0 || x >= 100 || y < 0 || y > +100)
+                return;
+            // 如果这个点已经有墙了， 墙就是 map 等于1的情况，
+            // 这里并没有用等于1来判断，而是用它能转为 true 来判断，
+              // 所有无论是1，还是2，或者说我们以后标点什么别的东西，甚至放个对象在这个里面，它都是会在这一句去return的。
+                // 只要是搜索过的点，我们就不再重复把它放进这个队列里边了。，
+            // js中 0为假，非0 为真。
+            if (map[y * 100 + x])
+                return;
+
+            // 如果我们找到这个节点，接下来我们就说这个节点是一个新的节点，
+            // 我们把它找到了对不对，那么我们先在地图上做一个标记，把它的这个状态，从0 改为2。
+            // 为什么我们要这样做，因为我们不想让它重复的去走，已经走到的点，我们给它标记一个状态，既不是0也不是1，把它标记为2。
+            map[y * 100 + x] = 2;
+
+            //接下来，把这个点入队就可以了。
+            queue.push([x, y]);
+        }
+
+
+        //
+        while (queue.length) {
+
+            //从队列里面取出一个元素，把它打印出来
+            let [x, y] = queue.shift();
+            console.log(x, y);
+            // 如果它已经找到了，最终的这个end的这个节点，
+            if (x === end[0] && y === end[1]) {
+                return true;
+            }
+            // 如果不是，进到这个逻辑里， 上线左右就是4个insert.
+            insert(x - 1, y);
+            insert(x, y - 1);
+            insert(x + 1, y);
+            insert(x, y + 1);
+        }
+
+        return false;
+    }
+
+
+    // 测试
+    path(map,[0,0],[5,5])
+
+
+    // 补充
+    // 这个queue 如果我们把它放成stack,改名叫 stack,不改也没关系，只是个名字。
+    // 然后我们把这个 push 跟 shift 这两个入 和 出 的这两个代码，改成push 和 pop.
+    // 它就变成了一个深度优先搜索。
+
+    //其实深度优先搜索和广度优先搜索，如果我们用代码来表达的话，它们就只差在这一个数据结构上。
+    // 它到底是 queue 还是 stack.
+
+    // 其实所有的搜索，比如 后面我们有安排 A*搜索的内容，A*搜索无非就是把queue 变成了一个排序的接口，
+    // 整体的代码的结构，其实已经在这里了，可以说是非常的简单。 但是它背后蕴含的思想，但是需要大家去理解一下的。
+
+</script>
+
+
+</body>
+</html>

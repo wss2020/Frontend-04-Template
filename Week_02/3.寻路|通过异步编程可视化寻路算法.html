@@ -1,0 +1,136 @@
+<!--
+上一段代码，已经完成了一段寻路的主体，但是还有几个问题。
+第一，算法虽然返回了true,符合预期，但是正确性，不太好保证。
+第二，我们是要找到一条路径，并没有找这个能不能走过去。
+
+
+对于第一，无法调试的问题，介绍一种，可视化的方法。
+用 async await，让一些函数的中间，插入一些异步的操作。
+
+-->
+
+
+<!--<!DOCTYPE html>-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    .cell {
+        display: inline-block;
+        line-height: 7px;
+        width: 6px;
+        height: 6px;
+        background-color: gray;
+        border-bottom: solid 1px white;
+        border-right: solid 1px white;
+        vertical-align: middle;
+    }
+
+    #container {
+        width: 701px;
+    }
+</style>
+
+
+<!--
+注意：为了把它的所有的，childNodes 跟map上面的严格对应，我们需要这个地方，是不能够有回车换行的，
+因为否则差了一个文本节点，它的顺序就不一样了。
+-->
+<div id="container"></div>
+
+<!--保存，按住 我们把这个map的json保存起来-->
+<button onclick="localStorage['map'] = JSON.stringify(map)">
+    save
+</button>
+
+
+<script>
+    let map = localStorage["map"] ? JSON.parse(localStorage["map"]) : Array(10000).fill(0);
+    let container = document.getElementById("container");
+    for (let y = 0; y < 100; y++) {
+        for (let x = 0; x < 100; x++) {
+            let cell = document.createElement("div");
+            cell.classList.add("cell");
+            if (map[100 * y + x] == 1)
+                cell.style.backgroundColor = "black";
+            cell.addEventListener("mousemove", () => {
+                if (mousedown) {
+                    if (clear) {
+                        cell.style.backgroundColor = "";
+                        map[100 * y + x] = 0;
+                    } else {
+                        cell.style.backgroundColor = "black";
+                        map[100 * y + x] = 1;
+                    }
+                }
+            });
+            container.appendChild(cell);
+        }
+    }
+
+    let mousedown = false;
+    let clear = false;
+    document.addEventListener("mousedown", e => {
+        mousedown = true;
+        clear = (e.which === 3)
+    });
+    document.addEventListener("mouseup", () => mousedown = false);
+    document.addEventListener("contextmenu", e => e.preventDefault());
+
+    //把上节课的sleep 函数拿过来
+    function sleep(t) {
+        return new Promise(function (resolve) {
+            setTimeout(resolve, t);
+        })
+    }
+
+    // path 改成 async  异步的
+    // async 函数凡是我们想要同步地去调用都要await
+      // 否则的话，它类似于一个start 的一个效果
+    async function path(map, start, end) {
+        var queue = [start];
+
+
+        // insert 函数，在这里执行完毕
+        async function insert(x, y) {
+            if (x < 0 || x >= 100 || y < 0 || y > +100)
+                return;
+            if (map[y * 100 + x])
+                return;
+
+            // 这里加一个 30 毫秒的一个sleep,稍微停一下，在效果。
+            await sleep(30);
+            // 在标2的同时，给对应的元素标记为 浅绿色。
+            // 因为这个用的是children，所有如果有文本节点也无所谓。但是最好还是大家，去做一个严格的对应。
+            container.children[y * 100 + x].style.backgroundColor="lightgreen";
+            map[y * 100 + x] = 2;
+            queue.push([x, y]);
+        }
+
+        while (queue.length) {
+            let [x, y] = queue.shift();
+            // console.log(x, y);
+            if (x === end[0] && y === end[1]) {
+                return true;
+            }
+            await insert(x - 1, y);
+            await insert(x, y - 1);
+            await insert(x + 1, y);
+            await insert(x, y + 1);
+        }
+        return false;
+    }
+
+
+    // 测试
+    path(map,[0,0],[50,50]);
+
+
+</script>
+
+
+</body>
+</html>

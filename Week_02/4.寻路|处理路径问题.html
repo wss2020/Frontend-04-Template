@@ -1,0 +1,198 @@
+<!--
+刚才讲过要处理的有两个问题，
+第一个问题是算法本身的过程，我们没有办法特别清晰的去理解，所以我们给它加入了一些动画。
+第二个问题是我们这个路径没有找出来，我们光得到了一个 false 或 true.
+
+解决第二个问题，怎么样寻找最终路径，我们只要把在 map 上标2的过程，改成标记它的前驱节点的过程，就行了。
+
+-->
+
+
+<!--<!DOCTYPE html>-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    .cell {
+        display: inline-block;
+        line-height: 7px;
+        width: 6px;
+        height: 6px;
+        background-color: gray;
+        border-bottom: solid 1px white;
+        border-right: solid 1px white;
+        vertical-align: middle;
+    }
+
+    #container {
+        width: 701px;
+    }
+</style>
+
+
+<!--
+注意：为了把它的所有的，childNodes 跟map上面的严格对应，我们需要这个地方，是不能够有回车换行的，
+因为否则差了一个文本节点，它的顺序就不一样了。
+-->
+<div id="container"></div>
+
+<!--保存，按住 我们把这个map的json保存起来-->
+<button onclick="localStorage['map'] = JSON.stringify(map)">
+    save
+</button>
+
+
+<script>
+    let map = localStorage["map"] ? JSON.parse(localStorage["map"]) : Array(10000).fill(0);
+    let container = document.getElementById("container");
+    for (let y = 0; y < 100; y++) {
+        for (let x = 0; x < 100; x++) {
+            let cell = document.createElement("div");
+            cell.classList.add("cell");
+            if (map[100 * y + x] == 1)
+                cell.style.backgroundColor = "black";
+            cell.addEventListener("mousemove", () => {
+                if (mousedown) {
+                    if (clear) {
+                        cell.style.backgroundColor = "";
+                        map[100 * y + x] = 0;
+                    } else {
+                        cell.style.backgroundColor = "black";
+                        map[100 * y + x] = 1;
+                    }
+                }
+            });
+            container.appendChild(cell);
+        }
+    }
+
+    let mousedown = false;
+    let clear = false;
+    document.addEventListener("mousedown", e => {
+        mousedown = true;
+        clear = (e.which === 3)
+    });
+    document.addEventListener("mouseup", () => mousedown = false);
+    document.addEventListener("contextmenu", e => e.preventDefault());
+
+    function sleep(t) {
+        return new Promise(function (resolve) {
+            setTimeout(resolve, t);
+        })
+    }
+
+
+    //  代码整体不变，只改变一个地方。
+    // async function path(map, start, end) {
+    async function findPath(map, start, end) {
+        var queue = [start];
+
+        // 这里放了一个table变量，用了一个小技巧，这都是一维数组带来的好处，
+        // 我们想把 map 里面的所有标 1 的节点全都复制过来怎么办，我们 Object.create一下，
+        // 那么就产生了一个新的table. 这样我们在table 上不管记什么东西，都不会影响原来的那张map
+        let table = Object.create(map);
+
+        // 然后 insert 函数里面，所有的逻辑也没有什么本质的变化。
+        //1）
+        async function insert(x, y, pre) {
+            if (x < 0 || x >= 100 || y < 0 || y > +100)
+                return;
+            // if (map[y * 100 + x])
+            // 因为pre 是一个对象，所以说我们写 pre 跟写2，它的效果对于判断的逻辑来说是一摸一样。
+            if (table[y * 100 + x])
+                return;
+
+            // await sleep(30);
+            container.children[y * 100 + x].style.backgroundColor = "lightgreen";
+            // 在table 上给它加了一个pre 这样的点。
+            // map[y * 100 + x] = 2;
+            // 2）
+            table[y * 100 + x] = pre;
+            queue.push([x, y]);
+        }
+
+        while (queue.length) {
+            let [x, y] = queue.shift();
+            // console.log(x, y);
+            if (x === end[0] && y === end[1]) {
+                // return true;
+
+                //这里找到end 节点的时候,我们就从end 节点，一个一个去找它的pre,一直找到起始节点就可以了。
+                // 所以我们复用一下 x 和 y 两个值，
+                // 先设一个path 变量，因为和外面函数重合，所以外面函数名改为 findPath
+                let path = [];
+
+                //在这个循环的里面，我们就循环地去找，一个一个去找它的pre,怎么找pre.
+                // 我们已经把它的记到table里了，
+                while (x != start[0] || y != start[1]) {
+                    path.push(map[y * 100 + x]);
+
+                    // 主要操作，[x, y] 等于 这是一个解构赋值，我们把table里面的坐标取出来，把它变回x,y
+                    // 那么每个table 的位置里面存的都是它的前一个节点，这样的话，while循环，每次都找到了
+                       // 一个它前面的节点。一直找到 start X 和 start Y.
+                    [x,y] = table[y * 100 + x];
+
+                    // 我们顺便把它记录下来，把前驱节点记录下来，
+                    // 然后在顺手再给它标一个紫色。
+                    // 这里可以放一个sleep,这样就可以看出来，它画的这条路径。
+                    await sleep(30);
+                    // console.log(x,y);
+                    container.children[y * 100 + x].style.backgroundColor = "purple";
+                }
+
+                // 找到路径，return 这个path 对象。
+                return path;
+            }
+
+
+            // insert 的时候，insert之前它只传了两个这样的坐标进去，
+            // await insert(x - 1, y);
+            // await insert(x, y - 1);
+            // await insert(x + 1, y);
+            // await insert(x, y + 1);
+
+            // 接下来，我们把insert的所有的参数，都给它加上一个 x 和 y.
+            await insert(x - 1, y, [x, y]);
+            await insert(x, y - 1, [x, y]);
+            await insert(x + 1, y, [x, y]);
+            await insert(x, y + 1, [x, y]);
+
+            // 这里，我们顺便把斜向的也给做了。 其实就是多加了，四句代码。
+            await insert(x - 1, y - 1, [x, y]);
+            await insert(x + 1, y - 1, [x, y]);
+            await insert(x - 1, y + 1, [x, y]);
+            await insert(x + 1, y + 1, [x, y]);
+
+        }
+
+        // 没有找到，这里我们return null;
+        // 其实js里面，typeof Object 和 typeof null ，它的结果都是object,
+        // 其实背后还是有一定道理的，当然了这个道理，比起它带来的麻烦来说，有点不成比例。
+
+        // return false;
+        return null;
+    }
+
+
+    // 测试
+    findPath(map,[0,0],[50,50]);
+
+
+
+    // 总结，
+    // 代码的改动量是比较少的，就是把pre传进去，
+    //    然后以及最后的一个循环，去找它的pre 的这样的一个过程。
+    //总结下来，其实只干了三件事，
+    //   1）把pre传进去   2）然后把pre写进表格里
+    //   3）最后沿着pre 的这样的一个链路，然后去找它的路径。
+
+    // 这样我们就实现了一个完整的一个寻路算法。
+
+</script>
+
+
+</body>
+</html>

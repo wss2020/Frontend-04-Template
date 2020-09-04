@@ -32,14 +32,8 @@
     }
 </style>
 
-
-<!--
-注意：为了把它的所有的，childNodes 跟map上面的严格对应，我们需要这个地方，是不能够有回车换行的，
-因为否则差了一个文本节点，它的顺序就不一样了。
--->
 <div id="container"></div>
 
-<!--保存，按住 我们把这个map的json保存起来-->
 <button onclick="localStorage['map'] = JSON.stringify(map)">
     save
 </button>
@@ -98,7 +92,7 @@
         // 然后 insert 函数里面，所有的逻辑也没有什么本质的变化。
         //1）
         async function insert(x, y, pre) {
-            if (x < 0 || x >= 100 || y < 0 || y > +100)
+            if (x < 0 || x >= 100 || y < 0 || y >=100)
                 return;
             // if (map[y * 100 + x])
             // 因为pre 是一个对象，所以说我们写 pre 跟写2，它的效果对于判断的逻辑来说是一摸一样。

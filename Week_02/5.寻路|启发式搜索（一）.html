@@ -1,0 +1,186 @@
+<!--
+  前面已经把寻路的广搜式的寻路的算法给大家讲完了，但是广搜寻路是不是最好的寻路方案呢？
+  答：其实并不是。   在各位数学家的努力下，证明了一件事情，我们是可以有一种方法，能够加速
+它的寻路的方案的，我们不需要一个非常傻的方式，去挨个去找，这种寻路的思路叫启发式寻路，
+
+   启发式寻路就是我们用一个函数去判断，它的这些点扩展的优先级，我们只要判断好了优先级，然后我们就可以有
+目的的去寻路，比如说我们就沿着点的方向，去做优先地去找寻路，但是这样找到的是不是最佳路径。
+
+这时候普通人思路就派不上用场了，但是数学家证明了一件事情，只要你这个启发式函数，它所使用的，估计的估值，它
+只要能够一定小于，这个点到终点的路径，那么它就是一个，一定能找到最优路径的这样的一种启发式寻路。
+
+那么这种能找到最优路径的启发式寻路，在我们计算机领域，我们就管它叫做 A*，
+这种不一定能找到最优路径的启发式寻路，就叫 A 。
+所以说 A* 就是 A 寻路的一个特例。
+
+
+要想实现启发式寻路，其实在这些逻辑的主体里面，我们的findPath 里面，基本上一行代码不用改。
+
+我们需要改的是一个自己的数据结构，我们只要把这个queue, 先进先出的 queue 把它变成一个能以一定
+的优先级，来提供点的这样的一个数据结构，
+
+-->
+
+
+<!--<!DOCTYPE html>-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    .cell {
+        display: inline-block;
+        line-height: 7px;
+        width: 6px;
+        height: 6px;
+        background-color: gray;
+        border-bottom: solid 1px white;
+        border-right: solid 1px white;
+        vertical-align: middle;
+    }
+
+    #container {
+        width: 701px;
+    }
+</style>
+
+
+<div id="container"></div>
+
+<button onclick="localStorage['map'] = JSON.stringify(map)">
+    save
+</button>
+
+
+<script>
+    // 所以这里写一个简单的数据结构，叫 Sorted
+    class Sorted{
+        constructor(data,compare){
+            this.data = data.slice();
+            this.compare = compare || ((a,b)=>a-b);
+        }
+
+        take(){
+            if(!this.data.length)
+                return;
+            let min = this.data[0];
+            let minIndex = 0;
+
+            for(let i=1; i<this.data.length; i++){
+                if(this.compare(this.data[i],min)<0){
+                    min = this.data[i];
+                    minIndex = i;
+                }
+            }
+
+            this.data[minIndex] = this.data[this.data.length - 1];
+            this.data.pop();
+            return min;
+        }
+
+        give(v){
+            this.data.push(v);
+        }
+
+
+
+    }
+
+
+
+    let map = localStorage["map"] ? JSON.parse(localStorage["map"]) : Array(10000).fill(0);
+    let container = document.getElementById("container");
+    for (let y = 0; y < 100; y++) {
+        for (let x = 0; x < 100; x++) {
+            let cell = document.createElement("div");
+            cell.classList.add("cell");
+            if (map[100 * y + x] == 1)
+                cell.style.backgroundColor = "black";
+            cell.addEventListener("mousemove", () => {
+                if (mousedown) {
+                    if (clear) {
+                        cell.style.backgroundColor = "";
+                        map[100 * y + x] = 0;
+                    } else {
+                        cell.style.backgroundColor = "black";
+                        map[100 * y + x] = 1;
+                    }
+                }
+            });
+            container.appendChild(cell);
+        }
+    }
+
+    let mousedown = false;
+    let clear = false;
+    document.addEventListener("mousedown", e => {
+        mousedown = true;
+        clear = (e.which === 3)
+    });
+    document.addEventListener("mouseup", () => mousedown = false);
+    document.addEventListener("contextmenu", e => e.preventDefault());
+
+    function sleep(t) {
+        return new Promise(function (resolve) {
+            setTimeout(resolve, t);
+        })
+    }
+
+    async function findPath(map, start, end) {
+        var queue = [start];
+        let table = Object.create(map);
+
+        async function insert(x, y, pre) {
+            if (x < 0 || x >= 100 || y < 0 || y > +100)
+                return;
+            if (table[y * 100 + x])
+                return;
+
+            container.children[y * 100 + x].style.backgroundColor = "lightgreen";
+            table[y * 100 + x] = pre;
+            queue.push([x, y]);
+        }
+
+        while (queue.length) {
+            let [x, y] = queue.shift();
+            // console.log(x, y);
+            if (x === end[0] && y === end[1]) {
+
+                let path = [];
+                while (x != start[0] || y != start[1]) {
+                    path.push(map[y * 100 + x]);
+                    [x,y] = table[y * 100 + x];
+                    await sleep(30);
+                    // console.log(x,y);
+                    container.children[y * 100 + x].style.backgroundColor = "purple";
+                }
+
+                return path;
+            }
+
+            await insert(x - 1, y, [x, y]);
+            await insert(x, y - 1, [x, y]);
+            await insert(x + 1, y, [x, y]);
+            await insert(x, y + 1, [x, y]);
+
+            await insert(x - 1, y - 1, [x, y]);
+            await insert(x + 1, y - 1, [x, y]);
+            await insert(x - 1, y + 1, [x, y]);
+            await insert(x + 1, y + 1, [x, y]);
+
+        }
+        return null;
+    }
+
+
+    // 测试
+    findPath(map,[0,0],[50,50]);
+
+
+</script>
+
+
+</body>
+</html>

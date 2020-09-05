@@ -1,0 +1,190 @@
+<!--
+    // 有个 Sorted 的数据结构之后，我们就可以解决我们最终的问题了。
+
+-->
+
+<!--<!DOCTYPE html>-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    .cell {
+        display: inline-block;
+        line-height: 7px;
+        width: 6px;
+        height: 6px;
+        background-color: gray;
+        border-bottom: solid 1px white;
+        border-right: solid 1px white;
+        vertical-align: middle;
+    }
+
+    #container {
+        width: 701px;
+    }
+</style>
+
+
+<div id="container"></div>
+
+<button onclick="localStorage['map'] = JSON.stringify(map)">
+    save
+</button>
+
+
+<script>
+    class Sorted {
+        constructor(data, compare) {
+            this.data = data.slice();
+            this.compare = compare || ((a, b) => a - b);
+        }
+
+        take() {
+            if (!this.data.length)
+                return;
+            let min = this.data[0];
+            let minIndex = 0;
+
+            for (let i = 1; i < this.data.length; i++) {
+                if (this.compare(this.data[i], min) < 0) {
+                    min = this.data[i];
+                    minIndex = i;
+                }
+            }
+
+            this.data[minIndex] = this.data[this.data.length - 1];
+            this.data.pop();
+            return min;
+        }
+
+        give(v) {
+            this.data.push(v);
+        }
+
+        get length(){
+            return this.data.length;
+        }
+
+    }
+
+
+    let map = localStorage["map"] ? JSON.parse(localStorage["map"]) : Array(10000).fill(0);
+    let container = document.getElementById("container");
+    for (let y = 0; y < 100; y++) {
+        for (let x = 0; x < 100; x++) {
+            let cell = document.createElement("div");
+            cell.classList.add("cell");
+            if (map[100 * y + x] == 1)
+                cell.style.backgroundColor = "black";
+            cell.addEventListener("mousemove", () => {
+                if (mousedown) {
+                    if (clear) {
+                        cell.style.backgroundColor = "";
+                        map[100 * y + x] = 0;
+                    } else {
+                        cell.style.backgroundColor = "black";
+                        map[100 * y + x] = 1;
+                    }
+                }
+            });
+            container.appendChild(cell);
+        }
+    }
+
+    let mousedown = false;
+    let clear = false;
+    document.addEventListener("mousedown", e => {
+        mousedown = true;
+        clear = (e.which === 3)
+    });
+    document.addEventListener("mouseup", () => mousedown = false);
+    document.addEventListener("contextmenu", e => e.preventDefault());
+
+    function sleep(t) {
+        return new Promise(function (resolve) {
+            setTimeout(resolve, t);
+        })
+    }
+
+    async function findPath(map, start, end) {
+        // 在 queue，变量我们就不去改它了，我们把原来的数组，给它换成我们自己写的 Sorted 的数据结构；
+        // var queue = [start];
+        // 注意，我们每次都去取，跟终点距离最小的那个，所以说我们的 compare 函数，我们要让它去传一个 distance(a) 和 distance(b) 的这样的一个逻辑。
+        // 所谓的 distance，那么它的 a 和 b 的 distance，我们是需要通过，它跟 end 节点的坐标去判断的，所以我们这个地方写的是 distance(a) 和 distance(b).
+        // 在这个 Sorted 数据结构里面，我们就可以每次 take 出来的，都是一个跟终点，距离最小的这样的一个点，然后来扩展它周围的节点，
+        // 然后我们看看能不能，有一条比较笔直路径走过去，然后其它的逻辑都没有变，只是我们把push 和 shift 换成了 give 和 take.
+        let queue = new Sorted([start],(a,b)=> distance(a)- distance(b) );
+
+        let table = Object.create(map);
+
+        async function insert(x, y, pre) {
+            if (x < 0 || x >= 100 || y < 0 || y >=100)
+                return;
+            if (table[y * 100 + x])
+                return;
+
+            await sleep(30);
+            container.children[y * 100 + x].style.backgroundColor = "lightgreen";
+            table[y * 100 + x] = pre;
+            // queue.push([x, y]);
+            queue.give([x, y]);
+        }
+
+        // distance 实现比较简单，传一个 point 参数进来，
+        function distance(point){
+            // 在里面，我们让它跟end节点，算一下距离，我们利用了一下新增加的乘方运算符，算出来它的距离，
+            // 这里其实本来是要两个的平方，x坐标 和 y坐标的平方，我们最后还要开个根号的。
+            // 但是因为考虑到，我们要给 compare 函数用的，compare 函数里面你开不开根号，它的大小不改变它的大小，
+            // 因为咱们的距离都是大于1的，没有小于1 的距离，所以这里为了节约运算，我们就不去开根号了。
+            // 这样distance 就有了。
+            return ( point[0] - end[0] ) ** 2 + (point[0] - end[1])  ** 2;
+        }
+
+        while (queue.length) {
+            // let [x, y] = queue.shift();
+            let [x, y] = queue.take();
+            // console.log(x, y);
+            if (x === end[0] && y === end[1]) {
+
+                let path = [];
+                while (x != start[0] || y != start[1]) {
+                    path.push(map[y * 100 + x]);
+                    [x, y] = table[y * 100 + x];
+                    await sleep(30);
+                    // console.log(x,y);
+                    container.children[y * 100 + x].style.backgroundColor = "purple";
+                }
+
+                return path;
+            }
+
+            await insert(x - 1, y, [x, y]);
+            await insert(x, y - 1, [x, y]);
+            await insert(x + 1, y, [x, y]);
+            await insert(x, y + 1, [x, y]);
+
+            await insert(x - 1, y - 1, [x, y]);
+            await insert(x + 1, y - 1, [x, y]);
+            await insert(x - 1, y + 1, [x, y]);
+            await insert(x + 1, y + 1, [x, y]);
+
+        }
+        return null;
+    }
+
+
+
+    findPath(map,[0,0],[50,50]);
+
+    // 从效果上，我们可以看到，它就搜索了绿色的这些节点，而这个数学上，它可以保证，我们这样找到的路径，是一条最佳路径，这个就是我们的启发式搜索A*.
+    // 但是从效果上可以看到，在一些细节的处理上，它并没有采用最佳路径的去处理。   自己处理。（提示：肯定是可以找到，最佳路径的，提示：）
+
+
+</script>
+
+
+</body>
+</html>

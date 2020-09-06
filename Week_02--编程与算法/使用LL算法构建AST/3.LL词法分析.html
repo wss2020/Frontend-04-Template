@@ -28,6 +28,11 @@
             // 没匹配出来，break
             if (!result)
                 break;
+console.log(result);
+console.log( result[0]);
+            console.log(regexp.lastIndex);
+            console.log(lastIndex);
+
             // 匹配出来，中间有不认识的字符，break
             if (regexp.lastIndex - lastIndex > result[0].length)
                 break;

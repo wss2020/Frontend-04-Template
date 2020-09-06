@@ -1,3 +1,167 @@
+<!--
+
+  <AdditiveExpression>::=
+      <Number>
+      |<MultiplicativeExpression><*><Number>
+      |<MultiplicativeExpression></><Number>
+      |<AdditiveExpression><+><MultiplicativeExpression>
+      |<AdditiveExpression><-><MultiplicativeExpression>
+
+-->
+<script>
+    let regexp = /([0-9\.]+)|([ \t]+)|([\r\n]+)|(\*)|(\/)|(\+)|([/-])/g;
+
+    let dictionary = ['Number', 'Whitespace', 'LineTerminator', '*', '/', '+', '-'];
+
+
+    function* tokenize(source) {
+        var result = null;
+        var lastIndex = 0;
+        while (true) {
+            lastIndex = regexp.lastIndex;
+            result = regexp.exec(source);
+            if (!result)
+                break;
+            if (regexp.lastIndex - lastIndex > result[0].length)
+                break;
+
+            let token = {
+                type: null,
+                value: null
+            };
+
+            for (let i = 1; i <= dictionary.length; i++) {
+                if (result[i])
+                    token.type = dictionary[i - 1];
+            }
+            token.value = result[0];
+            yield token;
+        }
+
+        yield {
+            type: "EOF"
+        }
+    }
+
+
+    let source = [];
+    for (let token of tokenize("10 * 25 / 2")) {
+        if (token.type !== "Whitespace" && token.type !== "LineTerminator")
+            source.push(token);
+    }
+
+    console.log(source)
+
+    function Expression(tokens) {
+
+    }
+
+
+
+    // <AdditiveExpression>::=
+    // <Number>
+    // |<MultiplicativeExpression><*><Number>
+    // |<MultiplicativeExpression></><Number>
+    // |<AdditiveExpression><+><MultiplicativeExpression>
+    // |<AdditiveExpression><-><MultiplicativeExpression>
+
+
+    // AdditiveExpression 它需要处理一些，除了它的产生式的那个三条，
+    // 这三条跟我们的MultiplicativeExpression 是没有任何的区别的；
+    // 有一点很重要，我们必须要去处理一下 MultiplicativeExpression 当中的这个，
+    // 比如说 我们第一条进来的时候，必须要处理 MultiplicativeExpression 的所有逻辑，
+    // 也就是说 AdditiveExpression，它包含了 MultiplicativeExpression 所有的逻辑，
+    // 因为它的第一条就是 MultiplicativeExpression，所以说，我们当找到的是一个不认识的东西的话，我们需要去调用一次MultiplicativeExpression
+    // 然后再重新调用AdditiveExpression，
+    // AdditiveExpression 本身的逻辑，也会比 MultiplicativeExpression 有一个更加复杂的地方，
+    // 就是它的第三项，我们回到产生式，它第三项是一个 MultiplicativeExpression，它是一个非终结符 NoneTerminalSymbol，
+    // 非终结符意味着说，它本身也需要，产生一次，所以我们在。。。
+    function AdditiveExpression(source) {
+        if (source[0].type === "MultiplicativeExpression") {
+            let node = {
+                type: "AdditiveExpression",
+                children: [source[0]]
+            };
+            source[0] = node;
+            return AdditiveExpression(source);
+        }
+        if (source[0].type === "MultiplicativeExpression" && source[1] && source[1].type === "+") {
+            let node = {
+                type: "AdditiveExpression",
+                operator: "=",
+                children: []
+            };
+            source[0] = node;
+            node.children.push(source.shift());
+            node.children.push(source.shift());
+            MultiplicativeExpression(source);
+            node.children.push(source.shift());
+            source.unshift(node);
+            return AdditiveExpression(source);
+        }
+        if (source[0].type === "MultiplicativeExpression" && source[1] && source[1].type === "-") {
+            let node = {
+                type: "AdditiveExpression",
+                operator: "-",
+                children: []
+            };
+            source[0] = node;
+            node.children.push(source.shift());
+            node.children.push(source.shift());
+            MultiplicativeExpression(source);
+            node.children.push(source.shift());
+            source.unshift(node);
+            return AdditiveExpression(source);
+        }
+    }
+
+
+    function MultiplicativeExpression(source) {
+        if (source[0].type == "Number") {
+            let node = {
+                type: "MultiplicativeExpression",
+                children: [source[0]]
+            };
+            source[0] = node;
+            return MultiplicativeExpression(source);
+        }
+        if (source[0].type === "MultiplicativeExpression" && source[1] && source[1].type === "*") {
+            let node = {
+                type: "MultiplicativeExpression",
+                operator: "*",
+                children: []
+            };
+            node.children.push(source.shift());
+            node.children.push(source.shift());
+            node.children.push(source.shift());
+            source.unshift(node);
+            return MultiplicativeExpression(source);
+        }
+        if (source[0].type === "MultiplicativeExpression" && source[1] && source[1].type === "/") {
+            let node = {
+                type: "MultiplicativeExpression",
+                operator: "/",
+                children: []
+            };
+            node.children.push(source.shift());
+            node.children.push(source.shift());
+            node.children.push(source.shift());
+            source.unshift(node);
+            return MultiplicativeExpression(source);
+        }
+        if (source[0].type === "MultiplicativeExpression")
+            return source[0];
+
+
+        return MultiplicativeExpression(source);
+    }
+
+    console.log(MultiplicativeExpression(source));
+
+
+</script>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

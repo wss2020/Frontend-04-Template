@@ -1,3 +1,53 @@
+<!--
+我们来看看词法分析，具体的代码该怎么做。
+
+-->
+<script>
+    // 首先写一个，正则表达式。
+    // 它以或关系分开的，然后每一个里面都有一个圆括号的这样的一个结构。
+    // 为什么每一个里面都有一个圆括号呢？ 因为正则里面圆括号表示捕获。
+    // 一旦我们对它进行了捕获，那么它除了正则表达式，整体表示的字符串，对圆括号里面的内容，它也会直接被匹配出来。
+    // 这是正则表达式的一个特性，它就是专门利用为词法分析，而准备的这样的一个，正则的一个语法。
+    // 我们用或 分隔开了，也就是说，正则表达式整体匹配的内容，每次只会匹配到，一个或关系的分支里面。
+    // 这样的话，我们给它的每一个分支，都给它起一个名字，从 0～9 开始我们叫做 Number,
+    // 空白那么我们支持 空格 和 反斜杠t 就是tab符 两种；
+    // 换行符我们就只支持 \r 和 \n 两种；
+    // 后面 乘除加减 ，都是就用它符号本身作为名字
+    let regexp = /([0-9\.]+)|([ \t]+)|([\r\n]+)|(\*)|(\/)|(\+)|([/-])/g;
+
+    // 这个就是我们扫描出来的 token 名。
+    let dictionary = ['Number', 'Whitespace', 'LineTerminator', '*', '/', '+', '-'];
+
+
+    function tokenize(source) {
+        var result = null;
+        while (true) {
+            //用正则表达式的 exec(),去不断的扫描整个原字符串的内容
+            result = regexp.exec(source);
+            if (!result) break;
+
+            // 如果匹配到了，result 里面有东西，就会根据
+            // 它的 result 哪一个位置，从1开始，因为0 是整个的，整个的正则匹配到的。
+            // 从1 到 7（dictionary的长度）的这样的一个范围里面，那么就是它匹配到了哪一种，我们的输入元素。
+            // 就循环去找这个 result,如果result 的这个位置，有对应的值的话，那么给它打印出来
+            for (let i = 1; i <= dictionary.length; i++) {
+                if (result[i]) {
+                    console.log(result[i]);
+                    console.log(dictionary[i - 1]);
+                }
+            }
+
+            // 最后我们把 result 本身 log 出来
+            console.log(result);
+        }
+    }
+
+    tokenize("1024 + 10 * 25");
+
+
+</script>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

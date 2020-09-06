@@ -1,3 +1,136 @@
+<!--
+LL语法分析的基本结构，就是每一个产生式对应着一个我们的函数，
+
+所以我们先把这几个函数的名字，给它写起来。
+
+-->
+<script>
+    let regexp = /([0-9\.]+)|([ \t]+)|([\r\n]+)|(\*)|(\/)|(\+)|([/-])/g;
+
+    let dictionary = ['Number', 'Whitespace', 'LineTerminator', '*', '/', '+', '-'];
+
+
+    function* tokenize(source) {
+        var result = null;
+        var lastIndex = 0;
+        while (true) {
+            lastIndex = regexp.lastIndex;
+            result = regexp.exec(source);
+            if (!result)
+                break;
+            if (regexp.lastIndex - lastIndex > result[0].length)
+                break;
+
+            let token = {
+                type: null,
+                value: null
+            };
+
+            for (let i = 1; i <= dictionary.length; i++) {
+                if (result[i])
+                    token.type = dictionary[i - 1];
+            }
+            token.value = result[0];
+            yield token;
+        }
+
+        yield {
+            type: "EOF"
+        }
+    }
+
+
+    let source = [];
+    for (let token of tokenize("10 * 25 / 2")) {
+        if(token.type !== "Whitespace" && token.type !== "LineTerminator")
+            source.push(token);
+    }
+
+    console.log(source)
+
+    function Expression(tokens) {
+
+    }
+
+    function AdditibeExpression(source){
+
+    }
+
+    //乘法 MultiplicativeExpression
+    //开头的第一个，有可能有两个输入，一个是 Number,一个是MultiplicativeExpression
+    //它的第二个输入呢，又有两个选项，一个是 * ，一个是 /。  其它的咱们都不认识。
+    // 所以我们在处理上，我们也分成三个逻辑分支。
+
+    function MultiplicativeExpression(source) {
+        // 第一个逻辑分支是，第一个是 Number 的情况。
+        // 因为一个 Number,我们就可以把它，形成一个 MultiplicativeExpression 这样的结构，
+        // 所以说我们就新建一个节点，这是一个新的非终结符，这是个 NoneTerminalSymbol,
+        // 新的非终结符，它会有一个children ，因为它是从 Number 构造起来的，所以它的children里面，
+        // 我们就把 source[0] 的Number 给它放进去了，因为它是个递归的这样的一个结构，
+        // 所以说，当我们生成好了 MultiplicativeExpression，它后面还有可能是 *，或者是 / ；
+        // 所以我们要递归的去调用 MultiplicativeExpression。
+        if(source[0].type == "Number"){
+            let node={
+                type:"MultiplicativeExpression",
+                children:[source[0]]
+            };
+            source[0] = node;
+            return MultiplicativeExpression(source);
+        }
+        // 第二个就是 MultiplicativeExpression 后面跟个 *
+        // 第二种 和 第三种情况，本来可以写在一起的，为了跟大家的产生式能够一一对应起来，所以就给它拆成了两个if.
+        // 这个时候，明显是前三项，合成一个新的 MultiplicativeExpression。
+        // 同样我们给它搞一个 node,那么 MultiplicativeExpression ，然后我们把它，前三项全都 shift 出来，
+        // 然后放进 node 的 children 里面，然后我们最后给它新生成的结构，再给它放回我们的 source 里面去。
+        if(source[0].type === "MultiplicativeExpression" && source[1] && source[1].type ==="*"){
+            let node = {
+                type:"MultiplicativeExpression",
+                operator:"*",
+                children:[]
+            };
+            node.children.push(source.shift());
+            node.children.push(source.shift());
+            node.children.push(source.shift());
+            source.unshift(node);
+            // 同样，这个地方还是需要去递归一次的。
+            return MultiplicativeExpression(source);
+        }
+        // 第三个就是 MultiplicativeExpression 后面跟个 /
+        // 这种情况下，我们会对它进行合并；就是我们会把它最后形成一个新的语法结构，就产生一个非终结符。
+        // 除法和上一种情况没有本质区别，只是抄写了一边，把 * 变成了 /
+        if(source[0].type === "MultiplicativeExpression" && source[1] && source[1].type ==="/"){
+            let node = {
+                type:"MultiplicativeExpression",
+                operator:"/",
+                children:[]
+            };
+            node.children.push(source.shift());
+            node.children.push(source.shift());
+            node.children.push(source.shift());
+            source.unshift(node);
+            return MultiplicativeExpression(source);
+        }
+        // 以上几种情况之外，我们就会return 掉。
+        // 这里是递归结束的条件，递归结束的条件就是 source[0].type 是 MultiplicativeExpression；
+        // 但是 后面又不是乘号 和 除号。 因为前两个都有return 分支，这个自然是一个 else 分支。
+        if(source[0].type === "MultiplicativeExpression")
+            // 最后肯定是一个  return source[0]，这就说明我们已经把所有的乘法都处理完毕了。
+            return source[0];
+
+
+        // 如果最后，我们有一个其它的情况，我们默认给一个递归自己，其实是 不应该有这么一个情况的。
+        // 这个return 应该是永远都不会执行的。
+        return MultiplicativeExpression(source);
+    }
+
+   console.log(  MultiplicativeExpression(source)  );
+
+
+
+
+</script>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -1,3 +1,82 @@
+<!--
+1）代码整理一下，好看一点
+2）设计一下使用的方法
+
+
+-->
+<script>
+    let regexp = /([0-9\.]+)|([ \t]+)|([\r\n]+)|(\*)|(\/)|(\+)|([/-])/g;
+
+    let dictionary = ['Number', 'Whitespace', 'LineTerminator', '*', '/', '+', '-'];
+
+
+    // 函数改成一个 generator 函数
+    function* tokenize(source) {
+        var result = null;
+
+        // 添加一个 lastIndex,因为我们现在的代码里面，还没有去做这种判断，
+         // 就是说如果匹配出来的长度，跟它前进的长度不一样长怎么样，这里我们要把这个逻辑补上
+         // 这里我们用一个函数级别的lastIndex 变量
+        var lastIndex = 0;
+        while (true) {
+
+            // 我们每次去取出来lastIndex 变量，然后跟新生成的lastIndex 去做一个比较，
+            // 如果这个长度超了，就说明，这个里面有我们不认识的字符，或者我们不认识的格式，我么这个地方就给它 break 一下。
+            // 其实这个地方，应该给它 throw 一个 error 出来，这里我们就不去做这个错误处理了。
+            lastIndex = regexp.lastIndex;
+            result = regexp.exec(source);
+            // 没匹配出来，break
+            if (!result)
+                break;
+            // 匹配出来，中间有不认识的字符，break
+            if (regexp.lastIndex - lastIndex > result[0].length)
+                break;
+
+            // 接下来，我么把这个变成一个有效的 token，把它存起来
+            // 定义一个 token 变量
+            let token = {
+                type: null,
+                value: null
+            };
+
+            // 循环里面，把它的type 给找出来
+            for (let i = 1; i <= dictionary.length; i++) {
+                if (result[i])
+                    token.type = dictionary[i - 1];
+            }
+            // 最后，把它的值放成 result[0],这是一定会正确的。
+            token.value = result[0];
+
+            // 因为这个函数，它是不断的找出来，多个token,我们当然可以用回调函数的方式，来吐出来这个token；
+            // 那么一个更好的做法，就是使用 yield,利用新的js语法特性，当我们要返回一个序列的时候，我们就使用yield。
+            // 这里给它 yield 一个 token 出来
+            yield token;
+        }
+
+        // 这个代码，还不是一个完美的状态，因为，记得吗，我们最后需要一个EOF End of File
+        // 所以说，我们最后给它添加一个 yield.
+        yield {
+            type:"EOF"
+        }
+    }
+
+
+
+    // 使用的时候，用一个 for of ，然后把token 打印出来，
+    // 那么就完成了，第二个步骤。
+    for (let token of  tokenize("1024 + 10 * 25")) {
+        console.log(token);
+    }
+
+
+    // 总结： 这样，我们这个词法分析器，基本上可以认为说已经写完了，这也是我们去处理一些，
+     // 简单的词法问题的时候，会常常去使用的一种方法，就是用正则表达式和正则表达式的捕获关系，直接去处理词法。
+     //这个对大部分的语言来说，这个已经足够了。
+
+
+</script>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

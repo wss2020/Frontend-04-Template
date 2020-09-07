@@ -45,15 +45,24 @@
 
 
     let source = [];
-    for (let token of tokenize("10 * 25 / 2")) {
+    for (let token of tokenize("1 + 2 * 5 + 3")) {
         if (token.type !== "Whitespace" && token.type !== "LineTerminator")
             source.push(token);
     }
 
-    console.log(source)
+    console.log(source);
 
     function Expression(tokens) {
-
+          if(source[0].type === "AdditiveExpression" && source[1] && source[1].type == "EOF"){
+              let node = {
+                   type:"Expression",
+                   children:[source.shift(),source.shift()]
+              };
+              source.unshift(node)
+              return node;
+          }
+          AdditiveExpression(source);
+          return Expression(source);
     }
 
 
@@ -75,7 +84,7 @@
     // 然后再重新调用AdditiveExpression，
     // AdditiveExpression 本身的逻辑，也会比 MultiplicativeExpression 有一个更加复杂的地方，
     // 就是它的第三项，我们回到产生式，它第三项是一个 MultiplicativeExpression，它是一个非终结符 NoneTerminalSymbol，
-    // 非终结符意味着说，它本身也需要，产生一次，所以我们在。。。
+    // 非终结符意味着说，它本身也需要，产生一次，所以我们在使用第三项之前，我们还要额外的调一次，  ****
     function AdditiveExpression(source) {
         if (source[0].type === "MultiplicativeExpression") {
             let node = {
@@ -94,6 +103,8 @@
             source[0] = node;
             node.children.push(source.shift());
             node.children.push(source.shift());
+            // **** MultiplicativeExpression 去把，source 里面的非终结符给它处理掉，所以我们的整个的 node  就会是这样的一个，就比前面的
+            // MultiplicativeExpression 就会多执行一个，这个地方多执行一次，那么加减是没有任何的区别的，
             MultiplicativeExpression(source);
             node.children.push(source.shift());
             source.unshift(node);

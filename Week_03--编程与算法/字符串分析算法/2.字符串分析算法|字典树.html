@@ -1,3 +1,102 @@
+<!--
+ 代码中如何实现字典树，以及字典树的应用场景
+
+-->
+<script>
+    let $ = Symbol("$");
+
+    class Trie{
+        constructor(){
+            // 用一个空对象，来保存字典树里面的这些值。
+            // js 里面最合适用作保存字典树里面的分支的这样的一种数据结构，就是Object 或者是 Map.
+            // 因为字典树里，只会存字符串，所以说 对象 和 Map 没有本质的区别，
+            // 为了干净，我们用 Object.create(null) 来创建字符串，
+            // 这样避免受到 Object.prototype 上面的 原型上的一些污染，其实因为我们存的每次是一个字符，所以也不会存在污染的问题。
+            // 但是我们还是能干净 尽量 干净。
+            this.root = Object.create(null);
+        }
+
+        // insert 方法，把一个字符串插进字典树里，
+        insert(word){
+            // 设一个变量node,一开始让它等于 root,从root开始，逐级地把字符串，放进这个树的
+            // 子树里面去，如果这颗子树不存在，我们就去for 循环这个，传进来的 word 这个新字符串。
+            // 子树不存在，就先创建子树，然后再让node 到下一个层级去，就像查字典，翻到对应的字母的位置。
+            let node = this.root;
+            for(let c of word){
+                if(!node[c])
+                    node[c] = Object.create(null);
+                node = node[c];
+            }
+            // 最后，因为字符串它会有大量的重复，而我们ab 和 abc 其实它是两个不同的字符串，所以说 ab 后面，
+            // 我们还有有一个截止符，这个截止符我们就把它用一个 $ 来表示，
+            // 但是其实，这个地方用 $ 是不合适的，因为如果我们的字符串，它本身就支持$这个内容的话，这样做会出问题。
+            // 一个更好的方案是，我们去 let $ = Symbol();
+            // 利用 Symbol 这种，不可重复的特点，那么我们就可以让截止符的代码更加严谨一些。
+            if(!($ in node))
+                node[$] = 0;
+            node[$] ++;
+        }
+
+        // 获取产生最多
+        // most方法，它要去遍历整个数，
+        most(){
+            let max = 0;
+            let maxWord = null;
+            // 我们想访问这颗数上的单词，怎么办？
+            // 有没有 $ 结束符，
+            // 如果有 $ 结束符，说明这是单词的截止的这样的一个点，
+            // 找到了，截止的点，我们就可以找 max ,
+            // 但是 max 的节点其实并不够，因为找到这个节点，并不等于找到这个单词，
+            // 所以我们要在 visit 递归的结构上，加一个word 参数，
+            // 在递归调用的时候，每一次往下潜进一层的时候，我们都在word上，追加一个当前树的名字。
+            // 这样我们访问到最后，得到这个节点的时候，我们同时能够获得word，
+            // 我们用一个变量 max 来记录，最后 word 出现的次数，并且我们把max word，这个word 记下来。
+            let visit = (node,word)=>{
+                if(node[$] && node[$] > max){
+                    max = node[$];
+                    maxWord = word;
+                }
+                for(let p in node){
+                    visit(node[p],word + p);
+                }
+            };
+            visit(this.root, "");
+            console.log(maxWord,max);
+        }
+    }
+
+    // randomWord 产生一个随机的单词，
+    function randomWord(length) {
+         let s = "";
+         for(let i=0; i<length; i++)
+             s += String.fromCharCode(Math.random() * 26 + "a".charCodeAt(0))
+         return s;
+    }
+
+
+    // 创建一个字典树，
+    let trie = new Trie();
+
+
+    // 给它去插入 10 万个空的字符（随机创建的单词）
+    for(let i=0; i<100000; i++){
+        trie.insert(randomWord(4))
+    }
+    console.log(trie.most());
+
+
+    // 补充：
+    // 补位处理： 1  变成  0001
+    // 字典树其实它是 哈希树 的一种特例。
+    // 哈希树在字符串领域里面，最直接的应用的体现，就是字典树。
+    // 如果我们处理数字，我们可以用别的哈希算法，来构造别的哈希。
+
+
+</script>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -35,7 +35,11 @@
             if(!($ in node))
                 node[$] = 0;
             node[$] ++;
+
+            console.log(this.root);
         }
+
+
 
         // 获取产生最多
         // most方法，它要去遍历整个数，
@@ -61,9 +65,19 @@
                 }
             };
             visit(this.root, "");
-            console.log(maxWord,max);
+            // console.log(maxWord,max);
         }
     }
+
+    let root = {
+          a:{
+
+          },
+          b:{
+
+          }
+    };
+
 
     // randomWord 产生一个随机的单词，
     function randomWord(length) {
@@ -76,17 +90,17 @@
 
     // 创建一个字典树，
     let trie = new Trie();
-    console.log(trie);
+    // console.log(trie);
 
 
     // 给它去插入 10 万个空的字符（随机创建的单词）
-    for(let i=0; i<100000; i++){
+    // for(let i=0; i<100000; i++){
         trie.insert(randomWord(4))
-    }
+    // }
 
-    console.log(trie);
+    // console.log(trie);
 
-    console.log(trie.most());
+    // console.log(trie.most());
 
 
     // 补充：

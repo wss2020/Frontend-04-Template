@@ -47,10 +47,10 @@ ab*cd*abc*a?d
                 starCount ++;
             }
         }
-        // 这里处理边缘 case ,没有星号的情况，就是这个字符串跟 pattern 严格的一一匹配，除了问号，问号是可以匹配任何字符的，
-        // 其它符号，那么我们都给它直接就过去，一个一个的比，不一样的话那就是不匹配，一样的话就是匹配，
+        // 这里处理边缘 case ,没有星号的情况，就是这个字符串跟 pattern 严格的一一匹配，
+        // 那么我们写一个算法，for循环访问整个的 pattern ，除了问号，问号是可以匹配任何字符的，
+        // 其它符号，那么我们都给它直接就过去，一个一个的比，不一样的话那就是不匹配，一样的话就 是匹配，
         if(starCount==0){
-            // 写一个算法，循环访问整个的 pattern ，
             for(let i=0; i<pattern.length; i++){
                 if(pattern[i] !== source[i] && pattern[i] !== "?"){
                     return false;
@@ -60,7 +60,13 @@ ab*cd*abc*a?d
         }
 
 
-        // 上面处理完边缘 case 之后，
+        // 上面处理完边缘 case 之后，我们来处理前半段，第一个 * 之前的部分，
+        // 那么我们用 i，我们用一个i 来代表 pattern 的位置。
+        // 用 lastIndex  来表示这个，原字符串的 source 的位置，
+        // 首先我们逐个地去循环，然后把第一个 * 之前的部分，给它匹配完，
+        // 没有，也无所谓，就是没有。
+        // 然后我们把 lastIndex 更新到 i .
+        // 因为我们第一个 * 之前，那么源跟这个 pattern 里面，是一一对应的这样的一个关系。
         let i =0;
         let lastIndex = 0;
 
@@ -71,6 +77,21 @@ ab*cd*abc*a?d
 
         lastIndex = i;
 
+        // 这里开始，我们就会有一个，从0 到 startCount - 1 这样的一个循环，
+        // 这是我们循环里每一段每个 *，
+        // 我们刚刚有一个分析，就是白色的那部分，每个 * 跟着一个模式串；
+        // 那么这样的一个结构，我们首先要找到这个星号，因为我们前面已经排除掉了，
+        // 没有 * 的edge case，另外因为 startCount 我们是到 startCount - 1的，
+        // 所以说，只有一个 * 的情况下，那么这个 * 就会被当做最后一个 * 去处理，
+        // 那么就直接进入到尾巴的匹配， 那么我们去设一个 subPattern ，就是 * 后边的格式。
+        // 然后我们把 subPattern 里面的问号，全部替换成正则（表达式）的语法，就是任意字符，
+        // 任意字符就是 [\s\S] ，因为 s 和 S 正好是互补的，所以它俩加在一起，就是整个字符集。
+        // 我们把 ？替换成正则（表达式）的语法之后，然后我们就编译成 正则表达式 new RegExp（）
+        // 然后我们把 lastIndex 改成我们前面的 lastIndex,
+        // 改成前面的 lastIndex 就意味着，我们可以接着之前的工作去找，所以正则（表达式）的lastIndex属性
+        // 是一个非常重要的属性，它决定了我们在 exec 的时候，从哪个字符开始，
+        // 然后我们从 lastIndex 这个位置开始，然后我们这地方，可以去console.log 执行一下，然后我们最后
+        // 做一个，
         for(let p = 0; p<starCount -1; p++){
             i++;
             let subPattern = "";
@@ -79,11 +100,37 @@ ab*cd*abc*a?d
                 i++;
             }
 
-            let reg = new regexp(subPattern.replace(/\?/));
+            let reg = new regexp(subPattern.replace(/\?/g,"[\\s\\S]"));
+            reg.lastIndex = lastIndex;
+
+            // console.log(reg.exec(source));
+
+            // 如果没有匹配到
+            if(!reg.exec(source))
+                return false;
+
+            lastIndex = reg.lastIndex;
         }
 
+
+        // 尾部的这样的匹配，那么让他去匹配这个最后一节，最后一个 * 后边的部分，至于最后一个 *， 橙色的*，
+        // 我们其实不需要管了，只要它的尾巴上得到了匹配，然后它的前面得到了匹配，那么我们就不需要去关心它，
+        // 最后这个橙色的 * 就把剩下的匹配掉就完了；
+        // 我们的循环，那么是会让他从 source 的尾巴开始，我们从后往前去进行循环，那么这样能够我们去找到
+        // 尾巴的这一段是否匹配；
+        for (let j = 0; i < source.length - lastIndex && pattern[pattern.length - j]; j++) {
+            if (pattern[pattern.length - j] !== source[source.length - j]
+                && pattern[pattern.length - 1])
+                return false;
+        }
+        return true;
     }
+
+
+    find("abcabcabxaac","a*b*bx*c",)
+    find("abcabcabxaac","a*b?*b?x*c",)  // 不匹配，因为没有和 b?x 匹配的。
 </script>
+
 
 
 

@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week_03--编程与算法/字符串分析算法/3.字符串分析算法|KMP字符串模式匹配算法.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_03--编程与算法/字符串分析算法/3.字符串分析算法|KMP字符串模式匹配算法.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week_03--编程与算法/字符串分析算法/4.字符串分析算法|Wildcard.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_03--编程与算法/字符串分析算法/4.字符串分析算法|Wildcard.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>compare</find>
+      <find>constructor</find>
+      <find>BinaryHeap</find>
+      <find>MultiplicativeExpression</find>
+      <find>lastIndex</find>
+      <find>most</find>
+      <find>console.log</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1hGz1mHJ1UMuW3kYxYHK6aliDJB" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Week_03--编程与算法/字符串分析算法" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Week_03--编程与算法/字符串分析算法" />
+      <recent name="$PROJECT_DIR$/Week_02--编程与算法/使用LL算法构建AST" />
+      <recent name="$PROJECT_DIR$/Week_02/寻路" />
+      <recent name="$PROJECT_DIR$/Week_02" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Week_03--编程与算法/字符串分析算法" />
+      <recent name="$PROJECT_DIR$/Week_02/使用LL算法构建AST" />
+      <recent name="$PROJECT_DIR$/Week_02" />
+      <recent name="$PROJECT_DIR$/Week_01/异步编程|async异步编程" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Node.js.test.js (2)">
+    <configuration name="test.js (1)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="test.js" working-dir="$PROJECT_DIR$/Week_02--编程与算法/使用LL算法构建AST">
+      <method v="2" />
+    </configuration>
+    <configuration name="test.js (2)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="test.js" working-dir="$PROJECT_DIR$/Week_03--编程与算法/字符串分析算法">
+      <method v="2" />
+    </configuration>
+    <configuration name="test.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Week_02--编程与算法/寻路/test.js" working-dir="$PROJECT_DIR$/Week_02--编程与算法">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.test.js (2)" />
+        <item itemvalue="Node.js.test.js (1)" />
+        <item itemvalue="Node.js.test.js" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="" />
+      <created>1598188094644</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1598188094644</updated>
+      <workItem from="1598188095877" duration="193000" />
+      <workItem from="1598231552438" duration="46000" />
+      <workItem from="1598797483615" duration="4251000" />
+      <workItem from="1598836465552" duration="109000" />
+      <workItem from="1598875724209" duration="2924000" />
+      <workItem from="1598922596450" duration="76000" />
+      <workItem from="1598936521225" duration="282000" />
+      <workItem from="1598969911436" duration="3867000" />
+      <workItem from="1599008710771" duration="13000" />
+      <workItem from="1599055979739" duration="4842000" />
+      <workItem from="1599095164664" duration="233000" />
+      <workItem from="1599105694265" duration="673000" />
+      <workItem from="1599130206668" duration="1748000" />
+      <workItem from="1599182343152" duration="16652000" />
+      <workItem from="1599277935163" duration="10680000" />
+      <workItem from="1599293929908" duration="13094000" />
+      <workItem from="1599450884106" duration="2925000" />
+      <workItem from="1599479841631" duration="5950000" />
+      <workItem from="1599527346765" duration="10862000" />
+      <workItem from="1599564927643" duration="3487000" />
+      <workItem from="1599613607230" duration="4584000" />
+      <workItem from="1599643356623" duration="641000" />
+      <workItem from="1599652005514" duration="4207000" />
+      <workItem from="1599711324006" duration="12000" />
+    </task>
+    <task id="LOCAL-00001" summary="第一周代码">
+      <created>1598798489978</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1598798489978</updated>
+    </task>
+    <task id="LOCAL-00002" summary="第一周代码">
+      <created>1598799169686</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1598799169686</updated>
+    </task>
+    <task id="LOCAL-00003" summary="第一周代码">
+      <created>1598799915947</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1598799915947</updated>
+    </task>
+    <task id="LOCAL-00004" summary="第一周代码">
+      <created>1598800397995</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1598800397995</updated>
+    </task>
+    <task id="LOCAL-00005" summary="第一周代码">
+      <created>1598836490683</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1598836490683</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Week_01">
+      <created>1598876202358</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1598876202359</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Week_01">
+      <created>1598936825620</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1598936825620</updated>
+    </task>
+    <task id="LOCAL-00008" summary="寻路">
+      <created>1598973879530</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1598973879530</updated>
+    </task>
+    <task id="LOCAL-00009" summary="寻路">
+      <created>1599061137610</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1599061137610</updated>
+    </task>
+    <task id="LOCAL-00010" summary="寻路">
+      <created>1599183848022</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1599183848022</updated>
+    </task>
+    <task id="LOCAL-00011" summary="寻路">
+      <created>1599184441971</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1599184441971</updated>
+    </task>
+    <task id="LOCAL-00012" summary="寻路">
+      <created>1599197079793</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1599197079793</updated>
+    </task>
+    <task id="LOCAL-00013" summary="寻路">
+      <created>1599209952781</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1599209952781</updated>
+    </task>
+    <task id="LOCAL-00014" summary="寻路">
+      <created>1599277952183</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1599277952183</updated>
+    </task>
+    <task id="LOCAL-00015" summary="寻路">
+      <created>1599282763708</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1599282763708</updated>
+    </task>
+    <task id="LOCAL-00016" summary="寻路">
+      <created>1599282991110</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1599282991110</updated>
+    </task>
+    <task id="LOCAL-00017" summary="寻路">
+      <created>1599291830932</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1599291830932</updated>
+    </task>
+    <task id="LOCAL-00018" summary="LL算法">
+      <created>1599366489890</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1599366489891</updated>
+    </task>
+    <task id="LOCAL-00019" summary="LL算法">
+      <created>1599368625949</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1599368625949</updated>
+    </task>
+    <task id="LOCAL-00020" summary="LL算法">
+      <created>1599385304407</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1599385304407</updated>
+    </task>
+    <task id="LOCAL-00021" summary="LL算法">
+      <created>1599403959397</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1599403959397</updated>
+    </task>
+    <task id="LOCAL-00022" summary="LL算法">
+      <created>1599475290236</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1599475290236</updated>
+    </task>
+    <task id="LOCAL-00023" summary="字符串分析算法">
+      <created>1599482712276</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1599482712277</updated>
+    </task>
+    <task id="LOCAL-00024" summary="字符串分析算法">
+      <created>1599487556586</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1599487556586</updated>
+    </task>
+    <task id="LOCAL-00025" summary="字符串分析算法">
+      <created>1599528185850</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1599528185850</updated>
+    </task>
+    <task id="LOCAL-00026" summary="字符串分析算法">
+      <created>1599529689587</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1599529689587</updated>
+    </task>
+    <task id="LOCAL-00027" summary="字符串分析算法">
+      <created>1599532085390</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1599532085390</updated>
+    </task>
+    <task id="LOCAL-00028" summary="字符串分析算法">
+      <created>1599537147171</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1599537147171</updated>
+    </task>
+    <task id="LOCAL-00029" summary="字符串分析算法">
+      <created>1599541339313</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1599541339313</updated>
+    </task>
+    <task id="LOCAL-00030" summary="字符串分析算法">
+      <created>1599625700636</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1599625700636</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="第一周代码" />
+    <MESSAGE value="Week_01" />
+    <MESSAGE value="寻路" />
+    <MESSAGE value="LL算法" />
+    <MESSAGE value="字符串分析算法" />
+    <option name="LAST_COMMIT_MESSAGE" value="字符串分析算法" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="536" y="34" width="1177" height="817" key="dock-window-1" timestamp="1599661509806">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="536" y="34" width="1177" height="817" key="dock-window-1/0.23.1440.877@0.23.1440.877" timestamp="1599661509806" />
+    <state x="491" y="23" width="1177" height="817" key="dock-window-2" timestamp="1599663253387">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="491" y="23" width="1177" height="817" key="dock-window-2/0.23.1440.877@0.23.1440.877" timestamp="1599663253387" />
+  </component>
+</project>

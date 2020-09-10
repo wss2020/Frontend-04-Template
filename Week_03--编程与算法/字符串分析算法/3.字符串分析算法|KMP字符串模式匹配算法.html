@@ -98,7 +98,7 @@ KMP 算法首先我们是要根据模式串，去算出来这个跳转表格，�
             }
         }
 
-        console.log(table);
+        // console.log(table);
 
 // 上面表格是正确的，因为下一步还是要用到 i j ,所以说这个地方，我们有一个
 //javaScript 小技巧，把上面的逻辑，放进一个代码块里  {},这样 i j 它就变成一个局部的了。
@@ -106,7 +106,7 @@ KMP 算法首先我们是要根据模式串，去算出来这个跳转表格，�
 
 
 // 匹配
-// 匹配 i j 它一开始都死0，我们把 j 认为是 pattern 串的位置，i 认为是 source 串的位置，
+// 匹配 i j 它一开始都是 0，我们把 j 认为是 pattern 串的位置，i 认为是 source 串的位置，
 // 最后你会发现，我们最后写出来的算法，和上面的非常的相似。
 // 我们先看匹配上的情况，匹配上了，那么就是 pattern[j] === source[i],这时候，同样是个自增的逻辑，都进一格，非常开心。
 // 如果没有匹配上，是不是我们的 pattern 的位置就要回退到 table 去了。
@@ -115,9 +115,13 @@ KMP 算法首先我们是要根据模式串，去算出来这个跳转表格，�
 // 所以我们要在这个地方加一个， if(j === pattern.length)
 // 如果说是这个 source 串到头了，怎么办？   最后 return false;
         {
+
+            let result = [];
+
             let i = 0, j = 0;
             while (i < source.length) {
                 if (pattern[j] === source[i]) {
+                    result.push(i);
                     ++i, ++j;
                 } else {
                     if (j > 0)
@@ -126,8 +130,11 @@ KMP 算法首先我们是要根据模式串，去算出来这个跳转表格，�
                         ++i;
                 }
 
+                // 这里说明找到了，此时 j 才等于 pattern.length
                 if(j === pattern.length)
-                    return true;
+                    // return true;
+                   // 这样写，代表在原字符串中，匹配的开始位置。
+                    return result.pop() - pattern.length + 2;
             }
             return false;
 
@@ -140,7 +147,7 @@ KMP 算法首先我们是要根据模式串，去算出来这个跳转表格，�
     // 0 0 1 0 1 2 2
 
     // 传一个字符串来看看，
-    let result =  kmp("","aabaaac");
+    let result =  kmp("dddawwwacddd","acddd");
 
     console.log(result);
 

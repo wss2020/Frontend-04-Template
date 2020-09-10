@@ -116,7 +116,7 @@
       <workItem from="1599652005514" duration="4207000" />
       <workItem from="1599711324006" duration="1510000" />
       <workItem from="1599719674248" duration="243000" />
-      <workItem from="1599727357195" duration="1300000" />
+      <workItem from="1599727357195" duration="4954000" />
     </task>
     <task id="LOCAL-00001" summary="第一周代码">
       <created>1598798489978</created>
@@ -349,7 +349,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599715394776</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="字符串分析算法">
+      <created>1599728761406</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1599728761406</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -364,14 +371,14 @@
     <option name="LAST_COMMIT_MESSAGE" value="字符串分析算法" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="-1430" y="-28" key="CommitChangelistDialog2" timestamp="1599715394633">
+    <state x="-1430" y="-28" key="CommitChangelistDialog2" timestamp="1599728761282">
       <screen x="-1920" y="-28" width="1920" height="1057" />
     </state>
-    <state x="-1430" y="-28" key="CommitChangelistDialog2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599715394633" />
-    <state x="-1422" y="115" key="Vcs.Push.Dialog.v2" timestamp="1599715395847">
+    <state x="-1430" y="-28" key="CommitChangelistDialog2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599728761282" />
+    <state x="-1422" y="115" key="Vcs.Push.Dialog.v2" timestamp="1599728762476">
       <screen x="-1920" y="-28" width="1920" height="1057" />
     </state>
-    <state x="-1422" y="115" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599715395847" />
+    <state x="-1422" y="115" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599728762476" />
     <state x="536" y="34" width="1177" height="817" key="dock-window-1" timestamp="1599661509806">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -380,5 +387,9 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="491" y="23" width="1177" height="817" key="dock-window-2/0.23.1440.877@0.23.1440.877" timestamp="1599663253387" />
+    <state x="-1379" y="-3" width="838" height="1032" key="search.everywhere.popup" timestamp="1599730226236">
+      <screen x="-1920" y="-28" width="1920" height="1057" />
+    </state>
+    <state x="-1379" y="-3" width="838" height="1032" key="search.everywhere.popup/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599730226236" />
   </component>
 </project>

@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week_03--编程与算法/字符串分析算法/3.字符串分析算法|KMP字符串模式匹配算法.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_03--编程与算法/字符串分析算法/3.字符串分析算法|KMP字符串模式匹配算法.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_03--编程与算法/字符串分析算法/Wildcard.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Week_03--编程与算法/字符串分析算法/4.字符串分析算法|Wildcard.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_03--编程与算法/字符串分析算法/4.字符串分析算法|Wildcard.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,17 +50,17 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Week_03--编程与算法/字符串分析算法" />
-      <recent name="$PROJECT_DIR$/Week_02--编程与算法/使用LL算法构建AST" />
-      <recent name="$PROJECT_DIR$/Week_02/寻路" />
-      <recent name="$PROJECT_DIR$/Week_02" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Week_03--编程与算法/字符串分析算法" />
       <recent name="$PROJECT_DIR$/Week_02/使用LL算法构建AST" />
       <recent name="$PROJECT_DIR$/Week_02" />
       <recent name="$PROJECT_DIR$/Week_01/异步编程|async异步编程" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Week_03--编程与算法/字符串分析算法" />
+      <recent name="$PROJECT_DIR$/Week_02--编程与算法/使用LL算法构建AST" />
+      <recent name="$PROJECT_DIR$/Week_02/寻路" />
+      <recent name="$PROJECT_DIR$/Week_02" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.test.js (2)">
@@ -115,7 +115,7 @@
       <workItem from="1599613607230" duration="4584000" />
       <workItem from="1599643356623" duration="641000" />
       <workItem from="1599652005514" duration="4207000" />
-      <workItem from="1599711324006" duration="12000" />
+      <workItem from="1599711324006" duration="1474000" />
     </task>
     <task id="LOCAL-00001" summary="第一周代码">
       <created>1598798489978</created>
@@ -327,7 +327,21 @@
       <option name="project" value="LOCAL" />
       <updated>1599625700636</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="字符串分析算法">
+      <created>1599711376777</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1599711376777</updated>
+    </task>
+    <task id="LOCAL-00032" summary="字符串分析算法">
+      <created>1599711426459</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1599711426459</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -342,6 +356,14 @@
     <option name="LAST_COMMIT_MESSAGE" value="字符串分析算法" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="-1430" y="-28" key="CommitChangelistDialog2" timestamp="1599711426320">
+      <screen x="-1920" y="-28" width="1920" height="1057" />
+    </state>
+    <state x="-1430" y="-28" key="CommitChangelistDialog2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599711426320" />
+    <state x="-1422" y="115" key="Vcs.Push.Dialog.v2" timestamp="1599711427522">
+      <screen x="-1920" y="-28" width="1920" height="1057" />
+    </state>
+    <state x="-1422" y="115" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599711427522" />
     <state x="536" y="34" width="1177" height="817" key="dock-window-1" timestamp="1599661509806">
       <screen x="0" y="23" width="1440" height="877" />
     </state>

@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Week_03--编程与算法/proxy与双向绑定/1.proxy的基本用法.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_03--编程与算法/proxy与双向绑定/3.模仿reactive实现原理（三）.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week_03--编程与算法/字符串分析算法/4.字符串分析算法|Wildcard.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_03--编程与算法/字符串分析算法/4.字符串分析算法|Wildcard.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,24 +43,25 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Week_03--编程与算法/字符串分析算法" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Week_03--编程与算法/proxy与双向绑定" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Week_03--编程与算法/字符串分析算法" />
-      <recent name="$PROJECT_DIR$/Week_02/使用LL算法构建AST" />
-      <recent name="$PROJECT_DIR$/Week_02" />
-      <recent name="$PROJECT_DIR$/Week_01/异步编程|async异步编程" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Week_03--编程与算法/字符串分析算法" />
       <recent name="$PROJECT_DIR$/Week_02--编程与算法/使用LL算法构建AST" />
       <recent name="$PROJECT_DIR$/Week_02/寻路" />
       <recent name="$PROJECT_DIR$/Week_02" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Week_03--编程与算法/proxy与双向绑定" />
+      <recent name="$PROJECT_DIR$/Week_03--编程与算法/字符串分析算法" />
+      <recent name="$PROJECT_DIR$/Week_02/使用LL算法构建AST" />
+      <recent name="$PROJECT_DIR$/Week_02" />
+      <recent name="$PROJECT_DIR$/Week_01/异步编程|async异步编程" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.test.js (2)">
@@ -117,7 +119,7 @@
       <workItem from="1599711324006" duration="1510000" />
       <workItem from="1599719674248" duration="243000" />
       <workItem from="1599727357195" duration="5374000" />
-      <workItem from="1599736649799" duration="2185000" />
+      <workItem from="1599736649799" duration="5753000" />
     </task>
     <task id="LOCAL-00001" summary="第一周代码">
       <created>1598798489978</created>
@@ -364,7 +366,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599732985187</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="字符串分析算法">
+      <created>1599739158040</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1599739158040</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -379,22 +388,28 @@
     <option name="LAST_COMMIT_MESSAGE" value="字符串分析算法" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="-1430" y="-28" key="CommitChangelistDialog2" timestamp="1599732985007">
-      <screen x="-1920" y="-28" width="1920" height="1057" />
+    <state x="368" y="23" key="CommitChangelistDialog2" timestamp="1599739157855">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="-1430" y="-28" key="CommitChangelistDialog2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599732985007" />
-    <state x="-1422" y="115" key="Vcs.Push.Dialog.v2" timestamp="1599732986262">
-      <screen x="-1920" y="-28" width="1920" height="1057" />
+    <state x="368" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1599739157855" />
+    <state x="374" y="142" key="Vcs.Push.Dialog.v2" timestamp="1599739159577">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="-1422" y="115" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599732986262" />
+    <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1599739159577" />
     <state x="476" y="23" width="1147" height="817" key="dock-window-1" timestamp="1599738031069">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="476" y="23" width="1147" height="817" key="dock-window-1/0.23.1440.877@0.23.1440.877" timestamp="1599738031069" />
-    <state x="491" y="23" width="1177" height="817" key="dock-window-2" timestamp="1599663253387">
+    <state x="595" y="23" width="1064" height="817" key="dock-window-2" timestamp="1599740708359">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="491" y="23" width="1177" height="817" key="dock-window-2/0.23.1440.877@0.23.1440.877" timestamp="1599663253387" />
+    <state x="595" y="23" width="1064" height="817" key="dock-window-2/0.23.1440.877@0.23.1440.877" timestamp="1599740708359" />
+    <state x="574" y="23" width="1064" height="817" key="dock-window-3" timestamp="1599744775920">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="574" y="23" width="1064" height="817" key="dock-window-3/0.23.1440.877@0.23.1440.877" timestamp="1599744775920" />
     <state x="-1379" y="-3" width="838" height="1032" key="search.everywhere.popup" timestamp="1599730226236">
       <screen x="-1920" y="-28" width="1920" height="1057" />
     </state>

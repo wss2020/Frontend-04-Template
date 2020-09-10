@@ -1,3 +1,61 @@
+<!--
+   有了 reactive 的这样的一个基础的函数，然后我们可以考虑一下，如何去监听。
+   那么当然我们可以给 po 上面，去加 addEventListener 类似这样的一个操作。
+   但是在 Vue 当中，用了一个特别的有意思的 API ，就是我们可以直接通过这个
+   effect ，传一个函数进去，它可以直接去监听 po 上面的一个属性，然后以此来
+   代替这个事件监听的一个机制，下面我们首先就尝试实现一个，粗糙版，那么因为effect,
+   它是接受一个回调函数在这里面的，所以说 我们写一个 effect .
+
+-->
+
+<script>
+    // 我们可以给一个全局的 callback 去保存它，
+    let callbacks = []
+
+    let object = {
+        a: 1,
+        b: 2
+    }
+
+    let po = reactive(object);
+
+    effect(() => {
+        console.log(po.a);
+    })
+
+
+    function effect(callback) {
+        // callback  被 push 进 callbacks 数组中，
+        // 这样我们在 set 的时候，我们就直接遍历 callbacks 就可以了，
+        // 这样我们就，非常粗糙的实现了。
+        callbacks.push(callback);
+    }
+
+    function reactive(object) {
+        return new Proxy(object, {
+            set(obj, prop, val) {
+                obj[prop] = val;
+                for(let callback of callbacks){
+                    callback();
+                }
+                return obj[prop];
+            },
+            get(obj, prop) {
+                console.log(obj, prop);
+                return obj[prop];
+            }
+        })
+    }
+
+    // 总结，  如果我们只考虑实现的正确性，而不考虑性能的话，那么我们已经完成了reactive 的这样的一个操作；
+    // 但是这个里面，它有一个严重的性能问题，比如说，我有 100 个对象，
+    // 我给 100 个对象设置了 100 个 effect,每次执行，我执行一遍我就要调一万遍，
+    // 这个callback 是一个全局的动词，每次我执行的时候，我都把全局的 callback 都
+    // 给它执行了一遍，显然我们这个只是一个中间步骤，它并不是一个最终的结果。
+
+</script>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

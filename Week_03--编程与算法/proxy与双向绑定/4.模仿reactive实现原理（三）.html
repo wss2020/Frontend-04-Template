@@ -13,7 +13,8 @@
 -->
 
 <script>
-    let callbacks = []
+    // let callbacks = []
+    let callbacks = new Map();
 
     // 首先我们准备一个全局的变量,我们去尝试去调用一次 effect 的函数，然后我们在 reactive 的 get 里面，把它注册进 usedReactivties 里面，
     // 这样的话，执行完之后，我们就知道它用到了哪些变量了，
@@ -38,19 +39,46 @@
         // reactive 的对象，po 这类的对象是不是，那么它就会在 get 里面，发生一个注册的行为，我们就在这里，把 usedReactivties 给它push
         // 一对参数进去;   这样在 effect 结束之后，我们就知道它调用了那些的变量了，我们在这里先不处理，先console.log() 看一下，
         // 打印输出，能看到，我们正确地收集到了依赖关系，这是一个对象这是一个值， 那么这个时候，我们要把usedReactivties 里面，给它存起来，
-        // 那么我们还是可以利用 callbacks ，
+        // 那么我们还是可以利用 callbacks ， 那么这里 callbacks 我们就不能够用数组了，我们用一个 new  Map() 来存,
+        // 因为我们要把这个 object 作为一个 key, 然后来让它去找到 reactivties,然后我们就在 callbacks 里面去保存一下，
         usedReactivties = [];
         callback();
         console.log(usedReactivties);
+
+        // 我们for 循环一下，这个时候里面的每一个 reactivity 是一个二元组，那么它的 0 就是这个对象，
+        // 我们因为这个 reactivity 它可能是多次，它有可能是会发生多次的注册，所以说，我们要写一些防御性的代码，
+        for(let reactivity of usedReactivties){
+            // 如果它没有这个的话，那么我们就把它加进去，因为我们要设两层，我们第一层要放一个对象，第二层我们要放属性，
+            // 然后我们才能找到这个 callback ， 所以说这个地方，我们要 set 一个 new Map() 进入;
+            if(!callbacks.has(reactivity[0])){
+                callbacks.set(reactivity[0], new Map());
+            }
+            // 接下来，我们再来写第二层，第二层就是对象的属性， Map 是这个样子，然后它会有一个 set ;
+            // 那么同样，第二层，其实我们就存一个数组进去就可以了，
+            // 当然如果你想要的话，也可以存一个 Map 或者是 Set ,这个都是可以的，
+            // 那么我们这里也没有什么特殊的要求，我们就这样简单地去操作了；
+            if(!callbacks.get(reactivity[0]).has(reactivity[1])){
+                callbacks.get(reactivity[0]).set(reactivity[1], [] );
+            }
+            // 最后一步，前面我们已经把空的情况，全部排除了，那么我们就可以在两级的索引上，给它 push callback 进去了，
+            // 这样我们就已经把 callbacks 存好了。
+            callbacks.get(reactivity[0]).get(reactivity[1]).push(callback)
+        }
     }
 
     function reactive(object) {
         return new Proxy(object, {
             set(obj, prop, val) {
                 obj[prop] = val;
-                for(let callback of callbacks){
-                    callback();
-                }
+                // 这里我们尝试再改变 for 循环的做法，因为有索引了，所以说我们就不需要去循环整个的 callbacks 了，
+                // 直接去给这个 callbacks[0] , if 这个东西没有，那么我们让它 if 有吧，然后我们给它加到这个 for 循环的条件上，
+                // 那么第二层就也需要有，有对象，有属性， 然后那么我们就可以写这个 for 循环了，写for循环里面呢，我们 callbacks，我们就用
+                // 这个来代替，
+                if (callbacks.get(obj))
+                    if (callbacks.get(obj).get(prop))
+                        for (let callback of callbacks.get(obj).get(prop)) {
+                            callback();
+                        }
                 return obj[prop];
             },
             get(obj, prop) {
@@ -59,6 +87,15 @@
             }
         })
     }
+
+
+    // 测试
+    // 可以发现改 po.b 的时候，这 effect 没有被触发执行，也就是说这样的话，我们就已经正确的完成了effect 的最终的效果，
+    // 那么当然了，我们这个代码，是写的是比较粗糙的，也没有考虑到解除的效果，
+    // 但是我们的这段代码，其实基本上已经演示了 reactivity 它的实现的原理，
+    po.b = 2
+
+
 
 </script>
 

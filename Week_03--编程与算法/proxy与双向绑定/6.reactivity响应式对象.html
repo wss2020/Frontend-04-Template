@@ -6,22 +6,39 @@
 
    接下来考虑一个实际的例子，我们给这个页面加一个 input ,我们可以把它这个 object ,再重新再改写一下;
    那么我们给它创建了 effect 之后，我们给它一个单向的这样的绑定， 从数据 到 input ，document.getElementById('r').value = po.r;
-   这样的话，我们按照我们的现在的知识结构，effect 就会自动地让我们的 po.r 变的时候，input 的值跟着变，
+   这样的话，我们按照我们的现在的知识结构，effect 就会自动地让我们的 po.r 变的时候，input 的值跟着变;
+
+   我们仅仅通过三个滑块去改变div的背景颜色值，而这个中间，我们所写的代码，仅仅是对它的变量和值进行一下简单的绑定关系，如果说，我们再配合一定的语法糖，
+比如说 build compiler ,我们完全可以把它最后变成一个零代码的，这样的一个双向数据绑定的模式，这也正是双向数据绑定的，一个强大之出，在很多时候，我们
+交互不需要使用代码，即可实现交互，调色盘的案例，也是 MVVM 模式的一个经典案例，零代码就可以开发出来一个调色，只需要我们把属性，进行一下绑定，这样在界
+面上，我们就可以专注于去编写 Vue 和 输入的关系；并且我们通过最终绑定的关系的，这样的一种声明，就可以把整个的界面的关系描述出来，又可以避免，我们到处
+去写 update 的代码，这个逻辑有的时候还写的不对，而这一切的基础就是一个 reactivity， 一个可监听的这样的一种对象，我们称作为响应式对象，那么 Vue
+的 reactivity 这个包，我相信它被拆出来了以后，也一定会给大家带来更多、更有意思的想法和实践。
+
 -->
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-     <input  id="r" />
-</body>
-</html>
+
+<div>
+    <input  id="r" type="range"  min=0  max=255 />
+    <text  id="rt"></text>
+</div>
+<div>
+    <input  id="g" type="range"  min=0  max=255 />
+    <text  id="gt"></text>
+</div>
+<div>
+    <input  id="b" type="range"  min=0  max=255 />
+    <text  id="bt"></text>
+</div>
+
+<div id="color" style="width:100px;height:100px;"></div>
+
+
 <script>
     // input 输入框，到数据的监听    从 DOM 元素到数据的这一条线的监听
     document.getElementById("r").addEventListener('input',event=> po.r = event.target.value);
+    document.getElementById("g").addEventListener('input',event=> po.g = event.target.value);
+    document.getElementById("b").addEventListener('input',event=> po.b = event.target.value);
 
 
     let callbacks = new Map();
@@ -30,14 +47,33 @@
     let usedReactivties = [];
 
     let object = {
-        r:3
+        r:1,
+        g:1,
+        b:1,
     }
 
     let po = reactive(object);
 
     effect(() => {
         document.getElementById('r').value = po.r;
+        document.getElementById('rt').innerText = po.r;
+        document.getElementById('g').value = po.g;
+        document.getElementById('gt').innerText = po.g;
+        document.getElementById('b').value = po.b;
+        document.getElementById('bt').innerText = po.b;
+        document.getElementById("color").style.background = `rgb(${po.r},${po.g},${po.b})`
+
     })
+    // effect(() => {
+    //     document.getElementById('g').value = po.g;
+    // })
+    // effect(() => {
+    //     document.getElementById('b').value = po.b;
+    // })
+    //
+    // effect(()=>{
+    //     document.getElementById("color").style.background = `rgb(${po.r},${po.g},${po.b})`
+    // })
 
     function effect(callback) {
         usedReactivties = [];

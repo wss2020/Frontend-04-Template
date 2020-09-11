@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week_03--编程与算法/proxy与双向绑定/4.模仿reactive实现原理（三）.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_03--编程与算法/proxy与双向绑定/4.模仿reactive实现原理（三）.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Week_03--编程与算法/proxy与双向绑定/5.优化reactive.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_03--编程与算法/proxy与双向绑定/5.优化reactive.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Week_03--编程与算法/proxy与双向绑定/6.reactivity响应式对象.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_03--编程与算法/proxy与双向绑定/6.reactivity响应式对象.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week_03--编程与算法/proxy与双向绑定/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/Week_03--编程与算法/proxy与双向绑定/test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week_03--编程与算法/proxy与双向绑定/test.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +115,8 @@
       <workItem from="1599727357195" duration="5374000" />
       <workItem from="1599736649799" duration="8358000" />
       <workItem from="1599786541007" duration="386000" />
-      <workItem from="1599798719672" duration="14516000" />
+      <workItem from="1599798719672" duration="14606000" />
+      <workItem from="1599824326552" duration="2169000" />
     </task>
     <task id="LOCAL-00001" summary="第一周代码">
       <created>1598798489978</created>
@@ -426,7 +426,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599818025725</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="proxy 与 双向数据绑定">
+      <created>1599820043704</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1599820043704</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -442,46 +449,46 @@
     <option name="LAST_COMMIT_MESSAGE" value="proxy 与 双向数据绑定" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="368" y="23" key="CommitChangelistDialog2" timestamp="1599818025606">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="1930" y="23" key="CommitChangelistDialog2" timestamp="1599820043571">
+      <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state x="-1430" y="-28" key="CommitChangelistDialog2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599786844748" />
     <state x="368" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818025606" />
-    <state x="1930" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599812431044" />
+    <state x="1930" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599820043571" />
     <state x="185" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1599747169538" />
-    <state width="1414" height="209" key="GridCell.Tab.0.bottom" timestamp="1599819127958">
+    <state width="1414" height="209" key="GridCell.Tab.0.bottom" timestamp="1599820123600">
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state width="1414" height="209" key="GridCell.Tab.0.bottom/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818981188" />
-    <state width="1414" height="209" key="GridCell.Tab.0.bottom/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599819127958" />
-    <state width="1414" height="209" key="GridCell.Tab.0.center" timestamp="1599819127957">
+    <state width="1414" height="209" key="GridCell.Tab.0.bottom/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599820123600" />
+    <state width="1414" height="209" key="GridCell.Tab.0.center" timestamp="1599820123599">
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state width="1414" height="209" key="GridCell.Tab.0.center/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818981187" />
-    <state width="1414" height="209" key="GridCell.Tab.0.center/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599819127957" />
-    <state width="1414" height="209" key="GridCell.Tab.0.left" timestamp="1599819127956">
+    <state width="1414" height="209" key="GridCell.Tab.0.center/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599820123599" />
+    <state width="1414" height="209" key="GridCell.Tab.0.left" timestamp="1599820123598">
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state width="1414" height="209" key="GridCell.Tab.0.left/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818981185" />
-    <state width="1414" height="209" key="GridCell.Tab.0.left/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599819127956" />
-    <state width="1414" height="209" key="GridCell.Tab.0.right" timestamp="1599819127958">
+    <state width="1414" height="209" key="GridCell.Tab.0.left/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599820123598" />
+    <state width="1414" height="209" key="GridCell.Tab.0.right" timestamp="1599820123600">
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state width="1414" height="209" key="GridCell.Tab.0.right/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818981188" />
-    <state width="1414" height="209" key="GridCell.Tab.0.right/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599819127958" />
-    <state x="374" y="142" key="Vcs.Push.Dialog.v2" timestamp="1599818026674">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1414" height="209" key="GridCell.Tab.0.right/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599820123600" />
+    <state x="1938" y="166" key="Vcs.Push.Dialog.v2" timestamp="1599820045117">
+      <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state x="-1422" y="115" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599786846921" />
     <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818026674" />
-    <state x="1938" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599812432438" />
+    <state x="1938" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599820045116" />
     <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1599747171119" />
-    <state x="1613" y="23" width="1747" height="997" key="dock-window-1" timestamp="1599819155994">
-      <screen x="1440" y="23" width="1920" height="1057" />
+    <state x="293" y="23" width="1147" height="817" key="dock-window-1" timestamp="1599824734180">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="1613" y="23" width="1747" height="997" key="dock-window-1/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818005926" />
     <state x="1613" y="23" width="1747" height="997" key="dock-window-1/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599819155994" />
-    <state x="476" y="23" width="1147" height="817" key="dock-window-1/0.23.1440.877@0.23.1440.877" timestamp="1599738031069" />
+    <state x="293" y="23" width="1147" height="817" key="dock-window-1/0.23.1440.877@0.23.1440.877" timestamp="1599824734180" />
     <state x="595" y="23" width="1064" height="817" key="dock-window-2" timestamp="1599740708359">
       <screen x="0" y="23" width="1440" height="877" />
     </state>

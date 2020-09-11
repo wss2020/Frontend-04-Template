@@ -1,3 +1,59 @@
+<!--
+ 接下来我们要给 reactive 和 effect 之间，建立一个这样的连接， 在JavaScript 里边，
+ 其实没有任何办法，我们能够获取一个函数，它能够访问到的所有的变量，实际上即使我们能获得，
+ 它访问到哪些变量，我们也没有任何的数据结构，能够去表示它，那么这里，我们又用了一个非常
+ 独特的这样的一个技术；
+ 我们虽然没有办法，去获取一个函数里面引了哪些变量，但是我们有办法去调用一下这个函数，然后
+ 我们看看它实际用了哪些变量，那么实际用了哪些变量呢？ 如果它引了一个普通的变量，我们也没有
+ 办法去监听它，但如果它引了一个 reactive ，我们就有办法在这个 reactive 的 get 里面，
+ 那么去获得这样的一个监听的效果，所以说接下来就让我们来尝试，去在 effect 这个函数里面做
+ 一些文章，看一看能不能够把这个函数调用了 object 的哪些属性，给它获取出来。
+
+
+-->
+
+<script>
+    let callbacks = []
+
+    // 首先我们准备一个全局的变量
+    let userReactivties = [];
+
+
+    let object = {
+        a: 1,
+        b: 2
+    }
+
+    let po = reactive(object);
+
+    effect(() => {
+        console.log(po.a);
+    })
+
+
+    function effect(callback) {
+       // callbacks.push(callback);
+    }
+
+    function reactive(object) {
+        return new Proxy(object, {
+            set(obj, prop, val) {
+                obj[prop] = val;
+                for(let callback of callbacks){
+                    callback();
+                }
+                return obj[prop];
+            },
+            get(obj, prop) {
+                console.log(obj, prop);
+                return obj[prop];
+            }
+        })
+    }
+
+</script>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -20,19 +20,17 @@
     // 这样的话，执行完之后，我们就知道它用到了哪些变量了，
     let usedReactivties = [];
 
-
     let object = {
         a: 1,
         b: 2
     }
-
     let po = reactive(object);
 
     effect(() => {
+        console.log(1111);
         console.log(po.a);
+        console.log(222);
     })
-
-
     function effect(callback) {
        // callbacks.push(callback);
         // 首先这里，先把 usedReactivties 清空,然后我们去调用一下 callback,调用 callback 的过程中，它就会不可避免的，它如果真的引到了
@@ -74,11 +72,13 @@
                 // 直接去给这个 callbacks[0] , if 这个东西没有，那么我们让它 if 有吧，然后我们给它加到这个 for 循环的条件上，
                 // 那么第二层就也需要有，有对象，有属性， 然后那么我们就可以写这个 for 循环了，写for循环里面呢，我们 callbacks，我们就用
                 // 这个来代替，
-                if (callbacks.get(obj))
-                    if (callbacks.get(obj).get(prop))
+                if (callbacks.get(obj)){
+                    if (callbacks.get(obj).get(prop)){
                         for (let callback of callbacks.get(obj).get(prop)) {
                             callback();
                         }
+                    }
+                }
                 return obj[prop];
             },
             get(obj, prop) {

@@ -1,31 +1,43 @@
 <!--
-   目前为止，我们的 effect 和 reactive 已经可以跑起来了，但是这里面还有一些小的问题，
-       // 比如说我在 effect 里面，我如果调用了 po.a.b 这样的一个，让后把这个原始的对象，给它改掉；
-       // po.a.b 这个对象它是一个监听不到的，所以说我们有必要对它再进行一些处理，让它能够支持 po.a.b 的，这样的一个形式的调用。
-       // 这个就要求我们对 reactive 的 set 和 get, 有一定的要求，当我们get 的 prop 是一个对象的时候，我们就需要给它套一个reactivity,
-       //
+   接下来我们来考虑一下， 这个reactive 有什么用？
+   它是一个半成品的双向绑定，它可以负责我们的 从数据到我们的 DOM 元素的这一条线的监听，
+   从 DOM 元素到数据的这一条线的监听，其实很简单，因为 DOM 元素本身就有事件，
+   然后它也不一定是到 DOM 的元素，它可以是任何的 native 的输入，它都可以去代理到这个 reactive 里面。
 
+   接下来考虑一个实际的例子，我们给这个页面加一个 input ,我们可以把它这个 object ,再重新再改写一下;
+   那么我们给它创建了 effect 之后，我们给它一个单向的这样的绑定， 从数据 到 input ，document.getElementById('r').value = po.r;
+   这样的话，我们按照我们的现在的知识结构，effect 就会自动地让我们的 po.r 变的时候，input 的值跟着变，
 -->
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+     <input  id="r" />
+</body>
+</html>
 <script>
+    // input 输入框，到数据的监听    从 DOM 元素到数据的这一条线的监听
+    document.getElementById("r").addEventListener('input',event=> po.r = event.target.value);
+
+
     let callbacks = new Map();
     let reactivties = new Map();
 
     let usedReactivties = [];
 
     let object = {
-        a: {b: 3},
-        b: 2
+        r:3
     }
 
     let po = reactive(object);
 
-
     effect(() => {
-        // console.log(po.a);
-        console.log(po.a.b);
+        document.getElementById('r').value = po.r;
     })
-
 
     function effect(callback) {
         usedReactivties = [];
@@ -44,10 +56,6 @@
     }
 
     function reactive(object) {
-        // ***  所有的 reactive 其实都一样，因为 reactive 上不存东西，所以所有的 reactive 都一样，
-        // 如果它有了，那么我们就直接 return reactivties.get(object);
-        // 那么除了获取，我们得把它存起来，那么我们是 let proxy = ..., 最后 reactivties.set(object,proxy);
-        // 这样我们就完成了最后的 reactive 的逻辑。
         if (reactivties.has(object))
             return reactivties.get(object);
 
@@ -63,13 +71,6 @@
             },
             get(obj, prop) {
                 usedReactivties.push(obj, prop);
-                // 如果它是个 object 的话，那么我们就给它加一个 return reactive，
-                // 但是这个时候，其实我们发现，又出现了一个问题，因为我这个地方，reactive 是生成了一个新的 proxy ，
-                // 所以说我们其实最后的，po.a.b 的时候，它访问到的 proxy ,跟我们的 use effect 调用那一遍，它访问到的 proxy ，它其实不是同
-                // 一个，所以说 我们需要一张全局的表格来保存它； 我们要调用一个  let reactivties = new Map();
-                // 这个的意思就是说，我们会把每个对象，当它去调用 reactivity 的时候，那么我们会加一个缓存，因为反正这个proxy 其实，它本身它里
-                // 面是不存储任何状态的，它没有任何状态存储，它们的状态都会代理到这个 object 上，所以说我们去给它这个地方，加一个缓存的逻辑是可
-                // 以的，某种意义上讲，这个reactive 其实它是一个无状态的一个函数，所以我们可以对它进行缓存， ***
                 if (typeof obj[prop] === "object")
                     return reactive(obj[prop]);
 
@@ -83,26 +84,7 @@
     }
 
 
-    // 测试，看一看，是不是级联的也能够正确地运行，
-    // 能看到，级联的也被我们处理掉了，只要我们调 po.a.b 那么它就可以触发， po.a.b = 4
-    // 那么如果我们调一个，po.a 等于一个新的 object 呢， po.a = {b:5}; 那么是不是也会执行，我们看到，这个也成功地触发了这个函数的执行，
-    // 这就意味着我们最后的 function ，已经能够成功地被最终的调用和执行了，到这里为止，我们的 proxy 和 reactive 的实现，就是一个，基本的
-    // 模型就有了，当然还有很多细节，我们需要用大量的 test case ，去保证一些边缘的情况，那么这个就不是我们课上重点的内容了，那是工程领域的内容，
-    // 如果想看一看，一个真正完整的 reactivity 这个库要怎么写，那么我们可以参考 Vue 的源代码。
-
-
-
 
 </script>
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>

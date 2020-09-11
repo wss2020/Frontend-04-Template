@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Week_03--编程与算法/proxy与双向绑定/test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week_03--编程与算法/proxy与双向绑定/5.reactivity响应式对象.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_03--编程与算法/proxy与双向绑定/5.优化reactive.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week_03--编程与算法/proxy与双向绑定/6.优化reactive.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_03--编程与算法/proxy与双向绑定/6.reactivity响应式对象.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week_03--编程与算法/proxy与双向绑定/7.reactivity响应式对象.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week_03--编程与算法/proxy与双向绑定/3.模仿reactive实现原理（二）.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_03--编程与算法/proxy与双向绑定/3.模仿reactive实现原理（二）.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week_03--编程与算法/proxy与双向绑定/4.模仿reactive实现原理（三）.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_03--编程与算法/proxy与双向绑定/4.模仿reactive实现原理（三）.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week_03--编程与算法/proxy与双向绑定/6.reactivity响应式对象.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_03--编程与算法/proxy与双向绑定/6.reactivity响应式对象.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +16,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -111,7 +112,7 @@
       <workItem from="1599727357195" duration="5374000" />
       <workItem from="1599736649799" duration="8358000" />
       <workItem from="1599786541007" duration="386000" />
-      <workItem from="1599798719672" duration="8788000" />
+      <workItem from="1599798719672" duration="12725000" />
     </task>
     <task id="LOCAL-00001" summary="第一周代码">
       <created>1598798489978</created>
@@ -407,7 +408,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599806906779</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="proxy 与 双向数据绑定">
+      <created>1599812431179</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1599812431179</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -423,21 +431,22 @@
     <option name="LAST_COMMIT_MESSAGE" value="proxy 与 双向数据绑定" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1930" y="23" key="CommitChangelistDialog2" timestamp="1599806906679">
+    <state x="1930" y="23" key="CommitChangelistDialog2" timestamp="1599812431044">
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state x="-1430" y="-28" key="CommitChangelistDialog2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599786844748" />
-    <state x="1930" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599806906679" />
+    <state x="1930" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599812431044" />
     <state x="185" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1599747169538" />
-    <state x="1938" y="166" key="Vcs.Push.Dialog.v2" timestamp="1599806908168">
+    <state x="1938" y="166" key="Vcs.Push.Dialog.v2" timestamp="1599812432438">
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state x="-1422" y="115" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599786846921" />
-    <state x="1938" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599806908168" />
+    <state x="1938" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599812432438" />
     <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1599747171119" />
-    <state x="476" y="23" width="1147" height="817" key="dock-window-1" timestamp="1599738031069">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="1613" y="23" width="1747" height="997" key="dock-window-1" timestamp="1599818005926">
+      <screen x="1440" y="23" width="1920" height="1057" />
     </state>
+    <state x="1613" y="23" width="1747" height="997" key="dock-window-1/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818005926" />
     <state x="476" y="23" width="1147" height="817" key="dock-window-1/0.23.1440.877@0.23.1440.877" timestamp="1599738031069" />
     <state x="595" y="23" width="1064" height="817" key="dock-window-2" timestamp="1599740708359">
       <screen x="0" y="23" width="1440" height="877" />

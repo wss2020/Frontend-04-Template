@@ -11,19 +11,17 @@
 <script>
     // 我们可以给一个全局的 callback 去保存它，
     let callbacks = []
-
     let object = {
         a: 1,
         b: 2
     }
-
     let po = reactive(object);
 
     effect(() => {
+        console.log(111);
         console.log(po.a);
+        console.log(222);
     })
-
-
     function effect(callback) {
         // callback  被 push 进 callbacks 数组中，
         // 这样我们在 set 的时候，我们就直接遍历 callbacks 就可以了，
@@ -41,7 +39,7 @@
                 return obj[prop];
             },
             get(obj, prop) {
-                console.log(obj, prop);
+                // console.log(obj, prop);
                 return obj[prop];
             }
         })

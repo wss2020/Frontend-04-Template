@@ -27,9 +27,8 @@
     let po = reactive(object);
 
     effect(() => {
-        console.log(1111);
         console.log(po.a);
-        console.log(222);
+        console.log(po.b);
     })
     function effect(callback) {
        // callbacks.push(callback);
@@ -40,6 +39,7 @@
         // 那么我们还是可以利用 callbacks ， 那么这里 callbacks 我们就不能够用数组了，我们用一个 new  Map() 来存,
         // 因为我们要把这个 object 作为一个 key, 然后来让它去找到 reactivties,然后我们就在 callbacks 里面去保存一下，
         usedReactivties = [];
+        // 这里先执行一遍，确定需要监听的内容。
         callback();
         console.log(usedReactivties);
 
@@ -48,6 +48,9 @@
         for(let reactivity of usedReactivties){
             // 如果它没有这个的话，那么我们就把它加进去，因为我们要设两层，我们第一层要放一个对象，第二层我们要放属性，
             // 然后我们才能找到这个 callback ， 所以说这个地方，我们要 set 一个 new Map() 进入;
+
+            console.log(reactivity);
+
             if(!callbacks.has(reactivity[0])){
                 callbacks.set(reactivity[0], new Map());
             }
@@ -82,7 +85,7 @@
                 return obj[prop];
             },
             get(obj, prop) {
-                usedReactivties.push(obj,prop);
+                usedReactivties.push([obj,prop]);
                 return obj[prop];
             }
         })
@@ -93,7 +96,7 @@
     // 可以发现改 po.b 的时候，这 effect 没有被触发执行，也就是说这样的话，我们就已经正确的完成了effect 的最终的效果，
     // 那么当然了，我们这个代码，是写的是比较粗糙的，也没有考虑到解除的效果，
     // 但是我们的这段代码，其实基本上已经演示了 reactivity 它的实现的原理，
-    po.b = 2
+    // po.b = 2
 
 
 

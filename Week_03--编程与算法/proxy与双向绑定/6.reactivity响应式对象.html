@@ -70,7 +70,7 @@
                 return obj[prop];
             },
             get(obj, prop) {
-                usedReactivties.push(obj, prop);
+                usedReactivties.push([obj, prop]);
                 if (typeof obj[prop] === "object")
                     return reactive(obj[prop]);
 

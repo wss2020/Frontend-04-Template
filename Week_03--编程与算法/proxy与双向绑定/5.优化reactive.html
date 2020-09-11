@@ -62,7 +62,7 @@
                 return obj[prop];
             },
             get(obj, prop) {
-                usedReactivties.push(obj, prop);
+                usedReactivties.push([obj, prop]);
                 // 如果它是个 object 的话，那么我们就给它加一个 return reactive，
                 // 但是这个时候，其实我们发现，又出现了一个问题，因为我这个地方，reactive 是生成了一个新的 proxy ，
                 // 所以说我们其实最后的，po.a.b 的时候，它访问到的 proxy ,跟我们的 use effect 调用那一遍，它访问到的 proxy ，它其实不是同

@@ -19,6 +19,8 @@ function effect(callback) {
     console.log(usedReactivties);
 
     for (let reactivity of usedReactivties) {
+        console.log(reactivity);
+
         if (!callbacks.has(reactivity[0])) {
             callbacks.set(reactivity[0], new Map());
         }

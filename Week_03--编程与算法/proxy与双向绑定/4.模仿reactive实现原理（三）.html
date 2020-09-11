@@ -15,8 +15,9 @@
 <script>
     let callbacks = []
 
-    // 首先我们准备一个全局的变量
-    let userReactivties = [];
+    // 首先我们准备一个全局的变量,我们去尝试去调用一次 effect 的函数，然后我们在 reactive 的 get 里面，把它注册进 usedReactivties 里面，
+    // 这样的话，执行完之后，我们就知道它用到了哪些变量了，
+    let usedReactivties = [];
 
 
     let object = {
@@ -33,6 +34,14 @@
 
     function effect(callback) {
        // callbacks.push(callback);
+        // 首先这里，先把 usedReactivties 清空,然后我们去调用一下 callback,调用 callback 的过程中，它就会不可避免的，它如果真的引到了
+        // reactive 的对象，po 这类的对象是不是，那么它就会在 get 里面，发生一个注册的行为，我们就在这里，把 usedReactivties 给它push
+        // 一对参数进去;   这样在 effect 结束之后，我们就知道它调用了那些的变量了，我们在这里先不处理，先console.log() 看一下，
+        // 打印输出，能看到，我们正确地收集到了依赖关系，这是一个对象这是一个值， 那么这个时候，我们要把usedReactivties 里面，给它存起来，
+        // 那么我们还是可以利用 callbacks ，
+        usedReactivties = [];
+        callback();
+        console.log(usedReactivties);
     }
 
     function reactive(object) {
@@ -45,7 +54,7 @@
                 return obj[prop];
             },
             get(obj, prop) {
-                console.log(obj, prop);
+                usedReactivties.push(obj,prop);
                 return obj[prop];
             }
         })

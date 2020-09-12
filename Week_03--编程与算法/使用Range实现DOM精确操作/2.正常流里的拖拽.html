@@ -1,10 +1,136 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<!--
+  目标：把一个普通的拖拽变成一个，我们可以在正常流里面，进行的这样的一个拖拽。
 
-</body>
-</html>
+  首先我们放一点文字进来，尝试着把下边的 dragable 这个东西，拖进这个 container 的文字当中，然后我们看一看这个中间，我们能用 CSSOM 和 Range,
+  去做哪些的事情，接下来是重头戏，首先我们可以看到，如果我们想把这个 div 拖到这个文字中间，这是有一个前提的，就是说 首先我们要看到这些文字，它是没有
+  分节点的，没有分节点就意味着说，我们必须要用 Range 去找到，它这个能拖拽的空位，所以说我们先尝试去，建一张 Range 的这样的一个表，然后把整个的所有
+  能插的空隙，给它列出来。
+
+-->
+<meta charset="UTF-8">
+<div id="container">
+    文字 文字 文字 文字 文字 文字 文字 文字
+    文字 文字 文字 文字 文字 文字 文字 文字
+    文字 文字 文字 文字 文字 文字 文字 文字
+    文字 文字 文字 文字 文字 文字 文字 文字
+    文字 文字 文字 文字 文字 文字 文字 文字
+    文字 文字 文字 文字 文字 文字 文字 文字
+    文字 文字 文字 文字 文字 文字 文字 文字
+    文字 文字 文字 文字 文字 文字 文字 文字
+    文字 文字 文字 文字 文字 文字 文字 文字
+    文字 文字 文字 文字 文字 文字 文字 文字
+    文字 文字 文字 文字 文字 文字 文字 文字
+    文字 文字 文字 文字 文字 文字 文字 文字
+    文字 文字 文字 文字 文字 文字 文字 文字
+    文字 文字 文字 文字 文字 文字 文字 文字
+    文字 文字 文字 文字 文字 文字 文字 文字
+    文字 文字 文字 文字 文字 文字 文字 文字
+    文字 文字 文字 文字 文字 文字 文字 文字
+    文字 文字 文字 文字 文字 文字 文字 文字
+    文字 文字 文字 文字 文字 文字 文字 文字
+    文字 文字 文字 文字 文字 文字 文字 文字
+    文字 文字 文字 文字 文字 文字 文字 文字
+    文字 文字 文字 文字 文字 文字 文字 文字
+    文字 文字 文字 文字 文字 文字 文字 文字
+    文字 文字 文字 文字 文字 文字 文字 文字
+    文字 文字 文字 文字 文字 文字 文字 文字
+    文字 文字 文字 文字 文字 文字 文字 文字
+</div>
+<div id="dragable" style="display: inline-block; width:100px;height:100px;background-color: pink"></div>
+
+
+<script>
+    let dragable = document.getElementById("dragable");
+    let baseX = 0;baseY = 0;
+    dragable.addEventListener("mousedown", function (event) {
+
+        let startX = event.clientX, startY = event.clientY;
+        let up = event => {
+            baseX = baseX + event.clientX - startX;
+            baseY = baseY + event.clientY - startY;
+
+            document.removeEventListener("mousemove", move)
+            document.removeEventListener("mouseup", up)
+        };
+        let move = event => {
+            // dragable.style.transform = `translate(${baseX + event.clientX - startX}px,${baseY + event.clientY - startY}px)`
+            // 我们在 move 的时候，我们就不要直接给它加 transform 了，我们先搞一个 let  range = getNearest(event.clientX,event.clientY);
+            // 这时候，range 就应该是离我插入点最近的一个 range ,
+            // range 有一个 insertNode 方法，然后我们把这个 dragable ，给它插入进去就可以了；
+            // 为什么我不需要把以前的移除？
+            // 因为 insert 也好，所有的 DOM 操作，它都会把原来的默认，如果这个元素已经在 DOM 树上，它都是会默认的把它给它移除掉。
+            // 通过效果，可以看到，插入的位置是对的，但是因为没有设置成 inline-block ,所以说它是看起来是不对的，所以我们给拖动的div设置一下。
+            // 因为看到，拖动的时候，有选中比较烦，所以我们  //   selectstart 我们让它直接是 event.preventDefault();
+            // document.addEventListener('selectstart',(event)=>{event.preventDefault();})
+            let  range = getNearest(event.clientX,event.clientY);
+            range.insertNode(dragable);
+        };
+        document.addEventListener("mousemove", move)
+        document.addEventListener("mouseup", up)
+    })
+
+    // 先尝试去，建一张 Range 的这样的一个表，然后把整个的所有能插的空隙，给它列出来
+    // 我们先把container 给它取出来，
+    let container = document.getElementById('container');
+    // 我们要取到这个文本节点的，里面的文字的长度，所以说 我们这个地方取了 childNodes[0],
+    // 然后接下来 我们再取它的 textContent ，然后我们就得到里边的文字，然后我们去按照它的长度，来给它插入，
+    // 这样我们就可以找到所有的 range 的位置了，那么我们把这个 range ,给它创建一下，
+
+    // 存 range
+    let ranges = [];
+
+    for(let i = 0; i<container.childNodes[0].textContent.length; i++){
+        // 这样我们就有 range 了
+        let range = document.createRange();
+        // range 我们要给它 setStart , setStart 是需要有一个 container 的,我们因为 container 里头，只有一个 textNode，我们只要找到它
+        // 的 textNode ,也就是它的 childNodes[0],  那么位置我们就给它 i 的位置，
+        // 然后底下的 end 也是如法炮制； 这样 range 的 start 和 end 就都有了，这就是一个正确的 range 了。
+        // 那么，我们要把这些 range 给它存起来，
+        range.setStart(container.childNodes[0], i);
+        range.setEnd(container.childNodes[0], i);
+
+        // 这里输出一下，看一下 CSSOM 的用法，我们拿到了 range ,但是我们不知道它的位置，这个时候就要用到我们的 CSSOM API 了，
+        // 能用 getBoundingClientRect 拿到 range 的位置，这样我们就算出来了， 通过打印，可以看到每个 range 的 xy 的位置，我们都已经找到了，
+        // 那么接下来我们就来看一看，怎么样去处理这个 range ,那么，因为我们每个 range ，我们都可以找到它的 getBoundingClientRect；
+        //接下来，我们就写一个函数，来从这些 range 里面，找到离某一个 point 最近的 range ,
+        console.log(range.getBoundingClientRect());
+        ranges.push(range);
+    }
+
+    // 找最近的一个 range ,然后这个地方我们传一个 point x，y 进来，传一个 x,y 值进来，这个时候我们 for 循环，找离它最近的一个 range ,
+    // 这个就很好找，那么我们就去放 两个变量，这就跟我们从一堆数里面，找最大的是 一摸一样的找法，那么所以说我们来一个 min=Infinity ,因为我们
+    // 要找最小的，所以我们给它初值设一个  Infinity ,这样任何一个值，都会把 min 给它替掉，然后 let nearest = null ,一开始就是没有。
+    // 然后我们找到了一个，触发一个就可以了，然后我们来算 distance ,
+    // 我们要先把这个 rect 算出来，let rect = range.getBoundingClientRect();为什么我们一定要这个时候，再取这个 rect ,不在上面的for循环
+    // 中，直接存这个 rect 进来，因为这个range 随着变化，range 是不会变的，但是 BoundingClientRect 它是 CSSOM ，所以说你一旦这个界面发生了
+    // 一些变化，它就会发生一些变化，那么我们这个地方，创建一个 distance ,然后让它等于 rect.x 减去， 那么传进来的这个 x 对吧，减 x ,我们要算
+    // 距离的话，那么是平方，其实还应该开个根号，但是因为开不开根号，不改变它的大小关系，我们不需要算 distance 是多少，我们只需要找最小的那个，所以
+    // 说这里我们就不去，再开根号了;
+    //  那么我们算 if 如果小于 min ,说明新的 range 才是距离我们的插入点最近的一个，所以这个地方，我们给一个 nearest = range;min = distance;
+    //  这样我们就可以找出，每一个的最小的了，我们在调用它之前，先对它进行一下简单的测试，其实这个测试就是一种 单元测试，只不过我们没有用这种像
+    // Mocha Jest 这种东西，去把单元测试的 case 给它管理起来。
+    // 在 Console 下，写  getNearest(0，0)  和 getNearest(0，0).getBoundingClientRect()
+    // 接下来，我们在 move 的时候，我们就不要直接给它加 transform 了，我们先搞一个 range ,
+    function getNearest(x,y) {
+        let min = Infinity;
+        let nearest = null;
+
+        for (let range of ranges) {
+             let rect = range.getBoundingClientRect();
+             let distance = (rect.x - x) ** 2 + (rect.y - y) ** 2;
+             if(distance < min){
+                 nearest = range;
+                 min = distance;
+             }
+        }
+        return nearest;
+    }
+
+
+    //   selectstart 我们让它直接是 event.preventDefault();
+    document.addEventListener('selectstart',event=>{event.preventDefault()  })
+
+
+    // 总结：  Range 也是 DOM API 的一部分，然后，那么基本上，我们最重要实现一些视觉效果，都离不开这个 CSSOM.
+
+</script>

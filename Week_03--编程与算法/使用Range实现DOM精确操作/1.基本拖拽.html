@@ -1,0 +1,82 @@
+<!--
+实现一个简单的拖拽，使用 Range 和 CSSOM 做的一个综合练习。
+
+目标：首先我们要允许这个东西，参与到我们的排版当中，我们拖拽的过程中，实际上是改变它的排版的位置的这样的一个过程，它并不是一个鼠标移到哪，它就拖到哪的，
+这样的一个逻辑，那么这课，我们就来一起看一下如何进行，这种在正常流中的位置的拖拽一个元素，首先，我们还是要实现一个正常的拖拽。
+
+
+-->
+<div id="dragable" style="width:100px;height:100px;background-color: pink"></div>
+
+
+<script>
+    // drage 这件事情，我们是有对应的这个事情 dragdrop 事件，但是实际上 dragdrop 事件，并不是我们想要的这样的一个事件，
+    // 它完全随着鼠标进行移动，这个我们使用 drag 事件是做不到的，我们必须使用 mousedown ,mousemove 和 mouseup,这样的
+    // 一组事件来进行模拟，
+
+    let dragable = document.getElementById("dragable");
+
+    //xxxx
+    let baseX = 0; baseY = 0;
+
+
+
+    //那么我们先来看一下 dragable 的 mousedown 事件，我们为了让它响应 mousemove 和 mouseup 的事件，我们需要在 mousedown 的事件里面，去
+    //监听这个两个事件。
+    //为什么我们要在 mousedown 的时候才开始去监听？
+    // 因为只有我们的鼠标按下去之后，我们去监听这个事件，才能在性能和逻辑上都正确，如果把 addEventListener mousemove 写在 mousedown 之外，
+    // 你会发现不管我什么时候，只要鼠标在它上面一移动，这个事件就触发了，那么即使我用一个 flag ,让它在 mousedown 没有发生的情况下，它也不去触发，
+    // 那么它在性能上，总是要多执行一遍这个函数，所以说这样肯定是一个不合理的;
+    // 还有我们实际上 mousemove 和 mouseup,我们都是要在 document 上，去进行监听的，如果我们在 dragable 上监听，就容易出现，当我们鼠标一下拖
+    // 得快了，移开了 dragable 的区域，那么它就会发生一个掉下来，拖断的这样的一个现象；
+    dragable.addEventListener("mousedown", function (event) {
+        // 在这里，我们是在 document 上去监听，在我们比较新的现代浏览器里面，document 上监听，它就会产生一个捕捉鼠标的效果，
+        // 其实你移出浏览器的范围外，它这个事件仍然是能够接收到的，所以说我们，给它这两个事件去监听上，我们把 mousemove 和 mouseup
+        // 监听上，这个时候，我们会发现，我们在 mouseup 的时候，我们要把 mousemove 和 mouseup ，再给它 removeEventListener
+        // 给它去掉，所以说，我们必须要用两个变量，把它保存起来；    因为 JavaScript 里面函数是一等公民，所以说我们存个变量，传个参数都非常方便，
+        // mouseup 的时候，我们就只做一个最简单的事情，就是 removeEventListener 就可以了,
+        // 在 mousemove 的时候，我们首先什么都不做，我们给它，把它的值给它打印出来，即使我鼠标移出了浏览器的范围，移除了 viewport 它仍然是可以
+        // 监听到的，这样我们就已经可以得到了一个，dragdrop 的这样的一个基础，我们可以试一下，如果我把 document 给它换成 dragable ,它会有一个
+        // 什么现象？  它移出了这个范围，它就会不响应了，因为你无论如何，也不可能把这个东西，拖出浏览器的范围，所以这个地方一定要用 document 监听，
+        // 这是拖拽里面非常重要的技巧，这个代码就是一个拖拽的骨架代码；
+        // 然后我们接着来看，怎么样把它动起来，一般来说我们这种元素，因为这个元素，它指不定有什么 position ,或者是什么别的东西，所以我们想要让它
+        // 动起来，我们需要动一点脑筋的，这里我们需要用它的， 去改变它的 transform ，那么我们来看一下，这里我们是用 translate，
+
+        // ****    clientX 和 clientY 存成 startX 和 startY
+        let startX = event.clientX,  startY = event.clientY;
+
+        let up = event => {
+            baseX = baseX + event.clientX - startX;
+            baseY = baseY + event.clientY - startY ;
+
+            document.removeEventListener("mousemove", move)
+            document.removeEventListener("mouseup", up)
+        };
+        let move = event => {
+            // console.log(event);
+            // 我们来看translate， 它这个里面有两个位置，一个 x 和 一个 y, 那么我们首先在这里设 event.clientX 、 event.clientY，
+            // 然后鼠标走到哪，我们就让它 translate 到哪，那么我们来看看。
+            // 有个问题，无论鼠标放在 拖拽div 的那个地方，它拖一下它就变成，因为它是按照鼠标的 clientX 和 clientY 去设的，
+            // 那么它并没有一个去识别我的鼠标的起始点的，这样的一个功能，就正常来讲，应该是我鼠标的起始点，然后去跟它做一个差值，那么我们就把这个
+            // 逻辑加上 **** ，起始点，我们可以在 mousedown 的事件里面给它存，clientX 和 clientY 存成 startX 和 startY ，然后这里减到
+            // startX 和 startY;
+            // 这个时候我们发现拖着是颇有，拖哪就怎么动的感觉了，虽然说稍微的有一点点的延迟，但是我们这个时候，再仔细看看，又发现一个问题，
+            // 第一次怎么拖动，都是对的，鼠标 mouseup， 第二次拖动的时候就错了，问题在哪？  我没有考虑到已经有的这个 translate ,我第二次拖动，
+            // 按理说是应该从，已经有的 translate 的基础上去加，所以说，我们还要加 两个变量 baseX 和 baseY 这两个变量，就是需要它在全局作用域
+            // 里面 xxxx， 当然也不一定是全局作用域，比如说，我们这要做成一个模块的话，它是这个模块级的作用域，只要在这个 mousedown 的外面就可以
+            // 了，那么一开始就让它们都等于 0,在 mousemove 的时候，我们去更新一下，baseX 加上 baseY，
+            // baseX 它等于的就是 我们鼠标拖拽的，每次是它的变化的量，所以说被 baseX 就是这个，
+            // 然后我们把 baseY 也给它加对, 我们在 transform 的地方，也要把 baseX 和 baseY 给它加上去.
+
+            // dragable.style.transform = `translate(${event.clientX}px,${event.clientY}px)`
+            // dragable.style.transform = `translate(${event.clientX - startX}px,${event.clientY - startY}px)`
+            dragable.style.transform = `translate(${baseX + event.clientX - startX}px,${baseY + event.clientY - startY}px)`
+        };
+
+        document.addEventListener("mousemove", move)
+        document.addEventListener("mouseup", up)
+
+    })
+
+
+</script>

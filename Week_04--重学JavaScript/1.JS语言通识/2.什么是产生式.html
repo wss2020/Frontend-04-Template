@@ -1,0 +1,99 @@
+<!--
+产生式（BNF）
+   用尖括号括起来的名称来表示语法结构名
+   语法结构分成基础结构和需要用其他语法结构定义的复合结构
+       基础结构 称 终结符
+       复合结构 称 非终结符
+   引号和中间的字符表示终结符
+   可以有括号
+   * 表示重复多次
+   | 表示或
+   + 表死至少一次
+-->
+
+<!--
+产生式（BNF）
+四则运算：
+   1 + 2 * 3
+终结符：
+   Number
+   + — * /
+非终结符：
+   MultiplicativeExpression
+   AddtiveExpression
+
+
+BNF
+  <MultiplicativeExpression>::=
+      <Number>
+      |<MultiplicativeExpression><*><Number>
+      |<MultiplicativeExpression></><Number>
+
+
+// 定义一个加法表达式，
+它等于一个乘法表达式的列表，那么这个BNF的定义它是可以递归的，
+我们可以定义，
+   它要么是一个单独的乘法表达式；
+   要么是一个加法表达式 加上或者减去 一个乘法的表达式
+  <AdditiveExpression>::=
+      <MultiplicativeExpression>
+      |<AdditiveExpression><+><MultiplicativeExpression>
+      |<AdditiveExpression><-><MultiplicativeExpression>
+
+注意： 这里把一个单独的Number ，也定义为了一种特殊的乘法的结构，这样
+     我们定义加法的时候就比较简单，可以认为这个左右都是一个乘法结构。
+     这个也是一个比较常用的使用 BNF 的小技巧。
+
+
+
+1 + 2 * 3
+理解：
+   1 + 2 * 3 这样的一个连加法，
+   它是由一个左边的1 和 右边的2x3的结果， 来组成的一个语法结构；
+   2x3 就是它的一个字结构，
+   2x3 里面又有左右的 number 和 中间的运算符 * .
+-->
+
+
+<!--
+ 练习：编写带括号的四则运算表达式
+    答案：
+    <BrakcetExpression>::=
+      <Number>
+      | "(" <AdditiveExpression> ")"
+
+    <AdditiveExpression>::=
+      <MultiplicativeExpression>
+      |<AdditiveExpression><+><MultiplicativeExpression>
+      |<AdditiveExpression><-><MultiplicativeExpression>
+
+    <MultiplicativeExpression>::=
+      <BrakcetExpression>
+      |<MultiplicativeExpression><*><BrakcetExpression>
+      |<MultiplicativeExpression></><BrakcetExpression>
+
+-->
+
+
+
+
+<!--
+参考名词：
+产生式： 在计算机中指 Tiger 编译器将源程序经过词法分析（Lexical Analysis）和语法分析（Syntax Analysis）后得到的一系列符合文法规则（Backus-Naur Form，BNF）的语句
+
+巴科斯诺尔范式：即巴科斯范式（英语：Backus Normal Form，缩写为 BNF）是一种用于表示上下文无关文法的语言，上下文无关文法描述了一类形式语言。它是由约翰·巴科斯（John Backus）和彼得·诺尔（Peter Naur）首先引入的用来描述计算机语言语法的符号集。
+
+终结符： 最终在代码中出现的字符（ https://zh.wikipedia.org/wiki/ 終結符與非終結符)
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>

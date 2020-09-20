@@ -1,3 +1,88 @@
+<!--
+String
+    Character
+    Code Point
+    Encoding
+
+    a      97     01100001
+
+首先我们要介绍的是一个 Character，这样的一个知识就是字符，String 在英文里的原意是串成一串的
+这种链子，这种意思，比如说咱们中国古代这一串铜钱，那一串就是一个 String ，String 这里面的是
+什么呢？在咱们计算机领域里这个字符串里边，当然串的是字符了，字符在英文里就叫 Character ，
+Character 就是一个字符，但是字符在计算机里是没法表示的，咱们脑子里想比如一个 A 它就是一个形状，
+一个 B 它就是一个形状，人这就是中文它有一个形状，这是在咱们脑子里的，这东西其实叫自形，我们认为
+字符其实是一个抽象的表达，还要结合字体才会变成一个可见的形象，计算机里怎么表示 Character ，
+它是用一个叫做 Code Point 的东西来表示 Character ，Code Point 说来也简单，它就是一个数字，
+比如说咱们就规定 97 代表 a ,97 代表 a 以后咱们只要结合一定的类型信息，咱们就可以通过97 和字体
+里面的信息，把 a 找出来，也可以把它画到屏幕上，让大家看到，然后下一个问题就是 97 怎么存呢，大家
+都知道咱们得计算机里面它存储的，基本单位是什么，是字节，那 97 还好，97没占到一个字节，咱们随着
+中文一个字节不够用怎么办，所以它有一个编码方式，就这个字存几个字节，而那个字存几个字节，这字节里
+面是一个什么格式，
+所以说咱们要学习 String ，要深入的去理解 String ，咱们就得理解字符、码点和编码方式这三个概念。
+
+String
+    ASCll
+    Unicode
+    UCS
+    GB
+      GB2312
+      GBK(GB13000)
+      GB18030
+    ISO-8859
+    BlG5
+
+ASCll 码它只规定了127个字符，这127个字符就是咱们的计算机里最常用的127字符包括26个大写字母，
+26个小写字母，数字0到9，以及各种制表符，各种的特殊的符号，换行这些控制字符，总共用了127个，
+那么它就用 0～127来表示，但是这个显然咱们就没有办法表示中文了，ASCll 字符集是最早美国计算机
+先发明出来的一种编码方式，所以他只照顾到了英文，而后来大家建立了一个标准，这个叫做用 Unicode,
+把全世界的各种字符全都给它粘到一起去，行成一个大合集，
+
+
+
+-->
+
+
+<script>
+    function UTF8_Encoding(string){
+        let list = [];
+        for(let i=0; i<string.length;i++){
+            let code = string.codePointAt(i);
+            if(code<=0xff){
+                list.push(code);
+            }
+            if(code<=0x7fff){
+                list.push(code>>6 | 0xc0);
+                list.push(code & 0x3f | 0x80);
+            }
+            if(0<=0xffff){
+                list.push(code >> 12 | 0xE0);
+                list.push(code & 0x0fc0 | 0x80);
+                list.push(code & 0x3f | 0x80);
+            }
+        }
+        return Buffer.from(list);
+    }
+</script>
+
+<script>
+    class Human{
+        hurt(damage){
+
+        }
+    }
+</script>
+
+<!--Array：Array 的 length 属性根据最大的下标自动发生变化。-->
+<!--Object.prototype：作为所有正常对象的默认原型，不能再给它设置原型了。-->
+<!--String：为了支持下标运算，String 的正整数属性访问会去字符串里查找。-->
+<!--类型数组和数组缓冲区：跟内存块相关联，下标运算比较特殊。-->
+<!--bind 后的 function：跟原来的函数相关联。-->
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

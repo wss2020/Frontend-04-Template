@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="proxy 与 双向数据绑定">
-      <change afterPath="$PROJECT_DIR$/Week_04--重学JavaScript/1.JS语言通识/1.泛用语言分类方法.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Week_04--重学JavaScript/1.JS语言通识/2.什么是产生式.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Week_04--重学JavaScript/1.JS语言通识/3.深入理解产生式.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Week_04--重学JavaScript/1.JS语言通识/4.现代语言的分类.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Week_04--重学JavaScript/1.JS语言通识/5.编程语言的性质.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Week_04--重学JavaScript/1.JS语言通识/6.一般命令式编程语言的设计方式.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Week_04--重学JavaScript/1.JS语言通识/通过产生式理解乔姆斯基谱系.png" afterDir="false" />
+    <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Week_04--重学JavaScript/1.JS语言通识/一般命令式编程语言.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week_03--编程与算法/使用Range实现DOM精确操作/1.基本拖拽.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_03--编程与算法/使用Range实现DOM精确操作/1.基本拖拽.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week_04/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Week_04--重学JavaScript/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week_04--重学JavaScript/1.JS语言通识/5.编程语言的性质.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_04--重学JavaScript/1.JS语言通识/5.编程语言的性质.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week_04--重学JavaScript/1.JS语言通识/6.一般命令式编程语言的设计方式.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_04--重学JavaScript/1.JS语言通识/6.一般命令式编程语言的设计方式.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,14 +128,8 @@
       <workItem from="1600305168051" duration="24000" />
       <workItem from="1600429110914" duration="1425000" />
       <workItem from="1600441304911" duration="1173000" />
-      <workItem from="1600482447076" duration="595000" />
-    </task>
-    <task id="LOCAL-00001" summary="第一周代码">
-      <created>1598798489978</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1598798489978</updated>
+      <workItem from="1600482447076" duration="3722000" />
+      <workItem from="1600511334392" duration="7918000" />
     </task>
     <task id="LOCAL-00002" summary="第一周代码">
       <created>1598799169686</created>
@@ -472,7 +460,21 @@
       <option name="project" value="LOCAL" />
       <updated>1599900986984</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="重学 JavaScript">
+      <created>1600493381885</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1600493381885</updated>
+    </task>
+    <task id="LOCAL-00050" summary="重学 JavaScript">
+      <created>1600496785813</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1600496785814</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -485,15 +487,16 @@
     <MESSAGE value="LL算法" />
     <MESSAGE value="字符串分析算法" />
     <MESSAGE value="proxy 与 双向数据绑定" />
-    <option name="LAST_COMMIT_MESSAGE" value="proxy 与 双向数据绑定" />
+    <MESSAGE value="重学 JavaScript" />
+    <option name="LAST_COMMIT_MESSAGE" value="重学 JavaScript" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="185" y="23" key="CommitChangelistDialog2" timestamp="1600441342626">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="1930" y="23" key="CommitChangelistDialog2" timestamp="1600496785691">
+      <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state x="-1430" y="-28" key="CommitChangelistDialog2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599786844748" />
     <state x="368" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818025606" />
-    <state x="1930" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599900986858" />
+    <state x="1930" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1600496785691" />
     <state x="185" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1600441342626" />
     <state x="117" y="100" key="DiffContextDialog" timestamp="1600441336920">
       <screen x="0" y="23" width="1440" height="877" />
@@ -519,27 +522,28 @@
     </state>
     <state width="1414" height="209" key="GridCell.Tab.0.right/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818981188" />
     <state width="1414" height="209" key="GridCell.Tab.0.right/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599820123600" />
-    <state x="509" y="102" key="RollbackChangesDialog" timestamp="1600441317264">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="2119" y="118" key="RollbackChangesDialog" timestamp="1600493354717">
+      <screen x="1440" y="23" width="1920" height="1057" />
     </state>
+    <state x="2119" y="118" key="RollbackChangesDialog/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1600493354717" />
     <state x="509" y="102" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1600441317264" />
-    <state x="1938" y="166" key="Vcs.Push.Dialog.v2" timestamp="1599900988407">
+    <state x="1938" y="166" key="Vcs.Push.Dialog.v2" timestamp="1600496787132">
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state x="-1422" y="115" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599786846921" />
     <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818026674" />
-    <state x="1938" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599900988407" />
+    <state x="1938" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1600496787132" />
     <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1599834360796" />
-    <state x="239" y="23" width="1114" height="855" key="dock-window-1" timestamp="1600303184858">
+    <state x="502" y="23" width="1088" height="817" key="dock-window-1" timestamp="1600511671445">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="1613" y="23" width="1747" height="997" key="dock-window-1/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818005926" />
     <state x="1613" y="23" width="1747" height="997" key="dock-window-1/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599819155994" />
-    <state x="239" y="23" width="1114" height="855" key="dock-window-1/0.23.1440.877@0.23.1440.877" timestamp="1600303184858" />
-    <state x="595" y="23" width="1064" height="817" key="dock-window-2" timestamp="1599740708359">
+    <state x="502" y="23" width="1088" height="817" key="dock-window-1/0.23.1440.877@0.23.1440.877" timestamp="1600511671445" />
+    <state x="598" y="58" width="1371" height="817" key="dock-window-2" timestamp="1600573163188">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="595" y="23" width="1064" height="817" key="dock-window-2/0.23.1440.877@0.23.1440.877" timestamp="1599740708359" />
+    <state x="598" y="58" width="1371" height="817" key="dock-window-2/0.23.1440.877@0.23.1440.877" timestamp="1600573163188" />
     <state x="410" y="25" width="1064" height="817" key="dock-window-3" timestamp="1599745144009">
       <screen x="0" y="23" width="1440" height="877" />
     </state>

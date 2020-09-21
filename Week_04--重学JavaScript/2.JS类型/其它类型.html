@@ -1,3 +1,83 @@
+<!--
+Boolean
+    true
+    false
+
+Boolean 唯一需要注意的一个地方，就是说他的 true 或 false 都是关键字，是关键字，那么他表示起来这个也没有太多的语法噪音，大家记住 true 和false就
+可以了。
+-->
+
+
+<!--
+Null & Undefined
+    null
+    undefined
+    void 0;
+
+    function f(){
+        var undefined = 1;
+        console.log(undefined);
+    }
+
+    function f(){
+        var null = 1;
+        console.log(null);
+    }
+
+Null 和 Undefined 都表示空值，不同的是
+Null 表示有值但是是空，
+Undefined 语义上就表示根本没有人去设过这个值，所以它就是没有定义；
+
+注意：Null 是关键字，但是Undefined 不是关键字，是一个全局的变量。
+Null 是关键字，不能赋值，赋值会报错，但是我们现在仍在可以函数里面，局部定义Undefined为true，
+上面代码就是例子。
+
+我们怎么样去表示 Undefined 是最安全的？
+答：一般我们不用全局的变量，我们会用 void 0 来产生 Undefined ，因为void 运算符它是个关键字。
+void 后面不管跟什么，它都会把后边的表达式的值，变成 Undefined 这个值，所以说咱们在语法上最简洁
+的得到 Undefined 的值的方法，就是使用这个 void 关键字来进行一次运算，那么 void 0; void 1;
+还有 void 一切，void true; void false;都可以随便，一般写 void 0;
+
+-->
+
+<!--
+Symbol 和 Object 一起讲，他俩强相关，Symbol 也只有作为 Object 的一个属性名，这样的一种用途。
+-->
+
+<!--
+JavaScript Types
+    Number
+    String
+    Boolean
+    Object
+    Null
+    Undefined
+    Symbol
+    还有一个 Bigint
+
+JavaScript 只有7种数据类型，如果算上仍然在制定途中的 BigInt ,那么我们就有 8 种数据类型，
+
+Number: IEEE 754 float表示方法
+String:   1.ASCll、Unicode 字符集
+          2.UFT编码方式
+Object : 后面课程详细讲解
+Symbol : 后面课程详细讲解
+
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

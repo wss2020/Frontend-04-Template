@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Week_04--重学JavaScript/2.JS类型/字符串正则表达式.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Week_04--重学JavaScript/2.JS类型/屏幕快照 2020-09-20 下午10.57.10.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week_04--重学JavaScript/2.JS类型/String.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_04--重学JavaScript/2.JS类型/String.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week_04--重学JavaScript/3.JS对象/1.对象的基础知识.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_04--重学JavaScript/3.JS对象/1.对象的基础知识.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,21 +131,12 @@
       <workItem from="1600429110914" duration="1425000" />
       <workItem from="1600441304911" duration="1173000" />
       <workItem from="1600482447076" duration="3722000" />
-      <workItem from="1600511334392" duration="21640000" />
-    </task>
-    <task id="LOCAL-00005" summary="第一周代码">
-      <created>1598836490683</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1598836490683</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Week_01">
-      <created>1598876202358</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1598876202359</updated>
+      <workItem from="1600511334392" duration="21738000" />
+      <workItem from="1600663192575" duration="661000" />
+      <workItem from="1600689097317" duration="1000" />
+      <workItem from="1600689101624" duration="3579000" />
+      <workItem from="1600742935556" duration="457000" />
+      <workItem from="1600777365947" duration="4745000" />
     </task>
     <task id="LOCAL-00007" summary="Week_01">
       <created>1598936825620</created>
@@ -478,7 +467,21 @@
       <option name="project" value="LOCAL" />
       <updated>1600612463666</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="重学 JavaScript">
+      <created>1600616522382</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1600616522382</updated>
+    </task>
+    <task id="LOCAL-00055" summary="重学 JavaScript">
+      <created>1600691587145</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1600691587145</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -495,63 +498,63 @@
     <option name="LAST_COMMIT_MESSAGE" value="重学 JavaScript" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="185" y="23" key="CommitChangelistDialog2" timestamp="1600612463558">
+    <state x="185" y="23" key="CommitChangelistDialog2" timestamp="1600691586961">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="-1430" y="-28" key="CommitChangelistDialog2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599786844748" />
     <state x="368" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818025606" />
     <state x="1930" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1600496785691" />
-    <state x="185" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1600612463558" />
+    <state x="185" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1600691586961" />
     <state x="117" y="100" key="DiffContextDialog" timestamp="1600441336920">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="117" y="100" key="DiffContextDialog/0.23.1440.877@0.23.1440.877" timestamp="1600441336920" />
-    <state width="1414" height="209" key="GridCell.Tab.0.bottom" timestamp="1600601843227">
+    <state width="1414" height="209" key="GridCell.Tab.0.bottom" timestamp="1600735221518">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1414" height="209" key="GridCell.Tab.0.bottom/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818981188" />
     <state width="1414" height="209" key="GridCell.Tab.0.bottom/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599820123600" />
-    <state width="1414" height="209" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1600601843227" />
-    <state width="1414" height="209" key="GridCell.Tab.0.center" timestamp="1600601843226">
+    <state width="1414" height="209" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1600735221518" />
+    <state width="1414" height="209" key="GridCell.Tab.0.center" timestamp="1600735221517">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1414" height="209" key="GridCell.Tab.0.center/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818981187" />
     <state width="1414" height="209" key="GridCell.Tab.0.center/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599820123599" />
-    <state width="1414" height="209" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1600601843226" />
-    <state width="1414" height="209" key="GridCell.Tab.0.left" timestamp="1600601843225">
+    <state width="1414" height="209" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1600735221517" />
+    <state width="1414" height="209" key="GridCell.Tab.0.left" timestamp="1600735221515">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1414" height="209" key="GridCell.Tab.0.left/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818981185" />
     <state width="1414" height="209" key="GridCell.Tab.0.left/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599820123598" />
-    <state width="1414" height="209" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1600601843225" />
-    <state width="1414" height="209" key="GridCell.Tab.0.right" timestamp="1600601843226">
+    <state width="1414" height="209" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1600735221515" />
+    <state width="1414" height="209" key="GridCell.Tab.0.right" timestamp="1600735221518">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1414" height="209" key="GridCell.Tab.0.right/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818981188" />
     <state width="1414" height="209" key="GridCell.Tab.0.right/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599820123600" />
-    <state width="1414" height="209" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1600601843226" />
+    <state width="1414" height="209" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1600735221518" />
     <state x="2119" y="118" key="RollbackChangesDialog" timestamp="1600493354717">
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state x="2119" y="118" key="RollbackChangesDialog/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1600493354717" />
     <state x="509" y="102" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1600441317264" />
-    <state x="374" y="142" key="Vcs.Push.Dialog.v2" timestamp="1600612465221">
+    <state x="374" y="142" key="Vcs.Push.Dialog.v2" timestamp="1600691588979">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="-1422" y="115" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599786846921" />
     <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818026674" />
     <state x="1938" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1600496787132" />
-    <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1600612465221" />
-    <state x="502" y="23" width="1088" height="817" key="dock-window-1" timestamp="1600511671445">
+    <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1600691588979" />
+    <state x="695" y="24" width="1078" height="817" key="dock-window-1" timestamp="1600781047111">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="1613" y="23" width="1747" height="997" key="dock-window-1/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818005926" />
     <state x="1613" y="23" width="1747" height="997" key="dock-window-1/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599819155994" />
-    <state x="502" y="23" width="1088" height="817" key="dock-window-1/0.23.1440.877@0.23.1440.877" timestamp="1600511671445" />
-    <state x="598" y="58" width="1371" height="817" key="dock-window-2" timestamp="1600573163188">
+    <state x="695" y="24" width="1078" height="817" key="dock-window-1/0.23.1440.877@0.23.1440.877" timestamp="1600781047111" />
+    <state x="654" y="89" width="1128" height="817" key="dock-window-2" timestamp="1600692285896">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="598" y="58" width="1371" height="817" key="dock-window-2/0.23.1440.877@0.23.1440.877" timestamp="1600573163188" />
+    <state x="654" y="89" width="1128" height="817" key="dock-window-2/0.23.1440.877@0.23.1440.877" timestamp="1600692285896" />
     <state x="563" y="80" width="873" height="817" key="dock-window-3" timestamp="1600601049293">
       <screen x="0" y="23" width="1440" height="877" />
     </state>

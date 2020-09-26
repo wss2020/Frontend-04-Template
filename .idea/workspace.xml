@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Week_05---重学JavaScript/1. JS表达式/类型转换.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_05---重学JavaScript/1. JS表达式/类型转换.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_05---重学JavaScript/2. JS语句/声明.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_05---重学JavaScript/2. JS语句/简单语句和复合语句.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_05---重学JavaScript/2. JS语句/运行时相关概念.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_05---重学JavaScript/3. JS结构化/Environment  Record.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_05---重学JavaScript/3. JS结构化/函数调用.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_05---重学JavaScript/3. JS结构化/宏任务和微任务.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week_04--重学JavaScript/3.JS对象/1.对象的基础知识.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_04--重学JavaScript/3.JS对象/1.对象的基础知识.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -31,7 +38,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Week_03--编程与算法/proxy与双向绑定" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Week_05---重学JavaScript/2. JS语句" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="Errors" />
@@ -39,18 +46,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Week_05---重学JavaScript/2. JS语句" />
+      <recent name="$PROJECT_DIR$/Week_05---重学JavaScript" />
       <recent name="$PROJECT_DIR$/Week_03--编程与算法/proxy与双向绑定" />
       <recent name="$PROJECT_DIR$/Week_03--编程与算法/字符串分析算法" />
       <recent name="$PROJECT_DIR$/Week_02/使用LL算法构建AST" />
-      <recent name="$PROJECT_DIR$/Week_02" />
-      <recent name="$PROJECT_DIR$/Week_01/异步编程|async异步编程" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Week_05---重学JavaScript/3. JS结构化" />
+      <recent name="$PROJECT_DIR$/Week_05---重学JavaScript/1. JS表达式" />
+      <recent name="$PROJECT_DIR$/Week_04--重学JavaScript/3.JS对象" />
       <recent name="$PROJECT_DIR$/Week_04--重学JavaScript/2.JS类型" />
       <recent name="$PROJECT_DIR$/Week_04--重学JavaScript/1.JS语言通识" />
-      <recent name="$PROJECT_DIR$/Week_03--编程与算法/字符串分析算法" />
-      <recent name="$PROJECT_DIR$/Week_02--编程与算法/使用LL算法构建AST" />
-      <recent name="$PROJECT_DIR$/Week_02/寻路" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.test.js (4)">
@@ -136,28 +143,12 @@
       <workItem from="1600689097317" duration="1000" />
       <workItem from="1600689101624" duration="3579000" />
       <workItem from="1600742935556" duration="457000" />
-      <workItem from="1600777365947" duration="4745000" />
-    </task>
-    <task id="LOCAL-00007" summary="Week_01">
-      <created>1598936825620</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1598936825620</updated>
-    </task>
-    <task id="LOCAL-00008" summary="寻路">
-      <created>1598973879530</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1598973879530</updated>
-    </task>
-    <task id="LOCAL-00009" summary="寻路">
-      <created>1599061137610</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1599061137610</updated>
+      <workItem from="1600777365947" duration="4761000" />
+      <workItem from="1600863968019" duration="2319000" />
+      <workItem from="1600939294599" duration="8993000" />
+      <workItem from="1600989995744" duration="2025000" />
+      <workItem from="1601004284374" duration="10562000" />
+      <workItem from="1601031558795" duration="46468000" />
     </task>
     <task id="LOCAL-00010" summary="寻路">
       <created>1599183848022</created>
@@ -481,7 +472,28 @@
       <option name="project" value="LOCAL" />
       <updated>1600691587145</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="重学 JavaScript">
+      <created>1600788731352</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1600788731352</updated>
+    </task>
+    <task id="LOCAL-00057" summary="重学 JavaScript">
+      <created>1600955283350</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1600955283351</updated>
+    </task>
+    <task id="LOCAL-00058" summary="js 表达式">
+      <created>1601033609752</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1601033609752</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -495,16 +507,17 @@
     <MESSAGE value="字符串分析算法" />
     <MESSAGE value="proxy 与 双向数据绑定" />
     <MESSAGE value="重学 JavaScript" />
-    <option name="LAST_COMMIT_MESSAGE" value="重学 JavaScript" />
+    <MESSAGE value="js 表达式" />
+    <option name="LAST_COMMIT_MESSAGE" value="js 表达式" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="185" y="23" key="CommitChangelistDialog2" timestamp="1600691586961">
+    <state x="185" y="23" key="CommitChangelistDialog2" timestamp="1601033609561">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="-1430" y="-28" key="CommitChangelistDialog2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599786844748" />
     <state x="368" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818025606" />
     <state x="1930" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1600496785691" />
-    <state x="185" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1600691586961" />
+    <state x="185" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1601033609561" />
     <state x="117" y="100" key="DiffContextDialog" timestamp="1600441336920">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -538,39 +551,47 @@
     </state>
     <state x="2119" y="118" key="RollbackChangesDialog/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1600493354717" />
     <state x="509" y="102" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1600441317264" />
-    <state x="374" y="142" key="Vcs.Push.Dialog.v2" timestamp="1600691588979">
+    <state x="374" y="142" key="Vcs.Push.Dialog.v2" timestamp="1601033611210">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="-1422" y="115" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599786846921" />
     <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818026674" />
     <state x="1938" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1600496787132" />
-    <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1600691588979" />
-    <state x="695" y="24" width="1078" height="817" key="dock-window-1" timestamp="1600781047111">
+    <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1601033611210" />
+    <state x="480" y="49" width="1160" height="817" key="dock-window-1" timestamp="1601033572858">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="1613" y="23" width="1747" height="997" key="dock-window-1/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818005926" />
     <state x="1613" y="23" width="1747" height="997" key="dock-window-1/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599819155994" />
-    <state x="695" y="24" width="1078" height="817" key="dock-window-1/0.23.1440.877@0.23.1440.877" timestamp="1600781047111" />
-    <state x="654" y="89" width="1128" height="817" key="dock-window-2" timestamp="1600692285896">
+    <state x="480" y="49" width="1160" height="817" key="dock-window-1/0.23.1440.877@0.23.1440.877" timestamp="1601033572858" />
+    <state x="777" y="38" width="1160" height="817" key="dock-window-2" timestamp="1601092246532">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="654" y="89" width="1128" height="817" key="dock-window-2/0.23.1440.877@0.23.1440.877" timestamp="1600692285896" />
-    <state x="563" y="80" width="873" height="817" key="dock-window-3" timestamp="1600601049293">
+    <state x="777" y="38" width="1160" height="817" key="dock-window-2/0.23.1440.877@0.23.1440.877" timestamp="1601092246532" />
+    <state x="640" y="23" width="949" height="817" key="dock-window-3" timestamp="1601092933250">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="563" y="80" width="873" height="817" key="dock-window-3/0.23.1440.877@0.23.1440.877" timestamp="1600601049293" />
-    <state x="642" y="75" width="1117" height="726" key="dock-window-4" timestamp="1600616517270">
+    <state x="640" y="23" width="949" height="817" key="dock-window-3/0.23.1440.877@0.23.1440.877" timestamp="1601092933250" />
+    <state x="515" y="73" width="949" height="817" key="dock-window-4" timestamp="1601103941068">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="642" y="75" width="1117" height="726" key="dock-window-4/0.23.1440.877@0.23.1440.877" timestamp="1600616517270" />
-    <state x="614" y="89" width="1064" height="817" key="dock-window-5" timestamp="1599747525390">
+    <state x="515" y="73" width="949" height="817" key="dock-window-4/0.23.1440.877@0.23.1440.877" timestamp="1601103941068" />
+    <state x="560" y="57" width="949" height="817" key="dock-window-5" timestamp="1601107448122">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="614" y="89" width="1064" height="817" key="dock-window-5/0.23.1440.877@0.23.1440.877" timestamp="1599747525390" />
-    <state x="406" y="44" width="838" height="857" key="search.everywhere.popup" timestamp="1600612455638">
+    <state x="560" y="57" width="949" height="817" key="dock-window-5/0.23.1440.877@0.23.1440.877" timestamp="1601107448122" />
+    <state x="558" y="23" width="949" height="817" key="dock-window-6" timestamp="1601121917055">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="558" y="23" width="949" height="817" key="dock-window-6/0.23.1440.877@0.23.1440.877" timestamp="1601121917055" />
+    <state x="695" y="26" width="949" height="817" key="dock-window-7" timestamp="1601131526567">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="695" y="26" width="949" height="817" key="dock-window-7/0.23.1440.877@0.23.1440.877" timestamp="1601131526567" />
+    <state x="406" y="44" width="838" height="857" key="search.everywhere.popup" timestamp="1601123058380">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="-1379" y="-3" width="838" height="1032" key="search.everywhere.popup/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599730226236" />
-    <state x="406" y="44" width="838" height="857" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1600612455638" />
+    <state x="406" y="44" width="838" height="857" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1601123058380" />
   </component>
 </project>

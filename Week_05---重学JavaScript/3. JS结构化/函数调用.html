@@ -1,0 +1,335 @@
+<!--
+在我们的代理里面宏任务和微任务会决定， 我们代码的一些执行的次序，但是在同一个微任务里面，
+难道我们的代码就是顺序执行了吗，其实也不是，在同一个微任务里面，我们还有函数调用，可能会
+让这个代码来来回回的跳转执行，那么接下来我们来讲一讲函数调用。
+
+函数调用
+
+function foo(){
+     console.log(i):
+}
+export foo;
+
+
+import {foo} from "foo.js"
+var i = 0;
+console.log(i);
+foo();
+console.log(i);
+i++;
+
+我们先看两段示例代码，最上面是一段简单的一个模块的代码，我们假设这里面有一个foo是来自一个别的
+模块，很遥远的地方，它也不一定是从模块引入的，也可能是通过全局变量传递的。
+问： 这里我们访问了5次 i ,访问的 i 是一个吗？
+答： 否，这个foo函数它里面的代码，它访问的 i 是foo环境里面定义的 i ,如果说没有定义这句就会
+    出错。
+    我们如果把代码全都展开来看。
+var i = 0;
+console.log(i);
+console.log(i);      // 引入的代码 **
+console.log(i);
+i++;
+
+我们会发现除了 ** 的这些代码，那么它可以去访问i ,  ** 的这段代码，那么它访问不了这个i=0
+声明的 i,那么这就出现了一个问题，我们的代码究竟是怎么样去控制，才让有些语句能够访问 i,
+有些语句不能访问i的呢。
+-->
+
+<!--
+看一个更复杂的例子
+var y = 2;
+function foo2(){
+    console.log(y);
+}
+export foo2;
+
+import {foo2} from "foo.js";
+var x =1;
+function foo(){
+     console.log(x);
+     foo2();
+     console.log(x);
+}
+export foo;
+
+import {foo}  from  "foo.js";
+var i = 0;
+console.log(i);
+foo();
+console.log(i);
+i++;
+
+两次函数调用，我们让这个foo这个函数，去访问一个叫做x的变量，这个x的变量在foo所
+处的环境里面是有定义的，然后我们再定义一个foo2,由foo去调用foo2, 然后 foo2 里
+又访问了一个叫做y 的变量，这个时候我们可以从这个比较复杂的例子，看出来一些规律。
+
+var i = 0;
+console.log(i);
+console.log(x);     // *1
+console.log(y);     // *2
+console.log(x);     // *1
+console.log(i);
+i++;
+
+*1 的代码，那么就可以去访问 x 变量， *2 的代码可以访问 y 这个变量，其他的代码，
+那么就可以访问 i 这个变量，大家有没有发现它正是一个互相对称的这样的一个结构，如
+果我们把它再做一些处理，
+
+i:0                   x:1                  y:2
+var i =0;
+console.log(i);
+                     console.log(x);
+                                           console.log(y);
+                     console.log(x);
+console.log(i);
+i++;
+
+我们就可以更清晰的看到当左边执行，是从上到下的顺序执行，但是能够访问 x:1的代码
+和y:2 的代码，那么他们分别对应了 x=1 和 y=2 这两个环境，那么大家有没有觉得
+先是能访问，然后再变的不能访问，再变的能访问的结构有点熟悉，没错，这个里面其实
+就形成了一个栈式的这样的一个调用关系，它是一个stack 这样的数据结构，所以其实
+函数调用本身也会形成一个 stack ，那么它能访问的变量其实也是可以，用一个stack
+去描述的，那么接下来我们来把 stack 来看一下。
+
+             Running Execution Context
+Execution Context      Execution Context     Execution Context
+       i:0                    x:1                    y:2
+
+
+               Execution Context Stack
+
+它是一个从左到右，按照我们图里的顺序，是一个从左到右去生长的这样的一个stack,
+每一个stack 里所保存的东西，我们把它称作 Execution Context 执行上下文，
+也就是我们执行一个语句的时候，所需要的信息所有的信息都会保存在这个 Execution Context
+里面，那么保存 Execution Context 的数据结构，我们就把它称作 Execution Context Stack ,
+也就是一个执行上下文栈，那么这里面有一个非常的特殊，当我们执行到当前语句的时候，栈有
+一个栈顶元素，栈顶元素就是我们当前能访问到的所有的变量，这些变量我们要给它起一个特殊
+的名字，叫做 Running Execution Context ,就是正在跑的 Execution Context，
+我们代码里面所需要的一切信息，我们都会从 Running Execution Context 里面去取
+回来，Execution Context 里面，可是不止保存变量这么简单，我们来看看
+Execution Context 里面到底有什么。
+
+Execution Context
+          code evaluation state         Realm
+               Function
+i:0  =>     Script or Module            LexicalEnvironment
+               Generator                VariableEnvironment
+
+Execution Context 里面，简单的来说，有 7 大件，但是没有任何一个Execution Context是 7 件全齐的。
+    code evaluation state : 是用于 async 和 generator 函数的，那么它是一
+个代码执行到哪了的这样的一个保存的信息；
+    然后这个 Function 就是由 Function 来初始化的Execution Context 会有；
+    然后 Script or Module 那么就是，要么有 Script， 要么有 Module，那么我们
+只有两种这样的上下文，那么在 Script 里面的代码和在 Module 里面的代码，那么就会有
+这个部分；
+    然后 Generator 是只有 Generator 函数会需要，它可不是 Generator 函数，
+它是 Generator 函数每次执行所生成的隐藏在背后的Generator ，那也就是说只有
+Generator 函数创建的执行上下文，它会有 Generator 字段；
+    然后就是Realm 和 LexicalEnvironment 和 VariableEnvironment，这几个
+咱们将在后文给大家详细的介绍，这里仅做一句话的简要的讲解，Realm 就是保存着我们所有
+使用的这些，内置对象的这样的一个王国或者是领域；
+    LexicalEnvironment 和 VariableEnvironment 分别代表了我们执行代码中所
+需要访问的环境，也就是保存变量的，VariableEnvironment 是决定了我们用 var 去
+声明变量，它会声明到哪的这样的一个环境。
+-->
+
+<!--
+ECMAScript Code Execution Context          Generator  Execution  Contexts
+    code evaluation state                       code evaluation state
+    Function                                    Function
+    Script or Module                            Script or Module
+    Realm                                       Realm
+    LexicalEnvironment                          LexicalEnvironment
+    VariableEnvironment                         VariableEnvironment
+                                                Generator
+
+接下来我来给大家做一些分块的讲解，那么我们实际上 Execution Context 分成几个不同的种类，
+ECMAScript Code Execution Context  这里面是没有 Generator，
+Generator  Execution  Contexts 是多了一个字段，叫做 Generator，
+
+然后我们来讲，LexicalEnvironment
+LexicalEnvironment
+    this
+    new.target
+    super
+    变量
+
+例子： this.a = 1;
+      super();
+      x += 2;
+      new.target;
+
+LexicalEnvironment 在更老的版本里面，它是表示里边只存变量，但是在咱们的新的标准里，2018年以后的
+ES的标准的，那么它就存的东西所有我们执行的时候存的东西几乎都保存在了 LexicalEnvironment，比如说
+this值，它这个保存在 LexicalEnvironment 里面的， new.target 所创造的Object ,那么也保存在
+LexicalEnvironment 里面的，还有super ,还有一些我们声明的时候所使用的变量，他们都会存在于
+LexicalEnvironment 里面，然后我们来说 VariableEnvironment 。
+
+
+VariableEnvironment
+    VariableEnvironment 是个历史遗留的包袱，仅仅用于处理var 声明。
+
+    {
+       let y = 2;
+       eval('var x =1;')
+    }
+
+    with({ a:1 }){
+       eval('var x;');
+    }
+    console.log(x);
+
+VariableEnvironment 是一个历史的遗留包袱，它是仅仅用来处理var 声明的，我们var 的规则，它是会
+在函数的 body ,被预处理的时候就把 var 声明都给处理掉了，但是 var 声明如果说出现在 eval 里面，
+我们就没有办法通过预处理去识别它，那么专门给 eval 加var 这个去进行处理，所以说多数时候 VariableEnvironment
+和 LexicalEnvironment 它俩是重合的，在这个例子的第一段代码里面，let y = 2 ; 它会把这个y声明到
+一个 block 范围的作用域里面，但是以 eval('var x =1;') 则会把这个 x = 1 声明到一个更大的范围，
+就是 Function body 里面，或者是 Script 或 Module 的范围里面；
+
+然后还有一个非常特殊的情况，
+就是 with{{a:1}}; 我们用 with 来声明的作用域，那么这个里面它的变量像 var x 它是会穿过with
+声明到更外层的 Function Environment 里面的，这个也会造成一些很奇怪的现象，比如说 var x =1;
+那么它这个里面声明的 x 声明到了函数范围里面，但 x = 1 赋值，如果说 with 的 object 里面有 x
+属性，它这个x=1 这个语句照常执行到with 的作用域里面，就会发生很多非常违背人类直觉的事情，所以说
+VariableEnvironment 其实是专门为了 var 声明所保留的一个历史遗留的这样的一个东西。
+
+
+
+
+Environment Record
+看图
+
+Environment Record 就是我们讲了，Environment ，这个Environment 它其实并不是一个单纯
+的结构，它并不是一个池子，它其实是会形成一个链式结构的，这个链式结构里面的每一个节点，我们把它
+称作一个 Environment Record ，Environment Record 它又有一个继承关系，它是一个家族，
+Environment Record 那么它的基类就叫 Environment Record ，那么它的下面有三个子类，
+一个是 Declarative Environment Record ,一个是 Global Environment Record ,
+还有一个是 Object Environment Record , 直接看，我们就可以看出来 global 和 Object
+都是为了特殊的场景使用的，global 肯定就只有一个， object 肯定就是给 with 用的，其实真正
+我们平时大量会生成和产生的就是 Declarative Environment Record，这个里面，其实
+Declarative Environment Record 它是一个不是抽象类了，那么它其实可以初始化的，我们的
+这种花括号的 block ,我们前面给大家讲过，语句里面给大家讲过，它会形成一个自己的作用域，
+它在运行时就会生成 Declarative Environment Record ， Function 那么就会生成
+Function Environment Record ， Module 那么就会生成Module Environment Record ，
+它们各自都会有一些特殊的地方，我们今天也不需要把它太展开去讲，但是大家大致知道
+Environment Records 的家族大概有这么 5 个成员就可以了。
+-->
+
+
+<!--
+Function - Closure
+
+var y = 2;
+function foo2(){
+   console.log(y);
+}
+export foo2;
+
+
+Function:foo2  包含两块
+       一块是     Environment Record :  y:2
+       一块是     Code:   console.log(y);
+
+在 JavaScript 里面每一个函数它都会生成一个闭包，注意是每一个函数都会生成一个闭包，
+根据闭包的经典定义，闭包是分成了 两个部分，其中包含代码部分 和 环境部分， 环境部分 由一个
+object 和 一个变量的序列来组成的，在 JavaScript 里面，我们每一个函数它都会带一个它定义
+时所在的 Environment Records , 它会把 Environment Records 保存到自己的函数对象
+身上，变成一个属性了，然后 code ,那么每个函数当然它有自己的 code 了，在我们的这个例子里面
+ function foo2 它定义的时候，它的外边有一个 y=2; 所以说不管这个foo2 最后被通过参数或者
+ 是 export ,import 这样的东西传到哪里去，那么它都会带上 y=2 的Environment Records ，
+ 那么这个就是我们的闭包。
+ 也是我们的 Environment Records 最后能形成链的这样的一个关键的设施。
+
+
+
+看一个更复杂的闭包的例子
+var y = 2;
+function foo2(){
+    var z = 3;
+    return ()=>{
+        console.log(y,z);
+    }
+}
+var foo3 = foo2();
+export foo3;
+
+
+Function: foo3     包含两块
+         Environment Record:   z:3    this:global      =>    Environment Record:   y:2
+         Code:    console.log(y,z)
+
+foo3 它在执行的时候，它在内部，因为每次执行 foo2 的执行，它都会在内部形成这样的闭包，
+所以说它就会产生一个 z=3  ,那么 foo2 的它所在的环境 y=2 , 那么就会被作为 z=3 的所在的
+环境的这样的一个上级被保存下来，所以这个就是 Environment Records 形成的一个链式的结构，
+在更早的版本中，它还有一个独立的名字叫 Scope Chain ，在新版本中已经没有这个说法了，2018
+以后的ES 标准里已经不这么说了，因为有箭头函数的引入，所以说不但 z=3 被保存了下来，z=3 执行
+的时候所用的 this 也被保存了下来，this 是 global ,所以说这一条  Environment Records
+里面有 z = 3 和 this = global 两条记录，加上它更外层的 y = 2, 那么就一共有 三条记录，
+所以说在我们的 return 后面的箭头函数里面，我们就可以同时访问 y z 和 this ,那么这就是我们的
+闭包和作用域链的这样的一个机制。
+
+-->
+
+<!--
+Realm
+在JS 中，函数表达式和对象直接量均会创建对象。
+使用 . 做隐式转换也会创建对象
+这些对象也是有原型的，如果我们没有 Realm ，就不知道它们的原型是什么。
+
+Realm 在标准到2018 之前都没有被很好的标准化，到了2018以后终于把它纳入到标准
+当后，其实我们去执行一个表达式的过程中，除了变量 this.target 这些东西，我们
+还需要一些其他的信息，比如说我们的对象直接量，我们的花括号的对象直接量，或者是
+方括号的数组直接量，这些东西都会产生 object ,但是产出的object 它需要有原型，
+这个原型到底是哪一个对象呢？如果大家尝试过使用 iframe 的话，大家会发现在不同
+的 iframe 里面去创建的对象，它的原型是不一样的，那么这个原型就需要用一个东西
+来记录，那么我们的 JavaScript 里面就在标准里面，定义了一个叫做 Realm 的东
+西，规定了在一个 JS 引擎的实例里面，它所有的内置对象会被放进一个 Realm 里面
+去，那么在不同的 Realm 实例之间，它们是完全互相独立的，所以说也就意味着我们用，
+instanceof 有可能会失效，比如说我们使用点做隐式转换的时候，我们也会创建出来
+这种对象，它可能产生什么 Number 对象，它们也同样需要用到Realm ，然后有了
+Realm 之后，我们就可以去执行这些对应的表达式，去描述他们的行为了，而 Realm
+这个东西它是会根据一些外部的条件，我们的JavaScript 里面没有规定什么时候会
+创建Realm ，但是它会有可能根据外部的条件去创建不同的Realm ，然后不同的Realm
+实例之间，它们也可以互相传递对象，但是传递过来之后，它的prototype是不一致的，
+为了我更深一步认识 Realm ，给大家留一个作业。
+-->
+
+<!--
+推荐使用框架： 蚂蚁前端的G6 ，它是比较适合去做对象的可视化的。
+
+作业：尝试找出 JavaScript 引擎里面 Realm 所有的对象，
+使用一个 JS 数据可视化的框架去做一个可视化
+
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>

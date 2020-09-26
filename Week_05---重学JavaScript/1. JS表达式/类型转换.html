@@ -1,0 +1,177 @@
+<!--
+Type  Convertion
+    a + b
+    "false" == false
+    a[o] = 1;
+
+a+b 是一定要用于字符串或者是作用于两个数字之间，那么一旦 a 和 b 属于别的类型，那么它就会发生一个
+类型转换，比如说如果我们一个字符串 和 一个数字相加，那么就要把这个数字转成字符串，如果说其中一个是
+布尔类型，那么我们要根据相加的关系进行一下转换；
+所以类型转换是一个比较复杂的这样的话题，对我们的表达式来说，类型转换也是一个重要的基础设施，在整个
+的 JavaScript 里面，最复杂的一个类型转换就是双等号，比如说这个字符串的 false ,它跟布尔变量的
+false ,它们两个相比较并不相等，这就是造成很多同学直觉上的一个错误，而事实上因为双等号的类型转换
+规则非常的复杂，总的来说，如果说类型相同它可以比较，类型不同，它基本上是把它全转为 Number,然后
+再互相比较，所以说如果你敲一个空格，让它跟布尔值 false 比较，它就相等了，你敲一堆空格让它跟 false
+比较，它也相等了，你敲一个 0 跟 false 比较它也相等，所以这块是非常违背人类直觉的，也被认为是 JS
+的语言设计初期，最大的一个失误，这个是一个公认的结论，包括 JS 的作者 Brendan Eich 都对此是有
+过发言确认的，但这个历史包袱我们已经几乎没有办法，把它再去给它推翻了，所以说 我们推荐大家尽量使用
+三等号，或者是做完了类型转换，再进行比较，这样可以避免很多不必要的麻烦。
+另外像我们之前讲过的，Member Expression 里面的 Object 的 key 部分，它也会发生类型转型，这
+都是一些表达式当中发生类型转换的例子；像位运算不但会要转换成 Number 类型，还必须要把 Number 的
+再转成整数类型，这就是一个类型转换对我们表达式的意义。
+
+接下来我们看看，JavaScript 的7种基本类型互相之间是怎么样进行转换的，
+Type Convertion
+              Number      String         Boolean     Undefined     NUll      Object     Symbol
+Number          -                         0 false       x           x        Boxing       x
+String                      -            "" false       x           x        Boxing       x
+Boolean       true  1      'true'           -           x           x        Boxing       x
+              false 0      'false'
+Undefined      Nan        'Undefined'      false        -           x           x         x
+Null            0          'null'          false        x           -           x         x
+Object        valueOf      valueOf         true         x           x           -         x
+                           toString
+Symbol          x             x              x          x           x        Boxing       -
+
+7种基本类型互相之间互相转换，它是有一个较为复杂的规则的，所以在这里我们暂且不提;
+我们再看第三排的布尔型的变量参与的转换，那么 Number 和 布尔型变量，Number 0 会转换为 false,
+其它的数字则会转成true;
+然后是我们的 Number 和 Object 之间的转换，这个地方会发生一个装箱转换（后面会详细讲解）；
+String 也非常的简单，它跟布尔变量就是一个空字符串会转成 false ，其它的 String 都转为 true;
+大家要注意这个是跟 == 的比较，结果会有很大的差异，所以说大家在潜意识里可以认为它是一个分开的体系。
+String 能和布尔变量相互转换，并不等于用双等号比较的时候一定会相等。
+接下来看， Boolean 布尔变量它转换成其他的，Boolean 转 Number ，那么它就会 true 转 1，
+false 转 0；虽然我们所有的非0的 Number 都会转成 true, 但是 true 转回去就都变成了 1，
+然后 String 很好理解，就是我们字符串的 true 和 false ,
+然后到 Object 同样存在一个装箱转换，布尔变量是没有办法转成 Undefined Null 和 Symbol 的，
+接下来我们来说 Undefined ，Undefined 它是一个特殊的类型，他转成 Number 的时候会得到 NaN
+这个值，NaN 这个值是 Not a  Number,然后它转成 String 那么就是 Undefined 这个值，但是极少
+有机会能够把它转成 String , 大部分时候 Undefined 是不会参与任何类型转换的，它转成布尔变量，
+那么就是 false;
+Null 跟 Undefined 不同，Null 如果要转成 Number 的话，它得到的结果是 0，转成 String 它同
+样也是 'Null' 的值，它转成布尔变量也是 false,这个也很好理解。
+Undefined 和 Null 都是没有办法转成 Object 的，所以说他们两个实际上是不存在装箱转换的，
+Object 转成 Number 的时候，是会调用 valueOf 成员函数的，当然实际的这个过程稍微的有点复杂，
+不过我们等一下会在 Unboxing 这个部分给大家详细讲解。
+String 它会先后调用 valueOf 和 toString 凡是 Object 转换成布尔变量一定是 true ,然后
+Symbol 变量它其实没有办法转换成任何的其他的变量，那么他最终只能够通过 boxing 转成 Object.
+
+接下来我们来给大家讲解拆箱转换。
+Unboxing
+ToPremitive
+toString
+Symbol.toPrimitive
+
+例子：  var o = {
+           toString(){    return "2"  },
+           valueOf(){  return 1  },
+           [Symbol.toPrimitive](){  return 3  }
+       }
+
+       var x = {}
+       x[o] = 1
+
+       console.log( "x" + o);
+
+拆箱转换是指我们把一个 Object ,转成一个普通的这样的类型，转成基本类型，那么这个里面
+最主要的一个过程叫做 ToPremitive ,  ToPremitive 发生在我们的表达式定义的方方面面，
+比如说我们的加法，如果说遇到了 Object 加 Object ，或者 Object 参与运算的情况，他
+都会调用 ToPremitive 过程；
+我们一个对象 o 身上有三个方法的定义，会影响到 ToPremitive ，第一个是 toString 方法，
+第二个是 valueOf 方法，第三个是 Symbol 的 ToPrimitive ，这是一个 Symbol 的 key
+值，如果定义了 Symbol.toPrimitive ，那么它就会忽略 toString 和 valueOf，否则我们
+在进行不同的转换的时候，它会根据提示来决定调用 toString 和 valueOf 的先后。
+这里我们举两个例子，比如说加法它就会优先调用 valueOf,所以说我们比如说即使是调用一个字符串
+参与的这样的加法，x 加 o 这个时候也是会先调用 valueOf ，一看 valueOf 有这个方法，那么
+它就会得到1，如果我们把 valueOf 和 toPrimitive 这两个都注释掉，那么 x 加 o 的结果就会
+得到 x2，只要有 Symbol的toPrimitive 它就一定会得到 x3；
+来看一下，当这个 o 作为属性名的时候，则会优先调用他的toString 方法，
+所以说上面的例子，x 等于一个对象，然后 x[o] = 1,如果我们把 toPrimitive 给它注释掉，
+最后我们得到的结果就是 x2 发生了改变，而不是x1 发生了改变，我们的每一个表达式，它都有一个定
+的类型转换的这样的机制。
+大部分时候类型转换的机制很清晰，除了像 == 这样的一个特殊的场景，那么我建议大家是绕开它不要去用，
+比如说位运算肯定要先转 Number ,那么大家就知道转 Number 就一定会先调 valueOf；然后这种一定
+会用到字符串的场景，那么它就会先调用 toString ，这就是我们所谓的拆箱转换。
+
+接下来我们来看看装箱转换。
+类型            对象                       值
+Number       new Number(1)                1
+String       new String("a")             "a"
+Boolean      new Boolean(true)           true
+Symbol       new Object(Symbol("a"))     Symbol("a")
+
+在 Object 类型里面，因为 Object  它是可以有类概念的，那么对每个基础
+类型，Object 都提供了一个包装的类，当然了，也不是每一个基础类型，比如说
+我们的 Undefined 和 Null 它就是没有包装类的，那么剩下的 4个基础类型它
+都有一个对应的包装类，比如说 Number 它就是一个构造器，名为 Number,这个
+Number 既可以使用 new 去调用，又可以直接调用，如果直接调用Number ，它
+就会返回一个值，如果使用 new 去调用它就会返回一个 Object,这个时候，我们
+就称这个 Number 对象和这个值 1 它存在着一个装箱关系；String 和 Boolean
+同理；
+我们需要注意的是 Symbol 构造器，它是没有办法被 new 调用的，所以我们要想
+创建一个 Symbol 对象，还需要用一个 Object 构造器给它再包一层，我们只能
+通过调用 Symbol 来获取一个 Symbol 类型的值，但是我们要加了new,它就会
+抛错，这是一个奇怪的机制，但是事实上我们也是能够得到 Symbol 的包装类型的，
+所以它跟前面的三种略有一点点的区别，我们使用这个Member，也就是说使用点或
+者是方括号去访问属性的时候，如果点和方括号之前的变量或者是表达式，得到的是
+一个基础类型，那么就会自动调用装箱的过程，不需要我们再去调用，标准里面规定
+的Number String  Boolean 这些构造器，所以大家会看到一个现象，在
+Number 这个 Class 上定义了什么样的值，那么我们的正常的 Number 类型的值，
+它也可以通过点运算去访问，这是 JS 的一个比较方便的设施，它的背后也包含了一
+些设计的思想，但是这个过程往往会诱导新人认为我们的 Number类型 跟 Number类
+是一个东西，但其实并不是这样，我们可以通过 typeof 去区分它到底是包装后的
+对象，还是包装前的值。
+
+
+今天的课程带着大家
+    从语法结构上，是从小到大；
+    运算符优先级上是从高到低。
+    类型转换，它会发生在我们的各种对类型有强要求的表达式中，比如说像 a+b,
+    比说 Member  a 方括号， 或者是 a点 这些的运算中它都会发生类型转换。
+
+-->
+
+<script>
+    // 课后作业
+
+    function StringToNumber(str,binary){
+        return parseInt(str,binary);
+    }
+
+    function NumberToString(num) {
+        return  String(num);
+    }
+</script>
+
+
+
+
+
+<script>
+    var o = {
+        toString(){
+            console.log(2);
+            return "2"  },
+        valueOf(){  return 1  },
+        [Symbol.toPrimitive](){  return 3  }
+    }
+
+    var x = {}
+      x[o] = 1
+
+    // console.log( "x" + o);
+</script>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>

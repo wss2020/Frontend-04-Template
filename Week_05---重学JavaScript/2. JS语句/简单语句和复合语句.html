@@ -1,0 +1,208 @@
+<!--
+简单语句
+    ExpressionStatement
+    EmptyStatement
+    DebuggerStatement
+    ThrowStatement
+    ContinueStatement
+    BreakStatement
+    ReturnStatement
+简单语句指这种它里面不会再容纳其他语句的这种语句；
+简单语句里面最基本的一个类型就是，ExpressionStatement 就是表达式语句，咱们前面
+讲了那么多表达式，但是其实在语句里面只有表达式语句是 完全由表达式组成的，因为咱们的
+表达式里存在着等号赋值的可能性，所以说咱们的简单语句里面就有可能使用 Expression
+来单独的成一个语句，那么语句后面加一个分号，那么简单的一个表达式，后面接一个分号就
+是一个简单语句了，这个规则十分的简单。
+
+接下来更简单，是这个空语句，空语句就是单独的一个分号，它就是一个空语句，这个其实没
+有什么大用，基本上就是连改变语法结构的作用都没有，只是我们从语言的完备性上来讲。
+允许你单独的一个分号，所以说就有了空语句。
+
+DebuggerStatement 是一个非常奇特的语句的形式，就是一个 debugger 关键字后面加
+一个分号，debugger 语句其实我认为它是一种专门给调试的时候使用的这样的一种语句，
+然后它在实际的用户的电脑上运行的时候，是不会发生任何作用的，它的建议的用法就是说
+触发一个 debugger 这样的一个断点，所以说 debugger  语句就有这样的一个作用。
+咱们在真正编写的代码中是往往会在上线前，把 debugger 语句都给它移除，说要除了
+ExpressionStatement 我们已经讲了2个基本没什么用的语句。
+
+接下来是4个控制语句，这4个控制语句都有实际的用处了。
+ThrowStatement  它会抛出一个异常，我们除了 ThrowStatement ，也有其他的方法
+可以抛出异常，但是我们如果说这个不是想让它真的发生个错误，我们是可以主动的在代码里
+面用 throw 空格接一个表达式，然后来抛出这样的一个异常的。
+
+然后就是 continue 和 break 它俩是跟循环语句相匹配的；
+continue 表示结束当次循环，那么后面的循环继续，如果说我们在 1～100 这样的一个循
+环里，我们可能在第 68 次，我们在这里在 68 次循环的最前面写了个 if i==68  然后
+continue ，那么这次循环后边的代码都不执行了，但第 69次 到第 100 次它都是会被
+执行的；
+而 break 就是相当于结束整个循环，它相当于循环条件被破坏了；
+所以说 break 和 continue 是一对我们非常常见的这样的结果。
+
+然后就是 ReturnStatement 了， ReturnStatement 一定得在函数里面去用，
+它会返回一个函数的值，另外语句还会有跟比较新的，比如说跟 generator 相关的
+yield ,这种就是，我们等到讲结构化的时候再去讲这个东西，在语句这块我们就简单的
+了解一下简单语句有哪些;
+
+所以说其实大家可以看到，其实所有的简单语句里面最核心的就是ExpressionStatement，
+它是真正的驱动计算机去进行计算的这样的一种语句，然后剩下的 throw  continue
+break return 其实全是流程控制。
+所以说其实咱们整个的JavaScript 语言其实也就是这样的一个作用，让计算机完成计算，
+然后并且完成一定的流程控制。
+-->
+
+
+<!--
+复合语句
+    BlockStatement
+    IfStatement
+    SwitchStatement
+    IterationStatement
+    WithStatement
+    LabelStatement
+    TryStatement
+  复合语句比简单语句要复杂一些，BlockStatement 是最重要的语句，它是一对花括号
+中间一个语句的列表，它能够把我们所有需要单条语句的地方都变成，可以用多条语句，这是
+非常重要的，是完成咱们语句的树状结构的重要的基础设施；
+  而 IfStatement 这个是大家特别熟的分支结构，条件语句；
+  SwitchStatement 多分支的结构，但是其实 SwitchStatement 我不太建议在 JS
+里面使用，因为它在 C++ 里面 或者 C 里面，它事实性能是会比连续的if 要高的，但在
+JS 里面肯定是没有区别的， 而且他特别容易写错，他每一个case 后边都要写一个break,
+而如果写错了，就会出一定的问题，建议大家用 if 来代替 switch ，用多个 if else
+这样的结构来代替 switch。
+  然后循环 IterationStatement，这个它不是一个语句，有一大堆，比如说什么while
+循环，do-while 循环，for 循环，For await 循环，不一而足非常的多。
+  然后这个就是 WithStatement， WithStatement 同样是广受诟病的一个表达式，
+它可以通过这个 with 打开一个对象，然后把这个对象的所有的属性直接放进作用域里面去，
+而这个在写法上是可以节约一些空间，那么也可以节约一些记忆的成本，但是它本身带来的不
+确定性非常的高，所以说在一般的现代的 JS 的编程规范里面，都是拒绝使用 with 的，
+   然后就说到了咱们的 LabelStatement ，咱们刚才在讲 cumulation 的时候，其实
+已经提到了 LabelStatement ，LabelStatement 就是在简单语句的前面加上一个
+label ,当然它也可以在复合语句的前面加上一个label,一个相当于给语句取了一个名字，
+所以说 LabelStatement ，它其实是可以给任何语句用的，但是实际上真正有效的地方，
+比如说你给 if 语句起一个 label , 它其实没有任何意义的，但是这个 IterationStatement
+那么配上 labelled ,然后再配上 break continue 这种后边带 label 的，那么它
+就会产生意义了。
+最后说是一个 TryStatement ,TryStatement 是一个三段结构，它包含了 try catch
+和 Finally 三个结构，我们要注意在 try 这个里面，它其实不是 BlockStatement ，
+它的花括号是由try 语句去定义的，所以说大家在这个上面还是要注意一下，所以 try 你
+是不能够省略花括号的，省略会报错。
+-->
+
+<!--
+接下来我们来详细的讲一讲这个 statement
+
+block
+    BlockStatement
+
+    {
+      ...
+      ...
+      ...
+    }
+
+    [[type]]: normal
+    [[value]]: --
+    [[target]]: --
+Block 是一个可以容纳多个语句的这样的一个 block ， 一般来说 BlockStatement 它的
+返回值是 normal ,它的 value 和 target 不明，那么如果里面有 break continue
+这种东西，它也随时可以变成相应的值。
+
+
+Iteration
+    while(...) ...
+    do ...  while(...);
+    for(。。;...;...) ...
+    for( 。。 in ...) ...
+    for( 。。 of ...) ...
+    for await( of )
+
+    var
+    const/let
+    in
+Iteration 是一个比较大的结构，while 圆括号里面是跟一个表达式，然后后边是一个statement ,
+do-while 是先一个 statement ，然后后面是一个 while 表达式；
+while 和 do-while 非常的相似 ，他们两个其实没有什么本质的区别，然后它只是说 do-while,
+它至少会执行一次，while 的话有可能一次都不执行，它这个里面是一个表达式跟语句的复合的这样
+的一个结构，可以看到在这个语句里面，也不光是有跟其他语句的这样的一个树形结构关系，还跟实际
+的它的表达式有一个结构的关系，这就是语句里面的结构的一个复杂性。
+然后就是 for 家族，主要可以分为 for 分号  for in  和 for of ,for of 是一个比较新
+的特性，for ； 和 for in , 都是 JS 语言，最初就有的这样的东西，上面写法中 。。 的位
+置是都可以加变量声明的，所以说可以加 var  可以加 const ,也可以加 let ,他们会各自产生
+不同的声明的效果；
+然后我们要注意 let 声明的域，for 语句是会产生一个独立的 let 的声明的作用域的，那么它跟
+它里边的花点的部分的语句，它是两个作用域，但是它在作用域的外层，所以说你不同的循环之间是可
+以改变声明的变量，比如说 i 的值有 for i= 0~100,它的值是能够改变并且是跨循环保存的，你
+要在花点的地方写一个花括号的block 语句那就不行了。
+
+最后有一种 for await(of) ,后面的课程在介绍异步的时候会给大家详细去讲，它其实就是
+for of 的一个 await 的版本，它对应的就是 Async Generator.
+
+然后还有一个 in 的使用问题，是因为 for in 它用掉了 in 这个字符，所以说在 for 循环
+的结构里面，大部分是不允许 in 操作符出现，所以你看到 JavaScript 标准里面，它的所有
+的语句基本上都会有有 in 的版本 和 没有 in 的版本来两个。
+
+-->
+
+
+<!--
+标签、循环、break、continue
+    LabeledStatement
+    IterationStatement
+    ContinueStatement
+    BreakStatement
+    SwitchStatement
+
+    [[type]]: break continue
+    [[value]]: --
+    [[target]]: label
+
+最后我们来介绍一下 break 和 continue 的问题，break 和 continue 不知道大家有没有这样写过，
+就是 break 后边其实是可以跟一个标识符的名字，这个就是 label ,当我们多层的循环嵌套的时候，
+break 适合我们在多层嵌套的循环语言里面去使用，这种带 label 的break ,它可以一下子跳出多层的
+循环，就可以节省我们的很多的 if 语句的判断 和一些逻辑。
+
+-->
+
+<!--
+try
+
+   try{
+       ...
+   }catch(...){
+      ...
+   }finally{
+      ...
+   }
+
+   [[type]] : return
+   [[value]] : --
+   [[target]] : label
+
+前面也强调了 try ,它这个花括号是一定得有的，它不像是咱们前面比如说 while ,可以省略花括号，
+因为它后边规定的是一个语句，try 它是必须得在一个花括号里面的，跟 try 本身的语法的设计有关系
+然后 catch 这个东西它会产生一个这样的作用域，那么在catch 里面就会让 catch 后边圆括号里面
+的变量被赋值为 try 里面抛出来的错误，然后它同样还是可以有 label 的，但是我们要注意的是
+return ,  return 按理说它是一种打断性的结构，但是在 try-catch-finally 这个结果里面，
+即使你在 try 里面 return ,  finally 里面的代码也一定会执行，这个就是一个边边角角的 case.
+因为在我们的印象中，一般来说 return 是会打断一切语句的执行的，但是在 try-catch-finally 这
+个结构里面不行，这是一个关于 try 的一个特殊性。
+
+-->
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>

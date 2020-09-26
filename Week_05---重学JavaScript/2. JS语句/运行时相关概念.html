@@ -1,0 +1,83 @@
+<!--
+Statement
+    今天我们介绍语句，就是这个语句我们会在表达式的基础上来介绍，介绍 JS 用语句完成控制流程
+，我们的有些表达式在有些条件下执行，以确定它的一些执行顺序。
+
+Grammar              Runtime
+    简单语句              Completion Record
+    组合语句              Lexical Environment
+    声明
+
+    在 JS 的标准中，是把语句和声明分开了，有简单语句、组合语句、声明，这节课把声明也归类
+为语句的一种；
+    这节课设计的运行时的概念， Completion Record 就是语句执行的一个结果的记录，然后
+还会设计到一些 Lexical Environment ，作用域相关的知识。
+
+Completion Record
+    例子：    if（ x == 1 )
+                 return 10;
+        我们需要一个数据结构来描述语句的执行结果：是否返回了？返回值是啥？等等.....
+
+   从英文的字面意思来看，它是一个完成的记录这样的概念，大家会发现这个语句，它其实完成状态
+有可能是不一样的，return 有可能它有 return ，也有可能它最后没有 return ，这取决于x
+具体的值，所以对我们的运行时来说，咱们的 JavaScript 引擎就是解析 if 的语句的时候，咱们
+就需要知道他完成了之后到底是怎么完成的，于是在 JavaScript 语言里面就需要一种数据结构，然
+后来存储语句的完成的结果，这就是我们所谓的 Completion Record 类型了，它不是在咱们的语
+言的基本类型里面，是因为咱们在 JS 里面无论如何努力，你都没有办法真正的访问到数据，它没有办
+法赋值给变量，也没有办法作为参数什么的，任何环节你都没有办法得到它，但是它又确确实实存在于
+我们运行 JavaScript 的电脑里面，你每写一个语句由 JavaScript 引擎去执行之后，就会产生
+Completion Record 这样的东西，这个可能包括说是否返回，返回值是啥等等，这一系列的信息，
+所以说 Completion Record 它一定是有一些字段的。
+
+Completion Record
+    [[type]]: normal,break,continue,return,or throw
+    [[value]]: 基本类型
+    [[target]]: label
+Completion Record 它是分成了三个部分，第一部分是它的类型，正常的语句它都是 normal,
+然后有一些语句它会产生 break continue return 或者 throw 这样的行为，所以说这个类
+型是一个非常关键的信息，值得注意的是说，比如说我们的 if 语句或者说我们 for 循环，它这个
+里面都有可能产生 return ,或者是 break continue 这样的东西了，因为我们的所谓的语句，
+它是有一定的结构的（等下细讲），它的子语句有时候变成了这种 return 或者 throw 这样的
+穿透力比较强的，它就会影响到它的父语句，然后让它产生 Completion 的 type 的变化，然后
+就是一个 value ,我们有些语句尤其是我们的表达式语句，它一定是有一个返回值的，正因为它有
+返回值，所以说它才能够发挥一定的作用；
+另外像我们的 return  throw ,它都会带着一个值，这个值也是控制中的一个关键，它这个值可能
+会被抛给其他的语句，或者是赋值给一些变量去执行，所以 value 也是 Completion Record 里
+面的一个重要信息;
+最后一个非常少见，很多同学可能都不知道特性 target ,target 是一个 label ，label 这个
+东西其实咱们一会儿，会给大家稍微的详细的去讲解一下，这里仍然要提一句，label 这个东西其实
+就是我们在语句前面加一个标识符和一个冒号，然后这样的话这个语句就变成了一个带 label 的语句，
+咱们的 break 和 continue 语句可能会跟带 label 的语句发生交互，所以说 break 和 continue
+它往往会带一个 target 出来，这就死 JS 里面的 Completion Record 。
+
+我们单看  Completion Record ，它就是一个语句完成状态的这样的一个记录，后面讲到具体语句
+的时候，会教大家如何利用 Completion Record 去分析语句执行的结果。
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>

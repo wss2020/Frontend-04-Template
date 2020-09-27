@@ -185,20 +185,19 @@ var 和 function ，这样的声明， 它的作用范围都是整个的函数�
 
 
 <script>
-    try{
+    try {
         var c = 2;
-        void function(){
+        void function () {
             c = 1;
-            // return ;
+            return;
+            let c;
             // const c;
         }();
-        console.log(a);   // 2
-    }
-    catch (res){
+        console.log(c);   // 2
+    } catch (res) {
         console.log(res);
-    }
-    finally {
-
+    } finally {
+        // console.log(c);
     }
 </script>
 

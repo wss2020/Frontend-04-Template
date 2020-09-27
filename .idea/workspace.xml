@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Week_05---重学JavaScript/1. JS表达式/类型转换.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Week_05---重学JavaScript/1. JS表达式/类型转换.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Week_05---重学JavaScript/2. JS语句/声明.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Week_05---重学JavaScript/2. JS语句/简单语句和复合语句.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Week_05---重学JavaScript/2. JS语句/运行时相关概念.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Week_05---重学JavaScript/3. JS结构化/Environment  Record.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Week_05---重学JavaScript/3. JS结构化/函数调用.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Week_05---重学JavaScript/3. JS结构化/宏任务和微任务.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_06---浏览器工作原理/1.浏览器总论/浏览器工作原理总论.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week_03--编程与算法/proxy与双向绑定/3.模仿reactive实现原理（二）.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_03--编程与算法/proxy与双向绑定/3.模仿reactive实现原理（二）.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week_06/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Week_06---浏览器工作原理/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,13 +144,11 @@
       <workItem from="1600989995744" duration="2025000" />
       <workItem from="1601004284374" duration="10562000" />
       <workItem from="1601031558795" duration="46468000" />
-    </task>
-    <task id="LOCAL-00010" summary="寻路">
-      <created>1599183848022</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1599183848022</updated>
+      <workItem from="1601134265390" duration="265000" />
+      <workItem from="1601169244690" duration="277000" />
+      <workItem from="1601206248380" duration="155000" />
+      <workItem from="1601206405861" duration="1929000" />
+      <workItem from="1601211269694" duration="820000" />
     </task>
     <task id="LOCAL-00011" summary="寻路">
       <created>1599184441971</created>
@@ -493,7 +486,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601033609752</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="js 表达式">
+      <created>1601134289780</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1601134289781</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -511,13 +511,13 @@
     <option name="LAST_COMMIT_MESSAGE" value="js 表达式" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="185" y="23" key="CommitChangelistDialog2" timestamp="1601033609561">
+    <state x="185" y="23" key="CommitChangelistDialog2" timestamp="1601134289492">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="-1430" y="-28" key="CommitChangelistDialog2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599786844748" />
     <state x="368" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818025606" />
     <state x="1930" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1600496785691" />
-    <state x="185" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1601033609561" />
+    <state x="185" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1601134289492" />
     <state x="117" y="100" key="DiffContextDialog" timestamp="1600441336920">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -551,13 +551,13 @@
     </state>
     <state x="2119" y="118" key="RollbackChangesDialog/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1600493354717" />
     <state x="509" y="102" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1600441317264" />
-    <state x="374" y="142" key="Vcs.Push.Dialog.v2" timestamp="1601033611210">
+    <state x="374" y="142" key="Vcs.Push.Dialog.v2" timestamp="1601134292283">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="-1422" y="115" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599786846921" />
     <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818026674" />
     <state x="1938" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1600496787132" />
-    <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1601033611210" />
+    <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1601134292283" />
     <state x="480" y="49" width="1160" height="817" key="dock-window-1" timestamp="1601033572858">
       <screen x="0" y="23" width="1440" height="877" />
     </state>

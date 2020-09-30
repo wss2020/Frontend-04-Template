@@ -1,0 +1,42 @@
+<!--
+首先从一个问题开始，去考虑状态机
+
+使用有限状态机处理字符串
+    在一个字符串中，找到字符 "a"
+-->
+<script>
+    function match(string){
+        for(let c of string){
+            if(c == "a"){
+                return true;
+            }
+        }
+        return false;
+    }
+    match("I am groot");
+
+</script>
+<!--
+这里用的是for .. of 循环，of 作用在 string 上的时候，它就是能够把每个字符取出来循环。
+
+我的算法是一个 O(n) 的算法，就是我们假设字符串的长度是 n ,那么我们的算法它也是时间是会跟
+n 成正比的；
+
+有的同学可能用 for 循环，用 charAt ,然后去找的字符 a ,这都是正确的。
+这个没有转态机，但是随着处理的情况，越来越复杂，我们的状态机就会出场了。
+
+-->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>

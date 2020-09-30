@@ -1,0 +1,173 @@
+<!--
+在一个字符串中，找到字符 "abcdef"
+    要求：使用状态机
+-->
+<!--<script>-->
+<!--    function match(string){-->
+<!--        let state = start;-->
+<!--        for(let c of string){-->
+<!--            state = state(c);-->
+<!--        }-->
+<!--        return state === end;-->
+<!--    }-->
+
+<!--    function start(c){-->
+<!--        if(c === "a")-->
+<!--            return foundA;-->
+<!--        else-->
+<!--            return start;-->
+<!--    }-->
+
+<!--    function end(c){-->
+<!--        return end;-->
+<!--    }-->
+
+<!--    function foundA(c){-->
+<!--        if(c === "b")-->
+<!--            return foundB;-->
+<!--        else-->
+<!--            return start;-->
+<!--    }-->
+
+<!--    function foundB(c){-->
+<!--        if(c === "c")-->
+<!--            return foundC;-->
+<!--        else-->
+<!--            return start;-->
+<!--    }-->
+
+<!--    function foundC(c){-->
+<!--        if(c === "d")-->
+<!--            return foundD;-->
+<!--        else-->
+<!--            return start;-->
+<!--    }-->
+
+<!--    function foundD(c){-->
+<!--        if(c === "e")-->
+<!--            return foundE;-->
+<!--        else-->
+<!--            return start;-->
+<!--    }-->
+
+<!--    function foundE(c){-->
+<!--        if(c === "f")-->
+<!--            return end;-->
+<!--        else-->
+<!--            return start;-->
+<!--    }-->
+
+<!--    console.log( match("I ababcdef") )-->
+
+<!--</script>-->
+<!--
+   我们考虑到找到字符 a 之前跟找到字符 a 之后，其实在 for 循环里面的逻辑是完全不一样的；
+所以我们可以考虑，每找到一个我们要的目标字符，我们就会去切换一个状态，状态机是非常适合处理
+这个逻辑的。
+
+看上面代码，那么 match 函数还是原来一样的接口，我们首先定义一个 state 变量用来表示，这个
+状态机的以前状态，我们要给它一个初始值，初始值这里叫 start ,start 是一个状态函数，等一下
+再看它里面的代码，然后在这个状态机里面，我们在循环里面，我们会不断地让这个状态机去接受一个，
+字符 c ，并且让它进行状态切换；
+我们在之前讲过，在 JS 当中实现状态机的一个非常好的方式，就是使用函数，使用函数去实现状态机，
+所以说我们的 state(c) 里面就会 返回另一个函数，那么就是它的下一个状态，state等于 state(c)
+就是把状态切到下一个状态，而 state(c) 里面，我们就可以让状态机去进行一些运算，完成我们的逻辑，
+
+接下来看看 start 函数是怎么写的，start 函数那么它首先是一个  if else 结构，在start 状态
+下我们只需要找 c ，如果找到这个 c 为 a 的话，那么我们就会切换到下一个状态 就是 foundA ，否则
+那么状态不变，我们返回自身， 然后当我们找到 a 以后，在 foundA 的状态里面，我们就集中精力去找
+b, 一旦找到 b ,我们就切到状态 foundB ，这个时候我们的 foundA foundB 就已经不是布尔型变量了，
+它是一个状态函数，以此类推 foundA foundB ，foundA 状态我们找到 b ,去切换到 foundB ,
+foundB 状态我们找到 c ,去切换到状态 foundC ，foundC 状态我们找到 d ,去切换到状态 foundD
+以此类推，一直到 foundE 的时候，我们会返回一个 end 状态，这个end 状态，就是一个结束状态，
+结束状态标志着我们已经找到了，所有我们想找的字符，所以这个时候，我们要使用一个小小的技巧，我们
+会让 end 状态 永远返回 end ,这样这个状态叫做一个 trap ,就是一个陷阱，一旦进入了 end 的状态，
+他就再也不会进入到别的状态了。
+为什么呢？ 因为当我们的字符串如果找到了 abcdef 之后，不管你再去做什么，不管你后面进来了多少个
+字符，其实它都是一个已经找到的状态，这样我们就把他的状态控制在 end 里，这样我们的返回值就可以
+用这个 state 等于 end 来判断他是不是已经找到了我们所有的状态。
+
+这段代码有一个 bug ,比如 console.log(   match("ababcdef")   );
+在 判断 c == 'b' 之后，我们进入到了 foundC 状态，
+我们在 foundC 状体下，判断 c == 'd' 时候，这里 c == 'a' ,不等于 'd', 然后返回 start ,
+回到 start 状态，start 状态做判断的时候， c 等于 'b' 了，但是我们的start 只检查'a'，
+我们的 a 在上一个判断中被吃掉了，这样最后得到的结论是 false ,这跟我们要求的逻辑是不同的，
+怎么办呢？
+这里又涉及到了一个小技巧，当我们这个状态退出的时候，如果我们仍然想把这个字符交给下一个状态去处理
+的话，那么我们就在  return start; 改成  return start（c）; 这个行为，在状态机里可以叫做
+reConsume ,大概相当于重新使用的这样的一个逻辑，我们给每一个 return start 都加上 c ,最终
+我们的逻辑就正确了。
+
+
+-->
+
+<script>
+    function match1(string){
+        let state = start;
+        for(let c of string){
+            state = state(c);
+        }
+        return state === end;
+    }
+
+    function start(c){
+        if(c === "a")
+            return foundA;
+        else
+            return start;
+    }
+
+    function end(c){
+        return end;
+    }
+
+    function foundA(c){
+        if(c === "b")
+            return foundB;
+        else
+            return start(c);
+    }
+
+    function foundB(c){
+        if(c === "c")
+            return foundC;
+        else
+            return start(c);
+    }
+
+    function foundC(c){
+        if(c === "d")
+            return foundD;
+        else
+            return start(c);
+    }
+
+    function foundD(c){
+        if(c === "e")
+            return foundE;
+        else
+            return start(c);
+    }
+
+    function foundE(c){
+        if(c === "f")
+            return end;
+        else
+            return start(c);
+    }
+
+    console.log( match1("I ababcdef") )
+
+</script>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>

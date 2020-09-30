@@ -1,0 +1,158 @@
+<!--
+接下来问题又来了，我们想用状态机去处理 abcabx ，这样的字符串？
+我想刚才有了我们去处理a 的 reConsume 这样的一个逻辑的经验，同学们应该已经具备了一定
+的技巧。
+
+-->
+
+<!--  用状态机实现：字符串“abcabx”的解析  -->
+<!--<script>-->
+
+<!--    function match1(string) {-->
+<!--        let state = start;-->
+<!--        for (let c of string) {-->
+<!--            state = state(c);-->
+<!--        }-->
+<!--        return state === end;-->
+<!--    }-->
+
+<!--    function start(c) {-->
+<!--        if (c === "a")-->
+<!--            return foundA;-->
+<!--        else-->
+<!--            return start;-->
+<!--    }-->
+
+<!--    function end(c) {-->
+<!--        return end;-->
+<!--    }-->
+
+<!--    function foundA(c) {-->
+<!--        if (c === "b")-->
+<!--            return foundB;-->
+<!--        else-->
+<!--            return start(c);-->
+<!--    }-->
+
+<!--    function foundB(c) {-->
+<!--        if (c === "c")-->
+<!--            return foundC;-->
+<!--        else-->
+<!--            return start(c);-->
+<!--    }-->
+
+<!--    function foundC(c) {-->
+<!--        if (c === "a")-->
+<!--            return foundA2;-->
+<!--        else-->
+<!--            return start(c);-->
+<!--    }-->
+
+<!--    function foundA2(c) {-->
+<!--        if (c === "b")-->
+<!--            return foundB2;-->
+<!--        else-->
+<!--            return start(c);-->
+<!--    }-->
+
+<!--    function foundB2(c) {-->
+<!--        if (c === "x")-->
+<!--            return end;-->
+<!--        else-->
+<!--            // return start(c);-->
+<!--            // 注意看这里，不是 start(c);-->
+<!--            // 这里如果不是 x ,它还有可能是 c ,如果也不是c ,它还有可能是 a-->
+<!--            // 所以我们让它回到前面的 foundB 状态，由 foundB 状态再去处理一下，-->
+<!--            // 如果 foundB 状态处理完了之后，发现他也不是 c ，那么我们再让他回到 start 状态，-->
+<!--            // 把 c 传给 start ，也就是说这个时候一次状态最多会经过 三个状态函数的处理，所以-->
+<!--            // 最后我们把这个状态机跑起来。-->
+<!--            return foundB(c);-->
+
+<!--    }-->
+
+<!--    console.log(match1("I abcabcabx"));-->
+
+<!--    // 这个就是状态机去处理重复字符串这样的一个技巧，当然了，如果你在这个里面，字符有对应的重复多个，-->
+<!--    // 或者是同一个字符要重复多个，或者是不同的字符都可以，比如说 a 和 b 都可以，这样的逻辑，完全-->
+<!--    // 我们可以在状态机里面，通过状态里面的 if else 把它实现。-->
+
+<!--</script>-->
+
+
+<script>
+    // 作业：使用状态机完成”abababx”的处理。
+    function match1(string) {
+        let state = start;
+        for (let c of string) {
+            state = state(c);
+        }
+        return state === end;
+    }
+
+    function start(c) {
+        if (c === "a")
+            return foundA;
+        else
+            return start;
+    }
+
+    function end(c) {
+        return end;
+    }
+
+    function foundA(c) {
+        if (c === "b")
+            return foundB;
+        else
+            return start(c);
+    }
+
+    function foundB(c) {
+        if (c === "a")
+            return foundA2;
+        else
+            return start(c);
+    }
+
+    function foundA2(c) {
+        if (c === "b")
+            return foundB2;
+        else
+            return start(c);
+    }
+
+    function foundB2(c) {
+        if (c === "a")
+            return foundA3;
+        else
+            return start(c);
+    }
+
+    function foundA3(c) {
+        if (c === "b")
+            return foundB3;
+        else
+            return start(c);
+    }
+
+    function foundB3(c) {
+        if (c === "x")
+            return end;
+        else
+            return foundB2(c);
+    }
+
+    console.log(match1("I   abababx"));
+    console.log(match1("I ababababx"));
+
+</script>
+
+<script>
+    // 可选作业：我们如何用状态机处理完全未知的 pattern？
+    // （参考资料：字符串KMP算法 https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm）
+    // 要求大家不要用循环的KMP算法
+
+
+</script>
+
+

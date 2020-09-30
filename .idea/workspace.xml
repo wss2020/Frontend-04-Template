@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="js 表达式">
+    <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Week_06---浏览器工作原理/1.浏览器总论/浏览器工作原理.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_06---浏览器工作原理/2.状态机/1 有限状态机.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_06---浏览器工作原理/2.状态机/2 不使用状态机处理字符串（一）.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_06---浏览器工作原理/2.状态机/3 不使用状态机处理字符串（二）.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_06---浏览器工作原理/2.状态机/4 不使用状态机处理字符串（三）.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_06---浏览器工作原理/2.状态机/5 使用状态机处理字符串（一）.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_06---浏览器工作原理/2.状态机/6 使用状态机处理字符串（二）.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_06---浏览器工作原理/3.HTTP请求/1 HTTP的协议解析.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_06---浏览器工作原理/3.HTTP请求/2 服务器环境准备.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_06---浏览器工作原理/3.HTTP请求/3 实现一个HTTP的请求.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_06---浏览器工作原理/3.HTTP请求/4 send函数的编写，了解response格式.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_06---浏览器工作原理/3.HTTP请求/5 发送请求.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_06---浏览器工作原理/3.HTTP请求/6 response解析.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_06---浏览器工作原理/3.HTTP请求/7 response body的解析.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week_05---重学JavaScript/2. JS语句/声明.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_05---重学JavaScript/2. JS语句/声明.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week_06---浏览器工作原理/1.浏览器总论/浏览器工作原理总论.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_06---浏览器工作原理/1.浏览器总论/浏览器工作原理总论.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week_03--编程与算法/proxy与双向绑定/6.reactivity响应式对象.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_03--编程与算法/proxy与双向绑定/6.reactivity响应式对象.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,26 +45,26 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Week_05---重学JavaScript/2. JS语句" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Week_06---浏览器工作原理/3.HTTP请求" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Week_05---重学JavaScript/2. JS语句" />
-      <recent name="$PROJECT_DIR$/Week_05---重学JavaScript" />
-      <recent name="$PROJECT_DIR$/Week_03--编程与算法/proxy与双向绑定" />
-      <recent name="$PROJECT_DIR$/Week_03--编程与算法/字符串分析算法" />
-      <recent name="$PROJECT_DIR$/Week_02/使用LL算法构建AST" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Week_06---浏览器工作原理/1.浏览器总论" />
       <recent name="$PROJECT_DIR$/Week_05---重学JavaScript/3. JS结构化" />
       <recent name="$PROJECT_DIR$/Week_05---重学JavaScript/1. JS表达式" />
       <recent name="$PROJECT_DIR$/Week_04--重学JavaScript/3.JS对象" />
       <recent name="$PROJECT_DIR$/Week_04--重学JavaScript/2.JS类型" />
-      <recent name="$PROJECT_DIR$/Week_04--重学JavaScript/1.JS语言通识" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Week_06---浏览器工作原理/3.HTTP请求" />
+      <recent name="$PROJECT_DIR$/Week_05---重学JavaScript/2. JS语句" />
+      <recent name="$PROJECT_DIR$/Week_05---重学JavaScript" />
+      <recent name="$PROJECT_DIR$/Week_03--编程与算法/proxy与双向绑定" />
+      <recent name="$PROJECT_DIR$/Week_03--编程与算法/字符串分析算法" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.test.js (4)">
@@ -148,14 +161,13 @@
       <workItem from="1601206248380" duration="155000" />
       <workItem from="1601206405861" duration="1929000" />
       <workItem from="1601211269694" duration="5343000" />
-      <workItem from="1601219545130" duration="504000" />
-    </task>
-    <task id="LOCAL-00012" summary="寻路">
-      <created>1599197079793</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1599197079793</updated>
+      <workItem from="1601219545130" duration="605000" />
+      <workItem from="1601284516608" duration="163000" />
+      <workItem from="1601296836535" duration="4877000" />
+      <workItem from="1601378585507" duration="459000" />
+      <workItem from="1601382281429" duration="8057000" />
+      <workItem from="1601422403602" duration="2468000" />
+      <workItem from="1601453644182" duration="422000" />
     </task>
     <task id="LOCAL-00013" summary="寻路">
       <created>1599209952781</created>
@@ -493,7 +505,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601212179819</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="js 表达式">
+      <created>1601220130100</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1601220130100</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -511,13 +530,13 @@
     <option name="LAST_COMMIT_MESSAGE" value="js 表达式" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="185" y="23" key="CommitChangelistDialog2" timestamp="1601215465177">
+    <state x="185" y="23" key="CommitChangelistDialog2" timestamp="1601220129868">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="-1430" y="-28" key="CommitChangelistDialog2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599786844748" />
     <state x="368" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818025606" />
     <state x="1930" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1600496785691" />
-    <state x="185" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1601215465177" />
+    <state x="185" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1601220129868" />
     <state x="117" y="100" key="DiffContextDialog" timestamp="1601215463726">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -594,40 +613,40 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1414" height="270" key="GridCell.Tab.3.right/0.23.1440.877@0.23.1440.877" timestamp="1601218959406" />
-    <state x="2119" y="118" key="RollbackChangesDialog" timestamp="1600493354717">
-      <screen x="1440" y="23" width="1920" height="1057" />
+    <state x="509" y="102" key="RollbackChangesDialog" timestamp="1601383081879">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="2119" y="118" key="RollbackChangesDialog/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1600493354717" />
-    <state x="509" y="102" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1600441317264" />
-    <state x="374" y="142" key="Vcs.Push.Dialog.v2" timestamp="1601212181498">
+    <state x="509" y="102" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1601383081879" />
+    <state x="374" y="142" key="Vcs.Push.Dialog.v2" timestamp="1601220132178">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="-1422" y="115" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599786846921" />
     <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818026674" />
     <state x="1938" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1600496787132" />
-    <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1601212181498" />
-    <state x="622" y="23" width="1007" height="817" key="dock-window-1" timestamp="1601217350452">
+    <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1601220132178" />
+    <state x="664" y="54" width="790" height="731" key="dock-window-1" timestamp="1601422952518">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="1613" y="23" width="1747" height="997" key="dock-window-1/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818005926" />
     <state x="1613" y="23" width="1747" height="997" key="dock-window-1/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599819155994" />
-    <state x="622" y="23" width="1007" height="817" key="dock-window-1/0.23.1440.877@0.23.1440.877" timestamp="1601217350452" />
-    <state x="777" y="38" width="1160" height="817" key="dock-window-2" timestamp="1601092246532">
+    <state x="664" y="54" width="790" height="731" key="dock-window-1/0.23.1440.877@0.23.1440.877" timestamp="1601422952518" />
+    <state x="477" y="40" width="972" height="817" key="dock-window-2" timestamp="1601383394624">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="777" y="38" width="1160" height="817" key="dock-window-2/0.23.1440.877@0.23.1440.877" timestamp="1601092246532" />
-    <state x="640" y="23" width="949" height="817" key="dock-window-3" timestamp="1601092933250">
+    <state x="477" y="40" width="972" height="817" key="dock-window-2/0.23.1440.877@0.23.1440.877" timestamp="1601383394624" />
+    <state x="620" y="36" width="972" height="817" key="dock-window-3" timestamp="1601384315017">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="640" y="23" width="949" height="817" key="dock-window-3/0.23.1440.877@0.23.1440.877" timestamp="1601092933250" />
-    <state x="515" y="73" width="949" height="817" key="dock-window-4" timestamp="1601103941068">
+    <state x="620" y="36" width="972" height="817" key="dock-window-3/0.23.1440.877@0.23.1440.877" timestamp="1601384315017" />
+    <state x="210" y="83" width="972" height="817" key="dock-window-4" timestamp="1601387571933">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="515" y="73" width="949" height="817" key="dock-window-4/0.23.1440.877@0.23.1440.877" timestamp="1601103941068" />
-    <state x="560" y="57" width="949" height="817" key="dock-window-5" timestamp="1601107448122">
+    <state x="210" y="83" width="972" height="817" key="dock-window-4/0.23.1440.877@0.23.1440.877" timestamp="1601387571933" />
+    <state x="291" y="23" width="972" height="862" key="dock-window-5" timestamp="1601390522472">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="560" y="57" width="949" height="817" key="dock-window-5/0.23.1440.877@0.23.1440.877" timestamp="1601107448122" />
+    <state x="291" y="23" width="972" height="862" key="dock-window-5/0.23.1440.877@0.23.1440.877" timestamp="1601390522472" />
     <state x="558" y="23" width="949" height="817" key="dock-window-6" timestamp="1601121917055">
       <screen x="0" y="23" width="1440" height="877" />
     </state>

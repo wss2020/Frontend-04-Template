@@ -1,0 +1,39 @@
+<!--
+在一个字符串中，找到字符 "ab"
+
+解答： 不能用正则表达式，因为我们今天在讲有限状态机处理字符串，而正则表达式大部分的时候是可以用，
+有限状态机去实现的，所以我们在讲一个比正则表达式更底层的东西。 所以这里我们为了给大家展示有限状态机，
+他是怎么样去处理字符串，那么我们这里要求大家，不准用更高级的正则表达式。
+-->
+
+<script>
+    function match(string){
+        let foundA = false;
+        for(let c of string){
+            if(c == "a")
+                foundA = true;
+            else if(foundA && c == "b")
+                return true;
+            else
+                foundA = false;
+        }
+        return false;
+    }
+    console.log(  match("I acbm groot")   );
+</script>
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>

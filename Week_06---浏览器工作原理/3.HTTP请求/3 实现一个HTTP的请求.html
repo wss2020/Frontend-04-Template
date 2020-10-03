@@ -1,3 +1,110 @@
+<script>
+    const net = require("net");
+
+    class Request {
+        constructor(options) {
+            this.method = options.method || "GET";
+            this.host = options.host;
+            this.port = options.port || 80;
+            this.path = options.path || "/";
+            this.body = options.body || {};
+            this.headers = options.headers || {};
+            if(!this.headers["Content-Type"]){
+                this.headers["Content-Type"] = "application/x-www-form-urlencoded";
+            }
+
+            if(this.headers["Content-Type"] === "application/json")
+                this.bodyText = JSON.stringify(this.body);
+            else if(this.headers["Content-Type"] === "application/x-www-form-urlencoded")
+                this.bodyText = Object.keys(this.body)
+                                      .map(key => `${key}=${encodeURIComponent(this.body[key])}`)
+                                      .join('&');
+            this.headers["Content-Length"] = this.bodyText.length;
+        }
+
+        send(){
+            return new Promise((resolve,reject)=>{
+                 // ....
+            })
+        }
+    }
+
+    void async function () {
+        let request = new Request({
+            method: "POST",
+            host: "127.0.0.1",
+            port: "8080",
+            path: "/",
+            headers: {
+                ["X-Foo2"]: "customed"
+            },
+            body: {
+                name: "winter"
+            }
+        });
+        let response = await request.send();
+        console.log(response);
+    }();
+</script>
+<!--
+实现一个HTTP 的请求
+我们的 HTTP 请求，首先我们可以从它的用法上开始去设计，我一般去实现一些基础库的时候，都会
+习惯先从它的使用，开始去设计它的接口的形式，我这里设计了这样的一个两步式的这样的一个结构，
+当我们去创建 HTTP 请求的时候，我们回传一个 config object 进去，然后当请求结束，我们的
+请求会调用一个 send 方法，send 方法会返回一个 promise ,这个 promise 成功之后它就会
+得到一个 response 对象，我们会采用这样的一个结构，然后 request 的 config 里面，它会有
+几个属性，有 method 属性，刚才咱们也讲了，HTTP 它的一部分，然后免不了还是要有 host 属性，
+host 属性是来自 IP 层的，当然也有 port 属性是来自 TCP 层，然后他还会有 path 路径，这些
+method 和 path 都是 HTTP 协议要求的，然后 host 和 port 分别是 IP 和 TCP 协议要求的，
+然后还是 HTTP 的内容就是它的 headers ，我们可以用一些自己的方式去描述 headers ，我们这
+里选择了使用 JS 对象来描述 headers ，然后body 那么我们同样是用 JS 对象，采用键值对的方
+式来描述这个 headers ，大概的用法可能就是变成这样.
+-->
+<!--
+然后接下来我们来看一看 Request 这个类是怎么实现的，
+我们会在这个 constructor 里面，把这个 options 对象把它都存起来，其实无非就是
+一个属性的拷贝，然后我们在 send 的时候，我们就会去 return 一个 new Promise,
+然后我们需要存的属性就有 method ，在存的同时，我们肯定还是要给它一个默认值，比如
+说 method 我给的默认值是 GET ,
+host 我们没有办法给默认值，
+然后port 的话，我们默认是80，因为 HTTP 协议的默认端口就是 80，
+然后 path 的话默认是斜杠，
+body 那么默认就是个空对象了
+   headers 我们创建一个新的这样的对象，然后我们要注意，在 HTTP 协议里面是一定需
+要有 Content-Type 这个 header 的，否则的话它的body 是没有办法解析的，在这里
+我们给它一个默认的值，然后这个 body 它是需要经过一些编码的，这里我们会给出来2种
+最简单的编码格式，其实大概有4种比较常用的编码格式，我们会用 Content-Type
+是 application/json ，这个我们就把 body 给 stringify 一下，如果它是
+application/form 结构，它是一个以 & 符来分割的，这个 key 在等号左 value 在
+等号右的这样的一个结构，而等号的右边的值是需要经过 encodeURIComponent 的这样的
+一个操作的，这就是一个简单的 HTTP 的保存了，
+   最后还有一个必要的 header ,这个 header 不太推荐设计成可以从外面传，那么他一
+定是从 body 的 text 里面，最后取一个 length 出来，这也会被默认写到 headers ,
+如果 Content-Length 传的不对的话，这也是 HTTP 协议的请求，会是一个非法的请求，
+
+那么其实这一步非常的简单，其实我们 require 了一个 net ，但是还并没有用上，我们
+这一步其实就是把 options 里面，传进来的数据给它稍微做了一些整理，然后补全了两个
+东西，一个是 Content-Type ,一个是 Content-Length ,这就是我们 request 现
+在的第一个步骤了。  可以运行试试
+-->
+
+<!--
+接下来是send 里面的逻辑，我们这里只用了一个空的这样的一个 Promise ，等一下我们再
+来往 send 里面去添加逻辑。
+-->
+
+<!--
+总结HTTP 请求的部分实现
+    首先我们是从设计一个 HTTP 请求的类，我们会先从它的使用角度去设计它，
+    然后我们content type 是一个必要的字段，要有默认值，
+    然后 HTTP 请求的 body ，它也是一种 KV 的格式，
+    然后不同的 content-type 对 body 的格式会有一个比较多的影响，
+    最后同时最后它还会有一个 Content-Length ,
+
+    这是我们 HTTP 请求的第一步要实现的代码。
+-->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -1,10 +1,133 @@
+<script>
+    const net = require("net");
+
+    class Request {
+        constructor(options) {
+            this.method = options.method || "GET";
+            this.host = options.host;
+            this.port = options.port || 80;
+            this.path = options.path || "/";
+            this.body = options.body || {};
+            this.headers = options.headers || {};
+            if(!this.headers["Content-Type"]){
+                this.headers["Content-Type"] = "application/x-www-form-urlencoded";
+            }
+
+            if(this.headers["Content-Type"] === "application/json")
+                this.bodyText = JSON.stringify(this.body);
+            else if(this.headers["Content-Type"] === "application/x-www-form-urlencoded")
+                this.bodyText = Object.keys(this.body)
+                    .map(key => `${key}=${encodeURIComponent(this.body[key])}`)
+                    .join('&');
+            this.headers["Content-Length"] = this.bodyText.length;
+        }
+
+        send(){
+            return new Promise((resolve,reject)=>{
+                 const parser = new ResponseParser;
+                 resolve("");
+            })
+        }
+    }
+
+    class ResponseParser {
+        constructor() {
+        }
+        receive(string){
+            for(let i=0; i<string.length; i++){
+                this.receiveChar(string.charAt(i));
+            }
+        }
+        receiveChar(char){
+
+        }
+    }
+
+    void async function () {
+        let request = new Request({
+            method: "POST",
+            host: "127.0.0.1",
+            port: "8080",
+            path: "/",
+            headers: {
+                ["X-Foo2"]: "customed"
+            },
+            body: {
+                name: "winter"
+            }
+        });
+        let response = await request.send();
+        console.log(response);
+    }();
+</script>
+
 <!--
 接收到了这个信息，我们可以开始进入到第二步，send 函数的编写了，我们编写 send 函数，因为它是一个
 Promise 的形式，所以在send 的过程中，会逐步的收到 response ，知道最后我们把 response 构造
 好之后，我们再去让 Promise 得到 resolve ,因为这个过程它是会逐步的收到信息的，所以我们有必要
-去设计一个，response parser 
+去设计一个，response parser, 而不是直接设计一个response 类，这样 parser 它可以通过逐步地
+去接收 response 的信息，然后来构造 response 的对象，各个不同的部分，这里我为了让这个代码能够
+执行起来，我们就直接给它 resolve 掉了，
+
+这里面重点就是我们需要创建一个 ResponseParser 这样的一个类，接下来我们来设计一下 ResponseParser ，
+ResponseParser 既然它是逐步地去接收 response 的文本，然后并且进行分析的，那么我们就会设计一个
+receive 的这样的一个接口，它会接收一个字符串，我们这里不想跟 node 有太深的关联，所以我们这里用了
+一个 receive 函数，而 receive 函数，就会接收这样的一个字符串，然后我们会对这个字符串像状态机那样的
+追个的去处理，所以这里我们也向上次的课程里面状态机那样，我弄了一个循环，去访问它的 string 里面的每一
+个字符，这里我就用了一个正常的 for 循环，而让它 receiveChar ，receiveChar 里面应该就是我们的
+状态机的代码了，在稍后会用状态机的代码实现 receiveChar 的逻辑，这里就是我们的第二个里程碑了。
+
+稍微总结第二步：
+    在 Request 的构造器中收集必要的信息
+    设计一个 send 函数，把请求真实发送到服务器
+    send 函数应该是异步的，所以返回Promise
+
+  第二步做的事情不多，在 Request 的构造器中收集必要的信中，我们已经收集完了必要的信息，所以接下来我们
+就会设计一个 send 函数，然后来把这些已经收集到的信息给它，真实地发送到服务器，而这个 send 函数应该是
+一个异步的，所以它会返回一个 promise 。
+-->
+
+
+<!--
+  接下来第三步之前，我们有必要了解一下 response 的格式了，因为接下来第三步，我们要正式地进入到，HTTP 的
+response 的 parse.
+
+HTTP response
+    HTTP/1.1 200 OK
+    Content-Type: text/html
+    Date: Mon,23 Dec 2019 06:46:19 GMT
+    Connection: keep-alive
+    Transfer-Encoding: chunked
+
+    26
+    <html><body> Hello World </body></html>
+    0
+
+  HTTP response 的第一行  HTTP/1.1 200 OK，它会返回一个叫做 status line 的这样的一个东西，status line
+它也是包含三个部分，跟 request line 正好相反，它开头是 HTTP 协议的版本号，然后它的第二部分是一个数字，它叫做
+HTTP 的状态码，第三部分叫做 HTTP 的状态文本，第一部分它实际上相当于一个固定的字符串，没有什么用处，但是 HTTP
+状态码这就是一个非常重要的知识点了，我相信有不少同学应该要么自己亲身经历过，面试中被问 HTTP 状态码，要么在网上
+看到有一些面试题，有些面试官很喜欢用 HTTP 状态码，比较有名的状态码有 500系列，这个服务器内部错误，有 404 找不
+到网页，然后当然了 200 是大家最喜欢的结果，就是 OK 有这个网页，我把网页的内容返回给你，然后还有一些像 301 302
+304 ，这都是一些比较有名的 HTTP 的状态码，也是需要大家去掌握的，那么我们这里如果作为一个浏览器的话，HTTP 的状
+态码对我们来说也是具有一定的指导意义的，但是作为我们的 toy browser ，我们可以认为大多数情况状态码都会返回200，
+不返回 200 ，我们就直接当做它抛错好了，事实上 3相关的是我们需要进一步去处理，
+  接下来紧随着 status line 的，仍然是一个 header 部分，HTML 的 request 和 response 都是包含 header 的，
+它的格式跟 request 是完全一样的，
+  接下来仍然是一个空行分隔，
+  后面是 body ,而这个body 的格式，那么它也是由 content type 决定的，这里有一种比较典型的格式叫做 chunked body ,
+这是 node 默认返回的这样的一种body 的格式， chunked body 它是由一个，首先是由一个十六进制的这样的一个数字，单独占
+一行，然后后面跟着内容部分，然后再后面它又会有一个十六进制的数字，直到最后一个十六进制的0 跟十进制的0 是一个0，那么它
+最后会得到空的 chunk ,那么这个 0 之后就是整个的 body 的结尾了，因为body 里面是允许任何字符的，所以说它会用这种方式
+来切分 body 的内容，任何的特殊字符都不能够隔离 response 的 body ,所以这样我们就讲完了 response 的 body .
+
+
+
+
 
 -->
+
+
 
 
 

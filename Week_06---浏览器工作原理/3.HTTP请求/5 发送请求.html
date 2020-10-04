@@ -1,10 +1,132 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<script>
+    const net = require("net");
 
-</body>
-</html>
+    class Request {
+        constructor(options) {
+            this.method = options.method || "GET";
+            this.host = options.host;
+            this.port = options.port || 80;
+            this.path = options.path || "/";
+            this.body = options.body || {};
+            this.headers = options.headers || {};
+            if(!this.headers["Content-Type"]){
+                this.headers["Content-Type"] = "application/x-www-form-urlencoded";
+            }
+
+            if(this.headers["Content-Type"] === "application/json")
+                this.bodyText = JSON.stringify(this.body);
+            else if(this.headers["Content-Type"] === "application/x-www-form-urlencoded")
+                this.bodyText = Object.keys(this.body)
+                    .map(key => `${key}=${encodeURIComponent(this.body[key])}`)
+                    .join('&');
+            this.headers["Content-Length"] = this.bodyText.length;
+        }
+
+        send(connection){
+            return new Promise((resolve,reject)=>{
+                const parser = new ResponseParser;
+                if(connection){
+                    connection.write(this.toString());
+                }else{
+                    connection = net.createConnection({
+                        host: this.hose,
+                        port: this.port,
+                    },()=>{
+                        connection.write(this.toString());
+                    })
+                }
+                connection.on('data',(data)=>{
+                    console.log(data.toString());
+                    parser.receive(data.toString());
+                    if(parser.isFinished){
+                        resolve(parser.response);
+                        connection.end();
+                    }
+                })
+                connection.on('err',(err)=>{
+                    reject(err);
+                    connection.end();
+                })
+            })
+        }
+
+        toString(){
+            return `${this.method} ${this.path} HTTP/1.1\r
+            ${Object.keys(this.headers).map(key=> `${key}: ${this.headers[key]}`).join('\r\n')}\r
+            \r
+            ${this.bodyText}
+            `
+        }
+    }
+
+    class ResponseParser {
+        constructor() {
+        }
+        receive(string){
+            for(let i=0; i<string.length; i++){
+                this.receiveChar(string.charAt(i));
+            }
+        }
+        receiveChar(char){
+
+        }
+    }
+
+    void async function () {
+        let request = new Request({
+            method: "POST",
+            host: "127.0.0.1",
+            port: "8080",
+            path: "/",
+            headers: {
+                ["X-Foo2"]: "customed"
+            },
+            body: {
+                name: "winter"
+            }
+        });
+        let response = await request.send();
+        console.log(response);
+    }();
+</script>
+
+<!--
+   接下来我们进行下一步，第三步发送请求，这也是代码里面比较重要的一个部分，我们把实际的把 HTTP 请求发送出去到我们的服务端，
+我们发送请求主要的目标是补全 send 里面的代码，这里我也做了一点小小的设计，首先我们是会去接受一个，connection 参数，
+这样我们就可以在一个已经建立好的 TCP 连接上把我们的请求发送出去，如果这个连接没有传呢？那么我们就会自己根据传进来的
+host 和 port 去创建一个新的 TCP 连接；
+   然后我们来看看 Promise 里面的代码，我们首先检查 connection ，如果这个 connection 存在的话，那么我们就直接把
+自己的 toString write 上去，这个 toString 里面的代码我们稍后会看，总之就是把我们已经收集到的信息，按照我们前面讲的
+request 的格式，给它写进去发送出去；
+   然后接下来是我们的 createConnection 的环节，我们会通过 createConnection 创建一个 TCP 连接，如果说这个参数
+没有传的话，我们就会创建一个新的 TCP 连接，然后 host 和 port 都是根据，我们在构造函数里收到的内容，如果说创建成功了，
+执行 createConnection 的回调，然后我们就会把自己的内容写进去，我们会监听 connection 的 data , 然后这里我们当然
+还是要打印出来自己看一下，然后我们就原封不动的把它变成字符串，传给 parser 就可以了，而如果 parser 已经结束的话，那么
+我们就会执行 resolve ，把整个的 Promise 结束掉，然后最后不要忘记把我们的 connection 本身给它关起来，然后还有我们
+的 on error ,如果说遇到错误的话，我们就会 reject 整个的 Promise ，然后最后也是会把 connection 给它关掉，这样
+能够防止我们明明已经出错，还占着连接的这样的一种情况，我们来看一下这里 this.toString 的实现，
+
+this.toString  那么它的第一行就是 method path 和 HTTP/1.1 ,这跟我们前面讲的 request
+的模型是一摸一样的，然后接下来每个 header 是一行，那么所以说我们会给它一个 \r\n 的这样的
+一个分隔符来做 join ,然后那么跟我们前面去处理 header 的方法差不多，我们会调用一次 Object.keys
+把header 的所有的 key 都给它取出来，然后我们做一次 map ,map 到一个字符串，这是一个字符串
+模版，它是由冒号分隔的，然后左边是 key ,右边是 value ,这样我们就可以把它第二部分就发送出去了，
+最后我们还是在后面加上 \r\n ，两个空白行，然后我们最后把 bodyText 给它发送出去，这样我们就
+完成了发送数据的整个的过程，
+
+总结第三步  发送请求
+    设计支持已有的 connection 或者自己新建connection
+    收到数据传给 parser
+    根据parser 的状态 resolve Promise
+
+
+    我们send 其实是第三步发送请求，这里有一个要点，设计支持已有的 connection 或者自己新建connection，
+两种模式都要支持，然后我们收到数据是把它原封不动的传给 parser 就可以了，然后我们根据parser
+的状态去 resolve Promise ,这就是我们整个发送请求的异步函数的设计了。
+
+
+-->
+
+
+
+

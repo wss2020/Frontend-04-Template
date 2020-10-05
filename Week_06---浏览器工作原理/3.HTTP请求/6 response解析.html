@@ -181,10 +181,18 @@ WAITING_HEADER_BLOCK_END 的状态，
     然后如果说 block end 等到了，那么我们就会进入到 waiting body 的一个状态，这个地方我们还是需要进行一些额外的特殊处理的，
 这一步我们暂时不做，下面大家跑起来这个 ResponseParser 。
 
-->
+-->
 
 
+<!--
+第四步  ResponseParser 总结
+    Response 必须分段构造，所以我们要用一个 ResponseParser 来"装配"
+    ResponseParser 分段处理 ResponseText ，我们用状态机来分析文本的结构
 
+
+    接下来我们来看看状态机的一个高级的应用技巧，如何去处理 ResponseParse 的body.
+
+-->
 
 
 

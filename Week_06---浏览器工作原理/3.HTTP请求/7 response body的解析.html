@@ -1,10 +1,271 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<script>
+    const net = require("net");
+    class Request {
+        constructor(options) {
+            this.method = options.method || "GET";
+            this.host = options.host;
+            this.port = options.port || 80;
+            this.path = options.path || "/";
+            this.body = options.body || {};
+            this.headers = options.headers || {};
+            if(!this.headers["Content-Type"]){
+                this.headers["Content-Type"] = "application/x-www-form-urlencoded";
+            }
 
-</body>
-</html>
+            if(this.headers["Content-Type"] === "application/json")
+                this.bodyText = JSON.stringify(this.body);
+            else if(this.headers["Content-Type"] === "application/x-www-form-urlencoded")
+                this.bodyText = Object.keys(this.body)
+                    .map(key => `${key}=${encodeURIComponent(this.body[key])}`)
+                    .join('&');
+            this.headers["Content-Length"] = this.bodyText.length;
+        }
+
+        send(connection){
+            return new Promise((resolve,reject)=>{
+                const parser = new ResponseParser;
+                if(connection){
+                    connection.write(this.toString());
+                }else{
+                    connection = net.createConnection({
+                        host: this.host,
+                        port: this.port,
+                    },()=>{
+                        connection.write(this.toString());
+                    })
+                }
+                connection.on('data',(data)=>{
+                    console.log(data.toString());
+                    parser.receive(data.toString());
+                    if(parser.isFinished){
+                        resolve(parser.response);
+                        connection.end();
+                    }
+                })
+                connection.on('err',(err)=>{
+                    reject(err);
+                    connection.end();
+                })
+            })
+        }
+
+        toString(){
+            return `${this.method} ${this.path} HTTP/1.1\r
+            ${Object.keys(this.headers).map(key=> `${key}: ${this.headers[key]}`).join('\r\n')}\r
+            \r
+            ${this.bodyText}
+            `
+        }
+    }
+
+    class ResponseParser {
+        constructor() {
+            this.WAITING_STATUS_LINE = 0;
+            this.WAITING_STATUS_LINE_END = 1;
+            this.WAITING_HEADER_NAME = 2;
+            this.WAITING_HEADER_SPACE = 3;
+            this.WAITING_HEADER_VALUE = 4;
+            this.WAITING_HEADER_LINE_END = 5;
+            this.WAITING_HEADER_BLOCK_END = 5;
+            this.WAITING_BODY = 7;
+
+            this.current = this.WAITING_STATUS_LINE;
+            this.statusLine = "";
+            this.headers = {};
+            this.headerName = "";
+            this.headerValue = "";
+            this.bodyParser = null;
+        }
+        get isFinished(){
+            return this.bodyParser && this.bodyParser.isFinished;
+        }
+        get response(){
+            this.statusLine.match(/HTTP\/1.1 ([0-9]+) ([\s\S]+)/);
+            return {
+                statusCode: RegExp.$1,
+                statusText: RegExp.$2,
+                headers: this.headers,
+                body: this.bodyParser.content.join('.');
+            }
+        }
+        receive(string){
+            for(let i=0; i<string.length; i++){
+                this.receiveChar(string.charAt(i));
+            }
+        }
+        receiveChar(char){
+            if(this.current === this.WAITING_STATUS_LINE){
+                if(char === '\r'){
+                    this.current  = this.WAITING_HEADER_LINE_END;
+                }else{
+                    this.statusLine += char;
+                }
+            }else if(this.current === this.WAITING_STATUS_LINE_END){
+                if(char === '\n'){
+                    this.current  = this.WAITING_HEADER_NAME;
+                }
+            }else if(this.current === this.WAITING_HEADER_NAME){
+                if(char === ':'){
+                    this.current = this.WAITING_HEADER_SPACE;
+                }else if(char === '\r'){
+                    this.current = this.WAITING_HEADER_BLOCK_END;
+                    if(this.headers['Transfer-Encoding'] === 'chunked')
+                        this.bodyParser = new TrunkedBodyParser();
+                }else{
+                    this.headerName += char;
+                }
+            }else if(this.current === this.WAITING_HEADER_VALUE){
+                if(char === '\r'){
+                    this.current = this.WAITING_HEADER_LINE_END;
+                    this.headers[this.headerName] = this.headerValue;
+                    this.headerName = "";
+                    this.headerValue = "";
+                }else{
+                    this.headerValue += char;
+                }
+            }else if(this.current === this.WAITING_HEADER_SPACE){
+                if(char === ' '){
+                    this.current = this.WAITING_HEADER_VALUE;
+                }
+            }else if(this.current === this.WAITING_HEADER_VALUE){
+                if(char === '\r'){
+                    this.current = this.WAITING_HEADER_LINE_END;
+                    this.headers[this.headerName] = this.headerValue;
+                    this.headerName = "";
+                    this.headerValue = "";
+                }else{
+                    this.headerValue += char;
+                }
+            }else if(this.current === this.WAITING_HEADER_LINE_END){
+                if(char === '\n'){
+                    this.current = this.WAITING_HEADER_NAME;
+                }
+            }else if(this.current === this.WAITING_HEADER_BLOCK_END){
+                if(char === '\n'){
+                    this.current = this.WAITING_BODY;
+                }
+            }else if(this.current === this.WAITING_BODY){
+                this.bodyParser.receiveChar(char);
+            }
+        }
+    }
+
+    class TrunkedBodyParser{
+        constructor() {
+            this.WAITING_LENGTH = 0;
+            this.WAITING_LENGTH_LINE_END = 1;
+            this.READING_TRUNK = 2;
+            this.WAITING_NEW_LINE = 3;
+            this.WAITING_NEW_LINE_END = 4;
+            this.length = 0;
+            this.content = [];
+            this.isFinished = false;
+            this.current = this.WARING_LENGTH;
+        }
+        receiveChar(char){
+            if(this.current === this.WAITING_LENGTH){
+                if(char === '\r'){
+                    if(this.length === 0){
+                        this.isFinished = true;
+                    }
+                    this.current = this.WAITING_LENGTH_LINE_END;
+                }else{
+                    this.length *= 16;
+                    this.length += parseInt(char,16);
+                }
+            }else if(this.current === this.WAITING_LENGTH_LINE_END){
+                // console.log("WAITING_LENGTH_LINE_END");
+                if(char === '\n'){
+                    this.current = this.READING_TRUNK;
+                }
+            }else if(this.current === this.READING_TRUNK){
+                this.content.push(char);
+                this.length--;
+                if(this.length === 0){
+                    this.current = this.WAITING_NEW_LINE;
+                }
+            }else if(this.current === this.WAITING_NEW_LINE){
+                if(char === '\r'){
+                     this.current = this.WAITING_NEW_LINE_END;
+                }
+            }else if(this.current === this.WAITING_LENGTH_LINE_END){
+                if(char === '\n'){
+                    this.current = this.WAITING_LENGTH;
+                }
+            }
+        }
+    }
+
+    void async function () {
+        let request = new Request({
+            method: "POST",
+            host: "127.0.0.1",
+            port: "8080",
+            path: "/",
+            headers: {
+                ["X-Foo2"]: "customed"
+            },
+            body: {
+                name: "winter"
+            }
+        });
+        let response = await request.send();
+        console.log(response);
+    }();
+</script>
+
+
+<!--
+    接下来我们进行最后一步，response body 的解析，response body 它不是一个固定格式的解析，所以我们需要用到一点点的技巧，接下来我们来看一看
+我的代码，在我的 ResponseParser 最后一步，我们首先给它加上一个 bodyParser 这样的一个变量，我的的总体思路当找到 WAITING_BODY 状态的时候，
+我们就一股脑的把 character ，全都塞给 bodyParser 去处理，然后我们去创建 bodyParser ，定义一个 bodyParser，因为body 的状态它是一个非常
+奇特的一个设计，它跟 head 的相关，所以我们没有办法在一开始创建 ResponseParser 的时候就 直接创建好 bodyParser ,在什么时机，那么也是在我们
+状态机的这样的一个状态里面，它在我们的 head 的结束的状态，就是 WAITING_HEADER_NAME ，遇到 \r 就是找到 block end 的状态的时候，这个时候
+所有的 header 都已经收到了，这个时候我们要到 header 里面去找 Transfer-Encoding ,Transfer-Encoding 它可以有各种不同的值，这里我们不
+展开，但是node 的默认的值就是 chunked ,所以这里我们作为 toy browser 的这样的一个案例，
+
+我们就用 TrunkedBodyParser ,来演示如何编写一个BodyParser， 这个地方实际上可以是一个 if-else 的，这样的一个多个 if-else 的这样的一个结构，
+我们看看 TrunkedBody parser ,我们应该去怎么定义，其实他 TrunkedBodyPa  rser 跟我们的 ResponseParser 非常的相似，所谓 trunked body ,
+它的结构是一个长度后面跟着一个 Trunk 的内容，被成为一个 trunk ,遇到一个长度为 0 的trunk， 那么就整个的 body 就结束了，所以我们会规定一个
+WAITING_LENGTH 和一个 WAITING_LINE_END 两个状态，然后来处理长度的这样的号，
+    然后接下来我们就要做一些非 常规操作了，我们这个地方有一个 READING_TRUNK 的这样的状态，但是这个状态其实它要想退出 READING_TRUNK 的状态，
+我们必须要去等待这个长度，我们必须是要去计算 Trunk 里面的长度的，所以严格来说，这个东西已经不是一个严格的 米利状态机了，但是这样仍然是一个可以跑
+起来的这样的状态机，我们不必去纠结学术上的概念，我们用读回来的 length ,然后在这个地方去计数，因为为什么这个地方 READING_TRUNK ，没有办法用一个
+什么输入，然后来标志它的结束呢，正是因为 Trunk 里面它可以含有任何的字符，所以我们只能用一个预先读出来的长度来控制这个 Trunk 的大小，
+    然后最后Trunk 后面肯定还有 new line ,所以我们在 WAITING_LENGTH 状态，那么跟前面的 waiting 状态都是差不多的，如果说找到一个 \r 的时候，
+说明我们已经读到了一个 length ,这个时候如果 length 它等于 0，说明我们遇到了一个长度为 0 的 Trunk ,那么我们就会给 this.isFinished 状态置为
+true，然后来告诉上级的 parser ，说我们已经结束了，然后否则我们就会给它切换到 WAITING_LENGTH_LINE_END 的状态，然后如果说在读 length 的过程
+中，因为 length 是个十六进制，所以说我们要给原来的值乘以 16，把最后一位空出来，然后再把最后读进来的这一位给它加上去，我们就用简单的用
+parseInt(char,16) 就可以了，这样就可以把它解析好了，
+    然后其它的都是一个常规的状态机的操作，WAITING_LENGTH_LINE_END 跟前面的一摸一样，都是用来处理 \r\n 这种双换行符的，READING_TRUNK 我们就
+需要去稍微特殊的处理了，那么当然了，首先 Trunk 里面的字符我们要把它存起来，然后我们就会给 length 给它减掉，如果 length 变成 0 了的话，我们就会
+直接给它一个切换，这个时候会切换状态 WAITING_NEW_LINE ，这个时候应该说它已经超出了米利型状态机的这个可操作的范围了，但是这个算法在这里还比较和谐
+的，如果是最后等待新行的过程，没有什么特殊的逻辑，这就是我们的 TrunkedBodyParser ,然后运行看效果。
+-->
+
+<!--
+第五步 BodyParser 总结
+    Response 的body 可能根据 Content-Type 有不同的结构，因此（这里用了一个技巧）我们会采用子 Parser 的结构来解决问题
+    以 TrunkBodyParser 为例，我们同样用状态机来处理 body 的格式
+
+    注意：我们以 TrunkBodyParser 为例 ，但是大家不要以为所有的 Bodyparser 都是 TrunkedBodyparser ,实际上 BodyParser 也是数量还是
+蛮多的。
+    技巧其实都是这么多，只要我们能够写对这个状态机，我们就可以写对 BodyPasser 了。
+
+
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+

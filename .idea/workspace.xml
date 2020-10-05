@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week_06---浏览器工作原理/3.HTTP请求/5 发送请求.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_06---浏览器工作原理/3.HTTP请求/5 发送请求.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week_06---浏览器工作原理/3.HTTP请求/6 response解析.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_06---浏览器工作原理/3.HTTP请求/6 response解析.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week_06---浏览器工作原理/3.HTTP请求/toy-browser/client.js" beforeDir="false" afterPath="$PROJECT_DIR$/Week_06---浏览器工作原理/3.HTTP请求/toy-browser/client.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week_06---浏览器工作原理/3.HTTP请求/7 response body的解析.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_06---浏览器工作原理/3.HTTP请求/7 response body的解析.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,21 +168,7 @@
       <workItem from="1601774015508" duration="785000" />
       <workItem from="1601777533322" duration="7413000" />
       <workItem from="1601821511304" duration="3254000" />
-      <workItem from="1601861146223" duration="8404000" />
-    </task>
-    <task id="LOCAL-00020" summary="LL算法">
-      <created>1599385304407</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1599385304407</updated>
-    </task>
-    <task id="LOCAL-00021" summary="LL算法">
-      <created>1599403959397</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1599403959397</updated>
+      <workItem from="1601861146223" duration="14123000" />
     </task>
     <task id="LOCAL-00022" summary="LL算法">
       <created>1599475290236</created>
@@ -515,7 +499,21 @@
       <option name="project" value="LOCAL" />
       <updated>1601823255811</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="HTTP 请求">
+      <created>1601870353151</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1601870353151</updated>
+    </task>
+    <task id="LOCAL-00070" summary="HTTP 请求">
+      <created>1601870600593</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1601870600593</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -539,12 +537,12 @@
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state x="1860" y="206" width="1128" height="690" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601867467795" />
-    <state x="185" y="23" key="CommitChangelistDialog2" timestamp="1601823255596">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="1930" y="23" key="CommitChangelistDialog2" timestamp="1601870600473">
+      <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state x="-1430" y="-28" key="CommitChangelistDialog2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599786844748" />
     <state x="368" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818025606" />
-    <state x="1930" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601803462501" />
+    <state x="1930" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601870600473" />
     <state x="185" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1601823255596" />
     <state x="117" y="100" key="DiffContextDialog" timestamp="1601215463726">
       <screen x="0" y="23" width="1440" height="877" />
@@ -639,12 +637,12 @@
     </state>
     <state x="2119" y="118" key="RollbackChangesDialog/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1600493354717" />
     <state x="509" y="102" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1601383081879" />
-    <state x="374" y="142" key="Vcs.Push.Dialog.v2" timestamp="1601823257429">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="1938" y="166" key="Vcs.Push.Dialog.v2" timestamp="1601870602033">
+      <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state x="-1422" y="115" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599786846921" />
     <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818026674" />
-    <state x="1938" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601803463523" />
+    <state x="1938" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601870602033" />
     <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1601823257429" />
     <state x="1831" y="224" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1601868669885">
       <screen x="1440" y="23" width="1920" height="1057" />

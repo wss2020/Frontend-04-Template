@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Week_06---浏览器工作原理/3.HTTP请求/别人可行的代码/client.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Week_06---浏览器工作原理/3.HTTP请求/别人可行的代码/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week_06---浏览器工作原理/3.HTTP请求/toy-browser/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/Week_06---浏览器工作原理/3.HTTP请求/toy-browser/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week_06---浏览器工作原理/3.HTTP请求/5 发送请求.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_06---浏览器工作原理/3.HTTP请求/5 发送请求.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week_06---浏览器工作原理/3.HTTP请求/6 response解析.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_06---浏览器工作原理/3.HTTP请求/6 response解析.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week_06---浏览器工作原理/3.HTTP请求/7 response body的解析.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_06---浏览器工作原理/3.HTTP请求/7 response body的解析.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week_06---浏览器工作原理/3.HTTP请求/toy-browser/client.js" beforeDir="false" afterPath="$PROJECT_DIR$/Week_06---浏览器工作原理/3.HTTP请求/toy-browser/client.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +57,7 @@
       <recent name="$PROJECT_DIR$/Week_04--重学JavaScript/3.JS对象" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.client.js (1)">
+  <component name="RunManager" selected="Node.js.client.js">
     <configuration name="client.js (1)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Week_06---浏览器工作原理/3.HTTP请求/别人可行的代码/client.js" working-dir="$PROJECT_DIR$/Week_06---浏览器工作原理/3.HTTP请求/别人可行的代码">
       <method v="2" />
     </configuration>
@@ -81,10 +82,10 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Node.js.client.js (1)" />
-        <item itemvalue="Node.js.server.js (1)" />
         <item itemvalue="Node.js.client.js" />
         <item itemvalue="Node.js.server.js" />
+        <item itemvalue="Node.js.client.js (1)" />
+        <item itemvalue="Node.js.server.js (1)" />
         <item itemvalue="Node.js.test.js (4)" />
       </list>
     </recent_temporary>
@@ -170,14 +171,7 @@
       <workItem from="1601774015508" duration="785000" />
       <workItem from="1601777533322" duration="7413000" />
       <workItem from="1601821511304" duration="3254000" />
-      <workItem from="1601861146223" duration="15196000" />
-    </task>
-    <task id="LOCAL-00023" summary="字符串分析算法">
-      <created>1599482712276</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1599482712277</updated>
+      <workItem from="1601861146223" duration="15744000" />
     </task>
     <task id="LOCAL-00024" summary="字符串分析算法">
       <created>1599487556586</created>
@@ -515,7 +509,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601878634769</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="HTTP 请求">
+      <created>1601879757014</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1601879757014</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -539,40 +540,40 @@
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state x="1860" y="206" width="1128" height="690" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601867467795" />
-    <state x="1930" y="23" key="CommitChangelistDialog2" timestamp="1601878634611">
+    <state x="1930" y="23" key="CommitChangelistDialog2" timestamp="1601879756883">
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state x="-1430" y="-28" key="CommitChangelistDialog2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599786844748" />
     <state x="368" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818025606" />
-    <state x="1930" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601878634611" />
+    <state x="1930" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601879756883" />
     <state x="185" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1601823255596" />
     <state x="117" y="100" key="DiffContextDialog" timestamp="1601215463726">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="117" y="100" key="DiffContextDialog/0.23.1440.877@0.23.1440.877" timestamp="1601215463726" />
-    <state width="1894" height="197" key="GridCell.Tab.0.bottom" timestamp="1601879698209">
+    <state width="1894" height="189" key="GridCell.Tab.0.bottom" timestamp="1601880137557">
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state width="1414" height="209" key="GridCell.Tab.0.bottom/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818981188" />
-    <state width="1894" height="197" key="GridCell.Tab.0.bottom/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601879698209" />
+    <state width="1894" height="189" key="GridCell.Tab.0.bottom/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601880137557" />
     <state width="1414" height="257" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1601738045185" />
-    <state width="1894" height="197" key="GridCell.Tab.0.center" timestamp="1601879698208">
+    <state width="1894" height="189" key="GridCell.Tab.0.center" timestamp="1601880137556">
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state width="1414" height="209" key="GridCell.Tab.0.center/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818981187" />
-    <state width="1894" height="197" key="GridCell.Tab.0.center/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601879698208" />
+    <state width="1894" height="189" key="GridCell.Tab.0.center/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601880137556" />
     <state width="1414" height="257" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1601738045185" />
-    <state width="1894" height="197" key="GridCell.Tab.0.left" timestamp="1601879698208">
+    <state width="1894" height="189" key="GridCell.Tab.0.left" timestamp="1601880137555">
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state width="1414" height="209" key="GridCell.Tab.0.left/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818981185" />
-    <state width="1894" height="197" key="GridCell.Tab.0.left/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601879698208" />
+    <state width="1894" height="189" key="GridCell.Tab.0.left/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601880137555" />
     <state width="1414" height="257" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1601738045184" />
-    <state width="1894" height="197" key="GridCell.Tab.0.right" timestamp="1601879698208">
+    <state width="1894" height="189" key="GridCell.Tab.0.right" timestamp="1601880137557">
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state width="1414" height="209" key="GridCell.Tab.0.right/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818981188" />
-    <state width="1894" height="197" key="GridCell.Tab.0.right/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601879698208" />
+    <state width="1894" height="189" key="GridCell.Tab.0.right/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601880137557" />
     <state width="1414" height="257" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1601738045185" />
     <state width="1894" height="518" key="GridCell.Tab.1.bottom" timestamp="1601870299332">
       <screen x="1440" y="23" width="1920" height="1057" />
@@ -639,22 +640,22 @@
     </state>
     <state x="2119" y="118" key="RollbackChangesDialog/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601879526456" />
     <state x="509" y="102" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1601383081879" />
-    <state x="1938" y="166" key="Vcs.Push.Dialog.v2" timestamp="1601878635809">
+    <state x="1938" y="166" key="Vcs.Push.Dialog.v2" timestamp="1601879758233">
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state x="-1422" y="115" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599786846921" />
     <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818026674" />
-    <state x="1938" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601878635809" />
+    <state x="1938" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601879758233" />
     <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1601823257429" />
     <state x="1831" y="224" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1601868669885">
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state x="1831" y="224" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601868669885" />
-    <state x="525" y="26" width="1060" height="817" key="dock-window-1" timestamp="1601538443897">
+    <state x="525" y="26" width="1060" height="817" maximized="true" key="dock-window-1" timestamp="1601879823268">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="1613" y="23" width="1747" height="997" key="dock-window-1/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818005926" />
-    <state x="1613" y="23" width="1747" height="997" key="dock-window-1/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1599819155994" />
+    <state x="1613" y="23" width="1747" height="997" maximized="true" key="dock-window-1/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601879823268" />
     <state x="525" y="26" width="1060" height="817" key="dock-window-1/0.23.1440.877@0.23.1440.877" timestamp="1601538443897" />
     <state x="567" y="23" width="1060" height="850" key="dock-window-2" timestamp="1601539096924">
       <screen x="0" y="23" width="1440" height="877" />

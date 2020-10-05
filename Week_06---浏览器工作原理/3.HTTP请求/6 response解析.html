@@ -1,10 +1,204 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<script>
+    const net = require("net");
+    class Request {
+        constructor(options) {
+            this.method = options.method || "GET";
+            this.host = options.host;
+            this.port = options.port || 80;
+            this.path = options.path || "/";
+            this.body = options.body || {};
+            this.headers = options.headers || {};
+            if(!this.headers["Content-Type"]){
+                this.headers["Content-Type"] = "application/x-www-form-urlencoded";
+            }
 
-</body>
-</html>
+            if(this.headers["Content-Type"] === "application/json")
+                this.bodyText = JSON.stringify(this.body);
+            else if(this.headers["Content-Type"] === "application/x-www-form-urlencoded")
+                this.bodyText = Object.keys(this.body)
+                    .map(key => `${key}=${encodeURIComponent(this.body[key])}`)
+                    .join('&');
+            this.headers["Content-Length"] = this.bodyText.length;
+        }
+
+        send(connection){
+            return new Promise((resolve,reject)=>{
+                const parser = new ResponseParser;
+                if(connection){
+                    connection.write(this.toString());
+                }else{
+                    connection = net.createConnection({
+                        host: this.host,
+                        port: this.port,
+                    },()=>{
+                        connection.write(this.toString());
+                    })
+                }
+                connection.on('data',(data)=>{
+                    console.log(data.toString());
+                    parser.receive(data.toString());
+                    if(parser.isFinished){
+                        resolve(parser.response);
+                        connection.end();
+                    }
+                })
+                connection.on('err',(err)=>{
+                    reject(err);
+                    connection.end();
+                })
+            })
+        }
+
+        toString(){
+            return `${this.method} ${this.path} HTTP/1.1\r
+            ${Object.keys(this.headers).map(key=> `${key}: ${this.headers[key]}`).join('\r\n')}\r
+            \r
+            ${this.bodyText}
+            `
+        }
+    }
+
+    class ResponseParser {
+        constructor() {
+            this.WAITING_STATUS_LINE = 0;
+            this.WAITING_STATUS_LINE_END = 1;
+            this.WAITING_HEADER_NAME = 2;
+            this.WAITING_HEADER_SPACE = 3;
+            this.WAITING_HEADER_VALUE = 4;
+            this.WAITING_HEADER_LINE_END = 5;
+            this.WAITING_HEADER_BLOCK_END = 5;
+            this.WAITING_BODY = 7;
+
+            this.current = this.WAITING_STATUS_LINE;
+            this.statusLine = "";
+            this.headers = {};
+            this.headerName = "";
+            this.headerValue = "";
+            this.bodyParser = "";
+        }
+        receive(string){
+            for(let i=0; i<string.length; i++){
+                this.receiveChar(string.charAt(i));
+            }
+        }
+        receiveChar(char){
+            if(this.current === this.WAITING_STATUS_LINE){
+                if(char === '\r'){
+                    this.current  = this.WAITING_HEADER_LINE_END;
+                }else{
+                    this.statusLine += char;
+                }
+            }else if(this.current === this.WAITING_STATUS_LINE_END){
+                if(char === '\n'){
+                    this.current  = this.WAITING_HEADER_NAME;
+                }
+            }else if(this.current === this.WAITING_HEADER_NAME){
+                if(char === ':'){
+                    this.current = this.WAITING_HEADER_SPACE;
+                }else if(char === '\r'){
+                    this.current = this.WAITING_HEADER_BLOCK_END;
+                }else{
+                    this.headerName += char;
+                }
+            }else if(this.current === this.WAITING_HEADER_VALUE){
+                if(char === '\r'){
+                    this.current = this.WAITING_HEADER_LINE_END;
+                    this.headers[this.headerName] = this.headerValue;
+                    this.headerName = "";
+                    this.headerValue = "";
+                }else{
+                    this.headerValue += char;
+                }
+            }else if(this.current === this.WAITING_HEADER_SPACE){
+                if(char === ' '){
+                    this.current = this.WAITING_HEADER_VALUE;
+                }
+            }else if(this.current === this.WAITING_HEADER_VALUE){
+                if(char === '\r'){
+                    this.current = this.WAITING_HEADER_LINE_END;
+                    this.headers[this.headerName] = this.headerValue;
+                    this.headerName = "";
+                    this.headerValue = "";
+                }else{
+                    this.headerValue += char;
+                }
+            }else if(this.current === this.WAITING_HEADER_LINE_END){
+                if(char === '\n'){
+                    this.current = this.WAITING_HEADER_NAME;
+                }
+            }else if(this.current === this.WAITING_HEADER_BLOCK_END){
+                if(char === '\n'){
+
+                }
+            }
+        }
+    }
+
+    void async function () {
+        let request = new Request({
+            method: "POST",
+            host: "127.0.0.1",
+            port: "8080",
+            path: "/",
+            headers: {
+                ["X-Foo2"]: "customed"
+            },
+            body: {
+                name: "winter"
+            }
+        });
+        let response = await request.send();
+        console.log(response);
+    }();
+</script>
+
+<!--
+   接下来我们进行最重要的第四步，刚才已经讲了，我们的 response 是要通过一个 parser 去实现的，刚才也写好了 parser 的架子代码，
+接下来我们来写 parser 的具体代码,
+   我们来到 ResponseParser 的部分，首先我们要设计一下这个状态机，根据刚才讲的 response 的内容，那么我们一开始要等待一下 status line
+的， statue line 它会以一个 \r\n 去做结束，那么所以说它的 \r\n 它就会是两个状态，那么 WAITING_STATUS_LINE 的状态，当它接收到一个
+\r 的时候，并不会立刻切到 WAITING_HEADER 的状态，它会再等一个 line end 的符号，所以它会产生两个状态，然后 header ，那么它会有一个
+header name 的输入状态，header name 的冒号，后面等待空格的状态 和 一个 header value 的状态以及同样道理的 header line end 的状态，
+所以说每一个 header 它会有四个状态，然后最后我们会有一个 block end 的状态，就是因为 header 之后我们要再等一个空行，再往后就是 body 的
+状态了，因为body 的格式不固定，所以我们没有办法在同一个 response parser 里面把这个代码解决掉，
+   大家可以看到这里我的状态机的写法跟刚才不太一样，实际上状态机有很多种不同的写法，那么我们这里采用的是这种用常量，然后用if 去做区分的方法，
+那么从性能和从代码的管理的角度，它都不如我们前面的函数的方法，那么这个也是留给同学们的一个小小的挑战，大家可以在这个地方自己把我的常量的写法
+改成函数的写法，这个我们就不在课程中让大家去实现了，大家默认就跟住我的代码就可以了，
+   接下来的一些成员其实都是存储一些，解析过程中产生的结果，这个 current 那么就是我们的当前的状态，我们一开始把它置为初始状态，就是
+WAITING_STATUS_LINE; 随着我们 receive 的过程，我们会把一个一个的字符传给 receiveChar ,在 receiveChar 里面，我们用了一个
+很大的if 去区分每一个状态，
+   然后 character 在这个地方，它会影响每个状态之后的下一个状态，这里我们 this.current = WAITING_STATUS_LINE, 这个状态的时候
+我们只需要去等 \r ，那么等到了 \r 以后，说明整个这一行都已经结束了，如果说没有 \r ，我们就会把字符加到 statusLine 这个字符串上，就
+可以了，
+   然后 current 等于 WAITING_STATUS_LINE_END 的地方，我们就只等一个字符就是 \n 就可以了，然后接下来会进入到 header name
+状态，header name 状态我们只等冒号，如果说没等到冒号，反而等来了个 \r ,那就说明这一行是一个空行，是空行的话，那么我们就会进入到
+WAITING_HEADER_BLOCK_END 的状态，
+   然后 header space 这也是个临时状态，因为我们是冒号，后边必然有个空格来分割 header 的 KV 的， 然后如果说等到了空格，我们就会
+进入到 header value ，那么 header value 那么我们就是死等 \r ，然后注意这个地方我们就会如果说 value 最后确定了等到 \r 的话，
+我们就会暂存的 headerName 和 headerValue 给它写到 headers 上面，那么它是 KV 的这样的一个写法，
+    然后 header line end 我们就死等一个回车，
+    然后 header block 我们也是死等一个回车，
+    然后如果说 block end 等到了，那么我们就会进入到 waiting body 的一个状态，这个地方我们还是需要进行一些额外的特殊处理的，
+这一步我们暂时不做，下面大家跑起来这个 ResponseParser 。
+
+->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

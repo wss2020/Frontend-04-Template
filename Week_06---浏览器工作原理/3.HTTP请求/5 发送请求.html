@@ -29,7 +29,7 @@
                     connection.write(this.toString());
                 }else{
                     connection = net.createConnection({
-                        host: this.hose,
+                        host: this.host,
                         port: this.port,
                     },()=>{
                         connection.write(this.toString());

@@ -18,6 +18,6 @@ const server = http.createServer((request, response) => {
         })
 })
 
-server.listen(8080, () => {
-    console.log('正在监听8080端口...')
+server.listen(8088, () => {
+    console.log('正在监听8088端口...')
 })

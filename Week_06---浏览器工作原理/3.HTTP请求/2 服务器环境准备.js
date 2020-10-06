@@ -63,12 +63,12 @@ console.log("server started");
   然后我们来看 HTTP 协议的 request 的第一行叫做 request line ， request line 又
 包含了三个部分，
 例子： POST / HTTP /1.1
-第一个部分叫做 method ，method 大家最常见的是 POST 和 GET ,当然了HTTP 协议还规定了
+    第一个部分叫做 method ，method 大家最常见的是 POST 和 GET ,当然了HTTP 协议还规定了
 一些，其他的 method , 比如说 DELETE、PUT、options ，那么我们在这里就不去展开 method
 了，总之我们这里应该就只会用到 POST 和 GET ；
-第二项，就是一个路径是 path，path 默认它就是一个斜杠了，我们去浏览器访问的时候也可以看到在，
+    第二项，就是一个路径是 path，path 默认它就是一个斜杠了，我们去浏览器访问的时候也可以看到在，
 我们的域名后面的斜杠后面的内容就是路径，这个是作为 HTTP 协议的一个内容被放上去的，
-最后是一个 HTTP 和 HTTP 版本，这里我们用了一个老的版本 1.1 ,实际上我们HTTP 协议已经有
+    最后是一个 HTTP 和 HTTP 版本，这里我们用了一个老的版本 1.1 ,实际上我们HTTP 协议已经有
 2.0  3.0 这些新版本了，我们用一个比较简单早期的版本，这样编码起来简单一点。
 
 

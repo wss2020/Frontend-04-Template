@@ -224,7 +224,7 @@
 展开，但是node 的默认的值就是 chunked ,所以这里我们作为 toy browser 的这样的一个案例，
 
 我们就用 TrunkedBodyParser ,来演示如何编写一个BodyParser， 这个地方实际上可以是一个 if-else 的，这样的一个多个 if-else 的这样的一个结构，
-我们看看 TrunkedBody parser ,我们应该去怎么定义，其实他 TrunkedBodyPa  rser 跟我们的 ResponseParser 非常的相似，所谓 trunked body ,
+我们看看 TrunkedBody parser ,我们应该去怎么定义，其实他 TrunkedBodyParser 跟我们的 ResponseParser 非常的相似，所谓 trunked body ,
 它的结构是一个长度后面跟着一个 Trunk 的内容，被成为一个 trunk ,遇到一个长度为 0 的trunk， 那么就整个的 body 就结束了，所以我们会规定一个
 WAITING_LENGTH 和一个 WAITING_LINE_END 两个状态，然后来处理长度的这样的号，
     然后接下来我们就要做一些非 常规操作了，我们这个地方有一个 READING_TRUNK 的这样的状态，但是这个状态其实它要想退出 READING_TRUNK 的状态，

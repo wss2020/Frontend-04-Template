@@ -65,7 +65,7 @@ class ResponseParser {
         this.WAITING_HEADER_SPACE = 3;
         this.WAITING_HEADER_VALUE = 4;
         this.WAITING_HEADER_LINE_END = 5;
-        this.WAITING_HEADER_BLOCK_END = 5;
+        this.WAITING_HEADER_BLOCK_END = 6;
         this.WAITING_BODY = 7;
 
         this.current = this.WAITING_STATUS_LINE;

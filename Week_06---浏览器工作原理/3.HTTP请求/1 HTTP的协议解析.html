@@ -87,7 +87,7 @@ HTTP
 咱们的 HTTP 是由一个 request 和 一个response 这样的一个过程组成的，相对于 TCP 这种全双工通道，所谓的
 全双工就是 你也可以给我发 我也可以给你发，咱们不存在是什么优先关系； 而 HTTP 特别的有意思，它必须得先由客
 户端发起一个 request ,然后服务端回来一个 response ,所以每一个 request 它一定对应着 一个response，
-如果这个response 多了，或者是request 了，都说明这个协议出错，它在TCP 的基础上看似做了更严格更死的规定，
+如果这个response 多了，或者是request 多了，都说明这个协议出错，它在TCP 的基础上看似做了更严格更死的规定，
 但是其实在实践中大家发现这种模式还挺好，所以 HTTP 今天已经变成了互联网上，最流行的一个协议。
 
 接下来去实现，HTTP 的 request 和 response 。

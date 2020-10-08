@@ -1,0 +1,245 @@
+<!--
+今天开始就来实现 HTML 的 parse 模块，
+第一步---拆分文件
+    我们的第一步是做一些文件的拆分和接口的设计，就像上节课一样，我们要想实现一个 parser ，首先我们要想象一下它是怎么用的，
+所以我们会先在 client.js 里写它的调用的部分，看代码.
+-->
+<script>
+    const net = require("net");
+    const parser = require("./parsr.js");
+
+    class Request {
+        constructor(options) {
+            this.method = options.method || "GET";
+            this.host = options.host;
+            this.port = options.port || 80;
+            this.path = options.path || "/";
+            this.body = options.body || {};
+            this.headers = options.headers || {};
+            if (!this.headers["Content-Type"]) {
+                this.headers["Content-Type"] = "application/x-www-form-urlencoded";
+            }
+
+            if (this.headers["Content-Type"] === "application/json")
+                this.bodyText = JSON.stringify(this.body);
+            else if (this.headers["Content-Type"] === "application/x-www-form-urlencoded")
+                this.bodyText = Object.keys(this.body)
+                    .map(key => `${key}=${encodeURIComponent(this.body[key])}`)
+                    .join('&');
+            this.headers["Content-Length"] = this.bodyText.length;
+        }
+
+        send(connection) {
+            return new Promise((resolve, reject) => {
+                const parser = new ResponseParser;
+                if (connection) {
+                    connection.write(this.toString());
+                } else {
+                    connection = net.createConnection({
+                        host: this.host,
+                        port: this.port,
+                    }, () => {
+                        connection.write(this.toString());
+                    })
+                }
+                connection.on('data', (data) => {
+                    // console.log(data.toString());
+                    parser.receive(data.toString());
+                    if (parser.isFinished) {
+                        resolve(parser.response);
+                        connection.end();
+                    }
+                })
+                connection.on('err', (err) => {
+                    reject(err);
+                    connection.end();
+                })
+            })
+        }
+
+        toString() {
+            return `${this.method} ${this.path} HTTP/1.1\r\n ${Object.keys(
+                this.headers
+            ).map(key => `${key}: ${this.headers[key]}`)
+                .join('\r\n')}\r\n\r\n${this.bodyText}`
+        }
+    }
+
+    class ResponseParser {
+        constructor() {
+            this.statusLine = "";
+            this.headers = {};
+            this.headerName = "";
+            this.headerValue = "";
+
+            this.bodyParser = null;
+            this.current = this.WAITING_STATUS_LINE;
+        }
+
+        get isFinished() {
+            return this.bodyParser && this.bodyParser.isFinished;
+        }
+
+        get response() {
+            this.statusLine.match(/HTTP\/1.1 ([0-9]+) ([\s\S]+)/);
+            return {
+                statusCode: RegExp.$1,
+                statusText: RegExp.$2,
+                headers: this.headers,
+                body: this.bodyParser.content.join('')
+            }
+        }
+
+        receive(string) {
+            // console.log(string);
+            for (let i = 0; i < string.length; i++) {
+                this.current(string.charAt(i));
+            }
+        }
+
+        WAITING_STATUS_LINE(char) {
+            if (char === '\r') {
+                this.current = this.WAITING_HEADER_LINE_END;
+            } else {
+                this.statusLine += char;
+            }
+        }
+
+        WAITING_HEADER_LINE_END(char) {
+            if (char === '\n') {
+                this.current = this.WAITING_HEADER_NAME;
+            }
+        }
+
+        WAITING_HEADER_NAME(char) {
+            if (char === ':') {
+                this.current = this.WAITING_HEADER_SPACE;
+            } else if (char === '\r') {
+                this.current = this.WAITING_HEADER_BLOCK_END;
+                if (this.headers['Transfer-Encoding'] === 'chunked')
+                    this.bodyParser = new TrunkedBodyParser()
+            } else {
+                this.headerName += char;
+            }
+        }
+
+        WAITING_HEADER_SPACE(char) {
+            if (char === ' ') {
+                this.current = this.WAITING_HEADER_VALUE;
+            }
+        }
+
+        WAITING_HEADER_BLOCK_END(char) {
+            if (char === '\n') {
+                this.current = this.WAITING_BODY;
+            }
+        }
+
+        WAITING_BODY(char){
+            this.bodyParser.receiveChar(char);
+        }
+
+        WAITING_HEADER_VALUE(char) {
+            if (char === '\r') {
+                this.current = this.WAITING_HEADER_LINE_END;
+                this.headers[this.headerName] = this.headerValue;
+                this.headerName = "";
+                this.headerValue = "";
+            } else {
+                this.headerValue += char;
+            }
+        }
+    }
+
+    class TrunkedBodyParser {
+        constructor() {
+            this.current = this.WAITING_LENGTH
+            this.length = 0
+            this.content = []
+            this.isFinished = false
+        }
+
+        WAITING_LENGTH(char) {
+            if (char === '\r') {
+                if (this.length === 0) {
+                    this.isFinished = true
+                    this.current = this.WAITING_NEW_LINE
+                } else {
+                    this.current = this.WAITING_LENGTH_END
+                }
+            } else {
+                this.length *= 16
+                this.length += parseInt(char, 16)
+            }
+        }
+        WAITING_LENGTH_END(char){
+            if (char === '\n') {
+                this.current = this.READING_TRUNK
+            }
+        }
+        READING_TRUNK(char){
+            this.content.push(char)
+            this.length--
+            if (this.length === 0) {
+                this.current = this.WAITING_NEW_LINE
+            }
+        }
+        WAITING_NEW_LINE(char){
+            if (char === '\r') {
+                this.current = this.WAITING_NEW_LINE_END
+            }
+        }
+        WAITING_NEW_LINE_END(char){
+            if (char === '\n') {
+                this.current = this.WAITING_LENGTH
+            }
+        }
+        receiveChar(char) {
+            this.current(char);
+        }
+    }
+
+    void async function () {
+        let request = new Request({
+            method: "POST",
+            host: "127.0.0.1",
+            port: "8080",
+            path: "/",
+            headers: {
+                ["X-Foo2"]: "customed"
+            },
+            body: {
+                name: "winter"
+            }
+        });
+        let response = await request.send();
+        console.log('--------------------------')
+        console.log(response);
+
+        let dom = parser.parseHTML(response.body);
+    }();
+
+</script>
+
+<!--
+    上节课我们已经可以，从一个 request 得到一个 response ,然后这节课我们就考虑，如何利用这个 response ，这里我们把 API 设计成，
+完整的得到 response 之后，然后再去对 parser 进行处理，把这个 body 交给 parser 去处理，实际上我们如果我们写的是一个真正的浏览器，
+这个地方我们是必须得逐段的返回 response 的 body 的，然后逐段的去给 parser ，这里为了方便大家的理解，也为了让我们的代码写起来比较
+简洁，那么我们就会采用一个把 body 全收回来，然后再交给 HTML parser 的这样的一个操作，但是实际上我们是应该做成异步分段处理的，那么
+这个 API 设计的就非常简单了，把 HTML 得到了以后，我们把它通过 parser 的parseHTML 方法，把它变成一颗 DOM 树，这就是我们的调用
+的地方的设计了，
+    接下来我们要把 parser 放到一个单独的文件里，所以我们在前面会加一个 parser ，等于 require 一个 parser.js 的这样的一个文件，
+那么在 parser.js 里，那么我们先写一个占位用的函数，它需要 parseHTML 这个函数，那么我们就写一个 parseHTML 这个函数，暂时我们可以
+把它留空，里面只加一句 console.log 就可以了，
+
+-->
+
+<!--
+第一步总结
+    为了方便文件管理，我们把 parser 单独拆到文件中
+    parser 接受 HTML 文本作为参数，返回一颗 DOM 树
+
+
+-->
+
+

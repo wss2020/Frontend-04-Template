@@ -1,0 +1,33 @@
+
+
+
+<!--
+    接下来咱们来到了第三步解析标签，那么这一步我将会真正的把这个状态机里面的状态写出来一部分，然后我们来尝试去把 HTML 里面的
+所有的 tag ,给它做一个解析，
+大家都知道 HTML 里面的 tag ,它大概有三种，第一种叫做开始标签，第二种叫做结束标签，还有第三种叫做自封闭标签。
+接下来我们用状态机去帮助大家去区分这三种标签，大家注意是 三种，来看具体代码。=
+-->
+
+<!--
+    这节课除了 parser.js , client.js 里面的代码基本上是不需要动的，我们完成了第一步之后，我们的 client.js 就是基本上
+这节课是固定的了，那么接下来我们大部分的代码的工作都会在 parser.js 里面去实现，接下来我们来一起看看这个代码里面的 parser ,
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body div #myid{width: 100px;background-color: #ff5000}
+        body div img{width: 30px;background-color: #ff1111;}
+    </style>
+</head>
+<body>
+<div>
+   <img id="myid" />
+   <img />
+</div>
+</body>
+</html>

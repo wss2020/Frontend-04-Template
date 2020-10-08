@@ -47,7 +47,7 @@ function tagName(c) {
 }
 
 function beforeAttributeName(c) {
-    if (c.match(/^[\t\n\f]$/)) {
+    if (c.match(/^[\t\n\f ]$/)) {
         return beforeAttributeName;
     } else if (c == ">") {
         return data;
@@ -94,10 +94,17 @@ module.exports.parseHTML = function parseHTML(html) {
  那说明它就是一个普通的开始标签，所以我们就会结束掉这个标签，然后回到 data 状态，然后来解析下一个标签，这就是所谓的 tagName 里面的逻辑了。
     然后 beforeAttributeName ，我们这里暂时不去对它进行处理，实际上 beforeAttribute 里面，我们会期待遇到一个属性名，或者是一个正斜杠之类的
  这样的东西，但是我们暂时不处理属性，那么我们就先给它所有的可能性，都给他 return AttributeName ,除了大于号 > 可以作为终止标志，那么其他的我们
- 就都等于把这个字符给它吃掉，也就是说在 beforeAttributeName 里面，
-
-
+ 就都等于把这个字符给它吃掉，也就是说在 beforeAttributeName 里面，我们就死等这个 右尖括号 >， 然后让它去结束，然后 selfClosingStarTag，那么
+ 我们分析到一个标签， <div /   已经分析到有一个杠了，后面它就只有大于号是有效的，其他的都会报错，这里报错的逻辑我们就都先不写了，我们只是不 return
+    然后这就是一个状态机的雏形，跑起来看看。
  * ***/
+
+
+/***
+第三步总结
+    主要的标签有：开始标签、结束标签 和 自封闭标签
+    在这一步我们暂时忽略属性
+ ***/
 
 
 

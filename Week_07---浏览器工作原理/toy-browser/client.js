@@ -206,7 +206,7 @@ void async function () {
         }
     });
     let response = await request.send();
-    console.log('--------------------------')
+    console.log('--------------------------');
     console.log(response);
 
     let dom = parser.parseHTML(response.body);

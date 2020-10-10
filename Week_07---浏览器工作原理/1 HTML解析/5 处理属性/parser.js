@@ -188,8 +188,24 @@ function UnquotedAttributeValue(c) {
 }
 
 function afterAttributeName(c) {
-    emit(currentToken)
-    return data;
+    if (c.match(/^[\t\n\f ]$/)) {
+        return afterAttributeName;
+    } else if (c === "/") {
+        return selfClosingStartTag;
+    } else if (c === ">") {
+        currentToken[currentAttribute.name] = currentAttribute.value;
+        emit(currentToken)
+        return data;
+    } else if (c === EOF) {
+
+    } else {
+        currentToken[currentAttribute.name] = currentAttribute.value;
+        currentAttribute = {
+            name: '',
+            value: '',
+        };
+        return attributeName(c);
+    }
 }
 
 function selfClosingStartTag(c) {

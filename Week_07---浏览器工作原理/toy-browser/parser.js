@@ -1,114 +1,196 @@
-let currentToken = null;
-let currentAttribute = null;
-let currentTextNode = null;
+// const css = require('css');
+const EOF = Symbol('EOF'); // 状态机终止符号 EOF: End Of File
+const stack = [{ type: 'document', children: [] }]; // 用于处理 DOM 树的 栈
+let currentToken = null; // 当前 token
+let currentAttribute = null; // 当前 属性
+let currentTextNode = null; // 当前 文本节点
+let rules = []; // css 规则
 
-let stack = [{
-    type:"document",
-    children:[]
-}];
+/**
+ * 收集 CSS 规则
+ * @param {*} text
+ */
+function addCSSRules(text) {
+    var ast = css.parse(text);
+    console.log(JSON.stringify(ast, null, '   '));
+    rules.push(...ast.stylesheet.rules);
+}
+
+/**
+ * 计算 CSS 属性
+ * @param {*} element
+ */
+function computeCSS(element) {
+    console.log(rules);
+    console.log('compute CSS for Element', element);
+    var elements = stack.slice().reverse();
+}
 
 function emit(token) {
+    // 栈顶元素
+    let top = stack[stack.length - 1];
 
-    if(token.type != "text")
-        return ;
-
-    let top = stack[stack.length = 1];
-
-    if(token.type == "startTag"){
+    // 开始标签
+    if (token.type === 'startTag') {
         let element = {
-            type:"element",
+            type: 'element',
             children: [],
-            attributes: []
+            attributes: [],
         };
 
         element.tagName = token.tagName;
 
-        for(let p in token){
-            if(p != "type" && p != "tagName"){
-                element.attributes({
-                    name:p,
-                    value:token[p]
-                })
+        // 属性收集
+        for (const p in token) {
+            if (p !== 'type' && p !== 'tagName') {
+                element.attributes.push({
+                    name: p,
+                    value: token[p],
+                });
             }
         }
 
+        // 计算 CSS 属性
+        // computeCSS(element);
+
+        // 栈顶元素为当前element的父元素
         top.children.push(element);
         element.parent = top;
 
-        if(!token.isSelfClosing)
+        // 如果非自封闭标签，将该元素入栈
+        if (!token.isSelfClosing) {
             stack.push(element);
-
-        currentTextNode = null;
-
-    } else if(token.type == "endTag"){
-        if(top.tagName != token.tagName){
-            throw new Error("Tag start end doesn't match!")
-        } else {
-            stack.pop();
         }
+
+        // 当前文本节点置空
         currentTextNode = null;
     }
+    // 结束标签
+    else if (token.type === 'endTag') {
+        if (top.tagName !== token.tagName) {
+            throw new Error("Tag start end doesn't match");
+        } else {
+            // 遇到 style 标签，添加 css 规则
+            // if (top.tagName === 'style') {
+            // addCSSRules(top.children[0].content);
+            // }
+            // 结束标签出栈
+            stack.pop();
+        }
+        // 当前文本节点置空
+        currentTextNode = null;
+    }
+    // 文本节点
+    else if (token.type === 'text') {
+        if (currentTextNode == null) {
+            // 初始化文本节点
+            currentTextNode = {
+                type: 'text',
+                content: '',
+            };
 
+            // 文本节点为当前栈顶元素子元素
+            top.children.push(currentTextNode);
+        }
+
+        // 文本内容合并
+        currentTextNode.content += token.content;
+    }
 }
 
-const EOF = Symbol("EOF");    // EOF: End Of File
+/**
+ * HTML 解析
+ * @param {*} html
+ */
+function parseHtml(html) {
+    let state = data;
 
+    // 根据输入的字符进行状态分析
+    for (let c of html) {
+        state = state(c);
+    }
+
+    // 状态机终止
+    state = state(EOF);
+
+    return stack[0];
+}
+
+/**
+ * 状态初始
+ * @param {*} c
+ */
 function data(c) {
-    if (c == "<") {
+    if (c === '<') {
         return tagOpen;
-    } else if (c == EOF) {
-        emit({
-            type: "EOF"
-        });
+    } else if (c === EOF) {
+        emit({ type: 'EOF' });
         return;
     } else {
-        emit({
-            type: "text",
-            content: c
-        });
+        emit({ type: 'text', content: c });
         return data;
     }
 }
 
+/**
+ * 标签开始
+ * 注：是哪种标签还未知
+ * @param {*} c
+ */
 function tagOpen(c) {
-    if (c == "/") {
+    // 结束标签
+    if (c === '/') {
         return endTagOpen;
-    } else if (c.match(/^[a-zA-Z]$/)) {
+    }
+    // 开始标签或自封闭标签
+    else if (c.match(/^[a-zA-z]$/)) {
         currentToken = {
-            type: "startTag",
-            tagName: ""
-        }
+            type: 'startTag',
+            tagName: '',
+        };
         return tagName(c);
     } else {
         return;
     }
 }
 
+/**
+ * 结束标签
+ * @param {*} c
+ */
 function endTagOpen(c) {
-    if (c.match(/^[a-zA-Z]$/)) {
+    if (c.match(/^[a-zA-z]$/)) {
         currentToken = {
-            type: "endTag",
-            tagName: ""
-        }
+            type: 'endTag',
+            tagName: '',
+        };
         return tagName(c);
-    } else if (c == ">") {
-
-    } else if (c == EOF) {
-
+    } else if (c === '>') {
+    } else if (c === EOF) {
     } else {
-
     }
 }
 
+/**
+ * 标签内容解析
+ * @param {*} c
+ */
 function tagName(c) {
+    // 遇到空格是属性
     if (c.match(/^[\t\n\f ]$/)) {
         return beforeAttributeName;
-    } else if (c == "/") {
+    }
+    // 自封闭标签
+    else if (c === '/') {
         return selfClosingStartTag;
-    } else if (c.match(/^[a-zA-Z]$/)) {
-        currentToken.tagName += c  //.toLowerCase()
+    }
+    // 还在当前标签内
+    else if (c.match(/^[a-zA-z]$/)) {
+        currentToken.tagName += c;
         return tagName;
-    } else if (c == ">") {
+    }
+    // 结束，回到data解析下一个标签
+    else if (c === '>') {
         emit(currentToken);
         return data;
     } else {
@@ -116,133 +198,175 @@ function tagName(c) {
     }
 }
 
+/**
+ * 自闭和标签
+ * @param {*} c
+ */
+function selfClosingStartTag(c) {
+    if (c === '>') {
+        currentToken.isSelfClosing = true;
+        emit(currentToken);
+        return data;
+    } else if (c === EOF) {
+    } else {
+    }
+}
 
+/**
+ * 遇到属性
+ * @param {*} c
+ */
 function beforeAttributeName(c) {
     if (c.match(/^[\t\n\f ]$/)) {
         return beforeAttributeName;
-    } else if (c == "/" || c == ">" || c == EOF) {
+    }
+    // 属性结束
+    else if (c === '/' || c === '>' || c === EOF) {
         return afterAttributeName(c);
-    } else if (c == "=") {
-
+    } else if (c === '=') {
     } else {
+        // 初始化属性结构，进入属性名解析状态
         currentAttribute = {
-            name: "",
-            value: ""
-        }
-        // console.log("currentAttribut",currentAttribute);
+            name: '',
+            value: '',
+        };
         return attributeName(c);
     }
 }
 
+/**
+ * 属性名称解析
+ * @param {*} c
+ */
 function attributeName(c) {
-    // console.log(currentAttribute);
-    if (c.match(/^[\t\n\f ]$/) || c == "/" || c == ">" || c == EOF) {
+    // 属性名称结束
+    if (c.match(/^[\t\n\f ]$/) || c === '/' || c === '>' || c === EOF) {
         return afterAttributeName(c);
-    } else if (c == "=") {
+    }
+    // 属性值开始
+    else if (c === '=') {
         return beforeAttributeValue;
-    } else if (c == "\u0000") {
-
-    } else if (c == "\"" || c == "'" || c == "<") {
-
+    } else if (c === '\u0000') {
+    } else if (c === "'" || c === '"' || c === '<') {
     } else {
+        // 属性名称合并
         currentAttribute.name += c;
         return attributeName;
     }
 }
 
+/**
+ * 遇到属性值
+ * @param {*} c
+ */
 function beforeAttributeValue(c) {
-    if (c.match(/^[\t\n\f ]$/) || c == "/" || c == ">" || c == EOF) {
+    if (c.match(/^[\t\n\f ]$/) || c === '/' || c === '>' || c === EOF) {
         return beforeAttributeValue;
-    } else if (c == "\"") {
-        return doubleQuoteAttributeValue;
-    } else if (c == "\'") {
-        return singleQuoteAttributeValue;
-    } else if (c == ">") {
-
+    } else if (c === '"') {
+        return doubleQuotedAttributeValue;
+    } else if (c === "'") {
+        return singleQuotedAttributeValue;
+    } else if (c === '>') {
     } else {
         return UnquotedAttributeValue(c);
     }
 }
 
-function doubleQuoteAttributeValue(c) {
-    if (c == "\"") {
+/**
+ * 处理双引号
+ * @param {*} c
+ */
+function doubleQuotedAttributeValue(c) {
+    // 遇到结尾引号
+    if (c === '"') {
         currentToken[currentAttribute.name] = currentAttribute.value;
         return afterQuotedAttributeValue;
-    } else if (c == "\u0000") {
-
-    } else if (c == EOF) {
-
+    } else if (c === '\u0000') {
+    } else if (c === EOF) {
     } else {
         currentAttribute.value += c;
-        return doubleQuoteAttributeValue;
+        return doubleQuotedAttributeValue;
     }
 }
 
-function singleQuoteAttributeValue(c) {
-    if (c == "\'") {
+/**
+ * 处理单引号
+ * @param {*} c
+ */
+function singleQuotedAttributeValue(c) {
+    // 遇到结尾引号
+    if (c === "'") {
         currentToken[currentAttribute.name] = currentAttribute.value;
         return afterQuotedAttributeValue;
-    } else if (c == "\u0000") {
-
-    } else if (c == EOF) {
-
+    } else if (c === '\u0000') {
+    } else if (c === EOF) {
     } else {
         currentAttribute.value += c;
-        return doubleQuoteAttributeValue;
+        return singleQuotedAttributeValue;
     }
 }
 
-function afterQuotedAttributeValue(c) {
-    if (c.match(/^[\t\n\f ]$/)) {
-        return beforeAttributeName;
-    } else if (c == "/") {
-        return selfClosingStartTag;
-    } else if (c == ">") {
-        currentToken[currentAttribute.name] = currentAttribute.value;
-        emit(currentToken);
-        return data;
-    } else if (c == EOF) {
-
-    } else {
-        currentAttribute.value += c;
-        return doubleQuoteAttributeValue;
-    }
-}
-
+/**
+ * 无符号，寻找空白符结束
+ * @param {*} c
+ */
 function UnquotedAttributeValue(c) {
     if (c.match(/^[\t\n\f ]$/)) {
         currentToken[currentAttribute.name] = currentAttribute.value;
         return beforeAttributeName;
-    } else if (c == "/") {
+    } else if (c === '/') {
         currentToken[currentAttribute.name] = currentAttribute.value;
         return selfClosingStartTag;
-    } else if (c == ">") {
+    } else if (c === '>') {
         currentToken[currentAttribute.name] = currentAttribute.value;
         emit(currentToken);
         return data;
-    } else if (c == "\u0000") {
-
-    } else if (c == "\"" || c == "'" || c == "<" || c == "=" || c == "`") {
-
-    } else if (c == EOF) {
-
+    } else if (c === '\u0000') {
+    } else if (c === '>') {
+    } else if (c === "'" || c === '"' || c === '<' || c === '=' || c === '`') {
+    } else if (c === EOF) {
     } else {
         currentAttribute.value += c;
         return UnquotedAttributeValue;
     }
 }
 
+/**
+ * 处理完引号之后
+ * @param {*} c
+ */
+function afterQuotedAttributeValue(c) {
+    if (c.match(/^[\t\n\f ]$/)) {
+        return beforeAttributeName;
+    } else if (c === '/') {
+        return selfClosingStartTag;
+    } else if (c === '>') {
+        currentToken[currentAttribute.name] = currentAttribute.value;
+        emit(currentToken);
+        return data;
+    } else if (c === EOF) {
+    } else {
+        currentAttribute.value += c;
+        return afterQuotedAttributeValue;
+    }
+}
+
+/**
+ * 属性名称结束
+ * @param {*} c
+ */
 function afterAttributeName(c) {
     if (c.match(/^[\t\n\f ]$/)) {
         return afterAttributeName;
-    } else if (c === "/") {
+    } else if (c === '/') {
         return selfClosingStartTag;
-    } else if (c === ">") {
+    } else if (c === '=') {
+        return beforeAttributeValue;
+    } else if (c === '>') {
         currentToken[currentAttribute.name] = currentAttribute.value;
-        emit(currentToken)
+        emit(currentToken);
         return data;
     } else if (c === EOF) {
-
     } else {
         currentToken[currentAttribute.name] = currentAttribute.value;
         currentAttribute = {
@@ -253,23 +377,4 @@ function afterAttributeName(c) {
     }
 }
 
-function selfClosingStartTag(c) {
-    if (c == ">") {
-        currentToken.isSelfClosing = true;
-        return data;
-    } else if (c == "EOF") {
-
-    } else {
-
-    }
-}
-
-module.exports.parseHTML = function parseHTML(html) {
-    let state = data;
-    for (let c of html) {
-        state = state(c);
-    }
-    state = state(EOF);
-    console.log('---+++++++---');
-    console.log(stack[0]);
-}
+module.exports = parseHtml;

@@ -209,8 +209,11 @@ void async function () {
     console.log('--------------------------');
     console.log(response);
 
-    let dom = parser.parseHTML(response.body);
+    const dom = parser(response.body);
 
+    console.log('----+++++++----')
     console.log(dom);
+
+    // const tem = parser(response.body);
 
 }();

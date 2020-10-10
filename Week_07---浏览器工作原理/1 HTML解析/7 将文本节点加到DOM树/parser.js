@@ -1,16 +1,17 @@
 let currentToken = null;
-let currentAttribute = {};
+let currentAttribute = null;
+let currentTextNode = null;
 
 let stack = [{
     type:"document",
-    childrdn:[]
+    children:[]
 }];
 
 function emit(token) {
     console.log(token);
 
-    if(token.type!="text")
-        return ;
+    // if(token.type!="text")
+    //     return ;
     let top = stack[stack.length = 1];
 
     if(token.type == "startTag"){
@@ -46,6 +47,15 @@ function emit(token) {
             stack.pop();
         }
         currentTextNode = null;
+    } else if(token.type == "text"){
+        if(currentTextNode == null){
+            currentTextNode = {
+                type:"text",
+                content:""
+            }
+            top.children.push(currentTextNode);
+        }
+        currentTextNode += token.content;
     }
 
 }
@@ -272,8 +282,11 @@ module.exports.parseHTML = function parseHTML(html) {
 }
 
 /****
-    我们首先还是要把前面的遇到文本节点，就 return 的逻辑给它去掉，
-
+    我们首先还是要把前面的遇到文本节点，就 return 的逻辑给它去掉，然后我们加上一个节点类型为文本的,这样的一个处理的逻辑，当前没有文本节点
+ 的话，那么我们就会创建一个新的文本节点，这个我们会把它变成一个全局变量，这个表示我们当前正处于的文本节点，如果我们当前是刚刚结束一个标签，
+ 那么在开始标签和结束标签的 token 之后，我们都会把文本节点清空，然后这个文本节点，那么我们会给它也作为它的，目前的节点的这样的一个 children,
+ 也是作为它的一个子节点，然后我们遇到任何一个字符型的这样的 token 的话，我们做的逻辑非常简单，就是给当前的文本节点追加一个 content。
+ 好，来运行代码。
 
  * ***/
 

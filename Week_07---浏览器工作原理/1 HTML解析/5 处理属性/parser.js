@@ -1,4 +1,5 @@
 let currentToken = null;
+let currentAttribute = {};
 
 function emit(token) {
     // if(token.type!="text")
@@ -70,16 +71,125 @@ function tagName(c) {
     }
 }
 
+
 function beforeAttributeName(c) {
     if (c.match(/^[\t\n\f ]$/)) {
         return beforeAttributeName;
-    } else if (c == ">") {
-        return data;
+    } else if (c == "/" || c == ">" || c == EOF) {
+        return afterAttributeName(c);
     } else if (c == "=") {
-        return beforeAttributeName;
+
     } else {
-        return beforeAttributeName;
+        currentAttribute = {
+            name: "",
+            value: ""
+        }
+        // console.log("currentAttribut",currentAttribute);
+        return attributeName(c);
     }
+}
+
+function attributeName(c) {
+    // console.log(currentAttribute);
+    if (c.match(/^[\t\n\f ]$/) || c == "/" || c == ">" || c == EOF) {
+        return afterAttributeName(c);
+    } else if (c == "=") {
+        return beforeAttributeValue;
+    } else if (c == "\u0000") {
+
+    } else if (c == "\"" || c == "'" || c == "<") {
+
+    } else {
+        currentAttribute.name += c;
+        return attributeName;
+    }
+}
+
+function beforeAttributeValue(c) {
+    if (c.match(/^[\t\n\f ]$/) || c == "/" || c == ">" || c == EOF) {
+        return beforeAttributeValue;
+    } else if (c == "\"") {
+        return doubleQuoteAttributeValue;
+    } else if (c == "\'") {
+        return singleQuoteAttributeValue;
+    } else if (c == ">") {
+
+    } else {
+        return UnquotedAttributeValue(c);
+    }
+}
+
+function doubleQuoteAttributeValue(c) {
+    if (c == "\"") {
+        currentToken[currentAttribute.name] = currentAttribute.value;
+        return afterQuotedAttributeValue;
+    } else if (c == "\u0000") {
+
+    } else if (c == EOF) {
+
+    } else {
+        currentAttribute.value += c;
+        return doubleQuoteAttributeValue;
+    }
+}
+
+function singleQuoteAttributeValue(c) {
+    if (c == "\'") {
+        currentToken[currentAttribute.name] = currentAttribute.value;
+        return afterQuotedAttributeValue;
+    } else if (c == "\u0000") {
+
+    } else if (c == EOF) {
+
+    } else {
+        currentAttribute.value += c;
+        return doubleQuoteAttributeValue;
+    }
+}
+
+function afterQuotedAttributeValue(c) {
+    if (c.match(/^[\t\n\f ]$/)) {
+        return beforeAttributeName;
+    } else if (c == "/") {
+        return selfClosingStartTag;
+    } else if (c == ">") {
+        currentToken[currentAttribute.name] = currentAttribute.value;
+        emit(currentToken);
+        return data;
+    } else if (c == EOF) {
+
+    } else {
+        currentAttribute.value += c;
+        return doubleQuoteAttributeValue;
+    }
+}
+
+function UnquotedAttributeValue(c) {
+    if (c.match(/^[\t\n\f ]$/)) {
+        currentToken[currentAttribute.name] = currentAttribute.value;
+        return beforeAttributeName;
+    } else if (c == "/") {
+        currentToken[currentAttribute.name] = currentAttribute.value;
+        return selfClosingStartTag;
+    } else if (c == ">") {
+        currentToken[currentAttribute.name] = currentAttribute.value;
+        emit(currentToken);
+        return data;
+    } else if (c == "\u0000") {
+
+    } else if (c == "\"" || c == "'" || c == "<" || c == "=" || c == "`") {
+
+    } else if (c == EOF) {
+
+    } else {
+        currentAttribute.value += c;
+        return UnquotedAttributeValue;
+    }
+}
+
+function afterAttributeName(c) {
+    emit(currentToken)
+    return data;
 }
 
 function selfClosingStartTag(c) {
@@ -93,7 +203,6 @@ function selfClosingStartTag(c) {
     }
 }
 
-
 module.exports.parseHTML = function parseHTML(html) {
     let state = data;
     for (let c of html) {
@@ -103,42 +212,39 @@ module.exports.parseHTML = function parseHTML(html) {
 }
 
 /****
- 来看代码，那么首先 ParseHTML 里面的代码是一点都没有动的，我们现在要做的只是在每一个 state 的状它机里加入
- 我们的这样的业务逻辑，
- 首先我们要实现一个 emit(token) 这样的一个函数，因为我们最后这个状态机里面所有的状态，创建完 token 之后，
- 我们要把它在同一个出口给它输出，所以我们写一个全局的这样的一个 emit(token) 函数，而这里我们先把它做一次
- console.log ,等到后面我们再研究怎么样去处理它，其他的代码没有什么变化，然后我们要有一个全局变量叫做，是因为我们
- 在 HTML 里面，tag 不管有多复杂，那么它是当做一个 token 去处理的，那么所以我们要随着状态机一个一个的读进来字符
- 的时候，逐步的去构造 token 里面的内容，这个跟我们前面对状态机的使用风格也是类似的，
- 那么我们首先先看一下在 data 状态，如果等于 EOF 的话，我们会提交一个 EOF token ,然后如果是文本节点，那么
- 我们会 emit 一个 text token ,那么 content 就是文本节点里面的一个字符，这一步我们会去一个一个字符的把它 emit
- 上去，等到后面我们再想办法去构造树的时候，我们会再把这些 text 给它拼起来，在检测到一个左尖括号 < 的时候，我们是
- 不知道这个时候它的字符它到底是一个什么样的 tag 的，所以说这一步暂时我们什么都不做，我们把它进入到 tagOpen 状态，
- 在 tagOpen 状态，我们就可以去做一些事情了，一旦我们发现它是一个 start tag , 就是没有遇到斜杠，那就是一个
- 大于号 > 开头，然后后面有一个字母，不管是什么字母，不管是 a 还是 div 的 d 我们都可以确定，它是一个开始标签或者
- 是一个自封闭标签，那么所以我们就会给 currentToken 赋一个初值，那么给它指一个 type:"starTag" ,有同学就会问
- 说你 type 为什么不把 selfClosingTag 给它放进去，那么我这里在数据结构上我会选择，不管是自封闭的还是不是自封闭
- 的，我们都会把它称作 startTag ，而如果是自封闭的，我们用一个额外的变量叫做 isSelfClosing 来标识，所以说这个
- 地方我们创建 currentToken 的时候，就什么都不用管，直接创一个 type 为 startTag ，Tag 里面它会有 tagName。
- 然后接下来我们来继续，这个到 tagName 状态的逻辑跟我们前面没有任何的区别，我们只是在这里加了一段逻辑，所以
- 说我们整个状态的迁移关系都跟我们，前面第三步的代码是一摸一样的，到了在 engTagOpen 的状态，那么我们就会创造一个
- engTag 标签 token ,然后我们下一步我们就会在 tagName 状态，我们来处理它，
- 好，接下来就是我们的核心逻辑了，在 TagName 状态下，我们会收到一个标签名组成的字符，如果这个字符它属于字母
- 的话，我们就会把它追加到当前的 token 的 tagName 上面，然后 beforeAttributeName， 我们仍然是没有去处理，
- 然后 selfClosingStartTag 我们也是加了一个处理的逻辑，就是这个变量，我们给它置为了 true ,接下来我们还是
- 实际的跑起来。
+ <html  meaaa=""
+    我们处理属性的状态是以 beforeAttributeName 开始，然后因为我们在写代码的时候写到,  html 写到 html 空格,
+ 那么这个时候可能会开始加属性了，所以在 beforeAttribute 的状态，我们就会进入到一系列处理属性的状态，那么首先如果
+ 我们遇到斜杠 / 或者 >  或者是 EOF ，我们就会进入到一个叫做 afterAttributeName 的状态，并且 reconsume 这个
+ 当前的字符属性里面肯定是，不可能在属性开头就有个等号了，那么它是一种错误，否则那么它就会遇到一个字符，一个字符，那么
+ 你可以理解为是个英文字母，但实际上 Unicode 里的很多字符这个都是可以的，那么这个时候我们就会创建一个新的属性，然后
+ 进入到一个 attributeName 的状态，
+    attributeName 状态就会把当前的 c 去给它 reconsume ，也就是说 attribute 状态还会，继续处理这个c,这个c 它会有
+ 斜杠 /   >   EOF 三种特殊的字符的状态，那么另外空格也是一样，它都会进到一个叫做 afterAttributeName 的这样的一个
+ 状态，afterAttributeName 那么它是相当于我们的一个完整的属性结束了，比如说我们写  class="abc" ,后面它加了个空格，
+ 那么这个 attributeName 状态就结束了，那么这个时候它就会等一个 >  或者是 等一个  /> , 那么它才可以构成一个正常的
+ 这样的一个标签的结构，那么我们这里其实也是一样，就会进入到 afterAttributeName 状态，如果是等于说明 attributeName,
+ 它是对应着一个 value 的，那么它就会进入到一个 beforeAttributeValue 这样的一个状态，AttributeValue 它就又分成了
+ double-quoted 、single-quoted 和 unquoted 四种情况，如果说 attributeValue 来的是一个双引号，那么就是 double-quoted,
+ 如果是单引号，那么就是 single-quoted，如果是啥没有，也不是什么特殊的符号，它就是 unquoted。
+    那么接下里我们会进入到一个 double-quoted 的状态，double-quoted 状态它只找双引号结束，那么 single-quoted ,那么它就只找单引号结束，
+ unquoted ,那么它就只找空白符结束，那么所有的属性它都会在结束的时候，把它的 attributeName 和 attributeValue 给它，
+ 写到当前的 currentToken ,这个 currentToken 大家还记得这个就是标签，写到当前的标签这个 token 上，那么它的整体设计就是这样。
+
+ 接下来我们来给大家实际的跑起来，然后看一下，我们从  beforeAttributeName 开始，执行起来。
+
+    以上就是我们的一个基本逻辑了，唯一需要注意的是它会有一个 afterQuotedAttributeValue 的状态，如果是我们以引号结束，它这个地方会多一个跟
+ beforeAttribute 差不多的状态，只不过是说它是不能够直接接受一个字符，创建一个属性的，也就是说我们比如去写  <div  id="a"  然后这个地方我们
+ 至少要有一个空格，如果没有空格，比如说接着写 <div  id="a"x=  ,那么这个属性其实是不合法的，这个 afterQuoted  就是这样的一个状态，它只有在
+ single-quote 和 double-quoted 的后面会进入，这就是我们的 quoted 属性逻辑了，这样我们就会把整个的属性处理的逻辑都给大家讲完了。
 
 
- 第四步总结
-    在状态机中，除了状态迁移，我们还会要加入业务逻辑，
-    我们在标签结束状态提交标签 token
+ 第五步总结
+    属性值分为单引号、双引号、无引号三种写法，因此需要较多状态处理
+    处理属性的方式跟标签类似 （也是我们用一个全局的对象去暂存）
+    属性结束时，我们把属性加到标签 Token 上   **
 
-
-    第四步总结，我觉得主要需要大家掌握的就是在状态机中，咱们除了状态迁移，咱们还需要加入咱们自己的业务逻辑，
- 在 parser 的代码里面，咱们所谓的业务逻辑就是创建 token ,然后把字符加到 token 上，然后最后 emit token,
- 咱们在标签的结束状态就会提交标签 token , 注意：这不是在结束标签才提交整个的 token ,我们的开始标签和结束
- 标签，其实在我们的词法的角度来讲，是两个不同的 token ,中间是一堆文本节点，我们还没有去构建树形的结构，这就
- 是我们的第 4 个步骤了。
+    ** 属性结束的时候，我们把这些属性真正的作用在标签 token 上，所以我们最后emit 的还是标签 token，第五步就到这里了。
 
  * ***/
 

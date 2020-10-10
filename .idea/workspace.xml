@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Week_07---浏览器工作原理/1 HTML解析/7 将文本节点加到DOM树/parser.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Week_07---浏览器工作原理/1 HTML解析/7 将文本节点加到DOM树/将文本节点加到DOM树.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_07---浏览器工作原理/借鉴笔记" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week_07---浏览器工作原理/1 HTML解析/6 用token构建DOM树/parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/Week_07---浏览器工作原理/1 HTML解析/6 用token构建DOM树/parser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week_07---浏览器工作原理/toy-browser/client.js" beforeDir="false" afterPath="$PROJECT_DIR$/Week_07---浏览器工作原理/toy-browser/client.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week_07---浏览器工作原理/toy-browser/parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/Week_07---浏览器工作原理/toy-browser/parser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week_07---浏览器工作原理/1 HTML解析/7 将文本节点加到DOM树/parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/Week_07---浏览器工作原理/1 HTML解析/7 将文本节点加到DOM树/parser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week_07---浏览器工作原理/README.md" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,14 +185,8 @@
       <workItem from="1602120506944" duration="6739000" />
       <workItem from="1602208763711" duration="7898000" />
       <workItem from="1602228094573" duration="7861000" />
-      <workItem from="1602293064055" duration="9509000" />
-    </task>
-    <task id="LOCAL-00041" summary="proxy 与 双向数据绑定">
-      <created>1599801197095</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1599801197095</updated>
+      <workItem from="1602293064055" duration="9700000" />
+      <workItem from="1602317299808" duration="266000" />
     </task>
     <task id="LOCAL-00042" summary="proxy 与 双向数据绑定">
       <created>1599806906779</created>
@@ -532,7 +524,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602316234412</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="HTML 解析">
+      <created>1602317056381</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1602317056381</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -562,12 +561,12 @@
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state x="2103" y="193" key="#xdebugger.evaluate/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601949828448" />
-    <state x="1930" y="23" key="CommitChangelistDialog2" timestamp="1602316234294">
+    <state x="1930" y="23" key="CommitChangelistDialog2" timestamp="1602317056249">
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state x="-1430" y="-28" key="CommitChangelistDialog2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599786844748" />
     <state x="368" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818025606" />
-    <state x="1930" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1602316234294" />
+    <state x="1930" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1602317056249" />
     <state x="185" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1601823255596" />
     <state x="1596" y="116" key="DiffContextDialog" timestamp="1601950718245">
       <screen x="1440" y="23" width="1920" height="1057" />
@@ -679,12 +678,12 @@
     </state>
     <state x="2119" y="118" key="RollbackChangesDialog/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601885547486" />
     <state x="509" y="102" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1601383081879" />
-    <state x="1938" y="166" key="Vcs.Push.Dialog.v2" timestamp="1602316235286">
+    <state x="1938" y="166" key="Vcs.Push.Dialog.v2" timestamp="1602317057383">
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state x="-1422" y="115" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599786846921" />
     <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818026674" />
-    <state x="1938" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1602316235286" />
+    <state x="1938" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1602317057383" />
     <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1601823257429" />
     <state x="1831" y="224" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1601868669885">
       <screen x="1440" y="23" width="1920" height="1057" />
@@ -742,7 +741,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/Week_07---浏览器工作原理/补充/toy-html-parser-master/lexer.js</url>
           <line>114</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="48" />
         </line-breakpoint>
       </breakpoints>

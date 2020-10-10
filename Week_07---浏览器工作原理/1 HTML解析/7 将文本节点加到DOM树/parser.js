@@ -177,10 +177,6 @@ function doubleQuoteAttributeValue(c) {
     }
 }
 
-function afterQuotedAttributeValue(c) {
-
-}
-
 function singleQuoteAttributeValue(c) {
     if (c == "\'") {
         currentToken[currentAttribute.name] = currentAttribute.value;
@@ -276,7 +272,7 @@ module.exports.parseHTML = function parseHTML(html) {
 }
 
 /****
-    我们首先还是要把前面的遇到文本节点，
+    我们首先还是要把前面的遇到文本节点，就 return 的逻辑给它去掉，
 
 
  * ***/

@@ -1,16 +1,17 @@
 let currentToken = null;
 let currentAttribute = null;
+let currentTextNode = null;
 
 let stack = [{
     type:"document",
-    childrdn:[]
+    children:[]
 }];
 
 function emit(token) {
-    console.log(token);
 
-    if(token.type!="text")
+    if(token.type != "text")
         return ;
+
     let top = stack[stack.length = 1];
 
     if(token.type == "startTag"){

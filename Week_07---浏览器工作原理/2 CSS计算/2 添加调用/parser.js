@@ -1,3 +1,4 @@
+const css = require('css');
 let currentToken = null;
 let currentAttribute = null;
 let currentTextNode = null;
@@ -6,6 +7,19 @@ let stack = [{
     type:"document",
     children:[]
 }];
+
+// 加入一个新的函数 addCSSRules ，这里我们把 CSS 规则暂存在一个数组里
+let rules = [];
+function addCSSRules(text){
+    let  ast = css.parse(text);
+    // console.log(JSON.stringify(ast,null,"    "));
+    rules.push(...ast.stylesheet.rules);
+}
+
+function computeCss(element){
+    console.log(rules);
+    console.log("compute CSS for Element",element);
+}
 
 function emit(token) {
     console.log(token);
@@ -32,6 +46,8 @@ function emit(token) {
             }
         }
 
+        computeCss(element);
+
         top.children.push(element);
         element.parent = top;
 
@@ -44,6 +60,10 @@ function emit(token) {
         if(top.tagName != token.tagName){
             throw new Error("Tag start end doesn't match!")
         } else {
+            // ++++++++++++++遇到style标签时，执行添加CSS规则的操作 +++++++++++++++++++//
+            if(top.tagName === "style"){
+                addCSSRules(top.chidren[0].conten);
+            }
             stack.pop();
         }
         currentTextNode = null;
@@ -57,8 +77,29 @@ function emit(token) {
         }
         currentTextNode += token.content;
     }
-
 }
+
+
+
+/****
+    第二步是添加调用，我们在上一步其实已经收集好了 CSS 规则，但是我们现在就要找一个合适的时机，把 CSS 规则给它应用上去，应用的时机其实肯定是
+ 越早越好了，在 CSS 的设计里面，其实有一条隐藏的潜规则，我们 CSS 设计会尽量保证所有的选择器，都能够在 startTag 进入的时候就能够被判断，当然了
+ 我们后面又加了一些高级的选择器，之后，这个规则开始有了一定的松动，但是大部分的规则，它仍然会去遵循这个规则的，就是当我们 DOM 树构建到你的元素的
+ startTag 的步骤，就已经可以判断出来，它能匹配哪些 CSS 规则了，这个下面会讲。    我们是 toy browser ，重点在讲原理，那么我们就会采用一个在
+ startTag 的时候去判断哪些标签匹配了的 CSS rule 的这样的一种方式。
+    在代码中，我们会在遇到 token.type == "startTag" 的时候，添加一句 computeCss(element) ，把 element 当做参数传进去，然后在
+ computeCSS 的内部，我们首先要拿到 rules ，因为它是一个全局的，所以我们可以拿到，  然后我们需要 element ，根据 rules 和 element 就
+ 可以把这些 rules 里面的东西应用到 element ,这一步代码就这样简单。 这一步的重点在于我们去计算 CSS 时机是在 startTag 入栈的时候去操作的。
+
+ 第二步总结：
+    当我们创建一个元素后，立即计算CSS
+    理论上，当我们分析一个元素时，所有 CSS 规则已经收集完毕
+    在真实浏览器中，可能遇到写在 body 的style 标签，需要重新 CSS 计算的情况，这里我们忽略
+
+    注意：第2条，也就是说这样所有的 head 的里面的元素，其实我们是没有办法计算它的 CSS 的，这个在真实的浏览器中还是有必要的。
+
+ * ***/
+
 
 const EOF = Symbol("EOF");    // EOF: End Of File
 
@@ -124,7 +165,6 @@ function tagName(c) {
         return tagName;
     }
 }
-
 
 function beforeAttributeName(c) {
     if (c.match(/^[\t\n\f ]$/)) {
@@ -281,34 +321,7 @@ module.exports.parseHTML = function parseHTML(html) {
     state = state(EOF);
 }
 
-/****
-    我们首先还是要把前面的遇到文本节点，就 return 的逻辑给它去掉，然后我们加上一个节点类型为文本的,这样的一个处理的逻辑，当前没有文本节点
- 的话，那么我们就会创建一个新的文本节点，这个我们会把它变成一个全局变量，这个表示我们当前正处于的文本节点，如果我们当前是刚刚结束一个标签，
- 那么在开始标签和结束标签的 token 之后，我们都会把文本节点清空，然后这个文本节点，那么我们会给它也作为它的，目前的节点的这样的一个 children,
- 也是作为它的一个子节点，然后我们遇到任何一个字符型的这样的 token 的话，我们做的逻辑非常简单，就是给当前的文本节点追加一个 content。
- 好，来运行代码。
 
-
-    最后你去看它的stack 里面的值，我们执行的时候，它经把它我们没关系，我们可以看到它的 children 里面的 style 标签，style 标签它的 children,
- 就是一个包含着我们所需要所有的数据的，这样的一个文本节点了，那么它的逻辑其实非常简单，就是如果说是相邻的文本节点它会被合并，然后如果有其他的标签，
- 比如开始标签、结束标签或者 自封闭标签，那么它当前的文本节点会被清掉，其实就这么几行代码，我们就把文本节点给处理完了，这个时候我们得到的就是一个
- 较为完整的这样的一棵 DOM 树了。
-
-
-
- 第七步总结
-    文本节点与自封闭标签处理类似
-    多个文本节点需要合并
-
-
-
-    文本节点与自封闭标签处理类似，它其实并不会真的去入栈，然后这个文本节点它跟自封闭标签，不同的是因为我们 token 是一个一个过来的，所以多个文本
- 节点它最终是需要合并的，这个就是我们最后一步所需要注意的问题了。
-    那么到这一步为止，我们就已经完成了整个 HTML 的解析，
-
-
-
- * ***/
 
 
 

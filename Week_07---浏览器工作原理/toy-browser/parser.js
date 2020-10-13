@@ -1,6 +1,6 @@
 // const css = require('css');
 const EOF = Symbol('EOF'); // 状态机终止符号 EOF: End Of File
-const stack = [{ type: 'document', children: [] }]; // 用于处理 DOM 树的 栈
+const stack = [{type: 'document', children: []}]; // 用于处理 DOM 树的 栈
 let currentToken = null; // 当前 token
 let currentAttribute = null; // 当前 属性
 let currentTextNode = null; // 当前 文本节点
@@ -124,10 +124,10 @@ function data(c) {
     if (c === '<') {
         return tagOpen;
     } else if (c === EOF) {
-        emit({ type: 'EOF' });
+        emit({type: 'EOF'});
         return;
     } else {
-        emit({ type: 'text', content: c });
+        emit({type: 'text', content: c});
         return data;
     }
 }

@@ -1,3 +1,4 @@
+const css = require('css');
 let currentToken = null;
 let currentAttribute = null;
 let currentTextNode = null;
@@ -6,6 +7,17 @@ let stack = [{
     type:"document",
     children:[]
 }];
+
+// 加入一个新的函数 addCSSRules ，这里我们把 CSS 规则暂存在一个数组里
+let rules = [];
+function addCSSRules(text){
+    let  ast = css.parse(text);
+    rules.push(...ast.stylesheet.rules);
+}
+
+function computeCss(element){
+    let elements = stack.slice().reverse();
+}
 
 function emit(token) {
     console.log(token);
@@ -32,6 +44,8 @@ function emit(token) {
             }
         }
 
+        computeCss(element);
+
         top.children.push(element);
         element.parent = top;
 
@@ -44,6 +58,10 @@ function emit(token) {
         if(top.tagName != token.tagName){
             throw new Error("Tag start end doesn't match!")
         } else {
+            // ++++++++++++++遇到style标签时，执行添加CSS规则的操作 +++++++++++++++++++//
+            if(top.tagName === "style"){
+                addCSSRules(top.chidren[0].conten);
+            }
             stack.pop();
         }
         currentTextNode = null;
@@ -57,8 +75,36 @@ function emit(token) {
         }
         currentTextNode += token.content;
     }
-
 }
+
+
+
+/****
+     第三步，获取父元素序列，为什么我们要获取父元素系列，因为我们今天的选择器它大多数都是跟元素的父元素相关的，接下来我们来看一下我们的代码，
+ 这里我们就用了一个 stack.slice ,因为我们在用栈来构建整个的 DOM 树的过程中，整个的 stack 里面就存储了所有当前元素的父元素，那么为什么
+ 我们在这个地方要进行一次 slice ，因为这个栈是会不断的变化的，随着我们后续的解析，它的栈里面的元素会发生变化，就可能会被污染，所以我们这里
+ 用了一个slice ，这个函数在我们的 js 里面本来是用来，可以传两个参数来截取数组的一段的，它不会影响原数组，而我们不传参数的时候，它默认是把
+ 整个数组复制一遍，所以这里我们调了一次slice ，然后我们这里有一个非常关键的问题，虽然代码是很简单，我们会把父元素的序列进行一次 reverse，
+    为什么我们要去 reverse ？ 是因为我们的标签匹配是会从当前元素，开始逐级的往外匹配，那是因为我们首先获取的，肯定就是当前元素，获取了当
+ 前元素之后，那么我们想去检查一个选择器是否匹配当前元素，我们是一级一级的要去往它的父元素去找的， 代码虽短，但是其实它背后包含的原理还是比较
+ 复杂，所以我们把它单独的拿出来作为一步给大家讲解。
+
+
+ 第三步总结
+    在 computeCSS 函数中，我们必须知道元素的所有父元素才能判断元素与规则是否匹配。
+    我们从上一步骤的stack ,可以获取本元素所有的父元素
+    因为我们首先获取的是 "当前元素" ，所以我们获得和计算父元素匹配的顺序是从内向外
+
+    例子： div div #myid
+        比如说上面这样的选择器，那么前面两个 div 这两选择器的这两段因为是用空格，所以它是一个子孙选择器，我们不确定这两个 div 到底
+    要跟哪个父元素匹配，而我们的最后一个 myid 元素，它是一定会跟当前元素相匹配的，所以说我们要想高效的去实现一个 CSS 选择器的匹配规则，
+    那么我们一定是先去检查最后一个 myid 选择器，不管它是什么选择器，不管它是 # . 还是同样的 tagName 选择器，那么一定是先检查它是否
+    匹配当前元素的，所以我们这里计算父元素的匹配顺序，就都是会从内向外。
+
+    注意；因为我们的 CSS 规则里有这种子孙选择器，直接子元素选择器这一类的这样的选择规则。
+
+ * ***/
+
 
 const EOF = Symbol("EOF");    // EOF: End Of File
 
@@ -124,7 +170,6 @@ function tagName(c) {
         return tagName;
     }
 }
-
 
 function beforeAttributeName(c) {
     if (c.match(/^[\t\n\f ]$/)) {
@@ -281,34 +326,7 @@ module.exports.parseHTML = function parseHTML(html) {
     state = state(EOF);
 }
 
-/****
-    我们首先还是要把前面的遇到文本节点，就 return 的逻辑给它去掉，然后我们加上一个节点类型为文本的,这样的一个处理的逻辑，当前没有文本节点
- 的话，那么我们就会创建一个新的文本节点，这个我们会把它变成一个全局变量，这个表示我们当前正处于的文本节点，如果我们当前是刚刚结束一个标签，
- 那么在开始标签和结束标签的 token 之后，我们都会把文本节点清空，然后这个文本节点，那么我们会给它也作为它的，目前的节点的这样的一个 children,
- 也是作为它的一个子节点，然后我们遇到任何一个字符型的这样的 token 的话，我们做的逻辑非常简单，就是给当前的文本节点追加一个 content。
- 好，来运行代码。
 
-
-    最后你去看它的stack 里面的值，我们执行的时候，它经把它我们没关系，我们可以看到它的 children 里面的 style 标签，style 标签它的 children,
- 就是一个包含着我们所需要所有的数据的，这样的一个文本节点了，那么它的逻辑其实非常简单，就是如果说是相邻的文本节点它会被合并，然后如果有其他的标签，
- 比如开始标签、结束标签或者 自封闭标签，那么它当前的文本节点会被清掉，其实就这么几行代码，我们就把文本节点给处理完了，这个时候我们得到的就是一个
- 较为完整的这样的一棵 DOM 树了。
-
-
-
- 第七步总结
-    文本节点与自封闭标签处理类似
-    多个文本节点需要合并
-
-
-
-    文本节点与自封闭标签处理类似，它其实并不会真的去入栈，然后这个文本节点它跟自封闭标签，不同的是因为我们 token 是一个一个过来的，所以多个文本
- 节点它最终是需要合并的，这个就是我们最后一步所需要注意的问题了。
-    那么到这一步为止，我们就已经完成了整个 HTML 的解析，
-
-
-
- * ***/
 
 
 

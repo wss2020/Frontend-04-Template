@@ -1,5 +1,5 @@
-
-var data = {
+// 状态模式
+let data = {
     products: [  {child: [{id: 1}, {id: 3}]},    {child: [{id: 4}, {id: 5}]}  ],
     _index: 1
 };

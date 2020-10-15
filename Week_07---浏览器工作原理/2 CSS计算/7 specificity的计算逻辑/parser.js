@@ -35,6 +35,33 @@ function match(element,selector){
     return false;
 }
 
+function specificity(selector) {
+    let p = [0, 0, 0, 0];
+    let selectorParts = selector.split(" ");
+    for (let part of selectorParts) {
+        if (part.charAt(0) == "#") {
+            p[1] += 1;
+        } else if (part.charAt(0) == ".") {
+            p[2] += 1;
+        } else {
+            p[3] += 1;
+        }
+    }
+    return p;
+}
+
+function compare(sp1, sp2) {
+    if (sp1[0] - sp2[0])
+        return sp1[0] - sp2[0];
+    if (sp1[2] - sp2[1])
+        return sp1[1] - sp2[1];
+    if (sp1[2] - sp2[2])
+        return sp1[2] - sp2[2];
+
+    return sp1[3] - sp2[3];
+}
+
+
 function computeCss(element){
     let elements = stack.slice().reverse();
     if(!element.computedStyle)
@@ -59,14 +86,20 @@ function computeCss(element){
         }
 
         if(matched){
+            let sp = specificity(rule.selectors[0]);
             let computedStyle = element.computedStyle;
             for(let declaration of rule.declarations){
                 if(!computedStyle[declaration.property])
                     computedStyle[declaration.property] = {}
-                // computedStyle[declaration.property].value = declaration.value;
-                computedStyle[declaration.property].value = declaration.value;
+
+                if(!computedStyle[declaration.property].specificity){
+                    computedStyle[declaration.property].value = declaration.value;
+                    computedStyle[declaration.property].specificity = sp;
+                }else if(compare(computedStyle[declaration.property]).specificity, sp){
+                    computedStyle[declaration.property].value = declaration.value;
+                    computedStyle[declaration.property].specificity = sp;
+                }
             }
-            console.log(element.computedStyle);
         }
 
     }
@@ -132,19 +165,34 @@ function emit(token) {
 }
 
 /****
-    第六步，就是我们把最后的 computed 的属性给它生成，我们从 CSS rules 里面，因为 CSS rules 里面它就有我们的 declarations,
- 就是声明的属性，我们只需要把这个声明里面的属性，一条一条的给它作用到我们元素的 computed 的属性上面就可以了。
+    上一步我们已经暴露了一个问题，就是选择器它现在 我们的逻辑是不管三七二十一的往上覆盖，但是其实在咱们的 CSS 里是有一个对选择器
+ 的 specification 的这样的一个规定，咱们的中文有时候会把它翻译成优先级，从它的结果来看，优先级是对的，但是大家也都知道英文里优
+ 先级是 priority 这个词对不对，specificity 这个英文单词的原意其实是表示这种专指的程度，那么其实我们从语义上来讲，确实 id 它的
+ 专指的程度就会高于 class , class 它的专指的程度就会高于 tagName ,那么当多个 id 或者是 多个 class 联合作用的时候，它有可能
+ 专指的程度会高于单个，所以我们这边就会有一个叫做 specificity 的这样的计算逻辑.
 
-    看代码，这部分所有的代码，都在我们的    if(matched){ } 里面，首先把 element ,我们已经创建好的 computedStyle 取出来，然后
- 我们还记得刚才 ast 里面的 rule 里面，它是一个数组，这里我们用一个 for 循环，把这里面每一条 declaration 给它取出来，接着我们就可
- 以去循环访问 declaration 的里面的属性了，如果我们 computedStyle 没有这个属性的话，那么我们就给它创建一个对象，用一个对象来保存属
- 性的值，为什么我们不把 property 的 value 直接写上去，主要是为了方便我们存储一些 value 之外的值，这个也是为我们的下一步作准备，那么
- 这一步我们就只需要把它的 declaration 里面的 value 给它存到 computedStyle 的属性的 value 上去，我们就完成了。
+    我们会编写一个计算 specificity 的逻辑，那么这里我们就会把 selector 进行一个 split ，然后得到 selectorParts 这个跟我们
+ 之前的假设一样，这个地方是一个复合选择器，它是选择单个元素用的，但是我们做了一个假设，就是复合选择器里面就只有简单选择器，所以我们就
+ 去逐个循环就好了，如果我们要再把它拆开的话，我们在这个地方又要加一层的正则，大概就是这样的一个逻辑，那么带井号的，那么我们就会在这个
+ 位加1，带点的我们就在这个位加1，什么都不带的就是 tag , 那么我们就在最后一位 p[3]+1 ,然后就把它 return 就可以了，同样作为一个
+ optional 的这样的一个作业，就是请同学们尝试在 selectorParts 里面，去解析复合选择器，
+    compare 也是比较简单，就是高位 能 比出来就直接 return 了，低位 最后我们一位一位的看，如果比不出来是 0 的话，我们就继续去比
+ 地位，如果一直到最后一位都是相同的，那么两个选择器就是同等的优先级，接下来我们看如何去应用它，
+    首先我们要把当前的 selector 的 specificity 给它计算出来，然后我们去应用的时候，我们要先比较一下当前的 specificity ，我们
+ 是去比较 property 上的 specificity ,首先看它有没有，如果没有的话，那我们就直接到 else 的逻辑里面了，如果是有的话，那么我们就
+ 需要进行一次比较，如果是比较新来的，如果旧的更小的话，那么我们就让新的区域覆盖它，所以这样的话我们就可以根据这个，然后来完成优先级的
+ 判断了，我们就完成了带 specificity 的 CSS Computing , 我们到这里所有的 CSS 的 specificity 就已经都结束了，
 
 
- 第六步总结
-    一旦选择匹配，就应用选择器到元素上，形成 computedStyle
+ 第七步总结
+    CSS 规则是根据 specificity 和 后来优先规则覆盖
+    specificity 是个四元组，越左边权重越高
+    一个 CSS 规则的 specificity 根据包含的简单选择器相加而成
 
+
+
+ 补充：  priority 优先级
+        specificity 特性、专一性
 
  * ***/
 

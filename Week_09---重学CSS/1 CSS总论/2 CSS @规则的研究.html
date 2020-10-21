@@ -1,0 +1,58 @@
+<!--
+第二步  CSS @规则的研究
+    CSS 的标准有一大堆，100多份，我们学习 @规则，其实就是从这 100多份 @规则里面，挑选出来我们自己的@规则，
+
+    @charset ： https://www.w3.org/TR/css-syntax-3/
+    @import ：https://www.w3.org/TR/css-cascade-4/
+    @media ：https://www.w3.org/TR/css3-conditional/
+    @page ： https://www.w3.org/TR/css-page-3/
+    @counter-style ：https://www.w3.org/TR/css-counter-styles-3
+    @keyframes ：https://www.w3.org/TR/css-animations-1/
+    @fontface ：https://www.w3.org/TR/css-fonts-3/
+    @supports ：https://www.w3.org/TR/css3-conditional/
+    @namespace ：https://www.w3.org/TR/css-namespaces-3/
+
+    @charset 在2.1 里面有定义，但是在 css 3.1 里面有一个重新定义的版本，它在我们的 css-syntax-3
+这个标准里面，它的主要作用：还是声明 CSS 的字符集，基本没有什么变化。
+    @import 就在 css cascade 级联标准里面，因为咱们的 CSS 叫做 cascade style sheet 嘛，这个是
+一个级联样式表，所以说它的级联规则就是有一个 import
+    @media 气死media 不在咱们的 media query 标准里面，它在 CSS 3 的conditional 标准里面，然后
+media 的 conditional 的这个标准，它又去引用了 media query ,规定了 media 后边的一部分的查询规则，
+所以说咱们平时常常去讲，说 media query 是一个新特性，其实 media query 并不是一个新特性，它是类似于
+一个预置好的函数，这样的就是一个查询媒体的一个规范，那么我们真正把查询媒体的特性，引入到 CSS 3 当中的，
+是这一份 CSS3 的 conditional 标准，这个 conditional 英文大家也知道是 有条件的 ，所以说我们的一些
+规则，就是在有条件的发生有效，就是这么简单的一个东西。
+    @page 有一份单独的 CSS3 标准去讲述它，就是 css-page-3 ，它主要是跟我们的打印的时候，相关理论上
+叫做分页媒体，但是其实咱们主要的分页媒体就是打印机，一般来说咱们的浏览器都是不分页的。
+    @counter-style 是一个咱们平时写列表的时候，也会有一个 counter ,列表前面的小黑点，或者是小数字，
+你看到今天我们的 PPT 上，其实就有小黑点.
+    @keyframes 是定义动画的用的东西。
+    @fontface 就是著名的，我们用的 web font 的这个功能，然后 fontface 这个东西，其实它可以用来定义
+一切字体的，它也不一定是 fontface ,然后由此衍生出来一个技巧，叫 icon font 。
+    @supports 其实同样是来自 conditional 的这样的一个标准，它用来检查某些 CSS 的功能存不存在，然后
+supports 其实比较尴尬，因为它自己就隶属于 CSS3 ，所以说很多时候，它本身它是有兼容性问题的，就没法用，所
+以现在基本上不推荐大家去用 supports 去检查 CSS 的兼容性，因为有的时候，你检查的属性可能兼容性，比你
+supports 这个规则还要好，所以估计可能 4-5 年后，CSS 再出的新特性，我们用 supports 去检查，可能就会
+比较好一些。
+    @namespace 它主要是用来处理，因为咱们现在的 HTML 里面，除了 HTML 命名空间，还引入了像 SVG MathML
+这样的，其他的命名空间的标记的标签，所以 CSS 里面有一个对应的设施，这个其实主要是一个完备性的考量，它也不是一
+个特别重要的这样的规则。
+
+    我认为像 media、keyframes、fontface 这三个 at-rule 就是真正地非常重要的功能，是我们一定需要去展开
+去掌握的，  像 supports 基本上不太推举大家去用，我们完全可以用一些工程工具去处理support， 然后像 page
+这种用在特定环境的，charset 基本上也已经不用了， import 我们大多数时候，也是不会太去用的，然后像 namespace
+就只有极端的情况下，我们做一个补充去用， counter-style 只有在我们写列表的时候，而且需要定制这个列表形状的
+时候，我们才会去用，所以归根结底，我觉得 at-rules 里面，最重要的还是这三条 media、keyframes 和 fontface 。
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>

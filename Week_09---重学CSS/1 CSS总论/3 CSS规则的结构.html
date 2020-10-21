@@ -1,0 +1,189 @@
+<!--
+    CSS 规则将会是我们后续 CSS 课程的重点部分，在 CSS 规则中，我们将会将会采取另一个分类
+的方式，因为 CSS 规则它只有一种结构，所以说我们把 CSS 规则的所有的结构，我们拿出来看一下，
+
+CSS规则
+    选择器
+    声明
+        Key
+        Value
+
+div{
+    background-color:blue;
+}
+    首先 CSS 的规则是分成了，选择器部分 和 声明部分，所以我们在 toy-browser 里面，也给大家
+使用了一个 CSS 的 parser ，那么它就会把 CSS 的规则给它 parse 成 selector 部分和 declaration
+部分，我们也会按照这个方法去理解 CSS 规则，
+    那么选择器部分，是一块非常重要的知识，而这个声明部分，我们可以看到它的声明是由一行一行的，它是一个
+K-V 组成的一个列表，所以我们在 CSS 部分，我们就会分成 选择器 K V 三个部分，来给大家进行展开和讲解，
+
+
+Selector
+    https://www.w3.org/TR/selectors-3/    实现比较好
+    https://www.w3.org/TR/selectors-4/    还在标准制定的途中
+Key
+    Properties
+    Variables: https://www.w3.org/TR/css-variables/
+Value
+    https://www.w3.org/TR/css-values-4/
+
+
+    key 的部分，很多同学只知道一种key ,就是我们去声明属性，但是随着 CSS Variable
+这个标准出现，我们的key 其实也出现了两种，一种是属性，一种是变量，所以说 CSS Variable
+这个标准，就又引入了一种新的 key 值，是以双减号开头的；
+    接下来说 Value ，Value 除了包含我们正常的值，它可能还会有一些函数类型的值，然后不同的属性，它可能要求不同类型的 value ,
+所以说我们的 CSS 规则，简单说，就分为这几个部分。
+-->
+
+<!--
+Selector
+
+    https://www.w3.org/TR/selectors-3/#grammar
+    selectors_group
+      : selector [ COMMA S* selector ]*
+      ;
+
+    selector
+      : simple_selector_sequence [ combinator simple_selector_sequence ]*
+      ;
+
+    combinator
+      /* combinators can be surrounded by whitespace */
+      : PLUS S* | GREATER S* | TILDE S* | S+
+      ;
+    可以看到 CSS3 的选择器的根元素，这个产生式的根元素，我们又一次用到了产生式，它是由一个 selectors-group ,
+那么 selectors-group 它是由 COMMA，就是逗号分隔的 selector 构成的，也就是说我们平时写 selector 的时候，
+逗号是优先级最低的，它的结合性是排在最后，然后在每一个 selector 呢？它是由一个 simple_selector_sequence
+组成的，simple_selector_sequence 是由 combinator 相连接的，combinator 有几种， 加号 大于号 波浪线
+这里大家在 CSS3 里，可以看到引入的几种，邻居和父子的关系，当然了，它还允许，最经典的空格型的选择器，那么这个是
+子孙，所以说 selector 是由 combinator 连接的 simple_selector_sequence ，而 simple_selector_sequence
+它是由简单选择器构成的，
+    simple_selector_sequence
+      : [ type_selector | universal ]
+        [ HASH | class | attrib | pseudo | negation ]*
+      | [ HASH | class | attrib | pseudo | negation ]+
+      ;
+    简单选择器有类型选择器，什么都不带的就是类型选择器，
+    或者是星号 *，universal 选择器，
+
+    然后可以是 HASH ,带井号的，然后带点的 class 选择器 和 attrib 选择器，就是我们的方括号，
+    然后伪类和伪元素选择器，以单冒号或者双冒号开头的一批选择器，
+    negation 是带 NOT 的选择器，带 NOT 的选择器它是以 :NOT 开头的，这些它至少要有一个选择器，
+
+    如果有类型选择器，或者是星号，它必须在最前，那么这个简单选择器，它至少要有一个，这就是一个选择器的这样的一个大致的范围了。
+    我们在后面讲解选择器的时候，会给大家详细的展开，这些选择器的用法。
+
+    然后 Selectors Level 4 的规定，跟 Level 3 是比较相似的，但是它的选择器更复杂，尤其是增加了很多的伪类选择器，而且
+它的 NOT 也更强大，它还增加了 或与 的关系，Level 4 我们不去详细的讲解它了，因为它现在的状态是一个 Working Draft ,而且
+目测 2018 年的 Working Draft 版本，到现在还没有一个新的更新，所以我的估计是，它很难进入到 REC 状态，所以大家就看一看，
+拓展思路就可以了。
+-->
+
+<!--
+key
+    :root {
+      --main-color: #06c;
+      --accent-color: #006;
+    }
+    /* The rest of the CSS file */
+    #foo h1 {
+      color: var(--main-color);
+    }
+    key 的部分 property 我们就不去展开去讲了，因为我们后续大部分的内容，都会在 selector 身上，这个 variable 的基本
+用法，只是我们去声明一个，双减号开头的 variable ，然后我们就可以，在它的子元素里面，使用这个 variable ,我们用 var 这个
+函数，然后后面跟这个属性名不需要加引号，只要是双减号开头的，就是这个变量，我们可以使用任何的名字。
+
+
+This example shows a custom property safely using a variable:
+:root {
+  --main-color: #c06;
+  --accent-background: linear-gradient(to top, var(--main-color), white);
+}
+The --accent-background property (along with any other properties that use var(--main-color)) will automatically update when the --main-color property is changed.
+它整个的使用还是比较方便的，然后它是可以作用在任何一个局部的，它也可以跟其他的函数进行嵌套，
+
+On the other hand, this example shows an invalid instance of variables depending on each other:
+:root {
+  --one: calc(var(--two) + 20px);
+  --two: calc(var(--one) - 20px);
+}
+Both --one and --two now compute to their initial value, rather than lengths.
+它也可以跟 calc 去共用，
+
+
+/* In the component’s style: */
+.component .header {
+  color: var(--header-color, blue);
+}
+.component .text {
+  color: var(--text-color, black);
+}
+
+/* In the larger application’s style: */
+.component {
+  --text-color: #080;
+  /* header-color isn’t set,
+     and so remains blue,
+     the fallback value */
+}
+另外我们使用var 这个函数的时候，是可以给一个默认值的，当找不到这个变量的时候，就会给出默认值，
+
+.foo {
+  --side: margin-top;
+  var(--side): 20px;
+}
+同样这个变量，除了可以用作 value ,它还可以用作 key ,比如说我们这边声明也给 margin-top ,那么它是可以在冒号的
+前半部分使用 var 的,
+
+
+:root { --not-a-color: 20px; }
+p { background-color: red; }
+p { background-color: var(--not-a-color); }
+然后这个变量，它并不会说默认的失效，如果说我们给一个无效的值，然后声明到一个属性上的时候，它会覆盖掉声明的属性的值，
+然后比如说这里，我们把 not-a-color 声明为 20px, 然后我们用两条一摸一样的规则，指定 p 元素的 background-color
+这样的话 not-a-color 的这个值，就会替换 red 这个值，替换掉 red 之后， 它就会变成一个无效的这样的一个值，所以说
+最后 p 元素的背景是透明的，这里我们就是简单的去了解一下变量。
+-->
+
+<!--
+Value
+    关于值，现在有一个 Level 4 标准，虽然它也是 Working Draft 状态，但是它的实现状态非常的好，而且它一直保持着
+更新，我们可以看到它有 整形或者是百分比 或者是浮点型，这个数字型其实就是浮点型，还可以是带维度的，那么长度单位就有一堆
+可以跟字体相关，也可以跟视口相关，也可以是一些传统的绝对的长度，但是现在其实绝对的长度，我们一般都只用 px,其实厘米和毫米
+这种东西，也不会真的产生厘米和毫米的效果，它都是会跟 px 产生一个固定的值去算，现在浏览器一般都不会去特殊的实现，还有比如
+说 带弧度的单位，或者是秒 毫秒，然后赫兹，就是频率，或者是屏幕分辨率的单位，可以还有颜色图片、位置相关的一些信息，
+
+
+另外在这份标准里，还提供了一些基本的函数，calc(), min(), max(), and clamp()
+有最小 最大 和 剪切 裁切 一个范围，
+section {
+  float: left;
+  margin: 1em; border: solid 1px;
+  width: calc(100%/3 - 2*1em - 2*1px);
+}
+    另外，这个标准最重要的是，它制定了 calc 这个函数，calc 函数是可以去进行一些简单的计算，
+
+
+attr()
+    然后会有一个，它会增加一个 Attribute Reference ,就是它可以让 CSS 的值，跟元素上的某个属性值相绑定，
+
+这是 CSS 的 Value 值类型，
+-->
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>

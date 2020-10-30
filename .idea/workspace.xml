@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="CSS 计算">
-      <change afterPath="$PROJECT_DIR$/Week_09---重学CSS/1 CSS总论/4 收集标准.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Week_09---重学CSS/1 CSS总论/5  CSS总论总结.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Week_09---重学CSS/2 CSS选择器/1 选择器语法.html" afterDir="false" />
+    <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week_09---重学CSS/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Week_09---重学CSS/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week_09---重学CSS/2 CSS选择器/1 选择器语法.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_09---重学CSS/2 CSS选择器/1 选择器语法.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,14 +212,8 @@
       <workItem from="1603357074117" duration="1344000" />
       <workItem from="1603861045294" duration="5438000" />
       <workItem from="1603938267352" duration="9392000" />
-      <workItem from="1603963465535" duration="1786000" />
-    </task>
-    <task id="LOCAL-00054" summary="重学 JavaScript">
-      <created>1600616522382</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1600616522382</updated>
+      <workItem from="1603963465535" duration="1817000" />
+      <workItem from="1604031747796" duration="264000" />
     </task>
     <task id="LOCAL-00055" summary="重学 JavaScript">
       <created>1600691587145</created>
@@ -560,7 +551,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603266487075</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="重学CSS">
+      <created>1603965272555</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1603965272556</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -580,7 +578,8 @@
     <MESSAGE value="寻路" />
     <MESSAGE value="HTML 解析" />
     <MESSAGE value="CSS 计算" />
-    <option name="LAST_COMMIT_MESSAGE" value="CSS 计算" />
+    <MESSAGE value="重学CSS" />
+    <option name="LAST_COMMIT_MESSAGE" value="重学CSS" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1860" y="206" width="1128" height="690" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601867467795">
@@ -591,9 +590,10 @@
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state x="2103" y="193" key="#xdebugger.evaluate/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601949828448" />
-    <state x="1930" y="23" key="CommitChangelistDialog2" timestamp="1603266486823">
-      <screen x="1440" y="23" width="1920" height="1057" />
+    <state x="368" y="0" key="CommitChangelistDialog2" timestamp="1603965272428">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state x="368" y="0" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1603965272428" />
     <state x="-1430" y="-28" key="CommitChangelistDialog2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599786844748" />
     <state x="368" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818025606" />
     <state x="1930" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1603266486823" />
@@ -712,9 +712,10 @@
     </state>
     <state x="2119" y="118" key="RollbackChangesDialog/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601885547486" />
     <state x="509" y="102" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1601383081879" />
-    <state x="1938" y="166" key="Vcs.Push.Dialog.v2" timestamp="1603266488894">
-      <screen x="1440" y="23" width="1920" height="1057" />
+    <state x="374" y="122" key="Vcs.Push.Dialog.v2" timestamp="1603965274056">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state x="374" y="122" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1603965274056" />
     <state x="-1422" y="115" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599786846921" />
     <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818026674" />
     <state x="1938" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1603266488894" />

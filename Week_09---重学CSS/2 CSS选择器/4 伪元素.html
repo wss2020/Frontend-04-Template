@@ -1,0 +1,92 @@
+<!--
+伪元素
+    ::before
+    ::after
+    ::first-line
+    ::first-letter
+
+    现在比较常用的，能用的伪元素，有这么4种，这4种又分成两组，
+    第一组就是 before 和 after ，before 和 after 是分别表示，在元素的内容的前和后，插入
+一个伪元素，一旦应用了 before 和 after 的属性，declaration 里面就可以写一个叫做content
+的书香，不正常的元素，我们是没有办法去写它的 content ，然后 before 和 after 只要你写了
+content 属性，它就像一个真正的 DOM 元素一样，可以去生成盒，来参与后续的排版和渲染了，
+然后你也可以给它指定，像 border background 这样的东西，可以理解为伪元素，就是通过选择器，
+向界面上添加一个不存在的元素。
+
+    第二组就是 first-line 和 first-letter， 它的机制和上一组又有点不一样，这两个东西，
+其实原本已经存在了 content ，first-line 和 first-letter ，顾名思义，就是选中第一行，
+和选中第一个字母，而第一行其实是已经完成，排版之后的一个结果，所以如果是在咱们的 toy browser
+里面去实现，大家可能还要去动点脑筋，
+    而first-letter ，那么就是第一个字母，这也非常的好理解，它的特点并不是添加一个不存在的元素，
+而是它用一个不存在的元素，把一部分的文本给它括起来，让我们可以对它进行一些处理，
+    所以说这是有两中伪元素机制，第一种就是无中生有，第二种就是把它括起来，把一些有特定逻辑意义的
+文字给它括起来。
+-->
+
+<!--
+详细介绍 before 和 after
+    在我们的概念里可以认为，带有 before 伪元素这样的选择器，给它的实际选中的元素，给它的内容
+的前面，增加了一个元素，我们只需要通过他的 content 属性，为它添加文本内容即可，所以 before
+和 after，这两个伪元素，我们可以任意的指定他的display ，不管是显示成 inline ，
+还是 inline-block ,还是 block ,都是没有问题的，所以相对来说比较自由。
+    我们在实现一些组件的时候，也会常常使用这种不污染 DOM 树，但是却能实际创造视觉效果的方式，
+来给页面添加一些修饰性的这样的内容，
+    然后我们的伪元素，其实  before 和 after ，都是相对来说比较好理解的，但是真正的应用起来，
+那么大家可以根据， before 和 after 的这种添加元素的特性，应该可以想到不少有趣的用法，那么这里
+咱们还是先讲知识，咱们就不展开，给大家讲最佳实践了。
+-->
+
+<!--
+详细介绍 first-line 和 first-letter
+    first-letter 相当于我们有一个元素，把内容里面的第一个字母给它括了起来，这个first-letter
+我们是可以任意添加，各种不同的属性的，当然了，我们改不了它的 content，大家应该看到报纸上的那种，
+第一个字母，会印得非常的大，而且它会游离出来的那种效果，这个在CSS里我们就可以用，first-letter
+选择器，就给它实现出来，用first-letter 选择器实现，它就会比用 JS 去实现更加的稳定，代码也更
+加优雅一些，
+    然后接下来 first-line， first-line 实际上是针对排版之后的 line ，其实跟我们源码里面
+的 first line ，没有任何的关系，所以说你可以看到，假如说我们的浏览器，提供的渲染的宽度不同，
+有可能 first line 在两个环境里面，它最终控住的元素数量，是不一样多的，所以我们是需要用
+first line 选择器的时候，我们需要去根据需求的情况，千万不要想当然的去使用 first line ，
+以为在我的开发机上可以这么用，那么到用户的机器上，也是这样的，实际上我们要保持 first line
+选择器的语义正确，千万不要做一些多余的事情。
+    值得一提的是 first-line 和 first-letter，它在选择器的属性上，都是有要求的。
+
+    first-line 选择器只支持
+       改字体
+       改颜色
+       改background
+       改word-spacing
+       改letter-spacing
+       改text-decoration
+       改text-transform
+       改line-height
+
+   first-letter  选择器
+      除了上面 first-line 能支持的
+      它还可以使用 float
+      vertical-align
+      支持的盒模型系列：margin、padding、border
+
+
+   所以，你想对文字做一些特殊的处理，就可以用 first-line 和 first-letter，但是比如说
+我想把 first-line ，变成一个 float 的东西，那肯定是不行的。
+-->
+
+
+<!--
+思考题：
+为什么 first-letter 可以设置display:block 之类的，而first-line 不行呢？
+    答：个人理解因为first-letter是针对字的样式不用关心变化布局所带来的影响，而first-line
+    时必须是布局计算完成才能确定首行，如果first-line支持改变大小或display，那么布局又需要
+    重新计算首行很影响性能。
+-->
+
+
+
+
+
+
+
+
+
+

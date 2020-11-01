@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Week_09---重学CSS/2 CSS选择器/3 伪类.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_09---重学CSS/2 CSS选择器/4 伪元素.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_09---重学CSS/2 CSS选择器/bofore 和 after.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_09---重学CSS/2 CSS选择器/first-line 和 first-letter 可用属性.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_09---重学CSS/2 CSS选择器/first-line 和 first-letter.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,19 +47,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Week_09---重学CSS" />
-      <recent name="$PROJECT_DIR$/Week_07---浏览器工作原理/2 CSS计算" />
-      <recent name="$PROJECT_DIR$/Week_07---浏览器工作原理/补充/小例子" />
-      <recent name="$PROJECT_DIR$/Week_07---浏览器工作原理/补充" />
-      <recent name="$PROJECT_DIR$/Week_07---浏览器工作原理/2 CSS计算/1 收集CSS规则" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Week_09---重学CSS/2 CSS选择器" />
       <recent name="$PROJECT_DIR$/Week_09---重学CSS/1 CSS总论" />
       <recent name="$PROJECT_DIR$/Week_07---浏览器工作原理" />
       <recent name="$PROJECT_DIR$/Week_07---浏览器工作原理/别人可行的代码" />
       <recent name="$PROJECT_DIR$/Week_02--编程与算法" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Week_09---重学CSS" />
+      <recent name="$PROJECT_DIR$/Week_07---浏览器工作原理/2 CSS计算" />
+      <recent name="$PROJECT_DIR$/Week_07---浏览器工作原理/补充/小例子" />
+      <recent name="$PROJECT_DIR$/Week_07---浏览器工作原理/补充" />
+      <recent name="$PROJECT_DIR$/Week_07---浏览器工作原理/2 CSS计算/1 收集CSS规则" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.client.js">
@@ -214,14 +217,7 @@
       <workItem from="1603938267352" duration="9392000" />
       <workItem from="1603963465535" duration="1817000" />
       <workItem from="1604031747796" duration="3315000" />
-      <workItem from="1604200355070" duration="4524000" />
-    </task>
-    <task id="LOCAL-00057" summary="重学 JavaScript">
-      <created>1600955283350</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1600955283351</updated>
+      <workItem from="1604200355070" duration="9655000" />
     </task>
     <task id="LOCAL-00058" summary="js 表达式">
       <created>1601033609752</created>
@@ -559,7 +555,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604052115101</updated>
     </task>
-    <option name="localTasksCounter" value="106" />
+    <task id="LOCAL-00106" summary="重学CSS">
+      <created>1604210505137</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1604210505138</updated>
+    </task>
+    <option name="localTasksCounter" value="107" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -591,23 +594,23 @@
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state x="2103" y="193" key="#xdebugger.evaluate/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601949828448" />
-    <state x="185" y="23" key="CommitChangelistDialog2" timestamp="1604052114928">
+    <state x="185" y="23" key="CommitChangelistDialog2" timestamp="1604210504974">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="368" y="0" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1603965272428" />
     <state x="-1430" y="-28" key="CommitChangelistDialog2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599786844748" />
     <state x="368" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818025606" />
     <state x="1930" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1603266486823" />
-    <state x="185" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1604052114928" />
+    <state x="185" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1604210504974" />
     <state width="626" height="582" key="DebuggerActiveHint" timestamp="1602321810504">
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state width="626" height="582" key="DebuggerActiveHint/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1602321810504" />
-    <state x="1596" y="116" key="DiffContextDialog" timestamp="1603266476070">
-      <screen x="1440" y="23" width="1920" height="1057" />
+    <state x="117" y="100" key="DiffContextDialog" timestamp="1604210498335">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="1596" y="116" key="DiffContextDialog/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1603266476070" />
-    <state x="117" y="100" key="DiffContextDialog/0.23.1440.877@0.23.1440.877" timestamp="1601215463726" />
+    <state x="117" y="100" key="DiffContextDialog/0.23.1440.877@0.23.1440.877" timestamp="1604210498335" />
     <state width="1894" height="231" key="GridCell.Tab.0.bottom" timestamp="1602757133728">
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
@@ -713,30 +716,30 @@
     </state>
     <state x="2119" y="118" key="RollbackChangesDialog/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601885547486" />
     <state x="509" y="102" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1601383081879" />
-    <state x="374" y="142" key="Vcs.Push.Dialog.v2" timestamp="1604052116766">
+    <state x="374" y="142" key="Vcs.Push.Dialog.v2" timestamp="1604210506758">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="374" y="122" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1603965274056" />
     <state x="-1422" y="115" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599786846921" />
     <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818026674" />
     <state x="1938" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1603266488894" />
-    <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1604052116766" />
+    <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1604210506758" />
     <state x="1831" y="224" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1601868669885">
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state x="1831" y="224" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601868669885" />
-    <state x="763" y="28" width="1376" height="817" key="dock-window-1" timestamp="1604206636207">
+    <state x="763" y="27" width="1376" height="817" key="dock-window-1" timestamp="1604210730106">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="1613" y="23" width="1747" height="997" key="dock-window-1/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818005926" />
     <state x="1506" y="23" width="1747" height="997" key="dock-window-1/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1602551810846" />
-    <state x="763" y="28" width="1376" height="817" key="dock-window-1/0.23.1440.877@0.23.1440.877" timestamp="1604206636207" />
-    <state x="619" y="23" width="1129" height="817" key="dock-window-2" timestamp="1604047474730">
+    <state x="763" y="27" width="1376" height="817" key="dock-window-1/0.23.1440.877@0.23.1440.877" timestamp="1604210730106" />
+    <state x="587" y="23" width="1098" height="817" key="dock-window-2" timestamp="1604224844962">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="0" y="25" width="1440" height="844" maximized="true" key="dock-window-2/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1601967667690" />
     <state x="1481" y="30" width="1920" height="1057" key="dock-window-2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1602120584079" />
-    <state x="619" y="23" width="1129" height="817" key="dock-window-2/0.23.1440.877@0.23.1440.877" timestamp="1604047474730" />
+    <state x="587" y="23" width="1098" height="817" key="dock-window-2/0.23.1440.877@0.23.1440.877" timestamp="1604224844962" />
     <state x="11" y="23" width="1436" height="876" maximized="true" key="dock-window-3" timestamp="1604052126702">
       <screen x="0" y="23" width="1440" height="877" />
     </state>

@@ -17,8 +17,10 @@ float 于 clear
     当一个 float 的元素出现了以后，它不止影响自己所在的这一行，凡是它的高度所
 占据的范围内，我们的所有的行盒，都会根据这个 float 的元素的尺寸，调整自己的大小，
 超过了这个 float 的范围，那么就不考虑了。
-    然后如果说我们有两个 float 元素，假如说我们已经有了一个
-
+    然后如果说我们有两个 float 元素，假如说我们已经有了一个float:right 在右边，我们在排
+第三行的时候，这个时候又遇到了一个 float 元素，它是同向的这样的一个 float ,那么float 元素
+能浮动到的位置，它也会受上一个元素影响。  比如 图片 多个float ,会产生一个float 的这种相堆叠
+的一个效果， 后面的行盒，也会同时受到这两个 float 元素的影响。
 -->
 
 
@@ -29,6 +31,147 @@ float 于 clear
     <title>Title</title>
 </head>
 <body>
+
+float:<div style="clear:right; float: right;width:100px;height: 100px;background-color: blue;"></div>å
+文字  文字  文字  文字  文字  文字  文字  文字  文字  文字  文字
+文字  文字  文字  文字  文字  文字  文字  文字  文字  文字  文字
+文字  文字  文字  文字  文字  文字  文字  文字  文字  文字  文字
+文字  文字  文字  文字  文字  文字  文字  文字  文字  文字  文字
+文字  文字  文字  文字  文字  文字  文字  文字  文字  文字  文字
+float:<div style="clear:right; float: right;width:100px;height: 100px;background-color: blue;"></div>
+文字  文字  文字  文字  文字  文字  文字  文字  文字  文字  文字
+文字  文字  文字  文字  文字  文字  文字  文字  文字  文字  文字
+文字  文字  文字  文字  文字  文字  文字  文字  文字  文字  文字
+文字  文字  文字  文字  文字  文字  文字  文字  文字  文字  文字
+文字  文字  文字  文字  文字  文字  文字  文字  文字  文字  文字
+float:<div style="float: right;width:100px;height: 100px;background-color: blue;"></div>
+文字  文字  文字  文字  文字  文字  文字  文字  文字  文字  文字
+文字  文字  文字  文字  文字  文字  文字  文字  文字  文字  文字
+文字  文字  文字  文字  文字  文字  文字  文字  文字  文字  文字
+文字  文字  文字  文字  文字  文字  文字  文字  文字  文字  文字
+文字  文字  文字  文字  文字  文字  文字  文字  文字  文字  文字
+float:<div style="float: right;width:100px;height: 100px;background-color: blue;"></div>
+文字  文字  文字  文字  文字  文字  文字  文字  文字  文字  文字
+文字  文字  文字  文字  文字  文字  文字  文字  文字  文字  文字
+文字  文字  文字  文字  文字  文字  文字  文字  文字  文字  文字
+文字  文字  文字  文字  文字  文字  文字  文字  文字  文字  文字
+文字  文字  文字  文字  文字  文字  文字  文字  文字  文字  文字
+
+
+
+
+<!--
+    上面的实例（先看宽度是小屏的情况），我们写了一个 float:  这个标示，来告诉我们
+蓝色方块原本应该的位置，经过 float: right 之后，被挤到了最右边的位置，那么行盒的
+生成就会围绕着这个 float,它不会占据 float 的元素的空间，
+    然后随着我们把宽度增加，就出现了这个，float 的这种堆叠现象（不是重叠），有的
+同学会觉得页面布局会非常丑，没有任何一个排版是这种风格的，我们怎么办呢，可以给float
+加一个 clear 属性，然后来让它强制换行，所谓的 clear 有的翻译说叫清除浮动，其实我
+觉得它不是清除浮动的意思，它是找一个干净的空间，来执行浮动的意思，
+    比如说 clear:right ,就是说，我们要找到右边这样一块干净的空间，来执行浮动的
+操作， 元素加上 clear 属性之后，可以发现，右边有元素的时候，它就会选择调整自己在
+纵向的位置，然后来找到一块，没有浮动的位置，然后浮动过去，所以clear它是分 right
+和 left ,那么它们各自影响一个方向的float 的行为，这是float 的这样的一个基本行
+为。
+-->
+
+
+<style>div{color: white;}</style>
+<div style="margin:10px;float: left;width:100px;height: 100px;background-color: blue;">1</div>
+<div style="margin:10px;float: left;width:100px;height: 100px;background-color: blue;">2</div>
+<div style="margin:10px;float: left;width:100px;height: 100px;background-color: blue;">3</div>
+<div style="clear:left; margin:10px;float: left;width:100px;height: 100px;background-color: blue;">4</div>
+<div style="margin:10px;float: left;width:100px;height: 100px;background-color: blue;">5</div>
+<div style="margin:10px;float: left;width:100px;height: 100px;background-color: blue;">6</div>
+<div style="margin:10px;float: left;width:100px;height: 100px;background-color: blue;">7</div>
+<div style="margin:10px;float: left;width:100px;height: 100px;background-color: blue;">8</div>
+
+<!--
+    看第二段代码,我们有时候，利用float 的这种堆叠 和 自动换行，或者和 clear 去换行的行为，
+我们就可以用 float 去进行一些布局的操作，因为我们正常流的布局，早期，特别是之前没有 flex 布
+局的时候，正常流的布局是非常的困难，我们想完成一些，著名的 CSS 的一些需求，这个还是挺麻烦的，
+那么所以说大家就产生了这种，使用 float 来代替正常流的 inline-block ,来进行布局的这样的一
+种技术，当我们去给每一个元素加上一个 float 的时候，那么它其实元素跟元素之间的表现，其实就很
+像一个正常流，因为 float 它盛满了之后还是会换行，我们来看一下，
+    把上面的全部改成 float:left ,就跟正常流是一样的，这个时候，如果我们想要执行一个强制换行
+该怎么办，因为 float 不识 br , 我们给它写一个 clear:left; 我们给左边的执行一个换行,
+发现 clear 达成了我们想要的效果，因为我们平时做布局的时候，基本上我们都会使用一些盒而不是
+文字，我们很少有这种真正意义上的，需要像原始的 float 的设计一样，用图文混排的设计。
+    一般来说，我们都是针对同一个级别，我们都是几个盒子，然后把它排成正确的形状，来完成页面
+上的布局，所以说 float 这种布局的技术，在老一辈的前端里面是非常流行的，现在已经完全被我们
+的 Flexbox 这个技术去代替了，这里让你了解一下，历史的用法，要是遇到非常古老的代码，也能看
+懂。   如今不推荐使用这项技术。
+
+-->
+
+
+
+<div style="clear: both;color: black;padding-top:20px;">--------------</div>
+
+
+
+文字  文字  文字  文字  文字  文字  文字  文字  文字  文字  文字
+文字  文字  文字  文字  文字  文字  文字  文字  文字  文字  文字
+文字  文字  文字  文字  文字  文字  文字  文字  文字  文字  文字
+文字  文字  文字  文字  文字  文字  文字  文字  文字  文字  文字
+文字  文字  文字  文字  文字  文字  文字  文字  文字  文字  文字
+float:<div style="clear:right; float: left;width:100px;height: 100px;background-color: blue;"></div>
+
+
+<!--
+    最后介绍一下，float 导致的一个重排的现象，尤其是在 float:left 的时候，经常会出现，
+我们可以看一下，我们调整一下它的尺寸，这个蓝色的 float 执行了一个 float:left ,
+可以把 div 去掉，可以可到这个 float 从那个地方开始，    加上这个 div 之后，发现这个
+float 它影响了之前的文字的位置，所以说这个位置，它是发生了一定的重排的行为的，所以我们
+不太建议大家去，频繁的去使用 float 这样的一个东西，如果要用，我们就回到我们的第一个
+case ,就是 float 最原本的用法，我们希望去实现一个绕排的，这样的一个效果的时候使用
+float ，在今天尤其是有了，我们第 2 代排版技术 和 第3代排版技术的情况下，我们基本上
+是不需要使用float ，去做正常的排版的，那么今天 float 也可以卸下，旧的担子了。
+-->
+
+
+
+
+<!--
+    讲一下正常流里面的一个现象，叫做 margin 折叠，我们在 BFC 里面讲过，我们的元素
+是顺次从上往下排的，但是顺次从上往下排的时候，其实还是会受它的盒模型去影响的。
+    有这样一种现象，当我们有这样的一个元素，一个 BFC 里面，它是从上往下的，然后我们有
+这样的一个元素，它有margin ,我们又来了一个元素它又有margin ,那么，这个时候，它应该
+是怎么排呢？它并不是把两个 margin 的空白去都留出来，把它们两个相加，而是会让它们两个
+去发生一个堆叠的现象，最后堆叠出来的高度，是跟最大的 margin 的高度相等的，这个现象就
+叫做 Margin Collapse ,也叫留白的折叠现象，或者说叫边距折叠这样的一个现象，Margin
+Collapse 这个事情，其实也是一个排版里面的要求，因为在我们的排版中，你任何一个这样的
+元素，它产生的盒模型里面，它的所谓的 margin ,只是要求周围有这么多的空白，而不会说要
+求说，我一定要跟别的的边距，有这么大的空白，所以你只要周围的留白的空间够了，那么它就是
+一个合理的排版方式，所以说我们如果说继承了印刷行业，古老的印刷行业的这种排版的体系的话，、
+你会发现 Margin Collapse 是一个非常自然的思路，
+    我们要注意，Margin Collapse 只会发生在 BFC 里面，它不会发生在 IFC 或者是其
+他的，比如说 像我们的 flex ,像 grid ，它们都没有 Margin Collapse 这样的现象，
+只有 BFC 里有只有正常流里有，发生边距折叠。
+
+    实际看代码，会发现，两个 div 间的距离是 20px,而不是 40px,它并没有把 margin
+相加，这个现象就叫做 Margin Collapse （边距折叠）。
+    其实我们单看 float 和 单看边距折叠，它们都不太难，我们单看 BFC 也不太难，但是
+如果这三个现象叠加到一起，基本上就是我们的古代前端的最大的难题。
+    也就是大家平时在 面试题遇到的关于 BFC 的问题，就是这三个现象叠加在一起。
+-->
+
+
+
+<div style="clear: both;color: black;padding-top:20px;">--------------</div>
+<div style="width: 100px;height:100px;background-color: aqua;margin: 200px;"></div>
+<div style="width: 100px;height:100px;background-color: aqua;margin: 200px;"></div>
+<div style="width: 100px;height:100px;background-color: aqua;margin: 200px;"></div>
+<div style="width: 100px;height:100px;background-color: aqua;margin: 200px;"></div>
+<div style="width: 100px;height:100px;background-color: aqua;margin: 200px;"></div>
+
+
+
+
+
+
+
+
 
 </body>
 </html>

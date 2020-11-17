@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--
+    overflow:visible; 可以看到，两个天蓝色的元素，发生了边距折叠，他们两个之间的距离是20px,这个时候
+如果给粉色的元素，加上一个 margin-top, 如果margin-top 的值小于20px,它不会有任何影响， 如果给它加上
+30px,你会发现粉色元素的 margin-top 也发生了作用，但是它仍然跟这两个元素的 margin 都发生了折叠，这两
+个天蓝色元素之间的距离，并没有变成70px;而是三个边距折叠到了一起变成了 30px.
+    overflow:hidden; 此时是创建新的BFC 的情况，此时你会发现，里边这个天蓝色的元素，因为它跟外面，已经
+不属于同一个BFC了，所以它并不再发生边距折叠了。     但是外边，粉色的元素和第一个天蓝色的元素，它们两个仍然
+处于同一个BFC中，所以他们两个仍然发生了边距折叠。
+
+    这两个例子，就是创建BFC与否，对边距折叠行为的影响。
+-->
+<body>
+<div style="width:100px;height:100px;background-color:aqua;margin: 20px;"></div>
+<div style="margin-top:30px; overflow: hidden;background-color: pink;">
+    <div style="width:100px;height:100px;background-color: aqua;margin: 20px;"></div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

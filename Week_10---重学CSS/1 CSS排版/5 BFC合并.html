@@ -1,0 +1,118 @@
+<!--
+Block
+    Block Container: 里面有BFC的
+        能容纳正常流的盒，里面就有BFC，想想有哪些？
+    Block-Level Box: 外面有BFC的
+    Block Box = Block Container +  Block-Level Box:里外都有BFC的
+
+
+    BFC: Block Formatting Context 块级格式化上下文
+    正常流里面只有两种 Formatting Context， BFC 和 IFC ，文字只能放 IFC 里面，
+来了一个盒，要么放里层的 IFC 里，要么放外层的 BFC 里，没有其它选项。
+-->
+
+<!--
+Block Container
+    block
+    inline-block
+    table-cell
+    flex item
+    grid cell
+    table-caption
+
+    基本上是display 的一些效果，比如 display:block 为 block 的这样的盒，肯定属于
+Block Container，inline-block 也属于 Block Container，
+    但是 table-row 不是，因为它里面是table-cell， 所以它不可能是正常流。
+    display 为 flex 的元素，也不是 Block Container，但是它的子元素叫做flex item
+这些 flex item,如果没有特殊的 display ，那么它都是 Block Container。
+    grid 也是有 cell ，所有的 grid 的 cell ，它默认也都是 Block Container.
+    然后table 有 table-caption，表格的标题，它里面也是正常流。
+
+    一句话来讲，所有能够容纳里边不是特殊的 display 的模式的，它里面默认就是正常流。
+-->
+
+<!--
+Block-Level Box
+    Block level
+        display:block
+        display:flex
+        display:table
+        display:grid
+        ...
+
+    Inline level
+        display: inline-block
+        display: inline-flex
+        display: inline-table
+        display: inline-grid
+        ...
+
+    display: run-in
+
+    其实我们大多数的元素，大多数display的值，它都有一对值，一个是
+Block Level 的，一个是 Inline Level 的， 其实在最新的 display
+的标准里面，已经把 Block level 和 Inline level 拆成了单独的属性，
+    display 它会出现 inner outer ,它给它的 display 做了一个系统
+的分解，这个暂时不谈。  咱们按照原始的角度去理解，就是它有display，都有
+是一个对应关系。
+    display: run-in, 特殊的display ，它跟着自己上一个元素来，有的
+时候是 Inline level，有的时候是 Block level。
+-->
+
+
+<!--
+设立BFC
+    floats
+    absolutely positioned elements
+    block containers (such as inline-blocks,table-cells,
+and table-captions) that are not block boxes,
+        flex items
+        grid cell
+        ...
+    and block boxes with 'overflow' other than 'visible'
+
+标准里面的一段描述，什么时候 什么样的盒 会创建BFC ？
+    第一种可能性叫 floats ,就是这些浮动的元素，元素里边就是一个正常的流。
+    第二种是 绝对定位的元素，它里面也会创建 BFC。
+    第三种，就是是 block containers，不是 block boxes，就是它不是
+block level 的，这种像 inline-blocks table-cells   flex items
+grid cell ... ，
+    第四种，就是 and block boxes with 'overflow' other than 'visible'
+
+如何记忆：
+    默认这些能容纳正常流的盒，我们都认为它会创建BFC，但是只有一种情况例外，
+就是 Block Box 里外都是 BFC 并且 overflow 是  visible ，
+    想一想，这样特殊情况，不就相当于没有 BFC ，这时会发生 BFC 合并，
+BFC 合并之后会发生什么？ 第一个就是 float, BFC发生合并，里边的行盒跟这个
+float,就有了一定的影响， 正常说我们是 block box ,它的overflow 不是
+visible ,它会创建独立 BFC 的话，它是整个的 block box 放进BFC 里，
+那么它的宽度，整个的 block box 受 BFC 影响，但如果它不创建 BFC 呢？
+那么它里边的行盒受 float 的影响，这是一个主要的区别，
+    第二个，就是边距折叠，只能发生在一个 BFC 里，如果创建了新的BFC 的话，
+那么它就不会发生边距折叠，另外如果说，没有创建BFC 的话，它就存在着一个同向
+的边距折叠，看下方例子。
+-->
+<!--
+BFC 合并
+    block box  &&  overflow:visible
+        BFC合并与float
+        BFC合并与边距折叠
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

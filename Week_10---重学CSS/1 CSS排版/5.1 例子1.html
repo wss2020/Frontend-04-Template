@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--
+    overflow:visible; 外面粉色的区域，就是overflow 为 visible 的容器呢，它就像不存在一样，文字就围绕着
+外面的 float 来进行排布。
+    overflow:hidden; 就符合了创建新 BFC 的条件， 这个时候，可以发现整个div 元素，整体作为一个 block level
+的 element, 被排进了BFC里， 也就是说 粉色元素的宽度围绕着外层的float,来进行排布了， 这个就是不同的BFC 造成排版
+的逻辑的差异。
+-->
+<body style="height:500px;background-color:lightgreen;">
+<div style="float:right;width: 100px;height:100px; background-color: aqua;margin: 20px;"></div>
+<div style="background-color: pink;overflow:hidden;margin: 30px;">
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+    文字 文字 文字 文字
+</div>
+</body>
+</html>
+

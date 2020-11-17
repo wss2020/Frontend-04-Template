@@ -20,7 +20,7 @@ Text
 和一个高，除此之外，它还有一条基线的定义，如果没有这条基线的定义，咱们的字体是不
 成立的，最后你没有办法，
     去用它进行排版，比如说我们看到，它这里面这个 origin 原点，它所标识的位置，
-其实就是咱们的文字的基线的位置，它其实是以基线的原点，作为一个坐标，然后来这个定义
+其实就是咱们的文字的基线的位置，它其实是以基线的原点，作为一个坐标，然后来定义
 这个文字的位置，那么所以说基线，它认为这就是 X=0；
     然后它有一个 xMax 和一个yMax ,
     那实际上在这张图里面 yMin 的相反数，就是咱们的基线到字的底缘的距离，
@@ -55,7 +55,7 @@ line-top 和 line-bottom 的偏移的问题，
 有可能把高度撑开，这个时候 line-top 就从虚线的位置，移到了白色的实线的位置，这
 个现象就是正常流里面，处理行模型非常麻烦的一个现象，盒的先后顺序和盒的尺寸，都会
 影响 line-top 和 line-bottom 的这个位置，但是盒是不会影响 text-top 和
-text-bottom .
+text-bottom.
 
 -->
 
@@ -76,7 +76,7 @@ text-bottom .
     <span>Hello good 中文</span>
     <div style="
     vertical-align: text-bottom;
-    line-height: 70px;width: 100px;height: 150px;
+    line-height: 70px;width: 100px;height: 70px;
     background-color: aqua;display: inline-block;
 ">
 

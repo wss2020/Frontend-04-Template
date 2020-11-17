@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Week_09---重学CSS/2 CSS选择器/4 伪元素.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Week_09---重学CSS/2 CSS选择器/bofore 和 after.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Week_09---重学CSS/2 CSS选择器/first-line 和 first-letter 可用属性.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Week_09---重学CSS/2 CSS选择器/first-line 和 first-letter.png" afterDir="false" />
+    <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="重学CSS">
+      <change afterPath="$PROJECT_DIR$/Week_10---重学CSS/1 CSS排版/3.1.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week_10---重学CSS/1 CSS排版/3 正常流的行级排布.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_10---重学CSS/1 CSS排版/3 正常流的行级排布.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +37,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Week_09---重学CSS" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Week_10---重学CSS/1 CSS排版" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -47,19 +45,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Week_09---重学CSS/2 CSS选择器" />
-      <recent name="$PROJECT_DIR$/Week_09---重学CSS/1 CSS总论" />
-      <recent name="$PROJECT_DIR$/Week_07---浏览器工作原理" />
-      <recent name="$PROJECT_DIR$/Week_07---浏览器工作原理/别人可行的代码" />
-      <recent name="$PROJECT_DIR$/Week_02--编程与算法" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Week_10---重学CSS/1 CSS排版" />
       <recent name="$PROJECT_DIR$/Week_09---重学CSS" />
       <recent name="$PROJECT_DIR$/Week_07---浏览器工作原理/2 CSS计算" />
       <recent name="$PROJECT_DIR$/Week_07---浏览器工作原理/补充/小例子" />
       <recent name="$PROJECT_DIR$/Week_07---浏览器工作原理/补充" />
-      <recent name="$PROJECT_DIR$/Week_07---浏览器工作原理/2 CSS计算/1 收集CSS规则" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Week_10---重学CSS/1 CSS排版" />
+      <recent name="$PROJECT_DIR$/Week_09---重学CSS/2 CSS选择器" />
+      <recent name="$PROJECT_DIR$/Week_09---重学CSS/1 CSS总论" />
+      <recent name="$PROJECT_DIR$/Week_07---浏览器工作原理" />
+      <recent name="$PROJECT_DIR$/Week_07---浏览器工作原理/别人可行的代码" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.client.js">
@@ -217,63 +215,19 @@
       <workItem from="1603938267352" duration="9392000" />
       <workItem from="1603963465535" duration="1817000" />
       <workItem from="1604031747796" duration="3315000" />
-      <workItem from="1604200355070" duration="9655000" />
-    </task>
-    <task id="LOCAL-00058" summary="js 表达式">
-      <created>1601033609752</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1601033609752</updated>
-    </task>
-    <task id="LOCAL-00059" summary="js 表达式">
-      <created>1601134289780</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1601134289781</updated>
-    </task>
-    <task id="LOCAL-00060" summary="js 表达式">
-      <created>1601212179818</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1601212179819</updated>
-    </task>
-    <task id="LOCAL-00061" summary="js 表达式">
-      <created>1601220130100</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1601220130100</updated>
-    </task>
-    <task id="LOCAL-00062" summary="浏览器工作原理">
-      <created>1601454201969</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1601454201970</updated>
-    </task>
-    <task id="LOCAL-00063" summary="浏览器工作原理">
-      <created>1601457044793</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1601457044794</updated>
-    </task>
-    <task id="LOCAL-00064" summary="HTTP 请求">
-      <created>1601738024213</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1601738024214</updated>
-    </task>
-    <task id="LOCAL-00065" summary="HTTP 请求">
-      <created>1601774067212</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1601774067212</updated>
+      <workItem from="1604200355070" duration="9846000" />
+      <workItem from="1604375500800" duration="4837000" />
+      <workItem from="1604450927223" duration="1770000" />
+      <workItem from="1604534634669" duration="1946000" />
+      <workItem from="1604712962755" duration="3797000" />
+      <workItem from="1604801092735" duration="8818000" />
+      <workItem from="1604895209589" duration="2590000" />
+      <workItem from="1604980256628" duration="2021000" />
+      <workItem from="1605000209844" duration="2147000" />
+      <workItem from="1605076262554" duration="7201000" />
+      <workItem from="1605248049318" duration="488000" />
+      <workItem from="1605408615210" duration="3320000" />
+      <workItem from="1605576002372" duration="8490000" />
     </task>
     <task id="LOCAL-00066" summary="HTTP 请求">
       <created>1601799373284</created>
@@ -562,7 +516,63 @@
       <option name="project" value="LOCAL" />
       <updated>1604210505138</updated>
     </task>
-    <option name="localTasksCounter" value="107" />
+    <task id="LOCAL-00107" summary="重学CSS">
+      <created>1604239026885</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1604239026885</updated>
+    </task>
+    <task id="LOCAL-00108" summary="重学CSS">
+      <created>1604397406378</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1604397406379</updated>
+    </task>
+    <task id="LOCAL-00109" summary="重学CSS">
+      <created>1604800919065</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1604800919065</updated>
+    </task>
+    <task id="LOCAL-00110" summary="重学CSS">
+      <created>1604828920832</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1604828920833</updated>
+    </task>
+    <task id="LOCAL-00111" summary="重学CSS">
+      <created>1604915916063</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1604915916067</updated>
+    </task>
+    <task id="LOCAL-00112" summary="重学CSS">
+      <created>1605088362514</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1605088362515</updated>
+    </task>
+    <task id="LOCAL-00113" summary="重学CSS">
+      <created>1605578564052</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1605578564052</updated>
+    </task>
+    <task id="LOCAL-00114" summary="重学CSS">
+      <created>1605587287852</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1605587287852</updated>
+    </task>
+    <option name="localTasksCounter" value="115" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -594,14 +604,14 @@
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state x="2103" y="193" key="#xdebugger.evaluate/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601949828448" />
-    <state x="185" y="23" key="CommitChangelistDialog2" timestamp="1604210504974">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="368" y="0" key="CommitChangelistDialog2" timestamp="1605587287731">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="368" y="0" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1603965272428" />
+    <state x="368" y="0" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1605587287731" />
     <state x="-1430" y="-28" key="CommitChangelistDialog2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599786844748" />
     <state x="368" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818025606" />
     <state x="1930" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1603266486823" />
-    <state x="185" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1604210504974" />
+    <state x="185" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1605578563938" />
     <state width="626" height="582" key="DebuggerActiveHint" timestamp="1602321810504">
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
@@ -716,30 +726,30 @@
     </state>
     <state x="2119" y="118" key="RollbackChangesDialog/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601885547486" />
     <state x="509" y="102" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1601383081879" />
-    <state x="374" y="142" key="Vcs.Push.Dialog.v2" timestamp="1604210506758">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="374" y="122" key="Vcs.Push.Dialog.v2" timestamp="1605587289288">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="374" y="122" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1603965274056" />
+    <state x="374" y="122" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1605587289288" />
     <state x="-1422" y="115" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599786846921" />
     <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818026674" />
     <state x="1938" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1603266488894" />
-    <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1604210506758" />
+    <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1605578565581" />
     <state x="1831" y="224" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1601868669885">
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state x="1831" y="224" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601868669885" />
-    <state x="763" y="27" width="1376" height="817" key="dock-window-1" timestamp="1604210730106">
+    <state x="138" y="33" width="1058" height="816" key="dock-window-1" timestamp="1605600996386">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="1613" y="23" width="1747" height="997" key="dock-window-1/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818005926" />
     <state x="1506" y="23" width="1747" height="997" key="dock-window-1/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1602551810846" />
-    <state x="763" y="27" width="1376" height="817" key="dock-window-1/0.23.1440.877@0.23.1440.877" timestamp="1604210730106" />
-    <state x="587" y="23" width="1098" height="817" key="dock-window-2" timestamp="1604224844962">
+    <state x="138" y="33" width="1058" height="816" key="dock-window-1/0.23.1440.877@0.23.1440.877" timestamp="1605600996386" />
+    <state x="-85" y="23" width="1139" height="816" key="dock-window-2" timestamp="1605604509154">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="0" y="25" width="1440" height="844" maximized="true" key="dock-window-2/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1601967667690" />
     <state x="1481" y="30" width="1920" height="1057" key="dock-window-2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1602120584079" />
-    <state x="587" y="23" width="1098" height="817" key="dock-window-2/0.23.1440.877@0.23.1440.877" timestamp="1604224844962" />
+    <state x="-85" y="23" width="1139" height="816" key="dock-window-2/0.23.1440.877@0.23.1440.877" timestamp="1605604509154" />
     <state x="11" y="23" width="1436" height="876" maximized="true" key="dock-window-3" timestamp="1604052126702">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -766,12 +776,12 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="590" y="153" width="745" height="616" key="find.popup/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1603179386781" />
-    <state x="406" y="44" width="838" height="857" key="search.everywhere.popup" timestamp="1603198945915">
+    <state x="406" y="44" width="838" height="857" key="search.everywhere.popup" timestamp="1605605660094">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="-1379" y="-3" width="838" height="1032" key="search.everywhere.popup/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599730226236" />
     <state x="1981" y="48" width="1118" height="1033" key="search.everywhere.popup/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1602226938667" />
-    <state x="406" y="44" width="838" height="857" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1603198945915" />
+    <state x="406" y="44" width="838" height="857" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1605605660094" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

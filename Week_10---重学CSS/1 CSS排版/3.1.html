@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="font-size: 50px;line-height: 100px;background-color: pink;">
+    <!-- 占空间极小的元素 -->
+    <div style="vertical-align: baseline;overflow: visible;
+                display: inline-block;width: 1px;height:1px;">
+        <div style="width: 1000px;height: 1px;background: red"></div>
+    </div>
+
+    <span>Hello good 中文</span>
+    <div style=" vertical-align: baseline;line-height: 70px;width: 100px;height: 70px;
+                background-color: aqua;display: inline-block;">
+    </div>
+    <div style=" vertical-align: baseline;line-height: 70px;width: 100px;height: 70px;
+                background-color: aqua;display: inline-block;">
+        b</br>
+    </div>
+    <div style=" vertical-align: baseline;line-height: 70px;width: 100px;height: 70px;
+                background-color: aqua;display: inline-block;">
+        b</br>c
+    </div>
+
+    <!--  再复制一个 b c  -->
+    <div style="
+    vertical-align: text-bottom;
+    line-height: 70px;width: 100px;height: 150px;
+    background-color: aqua;display: inline-block;">
+        b</br>c
+    </div>
+
+    <!--  再复制一个 b c  -->
+    <div style="
+    vertical-align: text-top;
+    line-height: 70px;width: 100px;height: 150px;
+    background-color: aqua;display: inline-block;">
+        b</br>c
+    </div>
+</div>
+</body>
+</html>
+
+<!--
+    执行代码，我们发现，它默认是一个基线的对齐的规则，所以说它用盒的下边缘，跟文字的
+基线去做了对齐，
+    但是一旦这个里面，我们加了一个文字 b，我们就发现,它的基线的位置就变了，它的基线
+变成了它里边文字的最后一行的基线，
+    如果我们再加一个 c ,它就变成了下一行，所以这个是第一个，需要特别注意的问题，
+就是行内盒 inline-block 它的基线，是随着自己里面的文字去变化的，所以说其实大
+部分情况下，我是不建议，大家给行内盒使用基线对齐的，我们可以使用，给它一个
+vertical-align ，我们一般会给它一个，vertical-align 设为 top ,或者是
+bottom ，或者是 middle ,
+top 那么就是跟行的顶缘对齐，我这里给的这个行是一个 100px,它会把这一行撑开，
+    如果我们是给的是底缘对齐，那么它就会从下面把它撑开，
+    如果我们给的是一个 middle ,那么它就会在中心线跟文字去对齐，
+这是几种最基本的模式。
+    然后它还可以跟 text-top 和 text-bottom 去对齐，然后它一样会把上边缘
+和下边缘撑开，
+    然后这个时候我们可以看一下，这里我们用了一个小技巧，我们用一个div ，占空
+间极小的div ,然后我们给它设置了一个，里面有一个很长的元素，然后这样我们就可以
+画出来，这条对齐的线，然后我们先看看中心线，这个时候，中心线在这个红色的线的位置，
+它是穿过了整个文字，我们可以看到虽然 line-top 和 line-bottom 已经被撑开，
+但是 middle 的中心线实际上是没有变的，
+    但是top 的线已经发生了变化，可以把 占空间极小的div 的 vertical-align: top;
+查看效果，它的top 线已经被撑开了，所以只有 top 和 bottom 这两条线是会被撑开，有这个
+位置变化的，
+    然后我们看看，其实我们是可以有两个元素，分别撑开 top 和 bottom 的， 再复制一个 b c,
+我们可以看到，这个位置是它的顶部和底部，分别有两个元素把它撑开，然后实际上，没有任何一个元素
+的高度是，等于整个的行高的，  因为我们不同的 align 导致它被撑开。
+    关于行模型，就讲到这个，实际上整个的 vertical-align ，对整个行的高度的影响，还是比较
+多的，而因为top 和 bottom 是随着行的撑开而变化的，所以其实行模型，我们之前在 toy-browser
+里面，已经实现过 flex 的行模型，那个相对来说，它就只需要去考虑最高的一个元素，但是在咱们的正常
+流里面，行模型还是比较复杂的，如果我们真的要去在 toy-browser 里面，去实现这个正常流的行的排布，
+我们写的代码要比 flex 还是要更复杂一些。
+
+-->

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+    最后介绍一下，float 导致的一个重排的现象，尤其是在 float:left 的时候，经常会出现，
+我们可以看一下，我们调整一下它的尺寸，这个蓝色的 float 执行了一个 float:left ,
+可以把 div 去掉，可以可到这个 float 从那个地方开始，    加上这个 div 之后，发现这个
+float 它影响了之前的文字的位置，所以说这个位置，它是发生了一定的重排的行为的，所以我们
+不太建议大家去，频繁的去使用 float 这样的一个东西，如果要用，我们就回到我们的第一个
+case ,就是 float 最原本的用法，我们希望去实现一个绕排的，这样的一个效果的时候使用
+float ，在今天尤其是有了，我们第 2 代排版技术 和 第3代排版技术的情况下，我们基本上
+是不需要使用float ，去做正常的排版的，那么今天 float 也可以卸下，旧的担子了。
+-->
+<style>
+    div {
+        clear: right;
+        float: left;
+        width: 100px;height: 100px;background-color: blue;
+    }
+</style>
+
+文字 文字 文字 文字 文字 文字 文字 文字 文字 文字 文字
+文字 文字 文字 文字 文字 文字 文字 文字 文字 文字 文字
+文字 文字 文字 文字 文字 文字 文字 文字 文字 文字 文字
+文字 文字 文字 文字 文字 文字 文字 文字 文字 文字 文字
+文字 文字 文字 文字 文字 文字 文字 文字 文字 文字 文字
+float:<div></div>
+
+
+</body>
+</html>

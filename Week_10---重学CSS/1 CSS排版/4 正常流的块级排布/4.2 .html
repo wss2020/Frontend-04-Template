@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<!--
+    看第二段代码,我们有时候，利用float 的这种堆叠 和 自动换行，或者和 clear 去换行的行为，
+我们就可以用 float 去进行一些布局的操作，因为我们正常流的布局，早期，特别是之前没有 flex 布
+局的时候，正常流的布局是非常的困难，我们想完成一些，著名的 CSS 的一些需求，这个还是挺麻烦的，
+那么所以说大家就产生了这种，使用 float 来代替正常流的 inline-block ,来进行布局的这样的一
+种技术，当我们去给每一个元素加上一个 float 的时候，那么它其实元素跟元素之间的表现，其实就很
+像一个正常流，因为 float 它盛满了之后还是会换行，我们来看一下，
+    把上面的全部改成 float:left ,就跟正常流是一样的，这个时候，如果我们想要执行一个强制换行
+该怎么办，因为 float 不识 br , 我们给它写一个 clear:left; 我们给左边的执行一个换行,
+发现 clear 达成了我们想要的效果，因为我们平时做布局的时候，基本上我们都会使用一些盒而不是
+文字，我们很少有这种真正意义上的，需要像原始的 float 的设计一样，用图文混排的设计。
+    一般来说，我们都是针对同一个级别，我们都是几个盒子，然后把它排成正确的形状，来完成页面
+上的布局，所以说 float 这种布局的技术，在老一辈的前端里面是非常流行的，现在已经完全被我们
+的 Flexbox 这个技术去代替了，这里让你了解一下，历史的用法，要是遇到非常古老的代码，也能看
+懂。   如今不推荐使用这项技术。
+
+-->
+
+<style>
+    div {
+        float: left;
+        margin: 10px;width: 100px;height: 100px;
+        background-color: blue;color: white;
+    }
+</style>
+<div>1</div>
+<div>2</div>
+<div>3</div>
+<div style="clear:left;">4</div>
+<div>5</div>
+<div>6</div>
+<div>7</div>
+<div>8</div>
+
+
+</body>
+</html>

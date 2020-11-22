@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+    这个例子里面，我们定义了一个 button ,我们给这个 button，其它的我们都不去定义它，文字的颜色
+我们给它定义为白色，剩下的我们都不去设置它，然后我们想给这个按钮设置一个样式，这个时候我们会给它一个
+borderColor  和 一个background color ,
+    这个时候，如果我们使用HSL 颜色的话，我们就可以通过调节 H 色相，然后来把这个按钮，变成你脑子
+意义里的绿色按钮、黄色按钮、红色按钮，你去调它的颜色的时候，它的按钮上面的设计仍然是有效的。
+    我们可以看一下，实际运行的效果，可以看到，按钮的颜色不断的在变化，但是这个按钮本身，按钮本身它的
+明暗关系和 颜色的鲜艳程度的关系，都得以保留，这正是 HSL 颜色，作为一种语义话的颜色的这样的一种存在的
+意义。
+    如果我想把整个的页面，换一个颜色的风格的话，我们就只需要统一的去更改色相就可以了，这样的话，再配
+合 CSS 的变量，或者是配合 JS 里面的操作的时候，我们就都有非常好的操作的空间。
+-->
+
+
+<style>
+    .button{
+        display: inline-block;
+        outline:none;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        font: 14px/100% Arial,Helvetica,sans-serif;
+        padding: .5em 2em .55em;
+        text-shadow: 0 1px 1px rgba(0,0,0,.3);
+        border-radius: .5em;
+        box-shadow: 0 1px 2px rgba(0,0,0,.2);
+        color: white;
+        border:solid 1px ;
+    }
+</style>
+
+<div class="button ornage">123</div>
+
+<script>
+    let btn = document.querySelector(".button");
+    let h = 25;
+    setInterval(function (){
+        h++;
+        h=h%360;
+        btn.style.borderColor = `hsl(${h},95%,45%)`;
+        btn.style.background = `linear-gradient( to bottom, hsl(${h},95%,54.1%), hsl(${h},95%,84.1%) )`
+    },100)
+</script>
+
+</body>
+</html>

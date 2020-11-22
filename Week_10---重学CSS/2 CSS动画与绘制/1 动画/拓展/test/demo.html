@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="test"></div>
+</body>
+</html>
+<script src="./bezier.js"></script>
+<script>
+    function transition(target_value, transition_duration, transition_timing_function, transition_delay) {
+        let bezier = transition_timing_function;
+        let scale = 1 / transition_duration;
+        let targetArr = target_value;
+        console.log(targetArr);
+
+        let start = 0;
+        let startTimestamp;
+        let stee;
+
+        function step() {
+            let timestamp = new Date().getTime() - startTimestamp;
+            if (!start) start = timestamp;
+            let progress = timestamp - start;
+            let y = bezier(scale * progress); // y轴的比例
+
+            let result = Math.ceil(Number(targetArr * y));
+            result = result <= target_value ? result : target_value;
+            odiv.innerText = result;
+            if (timestamp >= transition_duration) window.clearTimeout(stee);
+        }
+
+        setTimeout(() => {
+            startTimestamp = new Date().getTime();
+            stee = setInterval(step, 60);
+        }, transition_delay);
+    }
+
+    let odiv = document.getElementById('test');
+    odiv.innerText = '0';
+    transition(100, 2500, generate(.25, .1, .25, 1), 1000);
+</script>

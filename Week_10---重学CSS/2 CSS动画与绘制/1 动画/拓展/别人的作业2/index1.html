@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .ball {
+            position: absolute;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            color: bisque;
+            font-size: 10px;
+            text-align: center;
+            background-color: black;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+<div class="ball">123123</div>
+<script src="./bezier.js"></script>
+<script>
+    // 利用老师提供的贝塞尔曲线函数
+    function timing_function(easing) {
+        let resolve;
+        if (easing === 'linear') resolve = generate(0, 0, 1, 1);
+        else if (easing === 'ease') resolve = generate(0.25, 0.1, 0.25, 1);
+        else if (easing === 'ease-in') resolve = generate(0.42, 0, 1, 1);
+        else if (easing === 'ease-out') resolve = generate(0, 0, 0.58, 1);
+        else if (easing === 'ease-in-out') resolve = generate(0.42, 0, 0.58, 1);
+        else if (easing.indexOf('cubic-bezier') === 0) {
+            let arr = easing.match(/(?<=\()(.*)(?=\))/)[0].split(",");
+            arr.map(item => { return Number(item); })
+            resolve = generate(...arr);
+        } else {
+            resolve = generate(0, 0, 1, 1);
+        }
+        return resolve;
+    }
+    function transition(el,
+                        target_value,
+                        transition_property,
+                        transition_duration,
+                        transition_timing_function,
+                        transition_delay) {
+
+        let start = 0;
+        let bezier = timing_function(transition_timing_function);  // 获取贝塞尔曲线公式
+        let scale = 1 / transition_duration;
+        let targetArr = target_value.match(/(\d*)(.*)/);
+        console.log(targetArr);
+
+        function step(timestamp) {
+            if (!start) start = timestamp;
+            let progress = timestamp - start;
+            let y = bezier(scale * progress); // y轴的比例
+            el.style[transition_property] = (Number(targetArr[1]) * y) + targetArr[2];
+            if (progress <= transition_duration)requestAnimationFrame(step);
+        }
+        setTimeout(() => {
+            requestAnimationFrame(step)
+        }, transition_delay);
+    }
+
+    let ball = document.getElementsByClassName("ball")[0];
+    transition(ball, "50px", "font-size", 2000, "liner", 1000);
+</script>
+</body>
+</html>

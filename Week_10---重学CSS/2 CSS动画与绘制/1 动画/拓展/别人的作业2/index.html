@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .ball {
+            position: absolute;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            color: bisque;
+            font-size: 10px;
+            text-align: center;
+            background-color: black;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+<div class="ball">123123</div>
+<script src="./bezier.js"></script>
+<script>
+    /*
+    * transition_property 的可能的值
+    * 属性	可能值
+    * background-color	color
+    * background-image	only gradients
+    * background-position	percentage, length
+    * border-bottom-color	color
+    * border-bottom-width	length
+    * border-color	color
+    * border-left-color	color
+    * border-left-width	length
+    * border-right-color	color
+    * border-right-width	length
+    * border-spacing	length
+    * border-top-color	color
+    * border-top-width	length
+    * border-width	length
+    * bottom	length, percentage
+    * color	color
+    * crop	rectangle
+    * font-size	length, percentage
+    * font-weight	number
+    * grid-*	various
+    * height	length, percentage
+    * left	length, percentage
+    * letter-spacing	length
+    * line-height	number, length, percentage
+    * margin-bottom	length
+    * margin-left	length
+    * margin-right	length
+    * margin-top	length
+    * max-height	length, percentage
+    * max-width	length, percentage
+    * min-height	length, percentage
+    * min-width	length, percentage
+    * opacity	number
+    * outline-color	color
+    * outline-offset	integer
+    * outline-width	length
+    * padding-bottom	length
+    * padding-left	length
+    * padding-right	length
+    * padding-top	length
+    * right	length, percentage
+    * text-indent	length, percentage
+    * text-shadow	shadow
+    * top	length, percentage
+    * vertical-align	keywords, length, percentage
+    * visibility	visibility
+    * width	length, percentage
+    * word-spacing	length, percentage
+    * z-index	integer
+    * zoom	number
+    * */
+
+
+    // 可能的时间函数
+    function timing_function(easing) {
+        let resolve;
+        if (easing === 'linear') resolve = generate(0, 0, 1, 1);
+        else if (easing === 'ease') resolve = generate(0.25, 0.1, 0.25, 1);
+        else if (easing === 'ease-in') resolve = generate(0.42, 0, 1, 1);
+        else if (easing === 'ease-out') resolve = generate(0, 0, 0.58, 1);
+        else if (easing === 'ease-in-out') resolve = generate(0.42, 0, 0.58, 1);
+        else if (easing.indexOf('cubic-bezier') === 0) {
+            let arr = easing.match(/(?<=\()(.*)(?=\))/)[0].split(",");
+            arr.map(item => { return Number(item); })
+            resolve = generate(...arr);
+        } else {
+            resolve = generate(0, 0, 1, 1);
+        }
+        return resolve;
+    }
+    function transition(el,
+                        target_value,
+                        transition_property,
+                        transition_duration,
+                        transition_timing_function,
+                        transition_delay) {
+
+        let start = 0;
+        let bezier = timing_function(transition_timing_function);
+        let scale = 1 / transition_duration;
+        let targetArr = target_value.match(/(\d*)(.*)/);
+        console.log(targetArr);
+
+        function step(timestamp) {
+            if (!start) start = timestamp;
+            let progress = timestamp - start;
+            let y = bezier(scale * progress); // y轴的比例
+            el.style[transition_property] = (Number(targetArr[1]) * y) + targetArr[2];
+            if (progress <= transition_duration)requestAnimationFrame(step);
+            console.log(progress);
+            console.log(transition_duration);
+            console.log(y);
+        }
+        setTimeout(() => {
+            requestAnimationFrame(step)
+        }, transition_delay);
+    }
+
+
+
+    let ball = document.getElementsByClassName("ball")[0];
+    transition(ball, "50px", "font-size", 2000, "liner", 1000);
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #ball {
+            width: 100px;
+            height: 100px;
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+<div id="ball"></div>
+<script src="transition.js"></script>
+<script>
+    transitionTo(document.getElementById('ball'), [
+        {name: 'transform', duration: 1000, value: 'translate(400px, 200px) rotate(40deg)'},
+        {name: 'backgroundColor', duration: 1000, value: 'red'},
+        {name: 'width', duration: 1000, value: '200px'},
+        {name: 'height', duration: 1000, value: '200px'}
+    ])
+</script>
+</body>
+</html>
+
+<!--
+    跟CSS的transition比，JS更加偏向指令式，而CSS更加偏向声明式，当然，这本身也是两门语言自身的特点，
+CSS用法简单直观，JS则在控制方面有更大的灵活性。
+    上面我只实现了 linear timing function（其他的函数实现网上大把大把的...），具体用法如上：
+-->

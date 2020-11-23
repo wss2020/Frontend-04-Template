@@ -1,0 +1,37 @@
+<!--
+应用技巧
+    data  uri + svg
+    data: data:image/svg+xml,%3csvg%20width=%22100%25%22%20height=%22100%25%22%20version=%221.1%22%20xmlns=%22http://www.w3.org/2000/svg%22%3e%3cellipse%20cx=%22300%22%20cy=%22150%22%20rx=%22200%22%20ry=%2280%22%20style=%22fill:rgb(200,100,50);%20stroke:rgb(0,0,100);stroke-width:2%22/%3e%20%3c/svg%3e
+
+
+    上面也说了，不太推荐大家使用这些现成，什么 border-radius 去拼，甚至看到过最夸张的，大家有用
+gradient 拼出来一个超级玛丽，作者觉得这些都属于奇技淫巧，它并不能能够真正的帮助到大家，它既没有足够
+的通用性，又在性能上表现非常的差，所以这里推荐一个官招。
+    就是 data uri + svg ，因为我们可以使用 background-image 这样的东西，所以我们可以把这 svg
+变成 data uri, 在所有我们需要图片的地方，我们都可以使用 inline 的 svg, 去描绘这个图片，因为 svg
+是一个专业的一个矢量图的格式，所以说任何的图形，基本上你都是难不倒它的。
+
+    上面的data，复制到浏览器中,绘制出来的是一个椭圆，我们只需要把它的 url 拷贝过来就可以了，这个椭圆
+也可以用于 CSS 的各个地方，不管你想要什么样的图形，因为我们的 svg 里面是支持path, 所以说你可以想要
+什么图形就要什么图形，最后都能给你绘制出来，
+
+-->
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+    在这段 Events 的代码中，写了一对互相嵌套的元素，其实一个是a,一个是b, 我在JS 里边，把它们的
+变量取了出来，
+-->
+
+
+
+<style>
+.a{width: 100%;height: 300px;background: lightblue;}
+.b{width: 100%;height: 200px;background: pink;}
+</style>
+
+<div id="a" class="a">
+    <div id="b" class="b"></div>
+</div>
+
+<script>
+    let a = document.getElementById('a');
+    let b = document.getElementById('b');
+
+    //给a 加一个事件监听
+    a.addEventListener("click",function (){ console.log('a') });
+    b.addEventListener("click",function (){ console.log('b') });
+    b.addEventListener("click",function (){ console.log('b1') },true);
+    a.addEventListener("click",function (){ console.log('a1') },true);
+/*
+    a1  b  b1  a
+    如果我们再给它加上，捕获相关的代码，可以看到，先触发了 a1 的捕获，然后在 b 上的两个事件，依次
+触发,最后我们的事件，又回到冒泡的a 身上，
+    然后如果我们再给它的 b 身上，加一个其他的，不论我们是冒泡还是捕获。
+*/
+    b.addEventListener('click',function (){ console.log('b3') });
+ /*
+    a  b  b1  b3  a
+    可以看到后加的，会加到后面去，先加的会先触发，那么这就是我们整个的，元素的冒泡和捕获的一个关系。
+ */
+
+
+</script>
+</body>
+</html>

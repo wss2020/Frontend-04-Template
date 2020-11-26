@@ -56,7 +56,19 @@ Range API
     range.insertNodes(document.createTextNode("aaaa"))
 
     咱们这里只介绍两个最主要的操作，
-    第一个就是咱们把 Range 里面的内容，给它取出来，就是 range.extractContents()，
+    第一个就是咱们把 Range 里面的内容，给它取出来，就是 range.extractContents()，这个
+操作等于我们把这个 range 里面选取的内容，从 DOM 树上完全的摘下来，
+    第二个操作叫做 insertNodes ，就是我们在 range 的位置，我们去插入一个新的节点，
+    这两个API ，基本上就完成了 删 和 加，我们要注意，extractContents 出来的，是一个fragment
+对象，是一个fragment 它也是 node 的一个子类，fragment 它就能够去容纳一些元素，然后它在append
+的时候，它自己不会被 append 到 DOM 树上，但是它会把它所有的子节点代替它自己放上去，这个特性非常的
+神奇，非常有利于我们去做一些 DOM 上的这种精准操作，
+    另外 fragment 也是可以去执行，DOM 上面的一些API 和方法的，比如说我们要 querySelector 什么
+都可以做，它理论上也可以 addEventListener ，但是这个一般没啥用，咱们都不这样用，
+    咱们的 React 和Vue 3.0 里面， 也都加了 fragment 对象，它同样是，底层都是用咱们的 DOM 里面
+的 fragment 去实现的。
+
+    接下来看代码。
 -->
 
 

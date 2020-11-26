@@ -1,0 +1,81 @@
+<!--
+Range API
+    var range = new Range();
+    range.setStart(element,9)
+    range.setEnd(element,4)
+    var range = document.getSelection().getRangeAt(0)
+
+    Range API 首先是如何去创建一个 range, Range 在英文里的意思，它是一个范围，那么在
+DOM 里面 Range，它的意思同样是一个范围，我们可以把它理解为，它是一个 HTML 的文档流里面
+的有起始点和一个终止点的一段范围，range 是不能够跳的，所以说它可能是多个范围，但是每一个
+range,它一定是一个连续的范围，
+    所以说它就有一个起点和一个终点，它的起点和终点，它只要说起点在 DOM 树里的位置是先于终
+点就可以，它不需要管这个层级关系，你比如说这个 start ,它可能位于前一个节点的三层的子节点
+里面，而后一个节点它位于一个后一个节点后边，
+    起止点，它都是由一个 element 和 一个偏移值来决定的，对于 element 来说，那么它的
+偏移值就是 children ， 对于 text node 来说，偏移值它就是文字的个数，、
+    没错，这个range ,它不一定是包含了一个完整的节点的，它可以包含半个节点，这个非常的
+厉害，那么它包含这个节点，它不需要去顾忌，节点和节点之间的边界，所以 Range 选择的范围，
+它非常的灵活，在我们的 DOM 树上，它可以任意的选择一段，
+    然后我们来说，range 的 selection 创建方法，除了我们去给它，手工的指定起止点的这
+种方法，它还有一个获得的方式，就是从 selection 来创建 Range, selection 大家都知道，
+咱拿个鼠标，往这个屏幕上一圈，就可以圈中一块地方，它还会有一个高光，那 range 呢就是，
+当你有 selection 的时候，我们可以 getSelection ,然后 getRangeAt(0),
+    我们现在的 selection  一般都是只支持一个 Range, 所以说我们就永远使用 getRangeAt(0),
+就可以了，然后它就可以选中一个 range , 选中一个范围，这样创建 Range 的方法就有了。
+
+    接下来我们看看其他的一些便捷方式，
+-->
+
+<!--
+Range API
+    range.setStartBefore
+    range.setEndBefore
+    range.setStartAfter
+    range.setEndAfter
+    range.selectNode
+    range.selectNodeContents
+
+    因为大家有的时候，并不需要说，非常精确的去数 offset ,尤其是我们的 DOM 树里面，
+它的 start end 这些值，它有可能还处于，它有一些空白的文本节点，因为咱们写 HTML 代码
+的时候，有时候它要缩进要换行，咱们会有一些格式上面的需求，所以说它就会产生大量的空白节点，
+有的时候你为了这些空白节点，压缩不压缩，你这个 range 就容易数不准，
+    所以说我们这里就规定一个，比如说 setStartBefore、setEndBefore 这样的一些方法，
+那么顾名思义，我们就可以把起点，设到某个节点之前，或者是把终点设到某个节点之前，我们通过
+before、after、start、end，一共有二乘二四种组合，
+    另外有时候我们就想选中一个元素，那么我们就可以用 selectNode ，这个时候 Range API
+就跟 node API 差不多，跟我们前面的节点 API 差不多，
+    另外咱们的 Range 有个 selectNodeContents，这个 selectNodeContents 那么就
+可以选中一个元素的所有的内容，所以说这些都是一些，便捷的选择方式，然后我们来看看创建 Range
+了之后能干嘛。
+-->
+
+<!--
+Range API
+    var fragment = range.extractContents()
+    range.insertNodes(document.createTextNode("aaaa"))
+
+    咱们这里只介绍两个最主要的操作，
+    第一个就是咱们把 Range 里面的内容，给它取出来，就是 range.extractContents()，
+-->
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>

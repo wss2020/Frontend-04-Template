@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+    我们直接让 l 等于 element 的 childNodes 的 length,这个时候，childNodes 它是
+一个 living collection, 那么我们从后往前循环，我们把最后一个元素挪掉，它是不会影响前面
+的元素的，这样我们就可以直接在 living collection 上操作了，不用再开一个数组，所以怎么做
+    我们直接 l = element.childNodes.length; 然后 while l 自减，注意 l 自减，第一
+次 l 就会变成一个 childNodes.length-1, 这正是最后一个元素的序号，然后我们给它从后往前，
+依次把这child, 给它 append 到这个元素上，等循环到最前面，正好我把前面的所有的元素，都已
+经挪到后边去了，这样我们就完成了 reverseChildren 的操作。
+
+    可以看到 reverseChildren 的代码非常的简洁，然后并且 DOM 的操作的数量，要比前面的
+要少，因为我们没有 remove 的操作，这个是作者认为 二级的答案，可以得到一半的分，这个算是我
+们的一个正常的解法， 正常作者认为，一个前端，如果说掌握了我们前面讲的 node API ,那么这个
+可以操作 DOM 树上的节点，那么我们就可以达到写出来这段代码，这样的一个水平。
+
+    还有更好的解法，用 Range API ,在使用 Range API 之前，我们来了解一下 Range API。
+-->
+
+
+    <div id="a">
+        <span>1</span>
+        <p>2</p>
+        <p>3</p>
+        <div>4</div>
+    </div>
+
+<script>
+    let element = document.getElementById("a");
+
+    function reverseChildren(element){
+        let l = element.childNodes.length;
+        while(l-- > 0){
+            element.appendChild(element.childNodes[l])
+        }
+    }
+    reverseChildren(element);
+
+</script>
+</body>
+</html>

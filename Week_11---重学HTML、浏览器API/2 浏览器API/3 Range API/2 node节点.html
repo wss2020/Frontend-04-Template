@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+    这里展示了一个基本的操作，首先我们来看这个 HTML 的结构，我这里假设有一个元素 a ,
+这个是外面的容器，然后里面有 1234 4个子节点，那么我们的 reverseChild 这个函数，
+它是一个，先把这个 element 取出来，然后去调用 reverseChild，我们是这样设计这个
+接口的,
+    然后在reverseChild 里面，我们先假设，这个应聘者是不知道 ODM API 的这个性质
+的，但是它有没有办法做出来这道题呢？  我们可以通过 Array.prototype.slice 这个
+方法，把它的 childNodes 变成一个普通的数组，因为这个 childNodes 你不熟悉，就把
+他变成普通的数组，这个普通的数组，取出来之后，它肯定不会随着 insert remove 这些
+操作去改变自己了， Array 肯定不是一个 living collecting,可以我们先把它取出来，
+    取出来之后，我们假设应聘人他也不懂这个，DOM 树会自动 remove 的这个情况，所以
+说我们给 element 做一个挨个的去 remove ,
+    然后最后是这个 element.innerHTML="" ,让它等于空，来替代 remove 的操作，
+这个也是不需要任何额外的知识的。
+    然后利用数组的 reverse 方法，把数组 reverse， 但是这个时候 element 的
+children 呢，其实并没有跟着变化，
+    接下来我们去，挨个再把 children 里面的这些子元素，再给它挨个 appendChild
+上去，全程是不需要任何额外的，对DOM 的了解和知识的。 你只需要知道，removeChild
+和 appendChild 两个API 就可以了。
+
+    上面这个操作最终是可以实现逆序的，当然这样实现本身是效率不高，而且代码是非常的
+的冗余，算法的时间复杂度倒是没有变，始终是个 O(n) 的操作。
+    接下来我们来看一下，如果一个了解 DOM API 的性质的人，它会怎么做。
+-->
+
+
+<div id="a">
+    <span>1</span>
+    <p>2</p>
+    <p>3</p>
+    <div>4</div>
+</div>
+<script>
+    let element = document.getElementById('a');
+
+    function reverseChild(element) {
+        let children = Array.prototype.slice.call(element.childNodes);
+        // let children = Array.prototype.slice.call(element.children); // 这样写，结果和上面是一摸一样的。
+        for (let child of children) {
+            element.removeChild(child);
+        }
+        // element.innerHTML = '';
+        children.reverse();
+        for (let child of children) {
+            element.appendChild(child);
+        }
+    }
+
+    reverseChild(element);
+</script>
+</body>
+</html>

@@ -11,7 +11,10 @@ range.setStart(a.childNodes[1],0); 把它设到 span 标签之后，它移除的
 45678</span>012 这个范围，span 标签还在，这个截止标签没有了，截止标签会被创建一个新的，
 放到这个位置。
     我们来执行代码试试，可以看到，效果是一样的， 但是我们来看 DOM 树里面，它的结果是不一
-样的，这个时候，它的 span 标签还在。
+样的，这个时候，它的 span 标签还在，只不过它是一个空标签，我们看不到。
+    那么 Range 它还可以移除半个标签，比如说我们在 456 这个 6 后边去移除，那么怎么办，
+看例子 6
+
 
 -->
 
@@ -26,6 +29,7 @@ range.setStart(a.childNodes[1],0); 把它设到 span 标签之后，它移除的
     let range = new Range();
     let a = document.getElementById("a");
     range.setStart(a.childNodes[1],0);
+    // range.setStart(a.childNodes[1].childNodes[0],0);  这个写法和上面的写法等价。
     range.setEnd(a.childNodes[2],3);
     range.extractContents();
 </script>

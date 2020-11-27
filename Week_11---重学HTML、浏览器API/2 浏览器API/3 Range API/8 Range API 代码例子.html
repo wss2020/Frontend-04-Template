@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+    我们来看一下，最后 reverse 这道题的一个最终的答案。看例子8
+-->
+
+
+<style>
+    span { background-color: pink; }
+</style>
+
+<div id="a">123<span>45678</span>0123456789</div>
+
+<script>
+    let range = new Range();
+    let a = document.getElementById("a");
+    range.setStart(a.childNodes[1].childNodes[0],3);
+    range.setEnd(a.childNodes[2],3);
+    range.extractContents();
+</script>
+</body>
+</html>

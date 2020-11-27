@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+    Range 它还可以移除半个标签，比如说我们在 456 这个 6 后边去移除，那么怎么办，
+我们给它设到 childNodes[1] ，因为它有一个文本节点，所以说我们在文本节点里选，
+就要再加一层 childNodes[0]， 偏移值 我们给 3 ， 把它从 3 开始，把它后边的都给它
+截掉，看看会发生什么。
+    它是可以去选中半个标签，这半个标签它会被自动补上一个结束标签，我们不会真的出现
+半个标签，那么 Range 就会在这个范围里面把它截断。
+    执行代码，我们可以看到 456 ， 6后面的 789 和 012 这个都被截掉了，这就是
+Range API ，对 DOM 元素的这样的一个精细的操作。
+
+    接下来，我们来看一下，最后 reverse 这道题的一个最终的答案。看例子8
+-->
+
+
+<style>
+    span { background-color: pink; }
+</style>
+
+<div id="a">123<span>45678</span>0123456789</div>
+
+<script>
+    let range = new Range();
+    let a = document.getElementById("a");
+    range.setStart(a.childNodes[1].childNodes[0],3);
+    range.setEnd(a.childNodes[2],3);
+    range.extractContents();
+</script>
+</body>
+</html>

@@ -6,22 +6,34 @@
 </head>
 <body>
 <!--
-    我们来看一下，最后 reverse 这道题的一个最终的答案。看例子8
+    我们来看一下，最后 reverse 这道题的一个最终的答案。
 -->
 
 
-<style>
-    span { background-color: pink; }
-</style>
-
-<div id="a">123<span>45678</span>0123456789</div>
+<div id="a">
+    <span>1</span>
+    <p>2</p>
+    <p>3</p>
+    <div>4</div>
+</div>
 
 <script>
-    let range = new Range();
-    let a = document.getElementById("a");
-    range.setStart(a.childNodes[1].childNodes[0],3);
-    range.setEnd(a.childNodes[2],3);
-    range.extractContents();
+    let element = document.getElementById("a");
+
+    function reverseChildren(element) {
+        let range = new Range();
+        range.selectNodeContents(element);
+
+        let fragment = range.extractContents();
+        let l = fragment.childNodes.length;
+        while (l-- > 0) {
+            fragment.appendChild(fragment.childNodes[l])
+        }
+        element.appendChild(fragment);
+    }
+
+    reverseChildren(element);
+
 </script>
 </body>
 </html>

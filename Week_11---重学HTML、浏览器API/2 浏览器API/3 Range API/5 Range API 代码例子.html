@@ -5,21 +5,34 @@
     <title>Title</title>
 </head>
 <body>
+<!--
+    我们这里放了一个 div a ，然后 a 里边我们放了 123 ，中间我们插了一个 span ,
+后面又插了一个 0123456789。
+    我们对 Range 进行操作的时候， 先把 childNodes 设到 0，也就是 123，然后把它
+设置到它的 3 的位置，
+    然后第二个，我们把它设置到 childNodes[2] 的 3 的位置，
+
+    在 console 中，执行 range.extractContents(); 会发现 45678012 被移走了,
+然后我们的 DOM 树上，也只剩下两个文本节点了，
+    然后我们尝试着去修改一下，假如说，我想把这个标签 span 里面的内容，全都移除掉，
+我这个span 标签还想留着，怎么办？看例子 6
+-->
+
+
 <style>
-    span {
-        background-color: pink;
-    }
+    span { background-color: pink; }
 </style>
 
-
-<div id="a">
-    123
-    <span>45678</span>
-    0123456789
-</div>
+<div id="a">123<span>45678</span>0123456789</div>
 
 <script>
-
+    let range = new Range();
+    let a = document.getElementById("a");
+    // console.log(a);
+    // console.log(a.childNodes);
+    range.setStart(a.childNodes[0],3);
+    range.setEnd(a.childNodes[2],3);
+    range.extractContents();
 </script>
 </body>
 </html>

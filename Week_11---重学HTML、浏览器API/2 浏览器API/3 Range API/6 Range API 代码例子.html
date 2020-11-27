@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+    假如说，我想把这个标签 span 里面的内容，全都移除掉，我这个span 标签还想留着，怎么办？
+range.setStart(a.childNodes[1],0); 把它设到 span 标签之后，它移除的范围就是
+45678</span>012 这个范围，span 标签还在，这个截止标签没有了，截止标签会被创建一个新的，
+放到这个位置。
+    我们来执行代码试试，可以看到，效果是一样的， 但是我们来看 DOM 树里面，它的结果是不一
+样的，这个时候，它的 span 标签还在。
+
+-->
+
+
+<style>
+    span { background-color: pink; }
+</style>
+
+<div id="a">123<span>45678</span>0123456789</div>
+
+<script>
+    let range = new Range();
+    let a = document.getElementById("a");
+    range.setStart(a.childNodes[1],0);
+    range.setEnd(a.childNodes[2],3);
+    range.extractContents();
+</script>
+</body>
+</html>

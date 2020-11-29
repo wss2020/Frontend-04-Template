@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--
+    创建使用 CSS 有两种方法，第一种是使用 style 标签，第二种是使用 link 标签，
+    style 标签，就是我们直接在这标签的内容里面去写 CSS ，
+    link 标签，就是在 href 属性，它的 url 里面这里，这里呢因为我不想再创建一个
+文件，所以我这里头用了一个 data uri ,所以说 它跟 style 标签的作用就差不多，我们
+就直接把这个文本放在这儿，注意左右的大括号是需要转义的， data uri 里面就进行一下
+转义，咱们之前也接触过一些 data uri ,这两个标签，最终都会创建 styleSheets ,
+所以说你要想改这种 style 标签里边的 styleSheet ，你就直接改它的 inner html
+就可以了，
+    它这个 link 标签创建的，你就不好改了，因为这个 href 它不一定是 data uri ,
+它有可能是一个 HTTP ，或者一个别的什么协议，你改不了它里边的内容，但是在咱们的
+CSSOM 里面，是可以访问到它的，
+    怎么访问呢？ 我们来把它运行起来看一下。
+    这个是一个伪元素，这 Hello 是一个伪元素，这个 word 是一个文本，我们就可以
+通过 document.styleSheets,
+    在 console 里输入 document.styleSheets, 可以看到 这个styleSheets里
+面有两个，第二个就是我们通过 link 去创建的 styleSheets ,它有一个 href 属性，
+但是我们去访问它呢？ 不是通过它的 href 去访问的，我们是通过它里边的 rules 去访
+问的，
+    接下来我们来给大家讲一讲，styleSheets 对象，它的子类，
+-->
+
+<!--
+rules
+    document.styleSheets[0].cssRules
+    document.styleSheets[0].insertRule("p {color:pink;}",0)
+    document.styleSheets[0].removeRule(0)
+
+    styleSheets 它是可以访问，它里边有 CSSRules ，当做一个类似数组的，
+这样的一个 collection 去取出来的，那在一个样式表里面，styleSheets 就
+代表一个样式表，它对应着一个 style 标签，或者是一个 link 标签，那么它这
+里面有若干条 rule ,
+    大家在学习 CSS 的时候，我们是可以通过 insertRule 和 removeRule
+去控制它一个样式表里，有那些的规则的，  我们这个 cssRules 里面，是没有
+办法直接往里写的，所以我们还是得通过，样式表上的 insertRule 和 removeRule
+有点类似于咱们的 childNodes 的风格，
+    不过 insertRule 是一个，我喜欢的风格的 API，传入一段 CSS 代码，后面
+它是一个位置，其实我觉得 DOM 也应该这样设计，但是不知道为什么，这可能是一些
+历史包袱，因为早期的 API 设计，大家都比较放飞自我，
+    另外 insertRule 呢？它插入的也不是个 rule 对象，它是一个字符串，这个
+地方也是设计的，蛮粗糙的一个点，但是也是年代久远，咱们就只能入乡随俗，好在咱们
+insertRule 的情况也不多，一般情况下，我们不会通过这种方式去改的，我们通过
+insertRule 和 removeRule ,然后给一个对应的位置，然后我们就可以加入新的
+CSS 规则进去了，
+    咱们 CSS 规则，如果大家还有印象的话，它分成 at-rule 和 普通rule，
+普通rule 就叫做 CSSStyleRule.   at-rule 有五花八门的名字，跟咱们之前
+学 CSS ，哪些所谓的 at-rule 的语法，也是个一一对应的，大家看到没有，
+CSSOM 它基本对应的就是 CSS 语法，CSS 语法里有什么，咱们的 CSSOM 里面就
+有什么，比如 charsetRule、importRule、mediaRule、fontFaceRule 等。
+    CSSStyleRule 是一个重点，就像我们CSS 一样，虽然有那么多 at-rule,
+它都是辅助 CSSStyleRule 去表达样式的，
+-->
+<!--
+Rule
+    CSSStyleRule
+    CSSCharsetRule
+    CSSImportRule
+    CSSMediaRule
+    CSSFontFaceRule
+    CSSPageRule
+    CSSNamespaceRule
+    CSSKeyframesRule
+    CSSKeyframeRule
+    CSSSupportsRule
+    ......
+-->
+<!--
+    然后我们来看一下 CSSStyleRule
+Rule
+    CSSStyleRule
+        selectorText String
+        style K-V 结构
+
+   咱们在 toy browser 里面，引了一个 CSS 的样式的，解析的语法库，你就会发现，
+它这个里面有一个 selectorText, 就是选择器部分，然后就是花括号里面的 style
+部分，它是一个 K-V 结构，咱们的 CSSStyleRule ,在定义上也是一样的，通过这个
+CSSStyleRule ,我们就可以去改变一些样式，我们就可以直接去操纵 CSS 的规则了，
+这个就是 CSSOM 的一个主体内容，接下来，看代码，尝试着去修改一下样式。
+-->
+<body>
+    <style>
+        a::before{
+            color: red;
+            content:"Hello"
+        }
+    </style>
+    <link rel="stylesheet" title="x" href="data:text/css,p%7Bcolor:blue%7D">
+    <a> World</a>
+
+<!--
+    通过 CSSOM 去修改样式，比如直接改 style 标签来，有诸多的好处，一个是我们可
+以去批量的修改，比如说我们有一个 list ,我们想给它的颜色统一换一换，咱们有CSSRule
+在，那么我们一种选择，是给它加上一个对应的 class ,另一个就是我们有一些伪元素，我们
+是没有办法，直接通过 DOM API 去访问的，比如说我们想改变图里面的 Hello 的颜色，
+我们就必须通过 CSSOM 去修改这些伪元素的表现，
+    比如说这个 Hello ,我们想把他的颜色变一变，我们就必须通过 CSSOM ，去修改这些
+伪元素的表现，比如说这个 Hello ,我们想要把它的颜色变一变，
+    首先取 CSS 的 styleSheets[0].cssRules[0].style.color = 'lightgreen',
+我们给它的颜色改成浅绿色，我们发现Hello 的颜色，就跟着对应的去改变了。
+    如果我们有很多的伪元素，我们就可以通过这种方法，批量的去设定； 另外我们也可以通过
+修改其它的 CSS 规则，实现批量的去操作页面上的元素。
+-->
+    <script>
+        // let style = document.styleSheets;
+        document.styleSheets[0].cssRules[0].style.color = 'lightgreen'
+    </script>
+</body>
+</html>

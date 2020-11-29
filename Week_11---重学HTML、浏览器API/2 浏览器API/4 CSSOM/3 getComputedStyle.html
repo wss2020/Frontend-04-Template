@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--
+getComputedStyle
+    window.getComputedStyle(elt,pseudoElt);
+        elt 想要获取的元素
+        pseudoElt 可选，伪元素
+
+    因为我们的 ComputedStyle 是你通过 DOM 是没有办法取到的，就像咱们的toy
+browser 里，最终它有一个 ComputedStyle ，就是咱们做了 CSS 计算之后，最后
+合出来的样式， 那我们的 getComputedStyle，window 的属性，就可以取到一个元
+素的属性，另外它还可以获取，对应的伪元素的这样的一些属性，看个例子。
+-->
+<body>
+<style>
+    a::before{
+        color: rgb(255, 111, 150);
+        content:"Hello"
+    }
+</style>
+<link rel="stylesheet" title="x" href="data:text/css,p%7Bcolor:blue%7D">
+<a> World</a>
+
+<!--
+    同样是 styleSheets 的结构，我们可以对这个元素，调一下 getComputedStyle
+这里因为我们要找 a 元素，在console 中输入 getComputedStyle.querySelector("a")
+看结果， 所有对于 a 元素，已经计算出来的属性，
+    那么我们如果想获取伪元素，我们就可以getComputedStyle.querySelector("a","::before")
+这样去获得， 获取伪元素的颜色值，可以用  getComputedStyle(document.querySelector("a"),"::before").color
+获取到它的计算好的样式，
+    所以 getComputedStyle，是一个非常有用的，这样的一个属性，它能取到我们页面上的元素，
+最终真实渲染的时候，所需要的 CSS 的属性，然后同时它也能够访问到伪元素上，这个是一个非常强
+大的能力。
+    然后我们这里，其实有一个非常好的实践，我们通过 getComputedStyle ，我们就可以去获取
+一些元素，真实的
+    比如 transform ,
+    比如说 元素的我们要去做拖拽这样的行为，我们最后都最好是用getComputedStyle,
+    还有就是说，我们有一些 CSS 动画，它有一些中间态，我们可能想要暂停这个动画，这个时候我们
+没有办法通过 DOM API， style 属性和 CSSRules 去判断它当前播到哪了， 因为它是一个中间值，
+这个时候我们也会使用 getComputedStyle 去处理这个问题。
+-->
+<script>
+    // getComputedStyle(document.querySelector("a"))
+    // getComputedStyle(document.querySelector("a","::before"))
+    // getComputedStyle(document.querySelector("a"),"::before").color
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

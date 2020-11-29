@@ -1,0 +1,131 @@
+<!--
+    上一节讲解的 CSSOM 部分，是跟 CSS 语言相对应的一个模型，但是其实，我们根据前面
+讲的 toy browser 相关的内容，可以知道，其实在我们完成了 layout 之后，我们实际上渲
+染出来的 CSS 的图形，它也会包含一部分属性，
+    那么怎么样去获取 layout ,甚至说是 render 之后，得到的一些信息，那么就要靠我们
+的 CSSOM 的 View 部分的 API，
+    虽然同样叫 CSSOM，但是 CSSOM View 部分的 API，跟我们的 CSS 语言呢，这个模型
+已经不太一致了，它主要的是跟我们浏览器，最后画上去的视图非常的相关，
+    我们首先来了解一下，window API
+-->
+<!--
+window
+    window.innerHeight, window.innerWidth
+    window.outerWidth, window.outerHeight
+    Window.devicePixelRatio
+    Window.screen
+        Window.screen.width
+        Window.screen.height
+        Window.screen.availWidth
+        Window.screen.availHeight
+
+    在浏览器上，大家能够找到的最顶层的一个东西，就是浏览器窗口，浏览器的窗口，它身上会有
+一些很重要的属性，比如说它的宽高，这些都是可以通过 CSSOM 的 View 部分来获取的，
+    这里面  window 它会有一个 innerHeight 和 innerWidth，这两个属性是非常重要的
+属性，它代表了我们实际上所使用的 viewport ,也就是说我们浏览器的 HTML 的内容，实际上
+渲染所用的区域，它的高度和宽度，
+   然后有一个不太有用的是，window 的 outerWidth 和 outerHeight，这两部分是包含了
+浏览器自带的工具栏，甚至比如说，咱们大家把 inspector 调出来，  inspector 占的空间，
+它是浏览器窗口总共占的尺寸，这个值，其实是没有太大的用处，因为我们不需要关心整个window
+有多大，但是浏览器 API 里，为了完备性也给出来，让大家可以获取。
+    devicePixelRatio 这个属性，是特别特别重要的，它的意思是我们的屏幕上的物理像素，
+跟我们代码里面的逻辑像素 px,它俩之间的这样的一个比值，正常设备呢，这两个比值是 1：1，
+那么我们的 Retina 屏上，就变成了 1：2， 在有些安卓机上，你还有看到 1：3 的DPR，这
+DPR 跟我们去实现代码的时候的布局，是非常的相关的， 我们在 CSS 里写 1px，大家都知道
+它是一个像素，但是实际上这个像素，不一定跟机器的物理像素重合， 如果说 DPR 大于1，咱们
+有的时候，还要使用一些奇技淫巧，来完成真正的 1px 的细线，所以说 DPR 是一个，咱们会经
+常打交道的一个CSS 的值，咱们一定要把它记好。
+    最后关于屏幕的信息，其实也是没有太大的用处的，screen 的 width 和 height,代表
+的是实际屏幕的宽和高， screen 的 availHeight 和 availWidth，是代表的可以使用的
+宽和高，这个可以使用，不是说我们的浏览器可以使用的一个概念，咱们的有些安卓机，它会把屏
+幕上的一部分，给它做成物理上的按钮，这种情况下，availWidth 跟实际的 width,
+availHeight 和 实际的 height 就会发生一些不一样，它实际上都是跟设备的硬件相关的信
+息，不过有些浏览器，它也不会好好地去实现这几个值，所以说你取出来也不一定准，其实我们代
+码里面，也不太需要去关心屏幕的一些信息，我们基本上只需要关心，window 的 viewport
+里面的信息，
+    其实在 Window 这部分的API 里，
+只有 innerHeight、innerWidth 和 devicePixelRatio 这三个是非常重要的。其它的
+稍微了解一下就可以了。
+
+    接下来我们看看 Window 的另一部分 API，
+-->
+<!--
+Window API
+    window.open("about:blank","black"
+        ,width=100,height:100,left:100,right:100")
+    moveTo(x,y)
+    moveBy(x,y)
+    resizeTo(x,y)
+    resizeBy(x,y)
+
+    这部分 API 是当我们去开一个新的浏览器窗口的时候可以去用，我们都知道 window.open()
+方法，在原始的这份标准里面的定义，它其实只有两个参数，但是 CSSOM 的 Window API
+这个部分给它加了第三个参数，我们可以指定，打开的窗口，它的宽高 和 在屏幕上所处的位置，
+这个时候，也许咱们的屏幕的 screen 部分，就有点用处了。 但是实际上到今天大部分的网站，
+都不会这样去设计自己的这个页面，只有一些老的为企业开发的网站，会这样去设计自己的交互，
+那么不论如何经过实验，
+    作者发现，其实 Window 的 API ，现在还是可以用的，那么如果说这个 window 是你
+自己创建出来的，那么你就可以调用 moveTo moveBy 去改变它的位置，又可以通过 resizeTo
+和 resizeBy, 去改变它的 window 尺寸，你创建的 window ,就可以自由地去操作它了，
+看例子。
+-->
+
+<!--
+scroll
+    scrollTop               window
+    scrollLeft                  scrollX
+    scrollWidth                 scrollY
+    scrollHeight                scroll(x,y)
+    scroll(x,y)                 scrollBy(x,y)
+    scrollBy(x,y)
+    scrollIntoView()
+
+    scroll 相关的 API
+    scroll 它分为 scroll 的元素 和 window的scroll
+    元素呢，可以用 scrollTop、scrollLeft 来找它，当前滚动到的位置
+scrollWidth、scrollHeight 则是可滚动内容的，最大的宽度和高度，然后
+它有 scroll ，这个也有一个别名，叫 scrollTo .
+    scroll 这个 API 可以让它滚动到特定的位置，scrollBy 则可以在当前
+的基础上，滚动一个差值，
+    另外所有的元素，它都有一个 scrollIntoView ,它可以强制我们去滚到
+屏幕的可见区域。
+
+    然后window 上最顶层的窗口，它也有一个 scroll 的值，因为这个年代
+久远，所以这两个 API 设计的不是特别一致，window 只有 4 个值，它只有
+scrollX、scrollY，  然后它 scroll 和 scrollBy ，倒是跟这个元素
+是一摸一样的。 同样它也有别名 scrollTo
+
+    滚动相关的 API，基本上抽象了咱们这种 overflow 是 scroll 的这样
+的元素和 window 顶层的 window ，它只有在有滚动条的时候，这些 API
+才会生效。
+-->
+
+<!--
+layout
+    getClientRects()
+    getBoundingClientRect()
+
+    最后看看，今天的重头戏，layout 相关的 API，它其实 API 很简单，都有两个，
+它在 element 上，我们在每个元素上，可以调用这个 getClientRects ,来获取它
+生成的所有的盒，这个地方又涉及到了，咱们前面讲到的，所有的元素，它都会生成盒，
+有些元素它会生成多个盒，这个 API 就充分的反映了这一点，它叫 getClientRects，
+有个 s,说明它是有些元素可以生成多个盒的，
+    如果说你不想理解的那么深刻，我们就想取一个包裹元素 所有的内容的 这样的一
+个方块出来，那么就叫 getBoundingClientRect，这个一定只能取到一个，那么它
+是把所有的元素生成的盒，它的包含的区域给它取出来。
+
+    接下里我们看一个实际的例子，以便大家去理解这个盒。
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+

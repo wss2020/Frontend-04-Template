@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="open" onclick="window.w = window.open('about:blank','_blank','width=100,height=100,left=100,right=100')">
+        open window
+    </button>
+    <button onclick="w.resizeBy(30,30)">resize</button>
+    <button onclick="w.moveBy(30,30)">move</button>
+</body>
+</html>
+<!--
+    在这段代码里面，我设置了三个按钮，
+    第一个按钮，会利用 window 的 open API ,去打开一个新的窗口，那么因为加了第三个参数，那么它就是
+一个完全在我们自己控制下的一个窗口，
+    第二个按钮，通过 resizeBy 去改变它的尺寸，
+    第三个按钮，用 moveBy 去改变它的位置
+
+    执行一下， 看看效果。
+    你甚至可以用 setTimeout 让窗口在界面上做动画，当然了，不太推荐这样去做，如果
+说你的网站这样去做，可能会被举报为骚扰用户，我们的浏览器，都有这种防弹出等等的机制，
+你基本上被标齐了之后，你这个网站就再也弹不出窗口了，咱们很多无良广告，都是利用这种
+技术。 强行的弹一个新窗口出来。
+-->
+
+
+
+
+
+
+
+
+
+
+
+

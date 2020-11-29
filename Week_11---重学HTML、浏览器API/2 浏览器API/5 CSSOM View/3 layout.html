@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+    我们这里创建了一个 div,然后 div 上面会有一些文字，然后我们的主角，就是这个
+div 里面的 span , 然后我们已经把它预先的取出来，存到变量里了，另外我们给这个x,
+给它加了一个 before content .接下来，我们把代码运行起来.
+    可以看到，因为我给了一个背景色，所以说这个 span ，这个 x 它到底生成了多少
+个盒，是一目了然，我们大家可以看一下，它的有颜色的部分，就是它的盒，一共它有 6 个，
+    console 中 x.getClientRects(); 看看是不是。  我们看到的是 6 个盒，有
+颜色部分，是 6 个长方体的范围，那么它实际上，最后生成的也是 6 个这样的盒，那么分别
+位于不同的位置， （这里有几个盒，似乎等于显示的行数）
+    我们这里特意给它加了一个伪元素，就是为了告诉大家，这个伪元素，它本身也会参与到
+元素的获取生成盒的过程中，我们看到这里面，有两个盒里面，只有伪元素的内容，第三个盒它
+是有伪元素，也有真实的文字，
+    伪元素在这个页面上，它是无法被选中的，你会发现这个文字是无法 copy ,没有任何
+办法去 copy ,这个就是我们页面的 getClientRects 的一个逻辑。
+
+    然后还有一个 getBoundingClientRect, console 中输入 x.getBoundingClientRect(),
+一定只会获取一个，我们可以看到 它的 bottom height ,就决定了它的尺寸，它是正好圈
+住所有的盒的。
+    所以这两个 API ，就是我们去获取，我们的浏览器 layout 之后的结果的这样的一个
+利器，它能够真实的取到，所有元素的位置，而且这两个 API ，它的兼容性非常的好，
+    所以说我们想获取一个元素，跟它父元素的差值，它的位置的相对位置，我们有时候会
+获取它的父元素和子元素的一个相对位置，  那这个时候，我们怎么办呢？ 如果我们去使用，
+CSS 的各种属性，又有复杂的盒模型， 我们自己拿 JS 去算的话，这个事是没完没了，还
+涉及到一些什么百分比，  但是我们一旦用到，CSSOM 里边的，View 的部分的 API，我
+们一取它的 getBoundingClientRect ,那就一目了然了，所以说，我们的 CSSOM view
+的部分的 API，这两个，虽然说只有两个 API ，但是它的应用登场率，是非常的高的，也是
+非常的好用的，我们要去实现一些，比如说 拖拽效果什么的，我们都会使用这两个 API 去做，
+
+    OK,到这里我们就把 CSS 的整个的 View 的部分，都给大家讲解完毕了，我们也把
+CSSOM 的 API，全都讲解完毕了。  下一节，我们讲一讲其他的 API.
+-->
+
+
+    <style>
+        .x::before{
+            content:"额外 额外 额外 额外 ";
+            background-color: pink;
+        }
+    </style>
+    <div style="width: 100px;height:400px;overflow:scroll;">
+        文字 <span class="x" style="background-color: lightblue">文字 文字 文字 文字 文字 文字 </span>
+    </div>
+    <script>
+        let x = document.getElementsByClassName("x")[0];
+        // x.getClientRects();
+        // x.getBoundingClientRect();
+    </script>
+</body>
+</html>
+

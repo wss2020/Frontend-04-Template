@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API</title>
+    <style>
+        .flex {
+            overflow: hidden;
+        }
+        .flex-1 {
+            height: 400px;
+            display: inline-block;
+            width: 20%;
+        }
+        .flex-1 ul {
+            height: calc(100% - 50px);
+            overflow-y: auto;
+            padding-right: 10px;
+            position: relative;
+        }
+        .flex-1 h3 {
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+<p>API:<span id="Count"></span></p>
+<div id="BOX" class="flex"></div>
+<script>
+    let apis = Object.getOwnPropertyNames(window);
+    Count.innerText = apis.length;
+    const flexs = [];
+
+    function filterOut(names, props) {
+        let set = new Set();
+        props.forEach((o) => set.add(o));
+        return names.filter((e) => !set.has(e));
+    }
+    function creatFlex(name, arr) {
+        const flex = document.createElement('div');
+        flex.classList.add('flex-1');
+        const ul = document.createElement('ul');
+        const h = document.createElement('h3');
+        h.innerText = name + arr.length;
+        flex.appendChild(h);
+        for (let i = 0; i < arr.length; i++) {
+            const p = document.createElement('li');
+            p.innerText = arr[i];
+            ul.appendChild(p);
+        }
+        flex.appendChild(ul);
+        flexs.push(flex);
+    }
+    //JavaScript 中规定的 API
+    const objects = [
+        'globalThis',
+        'BigInt',
+        'BigInt64Array',
+        'BigUint64Array',
+        'Infinity',
+        'NaN',
+        'undefined',
+        'eval',
+        'isFinite',
+        'isNaN',
+        'parseFloat',
+        'parseInt',
+        'decodeURI',
+        'decodeURIComponent',
+        'encodeURI',
+        'encodeURIComponent',
+        'Array',
+        'Date',
+        'RegExp',
+        'Promise',
+        'Proxy',
+        'Map',
+        'console',
+        'WeakMap',
+        'Set',
+        'WeakSet',
+        'Function',
+        'Boolean',
+        'String',
+        'Number',
+        'Symbol',
+        'Object',
+        'Error',
+        'EvalError',
+        'RangeError',
+        'ReferenceError',
+        'SyntaxError',
+        'TypeError',
+        'URIError',
+        'ArrayBuffer',
+        'SharedArrayBuffer',
+        'DataView',
+        'Float32Array',
+        'Float64Array',
+        'Int8Array',
+        'Int16Array',
+        'Int32Array',
+        'Uint8Array',
+        'Uint16Array',
+        'Uint32Array',
+        'Uint8ClampedArray',
+        'Atomics',
+        'JSON',
+        'Math',
+        'Reflect',
+        'escape',
+        'unescape',
+    ];
+    creatFlex('ECMA 中规定的 API: ', objects);
+
+    // DOM 中的元素构造器
+    const domApi = apis.filter((e) => {
+        try {
+            return window[e].prototype instanceof Node;
+        } catch (err) {
+            return false;
+        }
+    });
+    // .filter((e) => e == 'Node');
+    creatFlex('DOM 中的元素构造器:', domApi);
+    apis = apis
+        .filter((e) => {
+            try {
+                return !(window[e].prototype instanceof Node);
+            } catch (err) {
+                return true;
+            }
+        })
+        .filter((e) => e != 'Node');
+    // Window 接口
+    const arr = [
+        'window',
+        'self',
+        'document',
+        'name',
+        'location',
+        'history',
+        'customElements',
+        'locationbar',
+        'menubar',
+        ' personalbar',
+        'scrollbars',
+        'statusbar',
+        'toolbar',
+        'status',
+        'close',
+        'closed',
+        'stop',
+        'focus',
+        ' blur',
+        'frames',
+        'length',
+        'top',
+        'opener',
+        'parent',
+        'frameElement',
+        'open',
+        'navigator',
+        'applicationCache',
+        'alert',
+        'confirm',
+        'prompt',
+        'print',
+        'postMessage',
+    ];
+    creatFlex('Window 接口:', arr);
+
+    // 所有的事件
+    const ons = apis.filter((e) => e.match(/^on/));
+    creatFlex('所有的事件:', ons);
+
+    // webkit 前缀的私有属性
+    const webkit = apis.filter((e) => e.match(/^webkit/));
+    creatFlex('webkit 前缀的私有属性:', webkit);
+
+    // Touch W3C
+    const TouchApi = apis.filter((e) => e.match(/^Touch/));
+    creatFlex('Touch:', TouchApi);
+
+    // IDB W3C
+    const IDBApi = apis.filter((e) => e.match(/^IDB/));
+    creatFlex('IDB:', IDBApi);
+
+    // CSS W3C
+    const CSSApi = apis.filter((e) => e.match(/^CSS/));
+    creatFlex('CSS:', CSSApi);
+
+    // SVG WG
+    const SVG = apis.filter((e) => e.match(/^SVG/));
+    creatFlex('SVG:', SVG);
+
+    // HTML 标准中还能找到所有的接口
+    const other = [
+        'ApplicationCache',
+        'AudioTrack',
+        'AudioTrackList',
+        'BarProp',
+        'BeforeUnloadEvent',
+        'BroadcastChannel',
+        'CanvasGradient',
+        'CanvasPattern',
+        'CanvasRenderingContext2D',
+        'CloseEvent',
+        'CustomElementRegistry',
+        'DOMStringList',
+        'DOMStringMap',
+        'DataTransfer',
+        'DataTransferItem',
+        'DataTransferItemList',
+        'DedicatedWorkerGlobalScope',
+        'Document',
+        'DragEvent',
+        'ErrorEvent',
+        'EventSource',
+        'External',
+        'FormDataEvent',
+        'HTMLAllCollection',
+        'HTMLFormControlsCollection',
+        'HTMLOptionsCollection',
+        'SubmitEvent',
+        'ElementInternals',
+        'Worklet',
+        'sessionStorage',
+        'localStorage',
+        'HashChangeEvent',
+        'History',
+        'ImageBitmap',
+        'ImageBitmapRenderingContext',
+        'ImageData',
+        'Location',
+        'MediaError',
+        'MessageChannel',
+        'MessageEvent',
+        'MessagePort',
+        'MimeType',
+        'MimeTypeArray',
+        'Navigator',
+        'OffscreenCanvas',
+        'OffscreenCanvasRenderingContext2D',
+        'PageTransitionEvent',
+        'Path2D',
+        'Plugin',
+        'PluginArray',
+        'PopStateEvent',
+        'PromiseRejectionEvent',
+        'RadioNodeList',
+        'SharedWorker',
+        'SharedWorkerGlobalScope',
+        'Storage',
+        'StorageEvent',
+        'TextMetrics',
+        'TextTrack',
+        'TextTrackCue',
+        'TextTrackCueList',
+        'TextTrackList',
+        'TimeRanges',
+        'TrackEvent',
+        'ValidityState',
+        'VideoTrack',
+        'VideoTrackList',
+        'WebSocket',
+        'Window',
+        'Worker',
+        'WorkerGlobalScope',
+        'WorkerLocation',
+        'WorkerNavigator',
+    ];
+    creatFlex('HTML 标准中所有的接口:', other);
+
+    // Window 对象上的属性
+    let windowprops = new Set();
+    arr.forEach((o) => windowprops.add(o));
+    other.forEach((o) => windowprops.add(o));
+    apis = apis.filter((e) => !windowprops.has(e));
+    apis = apis.filter((e) => !e.match(/^on/));
+    apis = apis.filter((e) => !e.match(/^webkit/));
+    // creatFlex('Window 对象上还剩余的属性:', apis);
+
+    // WHATWG 的 Streams 标准：
+    const Streams = [
+        'ReadableStream',
+        'ReadableStreamDefaultReader',
+        'ReadableStreamBYOBReader',
+        'ReadableStreamDefaultController',
+        'ReadableByteStreamController',
+        'ReadableStreamBYOBRequest',
+        'WritableStream',
+        'WritableStreamDefaultWriter',
+        'WritableStreamDefaultController',
+        'TransformStream',
+        'TransformStreamDefaultController',
+        'ByteLengthQueuingStrategy',
+        'CountQueuingStrategy',
+    ];
+    creatFlex('WHATWG 的 Streams 标准：', Streams);
+
+    // WebGL
+    const webgl = [
+        'WebGLContextEvent',
+        'WebGLObject',
+        'WebGLBuffer',
+        'WebGLFramebuffer',
+        'WebGLProgram',
+        'WebGLRenderbuffer',
+        'WebGLShader',
+        'WebGLTexture',
+        'WebGLUniformLocation',
+        'WebGLActiveInfo',
+        'WebGLShaderPrecisionFormat',
+        'WebGLRenderingContext',
+        'WebGL2RenderingContext',
+        'WebGLQuery',
+        'WebGLSync',
+        'WebGLSampler',
+        'WebGLTransformFeedback',
+        'WebGLVertexArrayObject',
+    ];
+    creatFlex('WebGL：', webgl);
+
+    // Web Audio API
+    const WebAudioAPI = [
+        'AudioContext',
+        'AudioNode',
+        'AnalyserNode',
+        'AudioBuffer',
+        'AudioBufferSourceNode',
+        'AudioDestinationNode',
+        'AudioParam',
+        'AudioListener',
+        'AudioWorklet',
+        'AudioWorkletGlobalScope',
+        'AudioWorkletNode',
+        'AudioWorkletProcessor',
+        'BiquadFilterNode',
+        'ChannelMergerNode',
+        'ChannelSplitterNode',
+        'ConstantSourceNode',
+        'ConvolverNode',
+        'DelayNode',
+        'DynamicsCompressorNode',
+        'GainNode',
+        'IIRFilterNode',
+        'MediaElementAudioSourceNode',
+        'MediaStreamAudioSourceNode',
+        'MediaStreamTrackAudioSourceNode',
+        'MediaStreamAudioDestinationNode',
+        'PannerNode',
+        'PeriodicWave',
+        'OscillatorNode',
+        'StereoPannerNode',
+        'WaveShaperNode',
+        'ScriptProcessorNode',
+        'AudioProcessingEvent',
+    ];
+    creatFlex('Web Audio API：', WebAudioAPI);
+
+    // ECMAScript 2018 Internationalization API
+    creatFlex('ECMAScript 2018 Internationalization API：', ['Intl']);
+
+    // Encoding 标准
+    const Encoding = [
+        'TextDecoder',
+        'TextEncoder',
+        'TextDecoderStream',
+        'TextEncoderStream',
+    ];
+    creatFlex('Encoding 标准：', Encoding);
+
+    // Web Background Synchronization
+    const wbs = ['SyncManager'];
+    creatFlex('Web Background Synchronization：', wbs);
+
+    // Web Cryptography API
+    const wca = ['CryptoKey', 'SubtleCrypto', 'Crypto', 'crypto'];
+    creatFlex('Web Cryptography API：', wca);
+
+    // Media Source Extensions
+    const mse = ['MediaSource', 'SourceBuffer', 'SourceBufferList'];
+    creatFlex('Media Source Extensions：', mse);
+
+    // The Screen Orientation API
+    const tsoa = ['ScreenOrientation'];
+    creatFlex('The Screen Orientation API：', tsoa);
+
+    // The DOM Standard defines the core infrastructure used to define the web.
+    const DOMStandard = [
+        'CustomEvent',
+        'EventTarget',
+        'AbortController',
+        'AbortSignal',
+        'event',
+        'MutationObserver',
+        'MutationRecord',
+        'DOMImplementation',
+        'StaticRange',
+        'Range',
+        'NodeIterator',
+        'TreeWalker',
+        'NodeFilter',
+        'DOMTokenList',
+        'XPathResult',
+        'XPathExpression',
+        'XPathEvaluator',
+    ];
+    creatFlex('WHATWG DOM Standard：', DOMStandard);
+
+    const feactApi = [
+        'origin',
+        'Content-Type',
+        'X-Content-Type-Options',
+        'Cross-Origin-Resource-Policy',
+    ];
+    // The Fetch Standard defines the networking model for resource retrieval on the web.
+    creatFlex('WHATWG Fetch Standard：', feactApi);
+
+    const XMLHttpRequestApi = [
+        'FormData',
+        'ProgressEvent',
+        'Response',
+        'Request',
+    ];
+    // The XMLHttpRequest Standard defines the networking API exposed to scripts on the web.
+    creatFlex('WHATWG-XMLHttpRequest：', XMLHttpRequestApi);
+
+    const W3CWebRTC = [
+        'MediaStreamTrackEvent',
+        'MediaStreamTrack',
+        'MediaStreamEvent',
+        'MediaStream',
+        'MediaSettingsRange',
+        'MediaRecorder',
+        'MediaEncryptedEvent',
+        'MediaCapabilities',
+        'RTCTrackEvent',
+        'RTCStatsReport',
+        'RTCSessionDescription',
+        'RTCSctpTransport',
+        'RTCRtpTransceiver',
+        'RTCRtpSender',
+        'RTCRtpReceiver',
+        'RTCPeerConnectionIceEvent',
+        'RTCPeerConnectionIceErrorEvent',
+        'RTCPeerConnection',
+        'RTCIceCandidate',
+        'RTCErrorEvent',
+        'RTCError',
+        'RTCDtlsTransport',
+        'RTCDataChannelEvent',
+        'RTCDataChannel',
+        'RTCDTMFToneChangeEvent',
+        'RTCDTMFSender',
+        'RTCCertificate',
+    ];
+    creatFlex('W3C的WebRTC：', W3CWebRTC);
+    // 剩余
+    apis = filterOut(
+        apis,
+        ['Intl'].concat(
+            wbs,
+            mse,
+            wca,
+            tsoa,
+            webgl,
+            objects,
+            Streams,
+            Encoding,
+            WebAudioAPI,
+            feactApi,
+            DOMStandard,
+            XMLHttpRequestApi,
+            W3CWebRTC,
+            SVG,
+            TouchApi,
+            IDBApi,
+            CSSApi
+        )
+    );
+    creatFlex('剩余：', apis);
+
+    for (let i = 0; i < flexs.length; i++) {
+        BOX.appendChild(flexs[i]);
+    }
+</script>
+</body>
+</html>

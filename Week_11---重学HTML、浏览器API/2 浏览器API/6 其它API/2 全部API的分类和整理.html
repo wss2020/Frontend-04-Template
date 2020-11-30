@@ -1,0 +1,145 @@
+<!--
+    首先我们有一个，获取 window 上所有的属性名，getOwnPropertyNames 能获取到，
+window 上所有的属性的名称，然后这个时候呢？ 我们获取到的这些 names ,就是我们在JS
+里面，能访问到的所有的 API， Object.getOwnPropertyNames(window)； 可以看到
+有几百多个属性，排在前面的 Object Function 是我们的 JavaScript 语言里面的一些
+内容，
+    我们首先在 JavaScript 的标准里面，我们可以把 JavaScript 的语言里面，规定的
+所有的，给它过滤出来，js规定的我们把它存到变量 objects 里面，就作为一个分类，
+    还要过滤一些已知的，第一类是 node 的子节点，像什么 Element HTMLSpanElement
+DivElement AnchorElement ,这些东西是我们已知的，也是我们前面在 DOM API 部分，
+讲过的，这部分来自于我们的 DOM API ,我们把它根据它的继承关系，把它过滤出来，
+    还有一类是咱们的 events ,就是事件，事件都是以 on 开头的，所以我们把 on 开头的
+都过滤掉，而 webkit 私有的属性以 webkit 开头的我们也不要，都把它过滤掉，
+    然后就是 HTML 的 window ，来自 HTML 标准里面的，
+    然后是 WHATWG 里面的东西，我们也把它给过滤掉，这都是在 HTML 的规范里面已经有的，
+这个我们都可以把它归类为 HTML 带来的 API ，
+    打印可以看到，有一个 Intl 对象，这个对象非常有意思，发现它不是 W3C 的标准，它
+其实也是 ECMA 的标准，ECMA 对 JavaScript 里面的标准的定义，可不只是 ECMA262，
+那么这个 International API ,它是来自于 ECMA402 的一份标准，这份标准里，只规定
+了一个全局的对象，但是 Intl 对象，它的上面是有一些不少的子属性的， console 输入
+Intl 可以看到，如果说大家还有进一步研究的兴趣，我们就可以到 ECMA402 里面去进行学习，
+然后我们把这一部分也过滤掉。
+    然后过滤掉，WebGL.
+    ...
+    这里有一个比较重要的 SyncManager，它来自于 wicg 这个组织，它不在 W3C 的
+网站上，所以这个 API ，还是 BackgroundSync 静默同步，我们看到这个是在 GitHub
+上的一份文档，其实它也是 W3C 产的文档，但是它是由 Community Group ,这叫社区组，
+跟我们的 working group 是不一样的，所以它这个标准写的格式，和显示的也不太一样，
+但是非常有意思的就是，这个标准，它规定的 Sync Manager ,确确实实地进入到了我们
+的浏览器的实现当中，所以说 SyncManager ，作为一个额外需要强调的内容。
+    ...
+
+-->
+<script>
+    let names = Object.getOwnPropertyNames(window);
+
+    // console.log(names);  //能看到几百多个属性
+
+    function filterOut(names, props) {
+        let set = new Set();
+        props.forEach(o => set.add(o));
+        return names.filter(e => !set.has(e));
+    }
+
+    // ECMA 262
+    {
+        let js = new Set();
+        let objects = ["BigInt", "BigInt64Array", "BigUint64Array", "Infinity", "NaN", "undefined", "eval", "isFinite", "isNaN", "parseFloat", "parseInt", "decodeURI", "decodeURIComponent", "encodeURI", "encodeURIComponent", "Array", "Date", "RegExp", "Promise", "Proxy", "Map", "WeakMap", "Set", "WeakSet", "Function", "Boolean", "String", "Number", "Symbol", "Object", "Error", "EvalError", "RangeError", "ReferenceError", "SyntaxError", "TypeError", "URIError", "ArrayBuffer", "SharedArrayBuffer", "DataView", "Float32Array", "Float64Array", "Int8Array", "Int16Array", "Int32Array", "Uint8Array", "Uint16Array", "Uint32Array", "Uint8ClampedArray", "Atomics", "JSON", "Math", "Reflect", "escape", "unescape"];
+        objects.forEach(o => js.add(o));
+        names = names.filter(e => !js.has(e));
+    }
+
+    //Subclass of Node
+    names = names.filter(e => {
+        try {
+            return !(window[e].prototype instanceof Node)
+        } catch (err) {
+            return true;
+        }
+    }).filter(e => e != "Node");
+
+    //events
+    names = names.filter(e => !e.match(/^on/))
+
+    // webkit private
+    names = names.filter(e => !e.match(/^webkit/))
+
+    // https://html.spec.whatwg.org/#window
+    {
+        let names = Object.getOwnPropertyNames(window)
+        let js = new Set();
+        let objects = ["BigInt", "BigInt64Array", "BigUint64Array", "Infinity", "NaN", "undefined", "eval", "isFinite", "isNaN", "parseFloat", "parseInt", "decodeURI", "decodeURIComponent", "encodeURI", "encodeURIComponent", "Array", "Date", "RegExp", "Promise", "Proxy", "Map", "WeakMap", "Set", "WeakSet", "Function", "Boolean", "String", "Number", "Symbol", "Object", "Error", "EvalError", "RangeError", "ReferenceError", "SyntaxError", "TypeError", "URIError", "ArrayBuffer", "SharedArrayBuffer", "DataView", "Float32Array", "Float64Array", "Int8Array", "Int16Array", "Int32Array", "Uint8Array", "Uint16Array", "Uint32Array", "Uint8ClampedArray", "Atomics", "JSON", "Math", "Reflect", "escape", "unescape"];
+        objects.forEach(o => js.add(o));
+        names = names.filter(e => !js.has(e));
+
+        names = names.filter(e => {
+            try {
+                return !(window[e].prototype instanceof Node)
+            } catch (err) {
+                return true;
+            }
+        }).filter(e => e != "Node")
+
+        let windowprops = new Set();
+        objects = ["window", "self", "document", "name", "location", "history", "customElements", "locationbar", "menubar", " personalbar", "scrollbars", "statusbar", "toolbar", "status", "close", "closed", "stop", "focus", " blur", "frames", "length", "top", "opener", "parent", "frameElement", "open", "navigator", "applicationCache", "alert", "confirm", "prompt", "print", "postMessage", "console"];
+        objects.forEach(o => windowprops.add(o));
+        names = names.filter(e => !windowprops.has(e));
+    }
+
+    //https://html.spec.whatwg.org
+    {
+        let interfaces = new Set();
+        objects = ["ApplicationCache", "AudioTrack", "AudioTrackList", "BarProp", "BeforeUnloadEvent", "BroadcastChannel", "CanvasGradient", "CanvasPattern", "CanvasRenderingContext2D", "CloseEvent", "CustomElementRegistry", "DOMStringList", "DOMStringMap", "DataTransfer", "DataTransferItem", "DataTransferItemList", "DedicatedWorkerGlobalScope", "Document", "DragEvent", "ErrorEvent", "EventSource", "External", "FormDataEvent", "HTMLAllCollection", "HashChangeEvent", "History", "ImageBitmap", "ImageBitmapRenderingContext", "ImageData", "Location", "MediaError", "MessageChannel", "MessageEvent", "MessagePort", "MimeType", "MimeTypeArray", "Navigator", "OffscreenCanvas", "OffscreenCanvasRenderingContext2D", "PageTransitionEvent", "Path2D", "Plugin", "PluginArray", "PopStateEvent", "PromiseRejectionEvent", "RadioNodeList", "SharedWorker", "SharedWorkerGlobalScope", "Storage", "StorageEvent", "TextMetrics", "TextTrack", "TextTrackCue", "TextTrackCueList", "TextTrackList", "TimeRanges", "TrackEvent", "ValidityState", "VideoTrack", "VideoTrackList", "WebSocket", "Window", "Worker", "WorkerGlobalScope", "WorkerLocation", "WorkerNavigator"];
+        objects.forEach(o => interfaces.add(o));
+
+        names = names.filter(e => !interfaces.has(e));
+    }
+
+    // https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.15
+    names = filterOut(names, ["WebGLContextEvent","WebGLObject", "WebGLBuffer", "WebGLFramebuffer", "WebGLProgram", "WebGLRenderbuffer", "WebGLShader", "WebGLTexture", "WebGLUniformLocation", "WebGLActiveInfo", "WebGLShaderPrecisionFormat", "WebGLRenderingContext"]);
+
+    //https://www.w3.org/TR/webaudio/
+    names = filterOut(names, ["AudioContext", "AudioNode", "AnalyserNode", "AudioBuffer", "AudioBufferSourceNode", "AudioDestinationNode", "AudioParam", "AudioListener", "AudioWorklet", "AudioWorkletGlobalScope", "AudioWorkletNode", "AudioWorkletProcessor", "BiquadFilterNode", "ChannelMergerNode", "ChannelSplitterNode", "ConstantSourceNode", "ConvolverNode", "DelayNode", "DynamicsCompressorNode", "GainNode", "IIRFilterNode", "MediaElementAudioSourceNode", "MediaStreamAudioSourceNode", "MediaStreamTrackAudioSourceNode", "MediaStreamAudioDestinationNode", "PannerNode", "PeriodicWave", "OscillatorNode", "StereoPannerNode", "WaveShaperNode", "ScriptProcessorNode", "AudioProcessingEvent"]);
+
+    //https://encoding.spec.whatwg.org/#dom-textencoder
+    names = filterOut(names, ["TextDecoder", "TextEncoder", "TextDecoderStream", "TextEncoderStream"]);
+
+    //https://www.w3.org/TR/WebCryptoAPI/
+    names = filterOut(names, ["CryptoKey", "SubtleCrypto", "Crypto", "crypto"]);
+
+    //https://www.w3.org/TR/media-source/
+    names = filterOut(names, ["MediaSource", "SourceBuffer", "SourceBufferList"]);
+
+    //https://www.w3.org/TR/screen-orientation/
+    names = filterOut(names, ["ScreenOrientation"]);
+
+    //https://wicg.github.io/BackgroundSync/spec/#sync-manager-interface
+    names = filterOut(names,['SyncManager']);
+
+    console.log(names);
+</script>
+
+
+<!--
+    我们可以看到，在整理 API 的过程中，我们可以找到各种不同组织的标准， 比如：
+    ECMA402 标准来自 ECMA；
+    ncoding 标准来自 WHATWG；
+    WebGL 标准来自 Khronos；
+    Web Cryptography 标准来自 W3C；
+    还有些 API，根本没有被标准化。浏览器环境的 API，正是这样复杂的环境。
+    我们平时编程面对的环境也是这样的一个环境。所以，面对如此繁复的 API，
+    我建议在系统掌握 DOM、CSSOM 的基础上，你可以仅仅做大概的浏览和记忆，
+    根据实际工作需要，选择其中几个来深入学习。做完这个实验，你对 Web API 的理解应该会有很大提升。
+    这一节课的问题就是完成所有的 API 到标准的归类，不同的浏览器环境应该略有不同，
+    欢迎你把自己的结果留言一起讨论。
+-->
+
+
+
+
+
+
+
+
+

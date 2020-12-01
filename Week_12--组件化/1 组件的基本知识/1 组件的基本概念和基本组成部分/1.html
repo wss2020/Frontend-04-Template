@@ -77,9 +77,57 @@ state ,影响组件的状态， 举个例子，比如说 我们有一个 input e
 这组件变了，这个也很正常，这个就是跟对象的 property ,是一个完全一致的概念。
     那 attribute 和 property 是不是一回事呢，有些时候是，有些时候它不是，这完全
 取决于你组件体系的设计者，所以说，如果今天我们把大家摆在一个，组件体系的设计者和组件
-实现者的位置，
+实现者的位置，你是有决定权的，是否我让 attribute 和 property 统一，甚至有的比较
+激进的方案，我把 state config attribute property 四者全都统一，可不可以，也是
+可以的，
+    然后我们再说 method, method 跟 property 其实是差不多，只不过 method 它可
+能用于描述一个，复杂一点的过程，但是 JavaScript 它是允许有 get 和 set 的，所以说
+最终其实是差不多的，两者作用差不多的一样的一个东西，
+    如果我们说 method 和 property是用于使用组件的程序员，向开发组件的程序员传递消
+息，那么事件非常简单，它的方向反过来了，它是由开发组件的程序员，向组件的使用者，使用组
+件的程序员去传递信息，
+    所以说这张图基本上，说明了组件的各个要素，它们都是干嘛用的，以及它们的信息的流转
+的方向。
 -->
 
+
+
+
+<!--
+    接下来，帮助大家理清一些概念，其实最复杂的就是 attribute 和 property，
+看 Attribute.png 这张图，
+    我们先从这个词来看，attribute 这个英文单词，它是强调描述性，这个人很帅，这个人
+头发很多，皮肤是黄色的，这个叫 attribute，
+    attribute 这个单词，它强调一种从属关系，如果说我们认为，比如说一个对象，它有一
+个 property 是另一个对象，那么大概率，这两个对象，是存在一个从属关系的，就是子对象
+从属于父对象，它是它的一部分，这个我们就叫它 property。  当然也有特殊情况，比如说它
+只是一个弱引用对象，引了另外一个对象，这个完全是另一个概念了。
+这两个词在英文上，有这样的一个区别，那么在实际使用上，
+    往往 property ,我们用面向对象里面的 property 这样的一个概念，
+    而 attribute , 它最初的使用就是我们的 XML 里面的 attribute 这样的一个概念
+  它们两个有些时候是比较相似的，有些时候又是不同的，下面看一些例子：
+
+Attribute   VS    Property
+Attribute:
+    <my-component attribute="v" />
+    myComponent.getAttribute("a")
+    myComponent.setAttribute("a","value");
+
+
+Property:
+    myComponent.a = "value";
+
+    这里我们找了一些 HTML 里面设计的例子，HTML 就是一个典型的，property 和
+attribute 两者不等效的一个系统，HTML 里面的 attribute 是可以通过 HTML 代码
+去设置的，当然了，HTML 的 attribute 它也是可以用我们的 JavaScript 代码去设置
+的，比如说 myComponent.getAttribute('a'), 你取出来的就是 attribute ，
+setAttribute("a","value"); 它设置的就是 attribute，它跟property 不一样。
+    HTML 里面你也可以去写 myComponent.a = "value", 这个也没问题，但这个时候
+它就是 property ,
+    我们大部分的同学，可能脑子里有一个概念，觉得它们两者，其实只是两种写法，但是不是
+的，他们的行为其实是有区别的，看例子 1-3。
+
+-->
 
 
 

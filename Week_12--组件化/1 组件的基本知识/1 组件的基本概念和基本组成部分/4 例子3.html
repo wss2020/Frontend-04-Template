@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<a  href="//m.taotao.com"></a>
+<script>
+    let a = document.getElementsByTagName('a');
+    a.href  // "http://m.taobao.com"，这个URL 是 resolve 过的结果
+    a.getAttribute('href'); // "//http://m.taobao.com",跟HTML 代码中完全一致
+</script>
+<!--
+    然后就是 href 属性，它就是 attribute 和 property 的意思差不多，但是
+property 是一个经过 resolve 过的 url , 比如说你这个地方写 //m.taobao.com，
+http 或者是 https 协议，它是根据当前页面做的，做过 http 到 https 改造的同学
+都知道，我们要把所有内容写死了，http 或者是 https 都给他改成只有 // 的，这样的
+一个写法，
+    resolve 过的结果，那么就是 property ，
+    没resolve 过的，html里面，你写啥是啥的是 attribute ，
+    这个时候，我们已经可以看到，你在代码里是同时可以访问到 attribute 和 property，
+它俩的语义虽然非常的接近，但是它不是一回事，它们两个也会互相的更改，比如说你改了 attribute，
+property 跟着变，这个就是需要大家，去注意的一个现象。
+-->
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div  class="cls1 cls2" style="color:blue"></div>
+<script>
+    let div = document.getElementsByTagName('div');
+    div.style   // 对象
+</script>
+<!--
+    然后就是说，其实有些时候，它的 attribute 它是一个字符串，而这个 property，它是
+一个字符串语义话之后的对象，最典型的就是 style , style 属性，那么在 HTML 里面，这个
+attribute style 它是个字符串，你如果用 getAttribute 和 setAttribute ,它也可以
+去设置 attribute，
+但是你如果说是用 style 属性，你就可以得到一个 key value 的这样一个结构，所以一
+般因为 key value 结构，它的语义化得更好用，所以说我们一般都能得到 div的 style，一般
+都是主要用 property .-->
+</body>
+</html>

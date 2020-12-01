@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div  class="cls1 cls2"></div>
+<script>
+    let div = document.getElementsByTagName('div');
+    div.className   // cls1  cls2
+</script>
+<!--
+    这是第一个例子，就是这个名字不一样，因为早年 JavaScript 里面，Class 是关键字，
+早期的 JavaScript ，它是不允许关键字做属性名的，现在这个东西就可以改过来了，关键字
+可以做属性名，但是为了规避这一问题，HTML 里面就做了一个妥协的设计，他把 attribute
+仍然叫做 class , 但是 property 变成了 className, 两者之间是完全的互相反射关系
+啊，这个非常的神奇，所以说一直到现在，还经常给大家安排一些坑，比如说我们的 react 里面，
+你写 className ,它自动就把 class 给设上了，   现在 JavaScript 语言，已经没有这
+个问题了，你 div.class 也是可以的，但是 HTML 还是不支持 class 这个名字，这个就是
+一些历史原因导致的问题，-->
+</body>
+</html>

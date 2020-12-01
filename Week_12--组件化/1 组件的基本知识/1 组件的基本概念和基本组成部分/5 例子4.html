@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input value="cute" />
+<script>
+    let input = document.getElementsByTagName('input'); //若property 没有设置，则结果是 attribute
+    input.value    // cute
+    input.getAttribute('value');  //cute
+    input.value = 'hello';  //若value 属性已经设置，则 attribute 不变，property 变化，元素上实际的效果是 property 优先
+    input.value  // hello
+    input.getAttribute('value');   // cute
+</script>
+<!--
+    最神奇的就是，input 的 value ，这个 value 特别的坑，大家很多同学都以为
+value ，两者是完全等效的东西，  其实不是，这个 attribute 相当于是一个 value
+的默认值，就是说你不论是由用户去修改，用户去在 input 里面，它打键盘输入了什么东
+西，还是因为你的程序的代码里面，给 property 赋值，它的 attribute 不会跟着变
+的，
+    然后它的显示上，是会优先显示 property ，然后 attribute 它实际上相当于一个，
+默认值一样的东西了，这个就是一个非常著名的坑。  如果大家以前用 jQuery 的 prop 和
+attr 这两个，大家总觉得好像差不多，没想到 value 就经常踩坑，所以说后来 jQuery，
+它出了一个叫 val 的方法，干脆你就别去想，什么 attribute 还是 property ，我给你
+提供一个 val 你去用，这个也是需要大家去注意的。
+    这个一方面是给大家讲一些，HTML 里面 attribute 和 property 的一个知识，另外
+作者想让大家理解，你看 HTML 作为一个非常著名的有非常顶级的专家设计的一个标签系统，它
+的 attribute 和 property ，两者是不等效的，它在什么时候不等效，我们前面讲了很多
+的不同的情况，
+    那么如果让你去设计一个标签系统，你会把它设计成等效的，还是不等效的呢？这个我们把
+这个答案，留到我们把整个的组件化学完。
+-->。
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

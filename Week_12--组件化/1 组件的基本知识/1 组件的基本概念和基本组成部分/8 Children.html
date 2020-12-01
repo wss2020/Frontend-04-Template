@@ -1,0 +1,44 @@
+<!--
+Children
+    Content型  Children 与 Template型Children
+     <my-button><img src="{{icon}}"/>{{title}}</my-button>
+
+     <my-list>
+        <li><img src="{{icon}}"/>{{title}}</li>
+     </my-list>
+
+    Children 它是构建组件树的一个，最重要的一个组件的特性，这里我要讲，其实它有两种类型的
+children ,
+    一种我们管它叫 content 型的 children ,就是说我有几个 children，我最终就能显示出来
+几个 children ,这种情况下，我们去设计 children 的时候，他这个组件树是非常简单的，有就是有，
+没有就是没有。
+    还有一种，我们叫它 template 型的 children ,这种时候整个的 children，它充当了一个
+模版的作用，比如说我们设计一个 list ,它可能有一个 list 这样的结构，但是它的 children，
+并不能够反映它实际，最后显示出来的组件的数目， 为什么？ 一般来说我们list ，是要接受一个
+data 的，那么它就要由这个数据来产生的，我有一个 100 项的数据，那么它就有 100 个实际的
+children，这个模版会被复制 100 份，这个就是所谓的 template 型的 children，
+    所以我们在设计组件树的 children 的时候，一定要考虑到，这两种不同的场景。比如说我们的
+react ，虽然他没有 template 型的 children， 但是它的 children 可以传函数，传函数可
+以 return 一个 children ,这个时候它就充当了一个模版型 children 的作用。 那vue 里面，
+其实我们在之前，跟 vue 的一些合作中，也会发现，我们去做这种，无尽的滚动列表的时候，这时对
+vue 这个，去做这种模版型 children ，它就是有一定的要求的，所以说我们当时，还去 vue 的
+源码里面，去打了一些 patch 来实现这个东西。
+    这就是组件的 children 的一个设计。
+-->
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!--
+    接下来我们就尝试来理解一下 JSX 这个东西，JSX 其实它相当于一个代码，纯粹在语法上的一种
+快捷方式，我们已经看到过它 eval 出来的 JSX 会被转换成一个 React.createElement 这样的
+一个调用，
+    那么首先就是 JSX 的插件，它是允许我们在这个里面，给它加上一个配置，这个加配置比较奇怪，
+它是用一个数组把插件的名字括起来，然后后面，再加一个对象，
+ plugins:[['@babel/plugin-transform-react-jsx',{pragma:'createElement'}]]
+然后它怎么改它的 transform 的名字，叫 pragma , 函数的参数的名字，这个地方我们写什么，它
+就会变成什么，比如我们就叫 createElement，
+    再重新 webpack , 然后我们可以看到，它的 React.createElement 就变成了 createElement
+我们这样一改，我们的 JSX 就跟 react 的框架，没有任何联系了，那么如果我们接下来，我们创建
+一个 main.html 文件去运行它，它引 main.js  build 以后的 main.js ,  我们执行它。
+
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>

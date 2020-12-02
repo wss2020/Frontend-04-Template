@@ -1,0 +1,109 @@
+<!--
+    关于一个组件系统，它首先是一个由 markup 和 JavaScript代码 两者都可以访问的，这样
+的一个环境，所以说我们第一步就需要建立一个，能够去使用 markup 的环境，这里给大家展示两种
+markup 的建立的风格，  第一种就是基于我们跟 react 一样的 JSX 去建立我们的组件的风格，
+第二种则是我们去基于类似 Vue 的这种，标记语言的 parser ,去建立组件的这样的一个风格。
+    我们这节课，就先给大家讲一讲 JSX ，JSX 其实大家一般的认知里面，它是属于 react 的
+一个部分，但是其实 react 在早期，尤其是 Facebook 在早期，会把这 JSX 定义成一种，纯粹
+的语言扩展，它也是可以被其他的组件体系去使用的，甚至我们可以把它单纯的作为一种，创建html
+的标签的快捷方式去使用。
+    现在演示如何去搭建起来，一个简单的 JSX 的环境，我们首先创建一个新的目录，
+    mkdir   jsx
+    cd  jsx
+    我们创建一个新的文件夹，并且进入,然后这个时候，我们做一下
+    npm init
+    我们所有的选项，都不去更改它，然后这样就把这个 npm 创建好了
+    这个时候，我们应该去安装一个 webpack ,我们可以使用 npx 去直接使用 webpack，也可以
+使用全局安装 webpack-cli 的形式，
+    npm install -g webpack webpack-cli
+    这里我们就给大家，全局的安装，这两个包安装完之后,你应该就可以使用 webpack 的一个最新
+版本了，安装完了之后，我们可以通过
+    webpack --version
+    来查看它的版本
+    接下来我们就可以使用这个 webpack，
+    安装完 webpack 之后，我们还需要去安装 babel 系列，因为 JSX 它是 babel 的一个插件，
+所以我们需要依次安装 webpack  babel-loader  babel 和 babel的plugin,一共有4个大的
+步骤，而这里面包有很多，所以配置 JSX 环境，一直是作者最讨厌的一个步骤，webpack 可能大家都
+已经有一定的了解，webpack 能够帮助我们去把一个普通的 JavaScript 的文件，去给它变成一个，
+能够把不同的 import 或者是 require 这些东西，给它打包打到一起去，   那么 babel 可以把
+一个新版本的 JS 编译成一个老版本的 JS ，这样我们就可以在更多的，老版本的浏览器环境里面去跑
+了，那么接下来，我们来安装 webpack 的 babel-loader
+    npm install --save-dev webpack  babel-loader
+    这个我们就把它安装到本地目录了,babel-loader 它是没有 webpack 前缀的，但它其实是
+webpack 的一个 loader,然后装完了之后， 我们再安装 babel ，纯粹的 babel-loader 是跑
+不起来的.
+    此时可以看到  package.json  下，已经可以看到 devDependencies 里面，已经有了
+babel-loader 和 webpack。
+    接下来我们来创建 webpack 的 config ，webpack.config.js  这个里面它是一个
+node.js 的模块，所以说我们要用 module.exports ,来写它的设置，这个是一些比较早期的
+nodeJS 的工具， 都常见的一种配置的方法，它用一个 JS 文件去做它的配置，这样他在这个里面
+就可以加入一些这样的逻辑，
+    webpack.config 最基本的就是一定要设置一个 entry,我们这里就设置一个 main.js,
+然后这个时候，我们就把 main.js 文件建一下，这个里面我们随便写一个 for 循环. 然后我们
+到 Terminal 里面来，跑一下 npx webpack.   可以看到，多了一个 dist 目录，dist 目录
+里面就是这样.
+    接下来我们把 babel 装上，babel 要求跟 webpack 独立的安装，所以说 babel-loader
+其实它并没有直接依赖 babel ，所以说这个地方，
+    npm install --save-dev  @babel/core   @babel-preset-env
+    我们要安装一个  @babel/core  和  @babel-preset-env ，我们这个babel,你只安装
+一个 core ,它其实啥也不会干，所以我们还要安装一个它的 preset-env。
+
+    好，我们babel 现在已经安上了，这个时候我们需要在 webpack.config 中配置，让它用起
+来babel-loader ,怎么配置？
+    我们是在 entry 的后面，加一个选项，叫做 module ,这个模块，我们就会先写一个模块，这
+个就表示 webpack 的模块，然后模块里面，它这个里面有一个 rules ,这个就是我们构建所使用的
+规则，只有 rules 它是一个数组型的配置，我们这个里头加入第一条 rule,每一条rule,它是由一
+个test 和 一个use 组成的，
+    先说 test , 这个地方是一个正则表达式， 我们写一个简单的，让所有的 js 文件，让它走
+babel 就可以了,
+    再说 use ,use 就是我们所使用的 loader 了,这里我们先把 loader 这个名字写上
+babel-loader , 因为 babel-loader 它又是一定要 options ,所以说这个文件，一层一层的
+配，非常的麻烦， options 然后这个里面写 presets, 我们在这里面都写完，我们的 babel
+就可以跑起来了。
+    npx webpack 运行起来，编译出来的 main.js 里面， 可以看到，我们原来写的 for of
+被重新编译了，编译成了一个普通的 for 循环，那么这个就是我们的 babel 的 preset-env
+的转换效果了。
+
+    目前为止，我们已经把安装我们的 JSX 所需要的一个基本环境搭建好了，在 webpack 的
+config 里面，我们还需要加一个配置，或者说配置其实也可以不加，但是我们为了平时开发的方便，
+我们加一下。
+    这个时候，我们给它加一个 mode , mode: "development" 表示我们这是开发者的模式，
+一般来说我们在代码仓库里面，写的 webpack config ，都会默认加上 mode development,
+然后我们如果真正发布的时候，会把它改成 production .
+    这个时候，我们运行看一下，现在生成的文件和之前有何区别？   我们看到开发者模式下，它的
+代码不再压缩了，那么我们就可以调试，它生成的代码本身了，然后最后这个 eval ，那么他也把我们
+的代码，放到了这个 eval 里面，这样的话，我们在调试的时候，就可以把它作为一个单独的文件，去
+使用了。
+    那么万事俱备，只欠东风，那么怎么样引入 JSX ，比如说我们在 main.js 里面写一个 JSX
+会怎么样呢？  我们写一个最简单的 JSX ， let a = <div/> ,运行 webpack.
+    报错了，他根本就不认为， let a = <div/>  这个东西是一个 JS， 它说你这个地方不能有
+小于号，是因为你以为你写的是尖括号，其实它理解为 小于号 了， 等号后面接小于号，那肯定就报错，
+    怎么样去支持 JSX ，我们要在它的 package.json 里面，继续去加东西，加什么呢？这就是
+要加我们今天最关键的一个包了，
+    npm install --save-dev @babel/plugin-transform-react-jsx
+    把这个玩意装上去，然后我们要在 webpack 的 config 里面给它配上去，plugins 这个地方
+配上 plugins:["@babel/plugin-transform-react-jsx"] .
+    这个时候，我们再去执行 webpack ,成功了。
+    我们看看它被翻译成了啥呢？ 看一下 eval 里面的代码，它被翻译成了一个 React.createElement
+这样的一个函数调用，
+    接下来，我们就来看一看，怎么去实现这个 React.createElement ，以及我们能否把 React.createElement
+换成我们自己的函数名字。
+
+
+-->
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>

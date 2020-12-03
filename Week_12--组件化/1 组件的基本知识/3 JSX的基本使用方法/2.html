@@ -1,0 +1,106 @@
+<!--
+    接下来，如果我 Div 它是一个大写的，那么这个时候，就会发生一些变化，看一下，它发生了什么变化，
+我们看到他报了一个 Div is not defined ，为什么，我们发现，JSX 编译的后的代码是
+var a = createElement(
+  Div,
+  { id: "a"},
+  "Hello wolrld!",
+  createElement("span", null, "a"),
+  createElement("span", null, "b"),
+  createElement("span", null, "c")
+);
+原来我们把 Div 变成大写之后，它就不给加引号，变成字符串了， 它认为你的 Div 是一个 class,
+所以说，我们其实可以在 createElement 这里面，我们是需要去做一个区分的，这里我们，首先我们
+就要定义 Div, 然后我们 let element 这个地方，我们去做一个 if ,如果是 string 的话，那么
+这说明它是一个原生的元素，然后另外的情况，我们让它变成 new type 的这样的一个实例，
+    let element;
+    if( typeof type === "string")
+        element = document.createElement(type);
+    else
+        element = new type;
+但是一个 class Div 我们到底有什么办法，能够让它能够像普通的 html 元素一样操作呢？在最新版
+的 DOM 的标准里面，是有办法的，我们需要去注册一下 Div 的名称和类型，但是我们现行的，比较安全
+的，浏览器的版本里面，我不建议这样去做的，所以说我们在使用 element 的时候，我们是建立我们写
+一个接口，比如说 我们反向去操作，
+    我们用一个 mountTo ,这样，我们就只需要去规定 a 的 mountTo 方法就可以了，然后我们就在
+class Div {}  里面写，mountTo(){} ,这个是 class 的语法，这就写一个它的 method mountTo.
+class Div {} 里面，setAttribute 和 appendChild 的逻辑，我们都先留空.
+    运行 webpack 一下，我们看效果。  会发现最后的元素里面，它就只有一个 div 它的 children,
+因为 appendChild 和 setAttribute 都没有发生作用，所以说 id=a 和 里面的内容 三个span,它
+都没有发挥作用，
+    如果我们想让它像普通的 div 一样去工作，我们就需要去写 setAttribute , 我们要先写一个
+constructor， 我们就把它代理到 this.root 上，  我们让 root 给它加一个 appendChild，
+
+class Div{
+    constructor() {
+        this.root = document.createElement("div");
+    }
+    setAttribute(name,value){
+        this.root.setAttribute(name,value);
+    }
+    appendChild(child){
+        this.root.appendChild(child);
+    }
+    mountTo(parent){
+        parent.appendChild(this.root);
+    }
+}
+运行一下 webpack , 正常显示， 因为我们用的是 a.mountTo, 但是一个正常的 div ,它是没有
+mountTo 的， 所以我们在 最上面  element = document.createElement(type); 我们要
+重新给它写一个 ElementWrapper , 它的 constructor 里面，我们就让它接受一个 type ，
+然后我们给它 setAttribute 和 appendChild, setAttribute、appendChild 和 Div都是
+一样的写法，然后我们再给它写一个 mountTo ,也是一样的。
+class ElementWrapper{
+    constructor(type) {
+        this.root = document.createElement(type);
+    }
+    setAttribute(name,value){
+        this.root.setAttribute(name,value);
+    }
+    appendChild(child){
+        this.root.appendChild(child);
+    }
+    mountTo(parent){
+        parent.appendChild(this.root);
+    }
+}
+那么这个 ElementWrapper ，那么就可以帮助我们，把一个普通的 div 也转换成这种有 mountTo
+的形式，那么 element = document.createElement(type);  这个地方，我们就写成，
+element = new ElementWrapper(type);
+    我们webpack 一下，然后发现报错
+Failed to execute 'appendChild' on 'Node': parameter 1 is not of type 'Node'
+查看 JSX 编译后的代码
+var a = createElement(
+  Div,
+  { id: "a" },
+  "Hello wolrld!",
+  createElement("span", null, "a"),
+  createElement("span", null, "b"),
+  createElement("span", null, "c")
+);
+
+a.mountTo(document.body);
+
+
+我们需要修改一下，它所有的 child ,我们都要改成 mountTo, 因为这个地方，我们用了 wrapper ,
+-->
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>

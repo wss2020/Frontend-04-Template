@@ -10,18 +10,132 @@
     再重新 webpack , 然后我们可以看到，它的 React.createElement 就变成了 createElement
 我们这样一改，我们的 JSX 就跟 react 的框架，没有任何联系了，那么如果我们接下来，我们创建
 一个 main.html 文件去运行它，它引 main.js  build 以后的 main.js ,  我们执行它。
+    发现抛出来了一个错误， createElement is not defined ,createElement 它没有找到
+事实上我们也没有定义函数，所以说它找不到。
 
+    接下来，我们来定义一个 createElement 函数，让它什么都不返回，试试。
+    var a = createElement("div", null); 这里执行的结果，可以看到第二个参数是 null,为什么
+是 null,其实第二个参数位是传属性列表的，但是当前写法 let a = <div/> ， div 是没有写任何属性，
+attribute 的，所以所它这个地方就是 null,
+    如果这个给他传一个属性， let a = <div  id="a" /> ,执行webpack, 执行结果就变成了
+var a = createElement("div", { id: "a" });  发现第二个参数变成了一个 JavaScript 对象，
+它是一个 key-value 的形式，存成了一个对象在这里面， 那么这样的话，你就会发现，JSX 这个东西，其实
+它没什么好神秘的，只是把我们平时写的函数调用，用了一个看起来比较像 HTML 的形式，给它改写了一下，我
+们可以认为属于一种语法糖，但是它语法糖，因为它影响了代码的结构，所以我们一般也不会把它完全叫做语法糖，
+
+    接下来试一试，写一个更复杂一点的 JSX，我们让它有一些 children
+let a = <div  id="a" />
+            <span></span>
+            <span></span>
+            <span></span>
+         </div>
+执行 webpack,看结果
+var a = createElement(
+    "div",
+    { id: "a"},
+    createElement("span", null),
+    createElement("span", null),
+    createElement("span", null)
+);
+我们发现，它的所有的子元素，这三个 span 它是递归的调用了 createElement ，它其实是形成了这样的
+树型结构， 父级是 createElement ，然后所有的子元素被作为后面的参数传了进去，
+    这样的话，createElement 如果返回点什么的话，它就会被作为它的 从第三个参数开始 3 4 5 的参数
+传进去，然后这个 span 本身，因为没有属性，所以它第二个都是 null,
+    所以说我们的 createElement 其实我们就可以给他，写出一个参数列表来了，实际上它的形式是一个
+type attributes 然后后面开始都是 children,
+function createElement(type,attribute, ...children){
+    return ;
+}
+...children ,这种写法又是 JavaScript 的一个比较新的语法，...children 就表示把后面的所有的
+参数，不定个数的参数，我们就给它变成一个 children数组，
+
+所以 createElement 这样它就出来了，我们这个函数就出来了，至于用这个函数干嘛呢？其实我们可以干任何
+的事情，因为这个东西看起来长的像是 DOM API，所以我们是完全可以把它做成一个，跟 react 没有任何关系
+的实体的DOM ，比如说我们就让它返回， type 类型的 element ,
+function createElement(type,attribute, ...children){
+    let element = document.createElement(type,)
+    return ;
+}
+
+根据 type 去创建一个 element，然后我们把它的 attribute 写上去，注意这个 attributes 因为是一个
+对象，我们要遍历它的属性，所以我们用 for in , 然后 element 我们就调用 setAttribute
+function createElement(type,attribute, ...children){
+    let element = document.createElement(type,);
+    for( let name in attribute){
+        element.setAttribute(name,attribute[nam])
+    }
+    return ;
+}
+我们把属性给它设上去，最后我们再把 children 给它设上去。  注意children 是一个数组，我们
+要想循环它，我们用 for of ,
+function createElement(type,attribute, ...children){
+    let element = document.createElement(type,);
+    for( let name in attribute){
+        element.setAttribute(name,attribute[nam])
+    }
+    for( let child of children){
+        element.appendChild(child);
+    }
+    return ;
+}
+这样，我们就把它的 children 添加上去了。
+
+    然后我们 a 它其实返回的，就是一个 DOM 节点了，最后我们给它 return element
+function createElement(type,attribute, ...children){
+    let element = document.createElement(type,);
+    for( let name in attribute){
+        element.setAttribute(name,attribute[nam])
+    }
+    for( let child of children){
+        element.appendChild(child);
+    }
+    return element;
+}
+这个时候 a 其实就是返回的，就是个 DOM 节点了。  那么我们就可以，
+document.body.appendChild(a);
+运行 webpack ,看效果，已经渲染到页面上了。
+
+    这个时候我们有一个东西没有处理，就是文本节点怎么办，接下来我们就把它 div 的节点，给它
+换成 文本节点，然后我们来看看，
+let a = <div  id="a">
+            Hello world!
+         </div>
+运行 webpack ,JSX 编成以下代码
+var a = createElement(
+                "div",
+                { id: "a" },
+                "Hello world!"
+            );
+createElement 第三个参数是一个字符串，就你写一个文本节点，在这个地方会变成一个字符串，children
+里面会是一个字符串，它不会再调 createElement 里面去了，所以怎么办？ 我们在这个地方，child 的地
+方，我们要对 child 的类型，如果它是 string 的话，那么我们就给它 createTextNode ,然后给他换成
+一个 textNode,这个时候，我们的 element.appendChild(child) 就可以执行了。
+function createElement(type,attribute, ...children){
+    let element = document.createElement(type,);
+    for( let name in attribute){
+        element.setAttribute(name,attribute[nam])
+    }
+    for( let child of children){
+        if( typeof child === "string"){
+            child = document.createTextNode(child);
+        }
+        element.appendChild(child);
+    }
+    return element;
+}
+这个时候，就可以执行了。   Hello world 已经在页面上，显示出来了。
+
+    其实，到目前为止，写的 createElement,它已经是一个比较有用的东西了，不论我在这个里面写上什么，
+我们就可以用它，来做一定的 DOM 操作，它完全可以代替我们写 document.createElement,比较繁琐的操
+作，我们可以把之前的 span 加回来，
+let a = <div  id="a">
+            <span>a</span>
+            <span>b</span>
+            <span>c</span>
+         </div>；
+那么我们就可以让它最后把这个结构，给它变成 DOM 里面的结构。   这样我们也能够完成一定的组件的基础的
+能力。
 
 -->
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>

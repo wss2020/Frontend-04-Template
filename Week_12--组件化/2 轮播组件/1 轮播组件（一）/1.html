@@ -1,0 +1,86 @@
+<!--
+    我们熟悉了 JSX 之后，我们会基于 JSX 去做一套组件系统，在做组件系统之前，我们希望先
+找到一个，更具体一点的例子，作者为大家选择的是一个 Carousel 组件，它叫轮播图，Carousel
+它有一个旋转木马的意思。
+    其实现在的这个东西还不能被称为组件系统，它充其量算是 DOM 的一个简单的封装，能够允许
+我们对 DOM 做一些定制，为了做旋转木马的系统，我们会先从一个比较简单的 DOM 操作入手，然后
+先把这个功能实现出来，然后我们再一步一步考虑，怎么样去把它设计成一个组件系统。
+    这节课，我们先做这个旋转木马的轮播图组件。
+    首先，轮播图还要有一个图片素材，
+let a = [
+    "https://static001.geekbang.org/resource/image/bb/21/bb38fb7c1073eaee1755f81131f11d21.jpg",
+    "https://static001.geekbang.org/resource/image/1b/21/1b809d9a2bdf3ecc481322d7c9223c21.jpg",
+    "https://static001.geekbang.org/resource/image/b6/4f/b6d65b2f12646a9fd6b8cb2b020d754f.jpg",
+    "https://static001.geekbang.org/resource/image/73/e4/730ea9c393def7975deceb48b3eb6fe4.jpg",
+];
+    能够把这 4 张图让它轮播起来，就是我们这节课的目标。
+    前面的所有的除了 createElement 之外，我们就都不要了。  然后 TextWrapper 和
+ElementWrapper 加上 createElement ，我们把它另外放到一个js文件里面，起名叫 framework
+这里时候 framework.js 里面，我们需要去做一些 export ,ElementWrapper 和 TextWrapper
+不需要 export ， 我们发现这个 class 里面，它有很多的公共的部分，所以我们把它提取一下，
+我们把它变成一个公共的，叫做 Component 的类，我们先做 root 的版本，这样 TextWrapper 和
+ElementWrapper 看起来就很舒服了.
+    然后 Component 的 constructor 我们可以写一个，
+     constructor(type) {
+        this.root = this.render();
+    }
+    render(){
+        return document.createElement("div");
+    }
+render 我们先创建一个 div ,实际上 render 不是这样用，稍后再修改。
+我们让它调一下 render，这样的话，我们只要在组件里面写一个 render ,我们就有它的结构了，
+然后 setAttribute appendChild 和 mountTo , 我们仍然可以对它进行一些修改，那么
+ElementWrapper 和 TextWrapper 我们给它加一个 extends .
+然后 webpack 一下。
+    那么 Carousel setAttribute appendChild 这些东西，我们都可以通过继承父类
+来 Component 来实现， 然后我们试着把 a 变成 Carousel 的一个实例，
+let a =  <Carousel />;
+
+接下来，我们来看一下，怎么样给 Carousel 变成一个真正的 Carousel ，把猫猫图用起来，
+我们首先这个里面，就需要一个 attribute 这样的机制， 我们给它一个 src=(d) ,这个时候我们
+会发现 d 这个数组，它被设到 attribute 上，但是 Carousel 的 source ，它并不是一个说
+给 root 用的，所以说 我们要把它 attribute 给它存起来， 我们要存 attribute，所以说
+我们会用一个 空对象， 如果 react 它会用一个 props ,因为它 attribute 和 property
+不分，我们还是尽量用这个比较正确的名字，
+    this.attributes = Object.create(null);
+这个时候，我们要把 setAttribute 给它重写掉，
+    setAttribute(name, value) {
+        this.attributes[name] = value;
+    }
+这样 Carousel 它就可以得到我们的 d 了， 然后我们去调 render 的话，我们就可以取到 d
+的属性，但是我们不能让它在 super 里面去调 render ,它调render 是有问题的，所以我们让
+它 render 时机往后一点，我们在 mountTo 里面调 render,
+    mountTo(parent) {
+        console.log(this.attributes.src);
+        parent.appendChild(this.render);
+    }
+我们这样就可以保证它 render 时机，一定是在取到我们的数据 d 后，把 src 放进来看看内容。
+然后
+    render(){
+        this.root = document.createElement("div");
+        for(let record of this.attributes.src){
+            let child = document.createElement("img");
+            child.src = record;
+            this.root.appendChild(child);
+        }
+        return this.root;
+    }
+我们把 this.root 的内容给它存下来，然后我们用一个 for 循环，我们创建一个 child ,我们创建img 好了，
+最后把 this.root 给 return ,这样我们就应该能够在界面上，显示出来我们的图片了，
+最后 webpack 看效果。
+
+-->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>

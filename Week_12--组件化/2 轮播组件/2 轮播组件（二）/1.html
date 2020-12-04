@@ -1,0 +1,206 @@
+<!--
+      1.如果你电脑全局没有装 webpack-dev-server
+    你直接使用 webpack-dev-server 命令会报错 command not found: webpack-dev-server
+    需要使用 node_modules/.bin/webpack-dev-server 启动
+    或者
+    配置在package.json 例如:
+    "scripts": {
+    "start": "webpack-dev-server"
+    }
+    使用 npm start 或 yarn start 启动
+
+    2.webpack-cli是4.* 版本 会和 webpack-dev-server 3.* 版本 不兼容
+    启动 webpack-dev-server 会报错：Cannot find module 'webpack-cli/bin/config-yargs'
+    可以换成启动 webpack serve 命令
+
+    因为我们希望调试的时候，体验好一点，所以说我们安装一个 webpack 的 dev tool,
+    npm install webpack-dev-server  --save-dev
+    装完这个包以后，我们就可以直接给它启动起来，然后让它变成一个自动 watch 的东西
+   运行 webpack-dev-server ，有问题，看上面2点
+   然后浏览器是输入 http://localhost:8080/ ，它会自动把 JSX 给它编译掉，
+
+
+    接下来我们来看一下轮播图，首先用 img, 它会有一些问题，img 它在默认是一个可拖拽的东西，
+所以会给我们造成一些麻烦，所以这里我会不建议，我们去使用 img, 当然用img ,这个问题也是可以
+解决的，所以说我们把 img 换成 div ,然后把 background-image 来代替原来的 img 的方案，
+我们用 div + background-image 的方案来代替它.
+    render(){
+        this.root = document.createElement("div");
+        for(let record of this.attributes.src){
+            let child = document.createElement("div");
+            child.style.backgroundImage = `url('${record}')`;
+            this.root.appendChild(child);
+        }
+        return this.root;
+    }
+然后，我们需要给 div 加一些 css ,所以这里我们要给 root ,我们要给它的 class ,加上 carousel，
+    this.root.classList.add("carousel");
+加上这个东西之后，我们就可以根据 carousel 给它加 css, css 一般我们加在 head 里，
+   <style>
+         .carousel>div{
+            width: 500px;
+            height:280px;
+            background-size: contain;
+        }
+    </style>
+执行 webpack ,看效果。
+
+
+    接下来，一个轮播图，它显然不可能所有的图片全都展示出来，所以这个我们会给他一个默认的
+display:none; 但是这个逻辑，我们会在 JSX 里面去控制，所以说在这个地方，
+   render(){
+        this.root = document.createElement("div");
+        this.root.classList.add("carousel");
+        for(let record of this.attributes.src){
+            let child = document.createElement("div");
+            child.style.backgroundImage = `url('${record}')`;
+            child.style.display = "none";
+            this.root.appendChild(child);
+        }
+        return this.root;
+    }
+看效果，它不显示了。  但是其实用 display:none; 来显示， 因为我们要播出来，所以我们有时候，
+会有两张同时显示出来，所以这里我们也不用 display:none , 把child.style.display = "none";
+这行去掉。
+    我们会用一个 overflow:hidden把它隐藏掉，怎么隐藏，那么我们还要求助 css,我们在
+carousel 上面设一个，
+        .carousel{
+            overflow: hidden;
+            width: 500px;
+            height:280px;
+        }
+这个东西，我们一会就会调整它，频繁的切换它，然后让大家看到它的一些效果。 这样我们就只看到一张图了。
+但是轮播图，咱们一般都是左右轮播，他没有说上下轮播的，当然如果同学们有兴趣，也可以做上下轮播的。
+    左右轮播，所以说我们就要把它的排布顺序给它改掉，我们为了让格子横排，我们首先把 overflow:hidden
+去掉，  我们要横排，我们用正常流去做布局，正常流的横排的方式，就是给它设置一个，
+display: inline-block; 设完了之后，我们让它的父元素给它设成一个不能够换行，这个是个
+white-space : nowrap;  这样它就没有办法换行， 这时再把 overflow:hidden 打开。
+    表面上是没有任何的区别，但是实际上，它的内里的这些元素，都已经变成了这种，横排的这样
+的一个状态，这样就给我们进一步写 css 代码，然后挪动它的位置，就造就了一定的空间。
+
+
+    好，下一步，我们给轮播组件，加上一些时间的控制，首先，我们还是要给它加上一个 css 的
+animation, 我们用 transition 来控制它的时间，一般来说我们播一帧，我们会用一个 0.5
+秒的 ease,   transition一般来说，我们只用 ease ,除非是一些非常特俗的情况，
+退出动画，我们可能会采取 ease-in，  进入动画，我们可能会采取 ease-out
+这种在同一屏幕上，我们默认都是采用 ease, 除非本身设计方面有一些特殊的要求，liner 在大部
+分的情况下，我们是不用的。   ease 是一种符合人类感受的这样的一种运行的曲线，
+    然后 transition 这里我们给它加上去，这个 transition 我们有可能会用 JS 去覆盖它，
+在我们做一些不需要 transition 的调整的时候，我们用 js 去覆盖它， 如果我没用 js 去调整
+它。   它有 transition 的时候，它的效果就可以用 css 去控制，这个是一个比较好的实践，
+    然后我们给它加一个 setInterval ,因为它是 3 秒一次，第一个参数是一个函数，第二个参
+数是时间，
+        setInterval(()=>{
+
+        },3000)
+每 3 秒执行一次，这样 setInterval 里面，我们就可以写跟 root 相关的逻辑了。
+    我们来看一下，其实这个 child 我们要想让它轮播，实际上挪动的是 child 的位置，那么
+我们可以先让它 child 每个 3 秒钟，将它移一次，移一次，那么我们就会给它加一个transform,
+那么我们就给所有的 children ，来加一个 transition,
+
+    那么 children ，因为这个 root 里面，所有的元素都归我们控制，所以我们确定，它不会
+有什么文本节点、空白之类的东西，这样的话，我们从创建到最后渲染出来，都是归我们控制的，然后
+我们去循环访问 children 所有的子节点，我们先让它动一次。
+        setInterval(()=>{
+            let children = this.root.children;
+            for(let child of children){
+                child.style.transform = "translateX(-100%)";
+            }
+        },3000)
+3 秒钟之后，先动一次。   然后我们再来考虑其他的问题，
+执行，但是这个只能播放一帧。
+
+    接下来看看，怎么能让它多播放几帧，我们就需要把它存起来，我们会存一个 current 的值，每次我们都让
+++current，
+        let current = 0;
+        setInterval(()=>{
+            let children = this.root.children;
+            ++current;
+            for(let child of children){
+                child.style.transform = `translateX(-${current * 100}%)`;
+            }
+        },3000);
+执行，再看看。    我们看到它产生得到的轮播的效果，但是有个问题，它播放完了，就跑了，我们希望它播放完毕，
+就返回第一张，这个时候怎么办呢？ 我们就让它第一张播完了之后，最后让它回来。
+
+
+    那么我们希望 current ,不要每次它都播到最大，所以我们用了一个数学上的技巧，如果我们想让它在
+1～n 之间循环，那么我们让它对 n 取余就可以了，那么这个时候 children 的长度是4，
+        let current = 0;
+        setInterval(()=>{
+            let children = this.root.children;
+            ++current;
+            current = current % children.length;
+            for(let child of children){
+                child.style.transform = `translateX(-${current * 100}%)`;
+            }
+        },3000);
+这样写，current 就永远都不会超过4， 它到 3 之后，取余又变成了 0；
+运行，看效果，这时候轮播就出现了。    但是这时候，又发现了一个问题，轮播，播到最后一张，它没有产生一种
+一直往前播的这种感觉，最后又回到了第一张，接下我，我们就尝试去解决这个问题。
+
+    其实通过观察，我们发现，其实可视区域内，最多它就只有两张图片，那怎么办？  其实我们就把这两张图片，
+给它挪到正确的位置，就可以了，  那么这两张是哪两张，一个是当前这一张，一个是下一张，所以说我们把
+current=0 , 我们给它改成 currentIndex=0,
+    我们先设置一个变量， let nextIndex; 我们现在有了 currentIndex 和 nextIndex ，所以两张图片
+就有了，  所以接下来，我们再放两个变量，current 和 next 有了，我们先要把它挪到一个正确的位置，current
+的正确的位置，就不说了，current 的位置一定是正确的，
+    next 的，我们来看一看，next 的正确的位置是什么，它正好是当前的位置加上一个 100%，这里就有问题了，
+那么它其实 当前的位置，它是需要一个 加上它原有的位置，因为 next 的元素，它本来就有一个偏移，所以说我们
+要把它的偏移给它减掉， next 它的偏移就是 nextIndex * 100
+     let next = children[nextIndex];
+    next.style.transform = `translateX(-${100 - nextIndex * 100}%)`;
+这个偏移，我是不希望它有动画的，所以说这个时候，我们给 next 的 transition 改成 none,然后我再挪 next
+     next.style.transform = "none";
+    next.style.transform = `translateX(-${100 - nextIndex * 100}%)`;
+然后下一步，我再把 next 的 transition 给它挪回来，
+    next.style.transform = "";
+给它设置为空，style 上的就失效了，我们之前在 css 里面写的就生效了。
+我们给它 current 的 transform, 给它改成 -100 ，
+
+16毫秒正好是浏览器里面一帧的时间，然后不能用 requestAnimationFrame, 或者说requestAnimationFrame
+这里有一个比较复杂的逻辑，我们就不展开了，但是我可以告诉大家，如果说我们用 requestAnimationFrame
+的话，我们要用两次 requestAnimationFrame ，这个地方，我们先给它 setTimeout 一下，然后就可以
+让它播起来了.
+       let currentIndex = 0;
+        setInterval(()=>{
+            let children = this.root.children;
+            let nextIndex = (currentIndex + 1) % children.length;
+
+            let current = children[currentIndex];
+            let next = children[nextIndex];
+
+            next.style.transition = "none";
+            next.style.transform = `translateX(${100 - nextIndex * 100}%)`;
+
+            setTimeout(()=>{
+                next.style.transition = "";
+                current.style.transform = `translateX(${-100 - currentIndex * 100 }%)`;
+                next.style.transform = `translateX(${ - nextIndex * 100 }%)`;
+                currentIndex = nextIndex;
+            },16)
+
+        },3000);
+
+
+-->
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>

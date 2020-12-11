@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="">
+    <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="重学CSS">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week_10---重学CSS/1 CSS排版/3.1.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_10---重学CSS/1 CSS排版/3.1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week_12--组件化/2 轮播组件/2 轮播组件（二）/1.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_12--组件化/2 轮播组件/2 轮播组件（二）/1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/jsx/dist/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/dist/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/jsx/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,8 +16,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="TypeScript File" />
         <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -36,30 +41,38 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Week_10---重学CSS/1 CSS排版" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/component/jsx/附件/3 轮播组件2" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Week_10---重学CSS/1 CSS排版" />
-      <recent name="$PROJECT_DIR$/Week_09---重学CSS" />
-      <recent name="$PROJECT_DIR$/Week_07---浏览器工作原理/2 CSS计算" />
-      <recent name="$PROJECT_DIR$/Week_07---浏览器工作原理/补充/小例子" />
-      <recent name="$PROJECT_DIR$/Week_07---浏览器工作原理/补充" />
+      <recent name="$PROJECT_DIR$/component/jsx/附件/3 轮播组件2" />
+      <recent name="$PROJECT_DIR$/z 特效" />
+      <recent name="$PROJECT_DIR$/z 设计模式/状态模式" />
+      <recent name="$PROJECT_DIR$/component/jsx/附件/2 轮播组件1" />
+      <recent name="$PROJECT_DIR$/component/jsx/附件" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Week_10---重学CSS/1 CSS排版" />
-      <recent name="$PROJECT_DIR$/Week_09---重学CSS/2 CSS选择器" />
-      <recent name="$PROJECT_DIR$/Week_09---重学CSS/1 CSS总论" />
-      <recent name="$PROJECT_DIR$/Week_07---浏览器工作原理" />
-      <recent name="$PROJECT_DIR$/Week_07---浏览器工作原理/别人可行的代码" />
+      <recent name="$PROJECT_DIR$/Week_12--组件化/1 组件的基本知识/1 组件的基本概念和基本组成部分" />
+      <recent name="$PROJECT_DIR$/Week_12--组件化/1 组件的基本知识" />
+      <recent name="$PROJECT_DIR$/Week_11---重学HTML、浏览器API/2 浏览器API/6 其它API/别人的整理" />
+      <recent name="$PROJECT_DIR$/Week_11---重学HTML、浏览器API/别人总结" />
+      <recent name="$PROJECT_DIR$/Week_11---重学HTML、浏览器API" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.client.js">
+  <component name="RunManager" selected="Node.js.index.js">
+    <configuration name="bezier.js (1)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Week_10---重学CSS/2 CSS动画与绘制/1 动画/拓展/test/bezier.js" working-dir="$PROJECT_DIR$/Week_10---重学CSS/2 CSS动画与绘制/1 动画/拓展/test">
+      <method v="2" />
+    </configuration>
+    <configuration name="bezier.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Week_10---重学CSS/2 CSS动画与绘制/1 动画/拓展/别人的作业2/bezier.js" working-dir="$PROJECT_DIR$/Week_10---重学CSS/2 CSS动画与绘制/1 动画/拓展/别人的作业2">
+      <method v="2" />
+    </configuration>
     <configuration name="client.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Week_07---浏览器工作原理/别人可行的代码/client.js" working-dir="$PROJECT_DIR$/Week_07---浏览器工作原理/别人可行的代码">
       <method v="2" />
     </configuration>
@@ -69,32 +82,26 @@
     <configuration name="client.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Week_07---浏览器工作原理/toy-browser/client.js" working-dir="$PROJECT_DIR$/Week_07---浏览器工作原理/toy-browser">
       <method v="2" />
     </configuration>
+    <configuration name="index.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/z 设计模式/状态模式/index.js" working-dir="$PROJECT_DIR$/z 设计模式/状态模式">
+      <method v="2" />
+    </configuration>
     <configuration name="server.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Week_07---浏览器工作原理/别人可行的代码/server.js" working-dir="$PROJECT_DIR$/Week_07---浏览器工作原理/别人可行的代码">
       <method v="2" />
     </configuration>
-    <configuration name="test1.js (1)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Week_07---浏览器工作原理/补充/小例子/test1.js" working-dir="$PROJECT_DIR$/Week_07---浏览器工作原理/补充/小例子">
-      <method v="2" />
-    </configuration>
-    <configuration name="test1.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Week_07---浏览器工作原理/补充/test1.js" working-dir="$PROJECT_DIR$/Week_07---浏览器工作原理/补充">
-      <method v="2" />
-    </configuration>
-    <configuration name="test.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Week_07---浏览器工作原理/补充/小例子/test.js" working-dir="$PROJECT_DIR$/Week_07---浏览器工作原理/补充/小例子">
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="Node.js.test1.js" />
-      <item itemvalue="Node.js.test1.js (1)" />
-      <item itemvalue="Node.js.test.js" />
       <item itemvalue="Node.js.server.js" />
       <item itemvalue="Node.js.client.js" />
+      <item itemvalue="Node.js.bezier.js" />
+      <item itemvalue="Node.js.bezier.js (1)" />
+      <item itemvalue="Node.js.index.js" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.index.js" />
+        <item itemvalue="Node.js.bezier.js (1)" />
+        <item itemvalue="Node.js.bezier.js" />
         <item itemvalue="Node.js.client.js" />
         <item itemvalue="Node.js.server.js" />
-        <item itemvalue="Node.js.test.js" />
-        <item itemvalue="Node.js.test1.js (1)" />
-        <item itemvalue="Node.js.test1.js" />
       </list>
     </recent_temporary>
   </component>
@@ -226,245 +233,33 @@
       <workItem from="1605076262554" duration="7201000" />
       <workItem from="1605248049318" duration="488000" />
       <workItem from="1605408615210" duration="3320000" />
-      <workItem from="1605576002372" duration="8542000" />
-    </task>
-    <task id="LOCAL-00067" summary="HTTP 请求">
-      <created>1601803462623</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1601803462623</updated>
-    </task>
-    <task id="LOCAL-00068" summary="HTTP 请求">
-      <created>1601823255810</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1601823255811</updated>
-    </task>
-    <task id="LOCAL-00069" summary="HTTP 请求">
-      <created>1601870353151</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1601870353151</updated>
-    </task>
-    <task id="LOCAL-00070" summary="HTTP 请求">
-      <created>1601870600593</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1601870600593</updated>
-    </task>
-    <task id="LOCAL-00071" summary="HTTP 请求">
-      <created>1601878634769</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1601878634769</updated>
-    </task>
-    <task id="LOCAL-00072" summary="HTTP 请求">
-      <created>1601879757014</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1601879757014</updated>
-    </task>
-    <task id="LOCAL-00073" summary="HTTP 请求">
-      <created>1601880306210</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1601880306210</updated>
-    </task>
-    <task id="LOCAL-00074" summary="HTTP 请求">
-      <created>1601880325203</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1601880325203</updated>
-    </task>
-    <task id="LOCAL-00075" summary="HTTP 请求">
-      <created>1601946535168</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1601946535168</updated>
-    </task>
-    <task id="LOCAL-00076" summary="HTTP 请求">
-      <created>1601950722576</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1601950722576</updated>
-    </task>
-    <task id="LOCAL-00077" summary="HTTP 请求">
-      <created>1601963068349</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1601963068349</updated>
-    </task>
-    <task id="LOCAL-00078" summary="HTTP 请求">
-      <created>1601966964508</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1601966964508</updated>
-    </task>
-    <task id="LOCAL-00079" summary="HTTP 请求">
-      <created>1601970172798</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1601970172798</updated>
-    </task>
-    <task id="LOCAL-00080" summary="HTTP 解析">
-      <created>1602120533727</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1602120533727</updated>
-    </task>
-    <task id="LOCAL-00081" summary="寻路">
-      <created>1602122600239</created>
-      <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL-00081" />
-      <option name="project" value="LOCAL" />
-      <updated>1602122600239</updated>
-    </task>
-    <task id="LOCAL-00082" summary="HTML 解析">
-      <created>1602135254210</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1602135254210</updated>
-    </task>
-    <task id="LOCAL-00083" summary="HTML 解析">
-      <created>1602137021096</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1602137021096</updated>
-    </task>
-    <task id="LOCAL-00084" summary="HTML 解析">
-      <created>1602220245121</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1602220245122</updated>
-    </task>
-    <task id="LOCAL-00085" summary="HTML 解析">
-      <created>1602220424554</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1602220424554</updated>
-    </task>
-    <task id="LOCAL-00086" summary="HTML 解析">
-      <created>1602221130212</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1602221130212</updated>
-    </task>
-    <task id="LOCAL-00087" summary="HTML 解析">
-      <created>1602313621101</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1602313621101</updated>
-    </task>
-    <task id="LOCAL-00088" summary="HTML 解析">
-      <created>1602313643575</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1602313643575</updated>
-    </task>
-    <task id="LOCAL-00089" summary="HTML 解析">
-      <created>1602316234412</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1602316234412</updated>
-    </task>
-    <task id="LOCAL-00090" summary="HTML 解析">
-      <created>1602317056381</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1602317056381</updated>
-    </task>
-    <task id="LOCAL-00091" summary="HTML 解析">
-      <created>1602317594463</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1602317594464</updated>
-    </task>
-    <task id="LOCAL-00092" summary="HTML 解析">
-      <created>1602317772488</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1602317772488</updated>
-    </task>
-    <task id="LOCAL-00093" summary="HTML 解析">
-      <created>1602321628746</created>
-      <option name="number" value="00093" />
-      <option name="presentableId" value="LOCAL-00093" />
-      <option name="project" value="LOCAL" />
-      <updated>1602321628746</updated>
-    </task>
-    <task id="LOCAL-00094" summary="HTML 解析">
-      <created>1602555167893</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1602555167894</updated>
-    </task>
-    <task id="LOCAL-00095" summary="CSS 计算">
-      <created>1602564562313</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
-      <option name="project" value="LOCAL" />
-      <updated>1602564562313</updated>
-    </task>
-    <task id="LOCAL-00096" summary="CSS 计算">
-      <created>1602646427042</created>
-      <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL-00096" />
-      <option name="project" value="LOCAL" />
-      <updated>1602646427043</updated>
-    </task>
-    <task id="LOCAL-00097" summary="CSS 计算">
-      <created>1602654055256</created>
-      <option name="number" value="00097" />
-      <option name="presentableId" value="LOCAL-00097" />
-      <option name="project" value="LOCAL" />
-      <updated>1602654055257</updated>
-    </task>
-    <task id="LOCAL-00098" summary="CSS 计算">
-      <created>1602664739790</created>
-      <option name="number" value="00098" />
-      <option name="presentableId" value="LOCAL-00098" />
-      <option name="project" value="LOCAL" />
-      <updated>1602664739790</updated>
-    </task>
-    <task id="LOCAL-00099" summary="CSS 计算">
-      <created>1602752041106</created>
-      <option name="number" value="00099" />
-      <option name="presentableId" value="LOCAL-00099" />
-      <option name="project" value="LOCAL" />
-      <updated>1602752041108</updated>
-    </task>
-    <task id="LOCAL-00100" summary="CSS 计算">
-      <created>1602752259396</created>
-      <option name="number" value="00100" />
-      <option name="presentableId" value="LOCAL-00100" />
-      <option name="project" value="LOCAL" />
-      <updated>1602752259396</updated>
+      <workItem from="1605576002372" duration="9534000" />
+      <workItem from="1605756519230" duration="7203000" />
+      <workItem from="1605842637845" duration="10323000" />
+      <workItem from="1605925974356" duration="11584000" />
+      <workItem from="1606008454180" duration="10638000" />
+      <workItem from="1606097194549" duration="4271000" />
+      <workItem from="1606183704537" duration="8515000" />
+      <workItem from="1606272612969" duration="1671000" />
+      <workItem from="1606291056341" duration="5964000" />
+      <workItem from="1606356950127" duration="10224000" />
+      <workItem from="1606465897694" duration="4810000" />
+      <workItem from="1606536990095" duration="17161000" />
+      <workItem from="1606652852322" duration="160000" />
+      <workItem from="1606698436593" duration="193000" />
+      <workItem from="1606698633017" duration="3974000" />
+      <workItem from="1606720021371" duration="7476000" />
+      <workItem from="1606730239602" duration="51000" />
+      <workItem from="1606792642014" duration="14978000" />
+      <workItem from="1606874131591" duration="11515000" />
+      <workItem from="1606960643293" duration="19117000" />
+      <workItem from="1607043012293" duration="20732000" />
+      <workItem from="1607307562367" duration="478000" />
+      <workItem from="1607407784492" duration="225000" />
+      <workItem from="1607503663729" duration="10000" />
+      <workItem from="1607503724976" duration="3249000" />
+      <workItem from="1607592908327" duration="223000" />
+      <workItem from="1607664841826" duration="3123000" />
     </task>
     <task id="LOCAL-00101" summary="CSS 计算">
       <created>1602752444355</created>
@@ -571,11 +366,254 @@
       <option name="project" value="LOCAL" />
       <updated>1605605898529</updated>
     </task>
-    <option name="localTasksCounter" value="116" />
+    <task id="LOCAL-00116" summary="重学CSS">
+      <created>1605605956143</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1605605956143</updated>
+    </task>
+    <task id="LOCAL-00117" summary="重学CSS">
+      <created>1605756606526</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1605756606526</updated>
+    </task>
+    <task id="LOCAL-00118" summary="重学CSS">
+      <created>1605758930767</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1605758930767</updated>
+    </task>
+    <task id="LOCAL-00119" summary="重学CSS">
+      <created>1605762219459</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1605762219459</updated>
+    </task>
+    <task id="LOCAL-00120" summary="重学CSS">
+      <created>1605762698463</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1605762698463</updated>
+    </task>
+    <task id="LOCAL-00121" summary="重学CSS">
+      <created>1605762841844</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1605762841844</updated>
+    </task>
+    <task id="LOCAL-00122" summary="重学CSS">
+      <created>1606008476062</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1606008476063</updated>
+    </task>
+    <task id="LOCAL-00123" summary="重学CSS">
+      <created>1606022725444</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1606022725444</updated>
+    </task>
+    <task id="LOCAL-00124" summary="重学CSS">
+      <created>1606101091287</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1606101091287</updated>
+    </task>
+    <task id="LOCAL-00125" summary="重学CSS">
+      <created>1606207522780</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1606207522781</updated>
+    </task>
+    <task id="LOCAL-00126" summary="重学CSS">
+      <created>1606211695765</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1606211695765</updated>
+    </task>
+    <task id="LOCAL-00127" summary="重学CSS">
+      <created>1606294657173</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1606294657173</updated>
+    </task>
+    <task id="LOCAL-00128" summary="重学CSS">
+      <created>1606378776047</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1606378776047</updated>
+    </task>
+    <task id="LOCAL-00129" summary="重学CSS">
+      <created>1606384771255</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1606384771255</updated>
+    </task>
+    <task id="LOCAL-00130" summary="重学CSS">
+      <created>1606468673688</created>
+      <option name="number" value="00130" />
+      <option name="presentableId" value="LOCAL-00130" />
+      <option name="project" value="LOCAL" />
+      <updated>1606468673688</updated>
+    </task>
+    <task id="LOCAL-00131" summary="重学CSS">
+      <created>1606470578559</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1606470578559</updated>
+    </task>
+    <task id="LOCAL-00132" summary="重学CSS">
+      <created>1606470782528</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1606470782528</updated>
+    </task>
+    <task id="LOCAL-00133" summary="重学CSS">
+      <created>1606638845747</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1606638845748</updated>
+    </task>
+    <task id="LOCAL-00134" summary="重学CSS">
+      <created>1606652870355</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1606652870355</updated>
+    </task>
+    <task id="LOCAL-00135" summary="重学CSS">
+      <created>1606725057023</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1606725057023</updated>
+    </task>
+    <task id="LOCAL-00136" summary="重学CSS">
+      <created>1606730253454</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1606730253454</updated>
+    </task>
+    <task id="LOCAL-00137" summary="重学CSS">
+      <created>1606806347599</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1606806347599</updated>
+    </task>
+    <task id="LOCAL-00138" summary="重学CSS">
+      <created>1606815569675</created>
+      <option name="number" value="00138" />
+      <option name="presentableId" value="LOCAL-00138" />
+      <option name="project" value="LOCAL" />
+      <updated>1606815569676</updated>
+    </task>
+    <task id="LOCAL-00139" summary="重学CSS">
+      <created>1606895444627</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1606895444627</updated>
+    </task>
+    <task id="LOCAL-00140" summary="重学CSS">
+      <created>1606895479153</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1606895479153</updated>
+    </task>
+    <task id="LOCAL-00141" summary="重学CSS">
+      <created>1606895509626</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1606895509626</updated>
+    </task>
+    <task id="LOCAL-00142" summary="重学CSS">
+      <created>1606897622994</created>
+      <option name="number" value="00142" />
+      <option name="presentableId" value="LOCAL-00142" />
+      <option name="project" value="LOCAL" />
+      <updated>1606897622994</updated>
+    </task>
+    <task id="LOCAL-00143" summary="重学CSS">
+      <created>1606986857730</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1606986857730</updated>
+    </task>
+    <task id="LOCAL-00144" summary="重学CSS">
+      <created>1607043227478</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1607043227479</updated>
+    </task>
+    <task id="LOCAL-00145" summary="jSX">
+      <created>1607043252248</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1607043252248</updated>
+    </task>
+    <task id="LOCAL-00146" summary="重学CSS">
+      <created>1607051485001</created>
+      <option name="number" value="00146" />
+      <option name="presentableId" value="LOCAL-00146" />
+      <option name="project" value="LOCAL" />
+      <updated>1607051485001</updated>
+    </task>
+    <task id="LOCAL-00147" summary="组件">
+      <created>1607051528091</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1607051528092</updated>
+    </task>
+    <task id="LOCAL-00148" summary="Component">
+      <created>1607075381283</created>
+      <option name="number" value="00148" />
+      <option name="presentableId" value="LOCAL-00148" />
+      <option name="project" value="LOCAL" />
+      <updated>1607075381283</updated>
+    </task>
+    <task id="LOCAL-00149" summary="重学CSS">
+      <created>1607592970528</created>
+      <option name="number" value="00149" />
+      <option name="presentableId" value="LOCAL-00149" />
+      <option name="project" value="LOCAL" />
+      <updated>1607592970529</updated>
+    </task>
+    <option name="localTasksCounter" value="150" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/z 设计模式/状态模式/index.js" />
+      </list>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="第一周代码" />
@@ -591,6 +629,9 @@
     <MESSAGE value="寻路" />
     <MESSAGE value="HTML 解析" />
     <MESSAGE value="CSS 计算" />
+    <MESSAGE value="jSX" />
+    <MESSAGE value="组件" />
+    <MESSAGE value="Component" />
     <MESSAGE value="重学CSS" />
     <option name="LAST_COMMIT_MESSAGE" value="重学CSS" />
   </component>
@@ -603,51 +644,51 @@
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state x="2103" y="193" key="#xdebugger.evaluate/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601949828448" />
-    <state x="185" y="23" key="CommitChangelistDialog2" timestamp="1605605898379">
+    <state x="322" y="23" key="CommitChangelistDialog2" timestamp="1607592970218">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="368" y="0" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1605587287731" />
     <state x="-1430" y="-28" key="CommitChangelistDialog2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599786844748" />
     <state x="368" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818025606" />
     <state x="1930" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1603266486823" />
-    <state x="185" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1605605898379" />
+    <state x="322" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1607592970218" />
     <state width="626" height="582" key="DebuggerActiveHint" timestamp="1602321810504">
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state width="626" height="582" key="DebuggerActiveHint/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1602321810504" />
-    <state x="117" y="100" key="DiffContextDialog" timestamp="1604210498335">
+    <state x="117" y="100" key="DiffContextDialog" timestamp="1605762839813">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="1596" y="116" key="DiffContextDialog/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1603266476070" />
-    <state x="117" y="100" key="DiffContextDialog/0.23.1440.877@0.23.1440.877" timestamp="1604210498335" />
-    <state width="1894" height="231" key="GridCell.Tab.0.bottom" timestamp="1602757133728">
-      <screen x="1440" y="23" width="1920" height="1057" />
+    <state x="117" y="100" key="DiffContextDialog/0.23.1440.877@0.23.1440.877" timestamp="1605762839813" />
+    <state width="1414" height="256" key="GridCell.Tab.0.bottom" timestamp="1607504054865">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1894" height="506" key="GridCell.Tab.0.bottom/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1601970139416" />
     <state width="1414" height="209" key="GridCell.Tab.0.bottom/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818981188" />
     <state width="1894" height="231" key="GridCell.Tab.0.bottom/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1602757133728" />
-    <state width="1414" height="466" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1602646487528" />
-    <state width="1894" height="231" key="GridCell.Tab.0.center" timestamp="1602757133728">
-      <screen x="1440" y="23" width="1920" height="1057" />
+    <state width="1414" height="256" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1607504054865" />
+    <state width="1414" height="256" key="GridCell.Tab.0.center" timestamp="1607504054864">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1894" height="506" key="GridCell.Tab.0.center/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1601970139414" />
     <state width="1414" height="209" key="GridCell.Tab.0.center/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818981187" />
     <state width="1894" height="231" key="GridCell.Tab.0.center/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1602757133728" />
-    <state width="1414" height="466" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1602646487527" />
-    <state width="1894" height="231" key="GridCell.Tab.0.left" timestamp="1602757133727">
-      <screen x="1440" y="23" width="1920" height="1057" />
+    <state width="1414" height="256" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1607504054864" />
+    <state width="1414" height="256" key="GridCell.Tab.0.left" timestamp="1607504054863">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1894" height="506" key="GridCell.Tab.0.left/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1601970139413" />
     <state width="1414" height="209" key="GridCell.Tab.0.left/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818981185" />
     <state width="1894" height="231" key="GridCell.Tab.0.left/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1602757133727" />
-    <state width="1414" height="466" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1602646487527" />
-    <state width="1894" height="231" key="GridCell.Tab.0.right" timestamp="1602757133728">
-      <screen x="1440" y="23" width="1920" height="1057" />
+    <state width="1414" height="256" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1607504054863" />
+    <state width="1414" height="256" key="GridCell.Tab.0.right" timestamp="1607504054864">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1894" height="506" key="GridCell.Tab.0.right/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1601970139415" />
     <state width="1414" height="209" key="GridCell.Tab.0.right/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818981188" />
     <state width="1894" height="231" key="GridCell.Tab.0.right/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1602757133728" />
-    <state width="1414" height="466" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1602646487528" />
+    <state width="1414" height="256" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1607504054864" />
     <state width="1414" height="466" key="GridCell.Tab.1.bottom" timestamp="1602646487529">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -725,30 +766,30 @@
     </state>
     <state x="2119" y="118" key="RollbackChangesDialog/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601885547486" />
     <state x="509" y="102" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1601383081879" />
-    <state x="374" y="142" key="Vcs.Push.Dialog.v2" timestamp="1605605899545">
+    <state x="374" y="142" key="Vcs.Push.Dialog.v2" timestamp="1607592973110">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="374" y="122" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1605587289288" />
     <state x="-1422" y="115" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599786846921" />
     <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818026674" />
     <state x="1938" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1603266488894" />
-    <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1605605899545" />
+    <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1607592973110" />
     <state x="1831" y="224" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1601868669885">
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state x="1831" y="224" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601868669885" />
-    <state x="138" y="33" width="1058" height="816" key="dock-window-1" timestamp="1605600996386">
+    <state x="0" y="23" width="668" height="877" key="dock-window-1" timestamp="1607043314517">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="1613" y="23" width="1747" height="997" key="dock-window-1/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818005926" />
     <state x="1506" y="23" width="1747" height="997" key="dock-window-1/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1602551810846" />
-    <state x="138" y="33" width="1058" height="816" key="dock-window-1/0.23.1440.877@0.23.1440.877" timestamp="1605600996386" />
-    <state x="-85" y="23" width="1139" height="816" key="dock-window-2" timestamp="1605604509154">
+    <state x="0" y="23" width="668" height="877" key="dock-window-1/0.23.1440.877@0.23.1440.877" timestamp="1607043314517" />
+    <state x="165" y="92" width="1440" height="877" key="dock-window-2" timestamp="1605762692428">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="0" y="25" width="1440" height="844" maximized="true" key="dock-window-2/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1601967667690" />
     <state x="1481" y="30" width="1920" height="1057" key="dock-window-2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1602120584079" />
-    <state x="-85" y="23" width="1139" height="816" key="dock-window-2/0.23.1440.877@0.23.1440.877" timestamp="1605604509154" />
+    <state x="165" y="92" width="1440" height="877" key="dock-window-2/0.23.1440.877@0.23.1440.877" timestamp="1605762692428" />
     <state x="11" y="23" width="1436" height="876" maximized="true" key="dock-window-3" timestamp="1604052126702">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -775,12 +816,12 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="590" y="153" width="745" height="616" key="find.popup/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1603179386781" />
-    <state x="406" y="44" width="838" height="857" key="search.everywhere.popup" timestamp="1605605660094">
+    <state x="406" y="44" width="838" height="857" key="search.everywhere.popup" timestamp="1607666916390">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="-1379" y="-3" width="838" height="1032" key="search.everywhere.popup/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599730226236" />
     <state x="1981" y="48" width="1118" height="1033" key="search.everywhere.popup/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1602226938667" />
-    <state x="406" y="44" width="838" height="857" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1605605660094" />
+    <state x="406" y="44" width="838" height="857" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1607666916390" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

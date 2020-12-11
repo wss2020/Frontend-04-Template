@@ -1,44 +1,64 @@
 import {Component, createElement} from "./framework.js"
 
-class Carousel extends Component{
+class Carousel extends Component {
     constructor() {
         super();
         this.attributes = Object.create(null);
     }
+
     setAttribute(name, value) {
         this.attributes[name] = value;
     }
-    render(){
+
+    render() {
         this.root = document.createElement("div");
         this.root.classList.add("carousel");
-        for(let record of this.attributes.src){
+        for (let record of this.attributes.src) {
             let child = document.createElement("div");
             child.style.backgroundImage = `url('${record}')`;
             this.root.appendChild(child);
         }
 
-        let currentIndex = 0;
-        setInterval(()=>{
-            let children = this.root.children;
-            let nextIndex = (currentIndex + 1) % children.length;
+        this.root.addEventListener("mousedown", event => {
+            console.log('mousedown');
 
-            let current = children[currentIndex];
-            let next = children[nextIndex];
+            let move = event => {
+                console.log('mousemove');
+            }
+            let up = event=>{
+                console.log('mouseup');
+                this.root.removeEventListener("mousemove",move)
+                this.root.removeEventListener("mouseup",up)
+            }
+            this.root.addEventListener("mousemove", move)
+            this.root.addEventListener("mouseup", up)
+        })
 
-            next.style.transition = "none";
-            next.style.transform = `translateX(${100 - nextIndex * 100}%)`;
 
-            setTimeout(()=>{
-                next.style.transition = "";
-                current.style.transform = `translateX(${-100 - currentIndex * 100 }%)`;
-                next.style.transform = `translateX(${ - nextIndex * 100 }%)`;
-                currentIndex = nextIndex;
-            },16)
+        // 关掉自动播放
+        /* let currentIndex = 0;
+         setInterval(()=>{
+             let children = this.root.children;
+             let nextIndex = (currentIndex + 1) % children.length;
 
-        },3000);
+             let current = children[currentIndex];
+             let next = children[nextIndex];
+
+             next.style.transition = "none";
+             next.style.transform = `translateX(${100 - nextIndex * 100}%)`;
+
+             setTimeout(()=>{
+                 next.style.transition = "";
+                 current.style.transform = `translateX(${-100 - currentIndex * 100 }%)`;
+                 next.style.transform = `translateX(${ - nextIndex * 100 }%)`;
+                 currentIndex = nextIndex;
+             },16)
+
+         },3000); */
 
         return this.root;
     }
+
     mountTo(parent) {
         console.log(this.attributes.src);
         parent.appendChild(this.render());
@@ -53,7 +73,7 @@ let d = [
     "https://static001.geekbang.org/resource/image/73/e4/730ea9c393def7975deceb48b3eb6fe4.jpg",
 ];
 
-let a =  <Carousel src={d} />;
+let a = <Carousel src={d}/>;
 
 a.mountTo(document.body)
 

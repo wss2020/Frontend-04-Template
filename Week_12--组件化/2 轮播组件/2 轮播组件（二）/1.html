@@ -182,7 +182,52 @@ current=0 , 我们给它改成 currentIndex=0,
 
         },3000);
 
+    前面一个轮播组件 已经可以跑起来了。
+    一般我们的轮播组件，除了轮播之外，还要有一个功能，就是我们的鼠标要能够拖动它进行轮播，所以
+说我们这节课，就把这部分的功能给它做上去。
 
+
+    因为轮播跟自动播放，其实它会有一定的冲突，这节课我们先把自动播放的功能给它关掉，然后我们在
+children 的基础上，我们做一个手动的这样的一个播放，我们用鼠标，去拖着轮播组件去播放，因为我们
+前面已经打下了一个非常好的基础，所以说前面的图片的排布，其实已经是一个正确的逻辑，
+    那么接下来我们就要试试用鼠标，去控制图片的排布。
+    首先我们尝试去给 root 加上一个鼠标的事件，我们应该绑定什么事件呢？ 这里面我们首先会选择，
+鼠标的 mousedown 事件， 鼠标 mousedown 之后，那么这个播放会 开始它的一个跟随鼠标的拖拽，
+然后它应该会有一个监听的函数，这个地方我们用 event ,第三个参数我们是可以不用写的，如果我们不想
+改变什么 capture , 什么 passive ,什么 once 这些属性的话。
+    this.root.addEventListener("mousedown",event=>{
+        console.log('mousedown');
+    })
+我们还要有 mousemove 事件，
+    this.root.addEventListener("mousemove",event=>{
+        console.log('mousemove');
+    })
+与之对应的还有一个 mouseup 事件，
+    this.root.addEventListener("mouseup",event=>{
+        console.log('mouseup');
+    })
+
+我们看到这个 mousemove 事件是会不断的被触发的，它一下就会被触发几百次，其实我们拖拽的时候，其实
+是希望 mousedown 之后，然后再去响应 mousemove , 然后 mouseup 之后，我们就不再响应 mousemove ,
+    所以我们监听的时候，应该把 mousemove 和 mouseup 都放在 mousedown 里面去监听，并且我们
+应该在 mouseup 的时候，把 mousemove 和 mousedown 停掉，这样我们就需要，把它单独的用一个函数，
+给它起一个名字， move 的时候我们都还是以前的逻辑，  up 的时候，我们给它处理一下，把 addEventListener
+给它 remove 掉，  up自身在之后，也应该把它 remove 掉。
+        this.root.addEventListener("mousedown", event => {
+            console.log('mousedown');
+
+            let move = event => {
+                console.log('mousemove');
+            }
+            let up = event=>{
+                console.log('mouseup');
+                this.root.removeEventListener("mousemove",move)
+                this.root.removeEventListener("mouseup",up)
+            }
+            this.root.addEventListener("mousemove", move)
+            this.root.addEventListener("mouseup", up)
+        })
+这个代码结构，就是我们一般去处理拖拽，所使用的一个代码结构。
 -->
 
 

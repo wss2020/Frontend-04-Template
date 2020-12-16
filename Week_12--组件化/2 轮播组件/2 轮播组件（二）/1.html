@@ -228,6 +228,25 @@ children 的基础上，我们做一个手动的这样的一个播放，我们�
             this.root.addEventListener("mouseup", up)
         })
 这个代码结构，就是我们一般去处理拖拽，所使用的一个代码结构。
+
+我们应该考虑到，其实我们监听事件， mousedown 是在 root 元素上监听， 那么我们的 move 和 up 就没必要
+在这上面监听了， 我们在document 上直接监听，
+        this.root.addEventListener("mousedown", event => {
+            console.log('mousedown');
+
+            let move = event => {
+                console.log('mousemove');
+            }
+            let up = event=>{
+                console.log('mouseup');
+                document.removeEventListener("mousemove",move)
+                document.removeEventListener("mouseup",up)
+            }
+            this.root.addEventListener("mousemove", move)
+            this.root.addEventListener("mouseup", up)
+        })
+现代浏览器里，在 document 上监听，还会有额外的好处， 我们即使是移出了浏览器的范围外，它也能够监听到这个
+事件 触发它们，这样是一个比较好的实践。
 -->
 
 

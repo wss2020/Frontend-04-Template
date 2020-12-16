@@ -24,8 +24,6 @@ class Carousel extends Component {
 
             let move = event => {
                 console.log('mousemove');
-                console.log(event.clientX);
-                console.log(event.clientY);
             }
             let up = event=>{
                 console.log('mouseup');

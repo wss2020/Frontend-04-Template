@@ -4,13 +4,10 @@
  */
 abstract class State {
     protected context: Context;
-
     public setContext(context: Context) {
         this.context = context;
     }
-
     public abstract handle1(): void;
-
     public abstract handle2(): void;
 }
 
@@ -19,23 +16,19 @@ abstract class State {
 class Context {
     /** @type {State}  对上下文当前状态的引用。   */
     private state: State;
-
     constructor(state: State) {
         this.transitionTo(state);
     }
-
     /** 上下文允许在运行时更改State对象。*/
     public transitionTo(state: State): void {
         console.log(`Context: Transition to ${(<any>state).constructor.name}.`);
         this.state = state;
         this.state.setContext(this);
     }
-
     /**  上下文将其行为的一部分委托给当前的State对象。 */
     public request1(): void {
         this.state.handle1();
     }
-
     public request2(): void {
         this.state.handle2();
     }
@@ -49,7 +42,6 @@ class ConcreteStateA extends State {
         console.log('ConcreteStateA 想要更改上下文状态');
         this.context.transitionTo(new ConcreteStateB());
     }
-
     public handle2(): void {
         console.log('ConcreteStateA 处理 request2.');
     }
@@ -60,7 +52,6 @@ class ConcreteStateB extends State {
     public handle1(): void {
         console.log('ConcreteStateB 处理 request1.');
     }
-
     public handle2(): void {
         console.log('ConcreteStateB 处理 request2.');
         console.log('ConcreteStateB 想要更改上下文状态.');

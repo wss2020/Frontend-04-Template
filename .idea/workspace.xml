@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="重学CSS">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/component/jsx/image/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/component/jsx/image/2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/component/jsx/image/3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/component/jsx/image/4.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week_12--组件化/2 轮播组件/2 轮播组件（二）/1.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_12--组件化/2 轮播组件/2 轮播组件（二）/1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week_12--组件化/2 轮播组件/3 轮播组件（三）/1.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_12--组件化/2 轮播组件/3 轮播组件（三）/1.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/component/jsx/dist/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/dist/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/component/jsx/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/main.js" afterDir="false" />
     </list>
@@ -41,7 +44,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/component/jsx/附件/3 轮播组件2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Week_12--组件化/2 轮播组件" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -52,18 +55,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Week_12--组件化/2 轮播组件" />
       <recent name="$PROJECT_DIR$/component/jsx/附件/3 轮播组件2" />
       <recent name="$PROJECT_DIR$/z 特效" />
       <recent name="$PROJECT_DIR$/z 设计模式/状态模式" />
       <recent name="$PROJECT_DIR$/component/jsx/附件/2 轮播组件1" />
-      <recent name="$PROJECT_DIR$/component/jsx/附件" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/component/jsx/image" />
       <recent name="$PROJECT_DIR$/Week_12--组件化/1 组件的基本知识/1 组件的基本概念和基本组成部分" />
       <recent name="$PROJECT_DIR$/Week_12--组件化/1 组件的基本知识" />
       <recent name="$PROJECT_DIR$/Week_11---重学HTML、浏览器API/2 浏览器API/6 其它API/别人的整理" />
       <recent name="$PROJECT_DIR$/Week_11---重学HTML、浏览器API/别人总结" />
-      <recent name="$PROJECT_DIR$/Week_11---重学HTML、浏览器API" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.index.js">
@@ -259,28 +262,10 @@
       <workItem from="1607503663729" duration="10000" />
       <workItem from="1607503724976" duration="3249000" />
       <workItem from="1607592908327" duration="223000" />
-      <workItem from="1607664841826" duration="3123000" />
-    </task>
-    <task id="LOCAL-00101" summary="CSS 计算">
-      <created>1602752444355</created>
-      <option name="number" value="00101" />
-      <option name="presentableId" value="LOCAL-00101" />
-      <option name="project" value="LOCAL" />
-      <updated>1602752444355</updated>
-    </task>
-    <task id="LOCAL-00102" summary="CSS 计算">
-      <created>1603266487073</created>
-      <option name="number" value="00102" />
-      <option name="presentableId" value="LOCAL-00102" />
-      <option name="project" value="LOCAL" />
-      <updated>1603266487075</updated>
-    </task>
-    <task id="LOCAL-00103" summary="重学CSS">
-      <created>1603965272555</created>
-      <option name="number" value="00103" />
-      <option name="presentableId" value="LOCAL-00103" />
-      <option name="project" value="LOCAL" />
-      <updated>1603965272556</updated>
+      <workItem from="1607664841826" duration="4813000" />
+      <workItem from="1607907677238" duration="3381000" />
+      <workItem from="1608017680388" duration="1044000" />
+      <workItem from="1608085067587" duration="4882000" />
     </task>
     <task id="LOCAL-00104" summary="重学CSS">
       <created>1604032024276</created>
@@ -604,7 +589,28 @@
       <option name="project" value="LOCAL" />
       <updated>1607592970529</updated>
     </task>
-    <option name="localTasksCounter" value="150" />
+    <task id="LOCAL-00150" summary="组件">
+      <created>1607668272015</created>
+      <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL-00150" />
+      <option name="project" value="LOCAL" />
+      <updated>1607668272016</updated>
+    </task>
+    <task id="LOCAL-00151" summary="组件">
+      <created>1608085897377</created>
+      <option name="number" value="00151" />
+      <option name="presentableId" value="LOCAL-00151" />
+      <option name="project" value="LOCAL" />
+      <updated>1608085897378</updated>
+    </task>
+    <task id="LOCAL-00152" summary="组件">
+      <created>1608087600939</created>
+      <option name="number" value="00152" />
+      <option name="presentableId" value="LOCAL-00152" />
+      <option name="project" value="LOCAL" />
+      <updated>1608087600939</updated>
+    </task>
+    <option name="localTasksCounter" value="153" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -630,10 +636,10 @@
     <MESSAGE value="HTML 解析" />
     <MESSAGE value="CSS 计算" />
     <MESSAGE value="jSX" />
-    <MESSAGE value="组件" />
     <MESSAGE value="Component" />
     <MESSAGE value="重学CSS" />
-    <option name="LAST_COMMIT_MESSAGE" value="重学CSS" />
+    <MESSAGE value="组件" />
+    <option name="LAST_COMMIT_MESSAGE" value="组件" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1860" y="206" width="1128" height="690" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601867467795">
@@ -644,14 +650,14 @@
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
     <state x="2103" y="193" key="#xdebugger.evaluate/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601949828448" />
-    <state x="322" y="23" key="CommitChangelistDialog2" timestamp="1607592970218">
+    <state x="322" y="23" key="CommitChangelistDialog2" timestamp="1608087600778">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="368" y="0" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1605587287731" />
     <state x="-1430" y="-28" key="CommitChangelistDialog2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599786844748" />
     <state x="368" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818025606" />
     <state x="1930" y="23" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1603266486823" />
-    <state x="322" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1607592970218" />
+    <state x="322" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1608087600778" />
     <state width="626" height="582" key="DebuggerActiveHint" timestamp="1602321810504">
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
@@ -761,19 +767,19 @@
     <state width="1894" height="871" key="GridCell.Tab.3.right/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1601970139406" />
     <state width="1894" height="443" key="GridCell.Tab.3.right/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1602323693279" />
     <state width="1414" height="466" key="GridCell.Tab.3.right/0.23.1440.877@0.23.1440.877" timestamp="1602646487531" />
-    <state x="2119" y="118" key="RollbackChangesDialog" timestamp="1601885547486">
-      <screen x="1440" y="23" width="1920" height="1057" />
+    <state x="509" y="102" key="RollbackChangesDialog" timestamp="1608087587036">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="2119" y="118" key="RollbackChangesDialog/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601885547486" />
-    <state x="509" y="102" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1601383081879" />
-    <state x="374" y="142" key="Vcs.Push.Dialog.v2" timestamp="1607592973110">
+    <state x="509" y="102" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1608087587036" />
+    <state x="374" y="142" key="Vcs.Push.Dialog.v2" timestamp="1608087602074">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="374" y="122" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1605587289288" />
     <state x="-1422" y="115" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.-28.1920.1057@-1920.-28.1920.1057" timestamp="1599786846921" />
     <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1599818026674" />
     <state x="1938" y="166" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1603266488894" />
-    <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1607592973110" />
+    <state x="374" y="142" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1608087602074" />
     <state x="1831" y="224" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1601868669885">
       <screen x="1440" y="23" width="1920" height="1057" />
     </state>
@@ -826,11 +832,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Week_06---浏览器工作原理/3.HTTP请求/toy-browser/状态机常量写法client.js</url>
-          <line>169</line>
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/Week_07---浏览器工作原理/补充/toy-html-parser-master/lexer.js</url>
           <line>114</line>

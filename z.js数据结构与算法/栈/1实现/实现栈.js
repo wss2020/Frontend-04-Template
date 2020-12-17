@@ -1,39 +1,42 @@
 /**
  实现一个栈，存储数据的底层数据结构，我们用数组。
  定义 Stack 类，
- dataStore 保存栈内元素，初始值为空数组
- top 记录栈定位置，初始值为0，表示栈顶对应数组的起始位置是0
+ _items 保存栈内元素，初始值为空数组
  push 入栈
  pop  出栈, 返回值为新的栈顶元素
  peek 查看栈顶元素
- length 栈内存储元素个数
  clear  清空栈
  isEmpty 是否为空
+ print  打印当前栈内元素
  * */
 
-class Stack{
+class Stack {
     constructor() {
-        this.dataStore = [];
-        this.top = 0;
-        this.length = 0;
+        this._items = [];
     }
-    push(ele){
-        this.dataStore[this.top++] = ele;
+    set items(ele){
+        this._items = ele;
     }
-    pop(){
-        return this.dataStore[--this.top];
+    get items(){
+        return this._items;
     }
-    peek(){
-        return this.dataStore[this.top - 1];
+    push(ele) {
+        this._items.push(ele);
     }
-    length() {
-        this.length = this.top;
+    pop() {
+        return this.items.pop();
     }
-    clear(){
-        this.top = 0;
+    peek() {
+        return this._items[this._items.length - 1];
     }
-    isEmpty(){
-        return this.top == 0;
+    isEmpty() {
+        return this._items.length == 0;
+    }
+    clear() {
+        this.item = [];
+    }
+    print(){
+        console.log(this.items.toString());
     }
 }
 

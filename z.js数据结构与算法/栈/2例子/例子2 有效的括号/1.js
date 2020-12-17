@@ -1,34 +1,36 @@
+
+
 class Stack {
     constructor() {
-        this.dataStore = [];
-        this.top = 0;
-        this.length = 0;
+        this._items = [];
     }
-
+    set items(ele){
+        this._items = ele;
+    }
+    get items(){
+        return this._items;
+    }
     push(ele) {
-        this.dataStore[this.top++] = ele;
+        this._items.push(ele);
     }
-
     pop() {
-        return this.dataStore[--this.top];
+        return this.items.pop();
     }
-
     peek() {
-        return this.dataStore[this.top - 1];
+        return this._items[this._items.length - 1];
     }
-
-    length() {
-        this.length = this.top;
-    }
-
-    clear() {
-        this.top = 0;
-    }
-
     isEmpty() {
-        return this.top == 0;
+        return this._items.length == 0;
+    }
+    clear() {
+        this.item = [];
+    }
+    print(){
+        console.log(this.items.toString());
     }
 }
+
+
 
 /**
  * @param {string} s
@@ -52,7 +54,9 @@ var isValid = function (s) {
     return stack.isEmpty();
 };
 
-
+console.log( isValid('()') );
+console.log( isValid('(') );
+console.log( isValid('((') );
 
 
 

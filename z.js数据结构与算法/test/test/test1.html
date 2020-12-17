@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="angular.js"></script>
+</head>
+<body>
+<div ng-app="myApp" ng-controller="sitesCtrl">
+    <ng-include src="'test2.html'" onload="includeInit()"/>
+</div>
+</body>
+<script type="text/javascript">
+    var app = angular.module('myApp', []);
+    app.controller('sitesCtrl', function($scope) {
+        $scope.includeInit = function(){
+            $scope.includeInit2();
+        };
+
+        $scope.$on('includeInit',function(){
+            console.log('include page finish.');
+        });
+    });
+</script>
+</html>

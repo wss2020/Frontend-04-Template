@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="./angular.js" charset="utf-8"></script>
+</head>
+<body ng-controller="myCtrl">
+<div>1111</div>
+<div>{{title}}</div>
+<div ng-include="'2.html'"></div>
+<!-- 路径里面必须带上单引号 -->
+</body>
+
+
+<script>
+    function test(i){
+        alert(i);
+    }
+
+    let app = angular.module("app", []);
+    app.controller('myCtrl', ["$scope", "$window", "$http", "$location", function ($scope, $window, $http, $location) {
+        $scope.title = "类型";
+        $scope.value = "图片";
+    }]);
+    app.controller('child', ["$scope", "$window", "$http", "$location", function ($scope, $window, $http, $location) {
+        $scope.title1 = "类型";
+        $scope.value1 = "图片";
+    }]);
+</script>
+</html>
+
+
+
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #clipped {
+            margin-bottom: 20px;
+            clip-path: circle(100px at 110px 100px);
+            /*clip-path: url(#cross);*/
+            /*clip-path: inset(20px round 20px);*/
+            /*clip-path: path('M 0 200 L 0,110 A 110,90 0,0,1 240,100 L 200 340 z');*/
+        }
+    </style>
+</head>
+<body>
+
+<img id="clipped" src="https://mdn.mozillademos.org/files/12668/MDN.svg"
+     alt="MDN logo">
+<svg height="0" width="0">
+    <defs>
+        <clipPath id="cross">
+            <rect y="110" x="137" width="90" height="90"/>
+            <rect x="0" y="110" width="90" height="90"/>
+            <rect x="137" y="0" width="90" height="90"/>
+            <rect x="0" y="0" width="90" height="90"/>
+        </clipPath>
+    </defs>
+</svg>
+<select id="clipPath">
+    <option value="none">none</option>
+    <option value="circle(100px at 110px 100px)">circle</option>
+    <option value="url(#cross)" selected>cross</option>
+    <option value="inset(20px round 20px)">inset</option>
+    <option value="path('M 0 200 L 0,110 A 110,90 0,0,1 240,100 L 200 340 z')">path</option>
+</select>
+
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
+    <script src="jq.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+        #tableScroll{
+            width: 400px;
+            height: 400px;
+            border: 1px solid #ddd;
+            overflow-x: scroll;
+        }
+
+        #tableBox{
+            width: 800px;
+            height: 400px;
+            -webkit-touch-callout: none; /* iOS Safari */
+            -webkit-user-select: none; /* Chrome/Safari/Opera */
+            -khtml-user-select: none; /* Konqueror */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+				not supported by any browser */
+        }
+    </style>
+</head>
+<body>
+<!--区域筛选内容部分开始-->
+<div id="tableScroll" style="margin: 0 auto;">
+    <div id="tableBox" >
+        sdfaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    </div>
+</div>
+<!--区域筛选内容部分结束-->
+
+<script type="text/javascript">
+    let tableScroll = document.getElementById('tableScroll');	//滚动条部分
+    let tableBox = document.getElementById('tableBox');	//需要拖拽的内容部分
+
+    let tableScrollWidth = tableScroll.style.width;			//滚动可见宽度
+    let tableBoxWidth = tableBox.style.width;					//内容宽度
+
+    //鼠标按下的时候
+    tableBox.onmousedown = function(ev) {
+
+        let oEvent = ev || event; 						//ev 成立时 oEvent = event，否则 oEvent = ev , 事件对象 兼容处理
+        let mousePlace =  oEvent.screenX				//点击时当前鼠标的位置
+        //鼠标移动的时候
+        document.onmousemove = function (ev){
+            let oEvent = ev || event;  //当前的事件对象  oDiv2
+
+            let distance = oEvent.clientX;  //oEvent.clientX 表示 oDiv2相对于页面左侧的距离，l表示现在的大小
+            let actual = mousePlace - distance;		//拖动的距离
+            let scrollNum = tableScroll.scrollLeft;		//当前滚动条的位置
+
+            scrollNum = scrollNum + actual;			//当前滚动条的位置
+            tableScroll.scrollLeft = scrollNum
+        };
+        document.onmouseup = function() {
+            document.onmousemove = null;
+            document.onmouseup = null;
+        };
+    };
+</script>
+</body>
+</html>

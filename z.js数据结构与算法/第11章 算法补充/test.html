@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript">
+    var i = 0;
+    function recursiveFn() {
+        i++;
+        recursiveFn();
+    }
+    try {
+        recursiveFn();
+    } catch (ex) {
+        alert('i = ' + i + ' error: ' + ex);
+    }
+
+</script>
+<body>
+
+</body>
+</html>

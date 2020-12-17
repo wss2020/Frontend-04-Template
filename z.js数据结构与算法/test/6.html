@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript" src="1.js"></script>
+<body>
+
+<div onclick="emit()">点击广播</div>
+<div onclick="off()">移除广播</div>
+</body>
+
+<script>
+    function fn1 (data) {
+        console.log('fn1');
+        console.log(data);
+    }
+    function fn2 (data) {
+        console.log('fn2');
+        console.log(data);
+    }
+
+    let event = new EventEmitter();
+    event.on('test',fn1 );
+    // event.on('test',fn2 );
+
+
+
+    function emit() {
+        event.emit('test',{nam:'wss',age:123});
+    }
+
+    function off() {
+        console.log('移除test');
+        event.off('test', fn1);
+    }
+
+
+</script>
+</html>

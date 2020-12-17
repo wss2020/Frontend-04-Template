@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+  <div style="height:100px;" onclick="test1()">fdslfjdslf</div>
+</body>
+
+<script>
+    function test() {
+         let a = 0;
+         console.log(1234);
+         return function () {
+              console.log( ++a );
+         }
+    }
+    let test1 = test();
+    test1();
+</script>
+</html>

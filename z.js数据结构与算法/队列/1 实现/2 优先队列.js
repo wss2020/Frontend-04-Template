@@ -1,49 +1,56 @@
-function PriorityQueue() {
-    let items = [];
-
-    function QueueElement(element, priority) { // {1}
+class QueueElement{    // {1}
+    constructor(element, priority) {
         this.element = element;
         this.priority = priority;
     }
+}
 
-    this.enqueue = function (element, priority) {
+class PriorityQueue{
+    constructor() {
+        this.items = [];
+    }
+
+    enqueue(element, priority) {
+        let items = this.items;
         let queueElement = new QueueElement(element, priority);
         if (this.isEmpty()) {
-            items.push(queueElement); // {2}
+            items.push(queueElement); // {2} 队列为空，直接放进队列
         } else {
             let added = false;
             for (let i = 0; i < items.length; i++) {
                 if (queueElement.priority < items[i].priority) {
                     items.splice(i, 0, queueElement); // {3}
                     added = true;
-                    break; // {4}
+                    break; // {4}  结束循环
                 }
             }
-            if (!added) { //{5}
+            if (!added) { //{5}   此时说明，优先级比队列中存在优先级的都低，放到队列最后
                 items.push(queueElement);
             }
         }
     };
 
-    this.dequeue = function () {
-        return items.shift();
+    dequeue () {
+        return this.items.shift();
     };
-    this.front = function () {
-        return items[0];
+    front () {
+        return this.items[0];
     };
-    this.isEmpty = function () {
-        return items.length == 0;
+    isEmpty () {
+        return this.items.length == 0;
     };
-    this.clear = function () {
-        items = [];
+    clear () {
+        this.items = [];
     };
-    this.size = function () {
-        return items.length;
+    size () {
+        return this.items.length;
     };
-    this.print = function () {
-        console.log(items.toString());
+    print () {
+        console.log(this.items);
     }
 }
+
+
 
 let priorityQueue = new PriorityQueue();
 priorityQueue.enqueue("John", 2);

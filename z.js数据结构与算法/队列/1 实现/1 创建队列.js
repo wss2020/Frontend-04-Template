@@ -24,7 +24,8 @@ class Queue{
         return this.items.length;
     };
     print () {
-        console.log(this.items.toString());
+        console.log(this.items);
+        // console.log(this.items.toString());
     }
 }
 

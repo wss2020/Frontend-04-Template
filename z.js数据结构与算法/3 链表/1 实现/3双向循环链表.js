@@ -145,14 +145,17 @@ class DoublyLinkList {
             if (position === 0) {        // 移除第一项
                 this.head = current.next;
                 if (this.length === 1) {   //如果只有一项，更新tail
+                    this.head = null;
                     this.tail = null;
                 } else {
-                    this.head.prev = null;
+                    this.head.prev = this.tail;    //new
+                    this.tail.next = this.head;    //new
                 }
             } else if (position === this.length - 1) {
                 current = this.tail;
                 this.tail = current.prev;
-                this.next = null;
+                this.tail.next = this.head;   //new
+                this.head.prev = this.tail;   // new
             } else {
                 if(position+1 > Math.floor(this.length/2)){
                     let length = this.length-1;
@@ -190,8 +193,9 @@ class DoublyLinkList {
      * */
     indexOf(element) {
         let current = this.head,
+            length = this.length,  // new
             index = -1;
-        while (current) {
+        while (length--) {   // new
             index++;
             if (element === current.element) {
                 return index;
@@ -210,13 +214,13 @@ class DoublyLinkList {
     }
 
     /**
-     * 把 LinkedList对象转换成一个字符串
+     * 把 DoublyLinkList 对象转换成一个字符串
      * */
     toString() {
         let current = this.head,
             length = this.length,
             string = '';
-        while (length--) {
+        while (length--) {      // new
             string += current.element + ' ';
             current = current.next;
         }
@@ -229,23 +233,23 @@ class DoublyLinkList {
 }
 
 let list = new DoublyLinkList();
-list.insert(0, 15);
-list.insert(0, 16);
-list.insert(1, 17);
+// list.insert(0, 15);
+// list.insert(0, 16);
+// list.insert(1, 17);
 // list.insert(0, 17);
-// list.append(18);
-// list.append(19);
-// list.append(20);
-// list.append(21);
+list.append(18);
+list.append(19);
+list.append(20);
+list.append(21);
 // console.log(list.toString());
 // list.insert(4,21);
 // console.log(  list.indexOf(56) );
-// list.removeAt(0);
+// list.removeAt(3);
 // console.log(list.getHead());
 // console.log(list.getHead());
-console.log(list.getHead().element);
-console.log(list.getHead().next.element);
-console.log(list.getHead().prev.element);
+// console.log(list.getHead().element);
+// console.log(list.getHead().next.element);
+// console.log(list.getHead().prev.element);
 
 // console.log(list.getHead().next.element);
 // console.log(list.getHead().next.prev.element);
@@ -258,7 +262,7 @@ console.log(list.getHead().prev.element);
 // console.log(list.getHead().next.next.next.next.next.prev.prev.element);
 // console.log(list.getHead().next.next.next.next.next.prev.prev.prev.element);
 // list.remove(18);
-// console.log( list.indexOf(18)  );
+console.log( list.indexOf(21)  );
 // console.log( list.indexOf(16)  );
 // console.log(list.toString());
 // list.removeAt(4);

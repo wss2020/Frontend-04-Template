@@ -139,10 +139,10 @@ class DoublyLinkList {
                 } else {
                     this.head.prev = null;
                 }
-            } else if (position === this.length) {
+            } else if (position === this.length - 1) {
                 current = this.tail;
                 this.tail = current.prev;
-                this.next = null;
+                this.tail.next = null;
             } else {
                 if(position+1 > Math.floor(this.length/2)){
                     let length = this.length-1;
@@ -200,7 +200,7 @@ class DoublyLinkList {
     }
 
     /**
-     * 把 LinkedList对象转换成一个字符串
+     * 把 DoublyLinkList 对象转换成一个字符串
      * */
     toString() {
         let current = this.head,

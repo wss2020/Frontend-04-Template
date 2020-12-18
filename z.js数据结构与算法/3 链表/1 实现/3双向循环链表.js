@@ -1,10 +1,7 @@
-// 双向链表：一个节点只有链向下一个节点的链接，另一个节点链向前一个元素。
-
-/**
- 补充：我们可以对 insert 和 remove 这两个方法的实现做一些改进。在结果为否的情况下，我们可以
- 把元素插入到列表的尾部。性能也可以有所改进，比如，如果 position 大于 length/2 ,就最好从尾
- 部开始迭代，而不是从头开始（这样就能迭代更少别表中的元素）。
- */
+// 循环链表：可以像链表一样只有单向引用，也可以像双向链表一样有双向引用。
+// 循环链表和链表之间的唯一区别在于：最后一个元素指向下一个元素的指针（tail.next）而不是null,而是指向第一个元素（head）;
+// 双向循环链表在于，最后一个元素指向下一个元素的指针（tail.next）而不是null,而是指向第一个元素（head）;
+//                  第一个元素的指向上一个元素的指针（head.prev）不是null,而是最后一个元素（tail)
 
 /**
  类 Node 表示要加入列表的项。
@@ -55,17 +52,25 @@ class DoublyLinkList {
      第二种：列表不为空，向其追加元素
      */
     append(element) {
-        let node = new Node(element), current;
+        let node = new Node(element), current,length=this.length;
         if (this.head == null) {      //列表为空
             this.head = node;
+            this.tail = node;
+            this.head.prev = node;   // new
+            this.head.next = node;    // new
+            this.tail.prev = node;    // new
+            this.tail.next = node;    // new
         } else {
             current = this.head;
-            while (current.next) {     // 循环列表，直到找到最后一项
+            while (length-- > 1) {     // new
                 current = current.next;
             }
             current.next = node;    // 找到最后一项，将其next赋值为 node ,建立链接
             this.tail = node;
             this.tail.prev = current;
+
+            this.tail.next = this.head;   // new
+            this.head.prev = this.tail;    // new
         }
         this.length++;
     }
@@ -85,19 +90,26 @@ class DoublyLinkList {
                 if (!this.head) {    // 链表为空
                     this.head = node;
                     this.tail = node;
+                    this.head.prev = node;   // new
+                    this.head.next = node;    // new
+                    this.tail.prev = node;    // new
+                    this.tail.next = node;    // new
                 } else {
                     node.next = current;
                     current.prev = node;
                     this.head = node;
+                    this.head.prev = this.tail;  // new
                 }
             } else if (position === this.length) {    //在最后一项添加
                 current = this.tail;
                 current.next = node;
                 node.prev = current;
+                node.next = this.head;  // new
             } else {
                 if(position+1 > Math.floor(this.length/2)){
                     let length = this.length-1;
                     current = this.tail;
+                    previous = current.prev;
                     while (length-- > position) {
                         current = current.prev;
                         previous = current.prev;
@@ -145,6 +157,7 @@ class DoublyLinkList {
                 if(position+1 > Math.floor(this.length/2)){
                     let length = this.length-1;
                     current = this.tail;
+                    previous = current.prev;
                     while (length-- > position) {
                         current = current.prev;
                         previous = current.prev;
@@ -201,8 +214,9 @@ class DoublyLinkList {
      * */
     toString() {
         let current = this.head,
+            length = this.length,
             string = '';
-        while (current) {
+        while (length--) {
             string += current.element + ' ';
             current = current.next;
         }
@@ -217,16 +231,26 @@ class DoublyLinkList {
 let list = new DoublyLinkList();
 list.insert(0, 15);
 list.insert(0, 16);
-list.insert(0, 17);
-list.append(18);
-list.append(19);
-list.append(20);
+list.insert(1, 17);
+// list.insert(0, 17);
+// list.append(18);
+// list.append(19);
+// list.append(20);
+// list.append(21);
 // console.log(list.toString());
 // list.insert(4,21);
 // console.log(  list.indexOf(56) );
 // list.removeAt(0);
 // console.log(list.getHead());
+// console.log(list.getHead());
+console.log(list.getHead().element);
+console.log(list.getHead().next.element);
+console.log(list.getHead().prev.element);
+
 // console.log(list.getHead().next.element);
+// console.log(list.getHead().next.prev.element);
+// console.log(list.getHead().next.next.element);
+
 // console.log(list.getHead().next.next.prev.prev.element);
 // console.log(list.getHead().next.next.next.next.element);
 // console.log(list.getHead().next.next.next.next.next.element);
@@ -236,8 +260,8 @@ list.append(20);
 // list.remove(18);
 // console.log( list.indexOf(18)  );
 // console.log( list.indexOf(16)  );
-console.log(list.toString());
-list.removeAt(4);
+// console.log(list.toString());
+// list.removeAt(4);
 console.log(list.toString());
 console.log(list.size());
 

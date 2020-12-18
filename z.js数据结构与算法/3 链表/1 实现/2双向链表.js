@@ -58,14 +58,15 @@ class DoublyLinkList {
         let node = new Node(element), current;
         if (this.head == null) {      //列表为空
             this.head = node;
+            this.tail = node;     //new
         } else {
             current = this.head;
             while (current.next) {     // 循环列表，直到找到最后一项
                 current = current.next;
             }
             current.next = node;    // 找到最后一项，将其next赋值为 node ,建立链接
-            this.tail = node;
-            this.tail.prev = current;
+            this.tail = node;      //new
+            this.tail.prev = current;   //new
         }
         this.length++;
     }
@@ -98,6 +99,7 @@ class DoublyLinkList {
                 if(position+1 > Math.floor(this.length/2)){
                     let length = this.length-1;
                     current = this.tail;
+                    previous = current.prev;
                     while (length-- > position) {
                         current = current.prev;
                         previous = current.prev;
@@ -137,7 +139,7 @@ class DoublyLinkList {
                 } else {
                     this.head.prev = null;
                 }
-            } else if (position === this.length - 1) {
+            } else if (position === this.length) {
                 current = this.tail;
                 this.tail = current.prev;
                 this.next = null;
@@ -145,6 +147,7 @@ class DoublyLinkList {
                 if(position+1 > Math.floor(this.length/2)){
                     let length = this.length-1;
                     current = this.tail;
+                    previous = current.prev;
                     while (length-- > position) {
                         current = current.prev;
                         previous = current.prev;
@@ -217,10 +220,14 @@ class DoublyLinkList {
 let list = new DoublyLinkList();
 list.insert(0, 15);
 list.insert(0, 16);
-list.insert(0, 17);
-list.append(18);
-list.append(19);
-list.append(20);
+console.log(list.toString());
+list.insert(1, 16.5);
+// list.insert(1, 18);
+console.log(list.toString());
+// list.insert(1, 17);
+// list.append(18);
+// list.append(19);
+// list.append(20);
 // console.log(list.toString());
 // list.insert(4,21);
 // console.log(  list.indexOf(56) );

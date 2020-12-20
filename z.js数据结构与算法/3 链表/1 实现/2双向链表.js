@@ -19,7 +19,6 @@ class Node {
     }
 }
 
-
 /**
  类 DoublyLinkList 也有存储列表项的数量的 length 属性（内部/私有变量）
  head  存储第一个节点的引用(列表中第一个元素)

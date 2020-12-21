@@ -117,7 +117,6 @@
         <item itemvalue="Node.js.demo.js" />
         <item itemvalue="Node.js.1普通链表.js" />
         <item itemvalue="Node.js.3 击鼓传花之循环队列.js" />
-        <item itemvalue="Node.js.击鼓传花.js" />
       </list>
     </recent_temporary>
   </component>
@@ -830,7 +829,7 @@
     </state>
     <state x="2119" y="118" key="RollbackChangesDialog/0.23.1440.877/1440.23.1920.1057@1440.23.1920.1057" timestamp="1601885547486" />
     <state x="509" y="102" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1608275624960" />
-    <state x="374" y="142" key="Vcs.Push.Dialog.v2" timestamp="1608198120897">
+    <state x="374" y="142" key="Vcs.Push.Dialog.v2" timestamp="1608285337969">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="374" y="122" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1605587289288" />

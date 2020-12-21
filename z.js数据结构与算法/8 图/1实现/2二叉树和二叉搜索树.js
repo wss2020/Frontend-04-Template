@@ -222,8 +222,8 @@ let tree = new BinarySearchTree();
 tree.insert(11);
 tree.insert(7);
 tree.insert(5);
-// tree.insert(3);
-// tree.insert(6);
+tree.insert(3);
+tree.insert(6);
 
 
 // tree.insert(11);
@@ -258,6 +258,7 @@ console.log(tree.root);
 tree.remove(5);
 
 console.log(tree.root);
+tree.inOrderTraverse(printNode);
 
 
 

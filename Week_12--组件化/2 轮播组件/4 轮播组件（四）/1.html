@@ -1,92 +1,68 @@
 <!--
-    加下来我们来写 move 里面的逻辑，
-    首先获得鼠标位置，这个 event 上有很多个鼠标所谓的坐标，有 offsetX、offsetY 一系列的坐标，它都是
-根据不同的参考系来的，作者推荐使用 clientX、clientY, 分别表示相对于 整个的浏览器的中间的可渲染区域的
-的一个坐标，这个坐标它不受任何因素的影响。  比如，如果我们整个的组件，它是在一个滚动的容器里，容器滚了之后，
-会不会这个坐标就变了，非常有可能，甚至会因为一些定时任务而滚，这样你就会出现一些不可调和的 bug ，
-    clientX 和 clientY 就不会出现这个问题，你拖多远它就是多远，因为我们没有办法，再按着鼠标的同时去
-拖浏览器，所以说我们打印出来这个 clientX 和 clientY 看一下，
-            let move = event => {
-                console.log('mousemove');
-                console.log(event.clientX,event.clientY);
-            }
-这时候我们就得到了，每次 move 的时候的一些坐标，那么它挪了多远呢？
-我们需要先知道鼠标的起始点，定义一个 startX 和 一个 startY ,它就等于这个 clientX 和
-clientY，
-   let startX = event.clientX,startY = event.clientY;
+    代码里面其实还有一个问题，因为我这里实际上是挪动了所有的 children ,但是屏幕上其实
+有两个 children 就足够了，它同一时刻最多它能显示两个children，所以我们没有必要挪动所有，
+这是个可优化的点。
+    接下来看看如何实现循环，循环我们之前在自动播放的时候，实现过。  使用鼠标去挪动的时候，
+情况比较复杂一些，自动播发一定只有一个方向，它一定是从前往后拨， 手动我们就要考虑多个方向，
+    从 move 函数开始，首先计算出，当前在屏幕上的元素，它的位置 current ,
+    (x - x%500 )/ 500 这样写，即是一个取到 x 的整数部分的这样的一个运算，它能保留 x
+的符合，并且它一定是绝对值更小的那个。
+    let current = position - ((x - x%500 )/ 500);
 
-正因为它有这个 startX 和 startY，所以我们可以算出来一对 x y ;
+这样就算出来了，当前在屏幕上面的中心的元素，但是它因为可能是前面露一个边，可能后边露一
+个边，所以，我们这里不去算它当前是前还是后，有点麻烦。 我们直接用一个for 循环把 -1 和
+1 都给它加上。  这样就是当前在屏幕的元素，它的前一个后一个，我们都把它挪到正确的位置去，
+我们把这个 child 挪过来.
+    先计算位置 pos = current + offset; 但是它其实是有负数的，我们不希望它变成
+负树。  这里我们用一个手法，我们有四个元素，我们怎么样让 -1 变成 3 ，-2变成2，-3变
+成1，以此类推，这个单纯的用取余运算是做不到的， 它会发生一个变成负数的，一个现象。就是
+-1 取余它会变成 -1， 这里我们用一个小技巧，我们把它加上要取余的 length .
+    因为取余运算，它会把所有它的倍数都给它约掉，所以说，其实你加上一个它的取余的，运算
+的数，这个是不会出现变化的。 加上它的 length 再把它给它除掉。
+    let pos = current + offset;
+    pos = (pos + children.length) % children.length;
+这样， -1 它就会被转成 3 了，这是用取余运算来处理循环的一个小技巧。
+
+    pos有了，再看 child, child 就是 children[pos] ,因为有个 pos ,所以一定是要先把
+自己减下去。   -1，0，1 这个格局，意味着说，它必须要放到对应的位置，所以我们还要再加上一个
+- offset * 500.
+   move 函数
            let move = event => {
                 let x = event.clientX - startX;
-                let y = event.clientY - startY;
-                console.log(event.clientX,event.clientY);
-            }
-这个就是我鼠标移动的距离.
 
-然后我们发现我们这个 scroll,其实我们不需要 Y 轴的信息，我们把 Y 系列都给它去掉，我们只需要
-一个 startX 和 一个x,
-            let startX = event.clientX
-            let move = event => {
-                let x = event.clientX - startX;
-                console.log(x,y);
-            }
+                let current = position - ((x - x%500 )/ 500);
+                for(let offset of [-1,0,1]){
+                    let pos = current + offset;
+                    pos = (pos + children.length) % children.length;
 
-计算出了x,这个时候我们就可以尝试着，把这个 x 给它加到 child 上，变成它的 transform ,那么
-就简单的一个方案就是，我们给每一个 child 都加上，我们搞一个 children , 做个循环，去改它的
-transform ,  鼠标，我们就用它的像素作为单位。
-           let children = this.root.children;
-           let startX = event.clientX
-           let move = event => {
-                let x = event.clientX - startX;
-                for(let child of children){
-                    child.style.transform = `translateX${x}px`;
+                    children[pos].style.transition = "none";
+                    children[pos].style.transform = `translateX(${ -pos*500 + offset*500 + x%500}px)`;
                 }
-            }
-挪的时候有点问题，我们没有把它的 transition 关掉，  我们挪的时候把它的 transition=none;
-           let children = this.root.children;
-           let startX = event.clientX
-           let move = event => {
-                let x = event.clientX - startX;
-                for(let child of children){
-                    child.style.transition = "none";
-                    child.style.transform = `translateX${x}px`;
-                }
-            }
-为什么不直接把 CSS 里的 transition 删掉，因为我们一会还有用处。
-可以看到有个问题，当我松手的时候，它并没有回到一帧，所以我们要在 mouseup 的时候，再做一个处理，另外我们每次捡起来
-的时候，它的位置可能也不太对，所以我们只有第一次捡起来的时候是对的，所以这个问题我们来处理一下，我们要想让它真正地
-挪动地方，我们还是需要一个 position ,捡起来的时候，我们会让它加上一个 position * 500.
-            let position = 0;
+             }
 
-            let children = this.root.children;
-            let startX = event.clientX
-            let move = event => {
-                let x = event.clientX - startX;
-                for(let child of children){
-                    child.style.transition = "none";
-                    child.style.transform = `translateX(${ -position * 500 + x}px)`;
-                }
-            }
-为什么加上一个 position * 500 ？
-    因为我们挪到第二张的时候，那它就是一个从第二张开始的 translate 了，所以我们需要去给它加上去，这个地方是
-一个 -position * 500 , 第二张它其实是挪了一个 负 的100%， 这个500 我们先写死，  正常来说，我们还需要去
-取 children 的 getClientRect ,这个我们就省略了，直接写一个 magic number 了。
-    然后它挪的时候，up 的时候，我们还是去循环这个 children ,  transition 改为空， 我们让这个 x round
-到一个最近的 500 的一个值，如果它拖够了一半，它就会变成新的一个位置， 如果它拖不够一半的距离，它经过 round
-它就是0，  极少数情况下，我们可能允许它拖够两个三个，但是这个一般不会出现，因为你可拖动的范围就这么大.
+同样的，up 函数的逻辑和它类似。
             let up = event=>{
                 let x = event.clientX - startX;
                 position = position - Math.round(x / 500);
-                for(let child of children){
-                    child.style.transition = "";
-                    child.style.transform = `translateX(${ -position * 500}px)`;
+                for(let offset of [-1,0,1]){
+                    let pos = position + offset;
+                    pos = (pos + children.length) % children.length;
+
+                    children[pos].style.transition = "";
+                    children[pos].style.transform = `translateX(${ -pos*500 + offset*500}px)`;
                 }
                 document.removeEventListener("mousemove",move)
                 document.removeEventListener("mouseup",up)
             }
-现在可以了。
-    测试会发现，还有问题，没有设置截止条件。  就算设置了，它也不能够去循环拖动。
-所以下一步，我们通过进一步的计算，让我们的轮播组件拖拽，它也能够真正意义上的实现循环的轮播。
+这样逻辑是对的，但是因为 z-index 的关系，经常会有一个飞过去，想一想，飞过去的元素，肯定是我们不需要的元素，所以我们只要在
+-1 和 1 之间，把不需要的给它去掉就可以了，  for of 其实它并没有一定的顺序要求，所以说我们就在这个地方，把它变成 -1 或者
+1 里面的那个需要的就可以了。怎么才能找这个需要的呢？
+    它一定是跟这个 x - x%500 这个有关系，它其实是一个 Math.round( x/500 ) - x,  round之后的值 减 x的值，这个
+就是一个它滚动的方向， 然后我们再给它取一下符号，取符合，它就会变成 1 或者 -1，
+Math.sign( Math.round( x/500 ) - x );
+然后 -Math.sign( Math.round( x/500 ) - x +  250 * Math.sign(x) ) 加上一个， 250 * Math.sign(x) 为了解决，
+拖动不超过 250 也会移动一段距离的现象。
+
 -->
 
 

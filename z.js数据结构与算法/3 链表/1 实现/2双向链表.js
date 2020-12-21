@@ -8,8 +8,8 @@
 
 /**
  类 Node 表示要加入列表的项。
- element  要添加到列表的值
- next     指向列表中下一个节点项的指针
+ element 要添加到列表的值
+ next    指向列表中下一个节点项的指针
  */
 class Node {
     constructor(element) {
@@ -18,7 +18,6 @@ class Node {
         this.prev = null;
     }
 }
-
 
 /**
  类 DoublyLinkList 也有存储列表项的数量的 length 属性（内部/私有变量）

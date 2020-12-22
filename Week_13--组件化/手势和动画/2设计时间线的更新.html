@@ -1,5 +1,64 @@
 <!--
-    我们继续来写时间线。
+    我们继续来写时间线，上一节已经写了一个基本的 animation 的管理，然后让它能够把 animation 跑起来，接着去给 animation 去添加一些新的功能，让
+我们的 animation 变得真正的可用。
+    首先肯定是这个，animation 的开始时间的问题，我们注意到，其实 CSS 的动画 transition，其实它有一个 duration ,然后它还会有一个 delay ,
+delay 就是起始的时间，然后我们的 animation ,也做一个类似的设计。
+    有一个思路，就是我们把 delay 放到时间线的里面，就是说我们在 add animation的时候，我们给它添加一个 delay。
+    在 add 方法里面，添加 animation 的时候，其实会存在一个说，这个时间线已经开始执行了，
+    然后我们再给它 add 的问题，这个时候，start 方法里面的，startTime 跟 t0 其实不一定一致2。
+这两个因素，我们都可以给它考虑进去。
+
+    我们给它添加一个 delay ,并且记录每个 animation 添加的时间。
+    constructor(object, property, startValue, endValue, duration, delay, timingFunction) {
+        this.object = object;
+        this.property = property;
+        this.startValue = startValue;
+        this.endValue = endValue;
+        this.duration = duration;
+        this.delay = delay;
+        this.timingFunction = timingFunction;
+    }
+
+    add(animation){
+        this[ANIMATIONS].add(animation);
+        this[ADD_TIME].set(animation,Date.now());
+    }
+然后我们这个 animation 有一些情况是，我们可能想要去手工的设置，那么添加的时候给它加一个 delay 的时间.
+    add(animation, startTime){
+        if(arguments.length < 2){
+            startTime = Date.now();
+        }
+        this[ANIMATIONS].add(animation);
+        this[START_TIME].set(animation,startTime);
+    }
+这是添加的时间。
+    如果说 addTime ,它本身是在 startTime 之前的话，那么我们就可以认为，它的 t 跟 t0 之间是一个 0 的关系，它俩是相等的关系，
+如果我们是在动画开始了以后，再添加的 animation ,那么我们就可以给它一个初始的开始时间.
+
+    如果 animation 的 START_TIME 它是比较小，我们就认为它应该是 0 ，否则我们让这个时间，等于它添加的时候的 startTime.
+    start() {
+        let startTime = Date.now();
+        this[TICK] = () => {
+            let now = Date.now();
+            for (let animation of this[ANIMATIONS]) {
+                let t;
+                if (this[START_TIME].get(animation) < startTime)
+                    t = now - startTime;
+                else
+                    t = now - this[START_TIME].get(animation);
+
+                if (animation.duration < t) {
+                    this[ANIMATIONS].delete(animation);
+                    t = animation.duration;
+                }
+                animation.receive(t);
+            }
+            requestAnimationFrame(this[TICK]);
+        }
+        this[TICK]();
+    }
+这样我们就可以在运行的过程中，为它添加 t 了。  这样我们就可以动态的向一个 Timeline 去添加 animation 了。 这样我们整个的 Timeline 就不需要给它
+频繁的开启或是重置了。
 
 -->
 

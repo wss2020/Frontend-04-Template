@@ -6,30 +6,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Week_13--组件化/手势和动画/1初步建立动画和时间线.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Week_13--组件化/手势和动画/2设计时间线的更新.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Week_13--组件化/手势和动画/3给绘画添加暂停和重启功能.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Week_13--组件化/手势和动画/4完善动画的其他功能.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Week_13--组件化/手势和动画/5对时间线进行状态管理.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/jsx/animation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/jsx/carousel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/jsx/附件/Week13/1初步建立动画和时间线/animation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/jsx/附件/Week13/1初步建立动画和时间线/carousel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/jsx/附件/Week13/1初步建立动画和时间线/framework.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/jsx/附件/Week13/1初步建立动画和时间线/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/component/jsx/附件/Week13/2设计时间线的更新/animation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/component/jsx/附件/Week13/2设计时间线的更新/carousel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/component/jsx/附件/Week13/2设计时间线的更新/framework.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/component/jsx/附件/Week13/2设计时间线的更新/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week_13/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Week_13--组件化/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week_13--组件化/手势和动画/2设计时间线的更新.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_13--组件化/手势和动画/2设计时间线的更新.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/jsx/animation.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/animation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/component/jsx/dist/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/dist/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/component/jsx/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/jsx/附件/1 JSX 基本知识/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/附件/Week12/1 JSX 基本知识/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/jsx/附件/2 轮播组件1/framework.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/附件/Week12/2 轮播组件1/framework.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/jsx/附件/2 轮播组件1/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/附件/Week12/2 轮播组件1/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/jsx/附件/3 轮播组件2/framework.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/附件/Week12/3 轮播组件2/framework.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/jsx/附件/3 轮播组件2/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/附件/Week12/3 轮播组件2/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/jsx/附件/4 轮播组件3/framework.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/附件/Week12/4 轮播组件3/framework.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/jsx/附件/4 轮播组件3/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/附件/Week12/4 轮播组件3/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/jsx/附件/5 轮播组件4/framework.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/附件/Week12/5 轮播组件4/framework.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/jsx/附件/5 轮播组件4/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/附件/Week12/5 轮播组件4/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +50,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/component/jsx/附件/Week13/1初步建立动画和时间线" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/component/jsx/附件/Week13/2设计时间线的更新" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -76,11 +61,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/component/jsx/附件/Week13/2设计时间线的更新" />
       <recent name="$PROJECT_DIR$/component/jsx/附件/Week13/1初步建立动画和时间线" />
       <recent name="$PROJECT_DIR$/component/jsx/附件/5 轮播组件4" />
       <recent name="$PROJECT_DIR$/z.js数据结构与算法" />
       <recent name="$PROJECT_DIR$/z.js数据结构与算法/栈/2例子/例子1" />
-      <recent name="$PROJECT_DIR$/z.js数据结构与算法/栈/实现" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/component/jsx/附件/Week12" />
@@ -289,14 +274,7 @@
       <workItem from="1608352593315" duration="5843000" />
       <workItem from="1608432301545" duration="300000" />
       <workItem from="1608603327267" duration="400000" />
-      <workItem from="1608603844485" duration="9620000" />
-    </task>
-    <task id="LOCAL-00125" summary="重学CSS">
-      <created>1606207522780</created>
-      <option name="number" value="00125" />
-      <option name="presentableId" value="LOCAL-00125" />
-      <option name="project" value="LOCAL" />
-      <updated>1606207522781</updated>
+      <workItem from="1608603844485" duration="14396000" />
     </task>
     <task id="LOCAL-00126" summary="重学CSS">
       <created>1606211695765</created>
@@ -634,7 +612,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608544833003</updated>
     </task>
-    <option name="localTasksCounter" value="174" />
+    <task id="LOCAL-00174" summary="13周">
+      <created>1608619778735</created>
+      <option name="number" value="00174" />
+      <option name="presentableId" value="LOCAL-00174" />
+      <option name="project" value="LOCAL" />
+      <updated>1608619778735</updated>
+    </task>
+    <option name="localTasksCounter" value="175" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -706,12 +691,14 @@
     <MESSAGE value="数据结构 树" />
     <MESSAGE value="数据结构" />
     <MESSAGE value="重学" />
-    <option name="LAST_COMMIT_MESSAGE" value="重学" />
+    <MESSAGE value="13周" />
+    <option name="LAST_COMMIT_MESSAGE" value="13周" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="237" y="23" key="CommitChangelistDialog2" timestamp="1608544832909">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="-1604" y="58" key="CommitChangelistDialog2" timestamp="1608619778508">
+      <screen x="-1920" y="58" width="1920" height="1057" />
     </state>
+    <state x="-1604" y="58" key="CommitChangelistDialog2/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608619778508" />
     <state x="237" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1608544832909" />
     <state width="661" height="582" key="DebuggerActiveHint" timestamp="1608536325563">
       <screen x="0" y="23" width="1440" height="877" />
@@ -789,10 +776,15 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="439" y="102" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1608538303143" />
-    <state x="216" y="138" key="Vcs.Push.Dialog.v2" timestamp="1608544840265">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="-1632" y="197" key="Vcs.Push.Dialog.v2" timestamp="1608619781442">
+      <screen x="-1920" y="58" width="1920" height="1057" />
     </state>
+    <state x="-1632" y="197" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608619781442" />
     <state x="216" y="138" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1608544840265" />
+    <state x="-1379" y="83" width="838" height="1032" key="search.everywhere.popup" timestamp="1608621337752">
+      <screen x="-1920" y="58" width="1920" height="1057" />
+    </state>
+    <state x="-1379" y="83" width="838" height="1032" key="search.everywhere.popup/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608621337752" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

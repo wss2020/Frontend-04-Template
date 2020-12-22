@@ -6,15 +6,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/component/jsx/附件/Week13/2设计时间线的更新/animation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/jsx/附件/Week13/2设计时间线的更新/carousel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/jsx/附件/Week13/2设计时间线的更新/framework.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/jsx/附件/Week13/2设计时间线的更新/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/component/jsx/animation-demo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/component/jsx/dist/animation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/component/jsx/附件/Week13/3给绘画添加暂停和重启功能/animation-demo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/component/jsx/附件/Week13/3给绘画添加暂停和重启功能/animation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/component/jsx/附件/Week13/3给绘画添加暂停和重启功能/carousel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/component/jsx/附件/Week13/3给绘画添加暂停和重启功能/dist/animation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/component/jsx/附件/Week13/3给绘画添加暂停和重启功能/dist/main.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/component/jsx/附件/Week13/3给绘画添加暂停和重启功能/dist/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/component/jsx/附件/Week13/3给绘画添加暂停和重启功能/framework.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/component/jsx/附件/Week13/3给绘画添加暂停和重启功能/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/component/jsx/附件/Week13/3给绘画添加暂停和重启功能/webpack.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week_13--组件化/手势和动画/2设计时间线的更新.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_13--组件化/手势和动画/2设计时间线的更新.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week_13--组件化/手势和动画/3给绘画添加暂停和重启功能.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_13--组件化/手势和动画/3给绘画添加暂停和重启功能.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/component/jsx/animation.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/animation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/component/jsx/dist/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/dist/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/jsx/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/jsx/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +57,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/component/jsx/附件/Week13/2设计时间线的更新" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/component/jsx/附件/Week13/3给绘画添加暂停和重启功能" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -61,11 +68,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/component/jsx/附件/Week13/3给绘画添加暂停和重启功能" />
       <recent name="$PROJECT_DIR$/component/jsx/附件/Week13/2设计时间线的更新" />
       <recent name="$PROJECT_DIR$/component/jsx/附件/Week13/1初步建立动画和时间线" />
       <recent name="$PROJECT_DIR$/component/jsx/附件/5 轮播组件4" />
       <recent name="$PROJECT_DIR$/z.js数据结构与算法" />
-      <recent name="$PROJECT_DIR$/z.js数据结构与算法/栈/2例子/例子1" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/component/jsx/附件/Week12" />
@@ -75,7 +82,7 @@
       <recent name="$PROJECT_DIR$/z.js数据结构与算法" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.题目.js">
+  <component name="RunManager" selected="Node.js.test2.js">
     <configuration name="1普通链表.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/z.js数据结构与算法/3 链表/1 实现/1普通链表.js" working-dir="$PROJECT_DIR$/z.js数据结构与算法/3 链表/1 实现">
       <method v="2" />
     </configuration>
@@ -85,28 +92,29 @@
     <configuration name="2二叉树和二叉搜索树.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/z.js数据结构与算法/8 图/1实现/2二叉树和二叉搜索树.js" working-dir="$PROJECT_DIR$/z.js数据结构与算法/8 图/1实现">
       <method v="2" />
     </configuration>
-    <configuration name="3 击鼓传花之循环队列.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/z.js数据结构与算法/2 队列/1 实现/3 击鼓传花之循环队列.js" working-dir="$PROJECT_DIR$/z.js数据结构与算法/2 队列/1 实现">
-      <method v="2" />
-    </configuration>
-    <configuration name="题目.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/z.js数据结构与算法/队列/2 例子/1 剑指 Offer 59 - I. 滑动窗口的最大值/题目.js" working-dir="$PROJECT_DIR$/z.js数据结构与算法/队列/2 例子/1 剑指 Offer 59 - I. 滑动窗口的最大值">
-      <method v="2" />
-    </configuration>
     <configuration name="demo.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/z.js数据结构与算法/3 链表/1 实现/demo.js" working-dir="$PROJECT_DIR$/z.js数据结构与算法/3 链表/1 实现">
       <method v="2" />
     </configuration>
+    <configuration name="test2.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Week_07---浏览器工作原理/补充/小例子/test2.js" working-dir="$PROJECT_DIR$/Week_07---浏览器工作原理/补充/小例子">
+      <method v="2" />
+    </configuration>
+    <configuration name="winter正则写的词法分析.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Week_07---浏览器工作原理/补充/winter正则写的词法分析.js" working-dir="$PROJECT_DIR$/Week_07---浏览器工作原理/补充">
+      <method v="2" />
+    </configuration>
     <list>
-      <item itemvalue="Node.js.题目.js" />
-      <item itemvalue="Node.js.3 击鼓传花之循环队列.js" />
       <item itemvalue="Node.js.demo.js" />
       <item itemvalue="Node.js.1普通链表.js" />
       <item itemvalue="Node.js.2双向链表.js" />
+      <item itemvalue="Node.js.winter正则写的词法分析.js" />
+      <item itemvalue="Node.js.test2.js" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.test2.js" />
+        <item itemvalue="Node.js.winter正则写的词法分析.js" />
         <item itemvalue="Node.js.1普通链表.js" />
         <item itemvalue="Node.js.2双向链表.js" />
         <item itemvalue="Node.js.demo.js" />
-        <item itemvalue="Node.js.3 击鼓传花之循环队列.js" />
       </list>
     </recent_temporary>
   </component>
@@ -274,14 +282,7 @@
       <workItem from="1608352593315" duration="5843000" />
       <workItem from="1608432301545" duration="300000" />
       <workItem from="1608603327267" duration="400000" />
-      <workItem from="1608603844485" duration="14396000" />
-    </task>
-    <task id="LOCAL-00126" summary="重学CSS">
-      <created>1606211695765</created>
-      <option name="number" value="00126" />
-      <option name="presentableId" value="LOCAL-00126" />
-      <option name="project" value="LOCAL" />
-      <updated>1606211695765</updated>
+      <workItem from="1608603844485" duration="18494000" />
     </task>
     <task id="LOCAL-00127" summary="重学CSS">
       <created>1606294657173</created>
@@ -619,7 +620,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608619778735</updated>
     </task>
-    <option name="localTasksCounter" value="175" />
+    <task id="LOCAL-00175" summary="13周">
+      <created>1608624604967</created>
+      <option name="number" value="00175" />
+      <option name="presentableId" value="LOCAL-00175" />
+      <option name="project" value="LOCAL" />
+      <updated>1608624604967</updated>
+    </task>
+    <option name="localTasksCounter" value="176" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -695,10 +703,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="13周" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="-1604" y="58" key="CommitChangelistDialog2" timestamp="1608619778508">
+    <state x="-1604" y="58" key="CommitChangelistDialog2" timestamp="1608624604844">
       <screen x="-1920" y="58" width="1920" height="1057" />
     </state>
-    <state x="-1604" y="58" key="CommitChangelistDialog2/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608619778508" />
+    <state x="-1604" y="58" key="CommitChangelistDialog2/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608624604844" />
     <state x="237" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1608544832909" />
     <state width="661" height="582" key="DebuggerActiveHint" timestamp="1608536325563">
       <screen x="0" y="23" width="1440" height="877" />
@@ -708,21 +716,25 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="140" y="100" key="DiffContextDialog/0.23.1440.877@0.23.1440.877" timestamp="1608536607239" />
-    <state width="1414" height="175" key="GridCell.Tab.0.bottom" timestamp="1608544852116">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1894" height="187" key="GridCell.Tab.0.bottom" timestamp="1608624712127">
+      <screen x="-1920" y="58" width="1920" height="1057" />
     </state>
+    <state width="1894" height="187" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608624712127" />
     <state width="1414" height="175" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1608544852116" />
-    <state width="1414" height="175" key="GridCell.Tab.0.center" timestamp="1608544852116">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1894" height="187" key="GridCell.Tab.0.center" timestamp="1608624712126">
+      <screen x="-1920" y="58" width="1920" height="1057" />
     </state>
+    <state width="1894" height="187" key="GridCell.Tab.0.center/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608624712126" />
     <state width="1414" height="175" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1608544852116" />
-    <state width="1414" height="175" key="GridCell.Tab.0.left" timestamp="1608544852115">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1894" height="187" key="GridCell.Tab.0.left" timestamp="1608624712125">
+      <screen x="-1920" y="58" width="1920" height="1057" />
     </state>
+    <state width="1894" height="187" key="GridCell.Tab.0.left/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608624712125" />
     <state width="1414" height="175" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1608544852115" />
-    <state width="1414" height="175" key="GridCell.Tab.0.right" timestamp="1608544852116">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1894" height="187" key="GridCell.Tab.0.right" timestamp="1608624712126">
+      <screen x="-1920" y="58" width="1920" height="1057" />
     </state>
+    <state width="1894" height="187" key="GridCell.Tab.0.right/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608624712126" />
     <state width="1414" height="175" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1608544852116" />
     <state width="1414" height="175" key="GridCell.Tab.1.bottom" timestamp="1608544852117">
       <screen x="0" y="23" width="1440" height="877" />
@@ -776,10 +788,10 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="439" y="102" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1608538303143" />
-    <state x="-1632" y="197" key="Vcs.Push.Dialog.v2" timestamp="1608619781442">
+    <state x="-1632" y="197" key="Vcs.Push.Dialog.v2" timestamp="1608624606096">
       <screen x="-1920" y="58" width="1920" height="1057" />
     </state>
-    <state x="-1632" y="197" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608619781442" />
+    <state x="-1632" y="197" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608624606096" />
     <state x="216" y="138" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1608544840265" />
     <state x="-1379" y="83" width="838" height="1032" key="search.everywhere.popup" timestamp="1608621337752">
       <screen x="-1920" y="58" width="1920" height="1057" />

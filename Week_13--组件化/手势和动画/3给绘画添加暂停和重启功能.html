@@ -1,10 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<!--
+    首先实现，动画给它加上暂停的逻辑。
+    要实现暂停，首先我们要把 tick 给它 cancel 掉，当前的 tick 我们就不要了，
+    this[TICK_HANDLER] = requestAnimationFrame(this[TICK]);  把 requestAnimationFrame 给它存起来。
+在 pause 方法里面，我们先去调一下 cancelAnimationFrame ,
+    pause() {
+        cancelAnimationFrame(this[TICK_HANDLER]);
+    }
+这个就是彻底的停下来了，那么 pause 好做， resume 不好做。
 
-</body>
-</html>
+resume 的时候，我们要重新去执行 tick.
+     resume() {
+        this[TICK]();
+    }
+但是这时候，start 里面的t,算出来是不对的, 所以我们要把 暂停开始的时间 和 暂停结束的时候 给它记下来。
+ 在 pause 方法里面，记录暂停开始的时间，
+    pause() {
+        this[PAUSE_START] = Date.now();
+        cancelAnimationFrame(this[TICK_HANDLER]);
+    }
+
+我们要搞一个 PAUSE_TIME ，暂停的时间，一开始我们让它等于0， 在 start 的时候，我们给它 pause 的时间设为0，然后在 resume 的时候，
+    start() {
+        let startTime = Date.now();
+        this[PAUSE_TIME] = 0;
+        this[TICK] = () => {
+            let now = Date.now();
+            for (let animation of this[ANIMATIONS]) {
+                let t;
+
+                if (this[START_TIME].get(animation) < startTime)
+                    t = now - startTime - this[PAUSE_TIME];
+                else
+                    t = now - this[START_TIME].get(animation) - this[PAUSE_TIME];
+
+                if (animation.duration < t) {
+                    this[ANIMATIONS].delete(animation);
+                    t = animation.duration;
+                }
+                animation.receive(t);
+            }
+            this[TICK_HANDLER] = requestAnimationFrame(this[TICK]);
+        }
+        this[TICK]();
+    }
+    resume() {
+        this[PAUSE_TIME] += Date.now() - this[PAUSE_START];
+        this[TICK]();
+    }
+这样的话，我们就得到了暂停的时间，另外在 start 种算 t 的时候，减去  this[PAUSE_TIME]。
+这样我们的暂停功能就完成了。  然后同时因为它是一个时间线，所以说我们可以有多个不同的这样的 animation 同时在跑，同时跑的时候，我们可以给它同时
+的暂停，然后同时的恢复。
+-->
+

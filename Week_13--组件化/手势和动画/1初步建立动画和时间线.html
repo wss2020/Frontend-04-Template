@@ -1,0 +1,111 @@
+<!--
+    现在做的东西和真正的轮播，还有很远的距离。虽然做了两个功能，但是它们集成不到一起去。 因为你要做手势，我们在拨的过程中，我们是需要把这个动画停在这
+捡起来的， 但是现在我们的鼠标拖拽的能力 和 我们用 CSS 动画实现的轮播的动画，它都不具备这个能力，另外还有很多的细节问题。  比方说我们的播放，我们鼠标
+的拖拽， 其实它并不支持移动端的 touch 事件，我们只支持 mouse 系列的事件，这都是我们在网页的研发过程中，必须要去面对的问题。
+    这章讲解动画和手势，看看如何抽象这些开发组件所需要的底层能力。 我们首先来做一个动画， 先把 Carousel 的代码独立成一个文件. 然后我们开始我们的
+动画和手势的 library .
+    帧：1秒执行的次数
+    先创建一个 animation.js ,用 js 去实现动画，实现动画最基本的它要有一个帧的概念， 最基础的动画的能力，就是每帧我们去执行一个什么样的事件，因为
+我们要有一个帧的概念，所以我们要研究一下 JavaScript 里面的几种处理帧的方案。
+    第一种是 setInterval ,一般的动画，它是有一个 16 毫秒的这样的一个常识，因为我们 1秒 是 1000毫秒，然后我们正常人，人眼能够识别动画的一个最高
+的帧率就是 60 帧。     setInterval(()=>{ },16)。
+
+    第二种是 setTimeout, setTimeout(()=>{ },16), 因为 setTimeout 它只执行一次，所以说我们一般用一个 tick .
+        let tick = ()=>{
+             //...
+             setTimeout(tick,16);
+        }
+然后我们在这个tick 里面的前面可能执行一些逻辑，我们在最后的时候，setTimeout 执行自己，这也是另一种思路。
+
+    第三种，现代浏览器它都支持一个 requestAnimationFrame ,有的时候叫 rAF, 这是写动画比较常用的，它就没有 16 这个参数了。
+requestAnimationFrame 它的含义是 我申请浏览器执行下一帧的时候，我们来执行这个代码。  它是跟浏览器的帧率是相关的，比如说我们
+浏览器做一些 降帧、降频 的这样的一些操作。 那么 requestAnimationFrame 它可能就会跟着降帧。
+        let tick = ()=>{
+            //...
+            requestAnimationFrame(tick);
+        }
+
+
+    一般来说，最常见的就是这三种方案， 如果我们是一个现代浏览器，我们推荐使用 tick 的写法。
+     为什么不用 setInterval ？
+     一是，因为 setInterval 这个东西，它比较不可控，浏览器到底会不会正确的，按照 setInterval 16 毫秒去执行呢？ 这个不好说。
+     二是，一旦你 tick 写的不好，setInterval 它能够发生这种积压，因为它固定的 16毫秒 16毫秒的去执行，所以说它的 interval(间隔) 之间，它不管
+你执没执行完，它可能就给你放进这个 interval 的队列里了，这个取决于浏览器的底层实现。  每个浏览器它可能会采取不同的策略。   但不论如何，我们选择执
+行完了之后，再去 setTimeout 或者是 requestAnimationFrame 呢，是一个相对来说比较安全的做法。
+
+    所以说我们就会用 requestAnimationFrame 来做一个自重复的时间线的操作。 与 requestAnimationFrame 对应的有一个 cancelAnimationFrame
+它可以把 requestAnimationFrame 它返回的一个 handler 给它 cancel 掉，避免一些资源的浪费。
+        let tick = ()=>{
+            //...
+            requestAnimationFrame(tick);
+            cancelAnimationFrame(handler);
+        }
+这个我们暂时用不着.
+    然后我们去做动画，我们会把tick， 这个执行自身的这个东西，我们包装成一个概念，叫做 Timeline.
+
+    接下来我们写 Timeline 类， 它一定有一个 start ，以及 pause、resume(恢复)这一组方法，一般不需要 end 方法，
+    pause、resume 是Timeline 一个非常重要的功能，比如说我们去写一大堆的动画，我们把它都塞到同一个 Timeline 里面执行，Timeline 去执行 pause
+的时候，那么它就应该会有一个明确的暂停。
+    然后就是 rate（速率）方法，播放的速率，它会有一个倍率，你可以让动画快进、慢放。
+    然后我们可能还会有一个方法叫 reset ,就是重启，就整个的时间线，变成一个干净的时间线。 这样我们可以去复用一些时间线，并且能保证在 reset 的时候，
+把整个时间线去清除。
+
+    rate 比较高级，我们就不做了，  pause 和 resume 对我们的 carousel 来说是至关重要的，所以说我们 pause 和 resume 要实现。
+
+    首先实现start 方法。
+    tick 我们把这个方法私有化，用一个常量 const TICK = Symbol("tick");  Symbol可以理解为一种特殊的字符串，只不过是它永远不会重复，即使你
+两个 Symbol 都叫 tick ,它俩也是不同的值。 每个Symbol 都是一个独立的值，Symbol 它就是有这样的一个特性。
+    tick 是用来形容钟表的滴答声的一个词，我们在这里用它来表示时间线。
+         start(){
+            this[TICK]();
+        }
+这样我们start 方法里面，就只调用     this[TICK]();。
+
+    接下来我们给 tick 添加一个 animation 类,并且给它执行.
+    一个 animation 一般来说，我们把它称为属性动画，我们是把一个对象的某一个属性，从一个值变成另外一个值，这个我们把它称作一种动画。
+与属性动画相对的，可能它还有帧动画，就是我们每秒来一张图片，比如说迪士尼的动画，都属于帧动画，人手一张一张的去绘。一般都不是通过属性来做的。
+    咱们浏览器里面做的，大部分程序员写的都是属性动画，所以它一定有一个属性， 它有一个起始值，一个终止值，一个时长，还有一个 timingFunction.
+    所以 constructor 我们要这样写，
+    constructor(object, property, startValue, endValue, duration, timingFunction) {
+
+    }
+    receive(time) {
+        let range = this.endValue - this.startValue;
+        this.object[this.property] = this.startValue + range * time / this.duration;  //这样写是均匀变化
+    }
+    Animation 它会接受的是一个虚拟时间，它如果是个真实的时间，那我们就不用搞 Timeline 这一套了，我们通过 Timeline 给它搞一个
+虚拟时间进来，然后让 Animation 接到虚拟的 time ,然后这个 animation 就可以发生作用了，所以我们为了把 Animation 添加进 Timeline
+里面的话，我们还需要一个管理的就是 add, 可能还需要一个 remove ,这个暂时不管。
+    一般来说 Timeline 里面，它会有一个 animation 的这样的一个队列，所以我们给它加一个 new Set(); 我们把 Animation 放进这个Set 里面，
+    start() {
+        let startTime = Date.now();
+        this[TICK] = () => {
+            let t = Date.now() - startTime;
+            for(let animation of this[ANIMATIONS]){
+                let t0 = t;
+                if(animation.duration < t) {
+                    this[ANIMATIONS].delete(animation);
+                    t0 = animation.duration;
+                }
+                animation.receive(t0);
+            }
+            requestAnimationFrame(this[TICK]);
+        }
+        this[TICK]();
+    }
+这一段自己看。  没啥好说的，执行动画，到时间，取消执行。
+
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>

@@ -5,12 +5,31 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="数据结构">
+    <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Week_13--组件化/手势和动画/1初步建立动画和时间线.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_13--组件化/手势和动画/2设计时间线的更新.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_13--组件化/手势和动画/3给绘画添加暂停和重启功能.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_13--组件化/手势和动画/4完善动画的其他功能.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_13--组件化/手势和动画/5对时间线进行状态管理.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/component/jsx/animation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/component/jsx/carousel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/component/jsx/附件/Week13/1初步建立动画和时间线/animation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/component/jsx/附件/Week13/1初步建立动画和时间线/carousel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/component/jsx/附件/Week13/1初步建立动画和时间线/framework.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/component/jsx/附件/Week13/1初步建立动画和时间线/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week_12--组件化/2 轮播组件/3 轮播组件（三）/1.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_12--组件化/2 轮播组件/3 轮播组件（三）/1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week_12--组件化/2 轮播组件/4 轮播组件（四）/1.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_12--组件化/2 轮播组件/4 轮播组件（四）/1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week_13/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Week_13--组件化/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/component/jsx/dist/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/dist/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/component/jsx/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/jsx/附件/1 JSX 基本知识/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/附件/Week12/1 JSX 基本知识/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/jsx/附件/2 轮播组件1/framework.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/附件/Week12/2 轮播组件1/framework.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/jsx/附件/2 轮播组件1/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/附件/Week12/2 轮播组件1/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/jsx/附件/3 轮播组件2/framework.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/附件/Week12/3 轮播组件2/framework.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/jsx/附件/3 轮播组件2/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/附件/Week12/3 轮播组件2/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/jsx/附件/4 轮播组件3/framework.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/附件/Week12/4 轮播组件3/framework.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/jsx/附件/4 轮播组件3/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/附件/Week12/4 轮播组件3/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/jsx/附件/5 轮播组件4/framework.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/附件/Week12/5 轮播组件4/framework.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/jsx/附件/5 轮播组件4/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/附件/Week12/5 轮播组件4/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +65,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/z.js数据结构与算法" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/component/jsx/附件/Week13/1初步建立动画和时间线" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -56,22 +75,22 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/component/jsx/附件/Week13/1初步建立动画和时间线" />
+      <recent name="$PROJECT_DIR$/component/jsx/附件/5 轮播组件4" />
+      <recent name="$PROJECT_DIR$/z.js数据结构与算法" />
+      <recent name="$PROJECT_DIR$/z.js数据结构与算法/栈/2例子/例子1" />
+      <recent name="$PROJECT_DIR$/z.js数据结构与算法/栈/实现" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/component/jsx/附件/Week12" />
       <recent name="$PROJECT_DIR$/z.js数据结构与算法/8 图/1实现" />
       <recent name="$PROJECT_DIR$/z.js数据结构与算法/3 链表" />
       <recent name="$PROJECT_DIR$/z.js数据结构与算法/3 链表/实现" />
       <recent name="$PROJECT_DIR$/z.js数据结构与算法" />
-      <recent name="$PROJECT_DIR$/z.js数据结构与算法/队列/1 实现" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/z.js数据结构与算法" />
-      <recent name="$PROJECT_DIR$/z.js数据结构与算法/栈/2例子/例子1" />
-      <recent name="$PROJECT_DIR$/z.js数据结构与算法/栈/实现" />
-      <recent name="$PROJECT_DIR$/z.js数据结构与算法/栈/例子" />
-      <recent name="$PROJECT_DIR$/Week_12--组件化/2 轮播组件" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.2二叉树和二叉搜索树.js">
+  <component name="RunManager" selected="Node.js.题目.js">
     <configuration name="1普通链表.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/z.js数据结构与算法/3 链表/1 实现/1普通链表.js" working-dir="$PROJECT_DIR$/z.js数据结构与算法/3 链表/1 实现">
       <method v="2" />
     </configuration>
@@ -91,15 +110,14 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Node.js.题目.js" />
       <item itemvalue="Node.js.3 击鼓传花之循环队列.js" />
       <item itemvalue="Node.js.demo.js" />
       <item itemvalue="Node.js.1普通链表.js" />
       <item itemvalue="Node.js.2双向链表.js" />
-      <item itemvalue="Node.js.2二叉树和二叉搜索树.js" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Node.js.2二叉树和二叉搜索树.js" />
         <item itemvalue="Node.js.1普通链表.js" />
         <item itemvalue="Node.js.2双向链表.js" />
         <item itemvalue="Node.js.demo.js" />
@@ -270,20 +288,8 @@
       <workItem from="1608256723594" duration="14314000" />
       <workItem from="1608352593315" duration="5843000" />
       <workItem from="1608432301545" duration="300000" />
-    </task>
-    <task id="LOCAL-00123" summary="重学CSS">
-      <created>1606022725444</created>
-      <option name="number" value="00123" />
-      <option name="presentableId" value="LOCAL-00123" />
-      <option name="project" value="LOCAL" />
-      <updated>1606022725444</updated>
-    </task>
-    <task id="LOCAL-00124" summary="重学CSS">
-      <created>1606101091287</created>
-      <option name="number" value="00124" />
-      <option name="presentableId" value="LOCAL-00124" />
-      <option name="project" value="LOCAL" />
-      <updated>1606101091287</updated>
+      <workItem from="1608603327267" duration="400000" />
+      <workItem from="1608603844485" duration="9620000" />
     </task>
     <task id="LOCAL-00125" summary="重学CSS">
       <created>1606207522780</created>
@@ -614,7 +620,21 @@
       <option name="project" value="LOCAL" />
       <updated>1608540150012</updated>
     </task>
-    <option name="localTasksCounter" value="172" />
+    <task id="LOCAL-00172" summary="重学">
+      <created>1608544811376</created>
+      <option name="number" value="00172" />
+      <option name="presentableId" value="LOCAL-00172" />
+      <option name="project" value="LOCAL" />
+      <updated>1608544811377</updated>
+    </task>
+    <task id="LOCAL-00173" summary="重学">
+      <created>1608544833003</created>
+      <option name="number" value="00173" />
+      <option name="presentableId" value="LOCAL-00173" />
+      <option name="project" value="LOCAL" />
+      <updated>1608544833003</updated>
+    </task>
+    <option name="localTasksCounter" value="174" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -685,13 +705,14 @@
     <MESSAGE value="数据结构 队列" />
     <MESSAGE value="数据结构 树" />
     <MESSAGE value="数据结构" />
-    <option name="LAST_COMMIT_MESSAGE" value="数据结构" />
+    <MESSAGE value="重学" />
+    <option name="LAST_COMMIT_MESSAGE" value="重学" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="424" y="23" key="CommitChangelistDialog2" timestamp="1608540149926">
+    <state x="237" y="23" key="CommitChangelistDialog2" timestamp="1608544832909">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="424" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1608540149926" />
+    <state x="237" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1608544832909" />
     <state width="661" height="582" key="DebuggerActiveHint" timestamp="1608536325563">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -700,78 +721,78 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="140" y="100" key="DiffContextDialog/0.23.1440.877@0.23.1440.877" timestamp="1608536607239" />
-    <state width="1414" height="297" key="GridCell.Tab.0.bottom" timestamp="1608538383531">
+    <state width="1414" height="175" key="GridCell.Tab.0.bottom" timestamp="1608544852116">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1414" height="297" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1608538383531" />
-    <state width="1414" height="297" key="GridCell.Tab.0.center" timestamp="1608538383531">
+    <state width="1414" height="175" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1608544852116" />
+    <state width="1414" height="175" key="GridCell.Tab.0.center" timestamp="1608544852116">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1414" height="297" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1608538383531" />
-    <state width="1414" height="297" key="GridCell.Tab.0.left" timestamp="1608538383530">
+    <state width="1414" height="175" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1608544852116" />
+    <state width="1414" height="175" key="GridCell.Tab.0.left" timestamp="1608544852115">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1414" height="297" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1608538383530" />
-    <state width="1414" height="297" key="GridCell.Tab.0.right" timestamp="1608538383531">
+    <state width="1414" height="175" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1608544852115" />
+    <state width="1414" height="175" key="GridCell.Tab.0.right" timestamp="1608544852116">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1414" height="297" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1608538383531" />
-    <state width="1414" height="175" key="GridCell.Tab.1.bottom" timestamp="1608538307267">
+    <state width="1414" height="175" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1608544852116" />
+    <state width="1414" height="175" key="GridCell.Tab.1.bottom" timestamp="1608544852117">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1414" height="175" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1608538307267" />
-    <state width="1414" height="175" key="GridCell.Tab.1.center" timestamp="1608538307266">
+    <state width="1414" height="175" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1608544852117" />
+    <state width="1414" height="175" key="GridCell.Tab.1.center" timestamp="1608544852117">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1414" height="175" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1608538307266" />
-    <state width="1414" height="175" key="GridCell.Tab.1.left" timestamp="1608538307266">
+    <state width="1414" height="175" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1608544852117" />
+    <state width="1414" height="175" key="GridCell.Tab.1.left" timestamp="1608544852117">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1414" height="175" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1608538307266" />
-    <state width="1414" height="175" key="GridCell.Tab.1.right" timestamp="1608538307267">
+    <state width="1414" height="175" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1608544852117" />
+    <state width="1414" height="175" key="GridCell.Tab.1.right" timestamp="1608544852117">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1414" height="175" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1608538307267" />
-    <state width="1414" height="175" key="GridCell.Tab.2.bottom" timestamp="1608538307268">
+    <state width="1414" height="175" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1608544852117" />
+    <state width="1414" height="175" key="GridCell.Tab.2.bottom" timestamp="1608544852118">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1414" height="175" key="GridCell.Tab.2.bottom/0.23.1440.877@0.23.1440.877" timestamp="1608538307268" />
-    <state width="1414" height="175" key="GridCell.Tab.2.center" timestamp="1608538307267">
+    <state width="1414" height="175" key="GridCell.Tab.2.bottom/0.23.1440.877@0.23.1440.877" timestamp="1608544852118" />
+    <state width="1414" height="175" key="GridCell.Tab.2.center" timestamp="1608544852118">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1414" height="175" key="GridCell.Tab.2.center/0.23.1440.877@0.23.1440.877" timestamp="1608538307267" />
-    <state width="1414" height="175" key="GridCell.Tab.2.left" timestamp="1608538307267">
+    <state width="1414" height="175" key="GridCell.Tab.2.center/0.23.1440.877@0.23.1440.877" timestamp="1608544852118" />
+    <state width="1414" height="175" key="GridCell.Tab.2.left" timestamp="1608544852118">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1414" height="175" key="GridCell.Tab.2.left/0.23.1440.877@0.23.1440.877" timestamp="1608538307267" />
-    <state width="1414" height="175" key="GridCell.Tab.2.right" timestamp="1608538307267">
+    <state width="1414" height="175" key="GridCell.Tab.2.left/0.23.1440.877@0.23.1440.877" timestamp="1608544852118" />
+    <state width="1414" height="175" key="GridCell.Tab.2.right" timestamp="1608544852118">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1414" height="175" key="GridCell.Tab.2.right/0.23.1440.877@0.23.1440.877" timestamp="1608538307267" />
-    <state width="1414" height="175" key="GridCell.Tab.3.bottom" timestamp="1608538307269">
+    <state width="1414" height="175" key="GridCell.Tab.2.right/0.23.1440.877@0.23.1440.877" timestamp="1608544852118" />
+    <state width="1414" height="175" key="GridCell.Tab.3.bottom" timestamp="1608544852119">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1414" height="175" key="GridCell.Tab.3.bottom/0.23.1440.877@0.23.1440.877" timestamp="1608538307269" />
-    <state width="1414" height="175" key="GridCell.Tab.3.center" timestamp="1608538307268">
+    <state width="1414" height="175" key="GridCell.Tab.3.bottom/0.23.1440.877@0.23.1440.877" timestamp="1608544852119" />
+    <state width="1414" height="175" key="GridCell.Tab.3.center" timestamp="1608544852119">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1414" height="175" key="GridCell.Tab.3.center/0.23.1440.877@0.23.1440.877" timestamp="1608538307268" />
-    <state width="1414" height="175" key="GridCell.Tab.3.left" timestamp="1608538307268">
+    <state width="1414" height="175" key="GridCell.Tab.3.center/0.23.1440.877@0.23.1440.877" timestamp="1608544852119" />
+    <state width="1414" height="175" key="GridCell.Tab.3.left" timestamp="1608544852119">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1414" height="175" key="GridCell.Tab.3.left/0.23.1440.877@0.23.1440.877" timestamp="1608538307268" />
-    <state width="1414" height="175" key="GridCell.Tab.3.right" timestamp="1608538307268">
+    <state width="1414" height="175" key="GridCell.Tab.3.left/0.23.1440.877@0.23.1440.877" timestamp="1608544852119" />
+    <state width="1414" height="175" key="GridCell.Tab.3.right" timestamp="1608544852119">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1414" height="175" key="GridCell.Tab.3.right/0.23.1440.877@0.23.1440.877" timestamp="1608538307268" />
+    <state width="1414" height="175" key="GridCell.Tab.3.right/0.23.1440.877@0.23.1440.877" timestamp="1608544852119" />
     <state x="439" y="102" key="RollbackChangesDialog" timestamp="1608538303143">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="439" y="102" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1608538303143" />
-    <state x="216" y="138" key="Vcs.Push.Dialog.v2" timestamp="1608540151179">
+    <state x="216" y="138" key="Vcs.Push.Dialog.v2" timestamp="1608544840265">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="216" y="138" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1608540151179" />
+    <state x="216" y="138" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1608544840265" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

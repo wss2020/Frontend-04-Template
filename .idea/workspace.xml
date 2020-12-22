@@ -6,22 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/component/jsx/animation-demo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/jsx/dist/animation.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/jsx/附件/Week13/3给绘画添加暂停和重启功能/animation-demo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/jsx/附件/Week13/3给绘画添加暂停和重启功能/animation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/jsx/附件/Week13/3给绘画添加暂停和重启功能/carousel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/jsx/附件/Week13/3给绘画添加暂停和重启功能/dist/animation.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/jsx/附件/Week13/3给绘画添加暂停和重启功能/dist/main.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/jsx/附件/Week13/3给绘画添加暂停和重启功能/dist/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/jsx/附件/Week13/3给绘画添加暂停和重启功能/framework.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/jsx/附件/Week13/3给绘画添加暂停和重启功能/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/component/jsx/附件/Week13/3给绘画添加暂停和重启功能/webpack.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week_13--组件化/手势和动画/3给绘画添加暂停和重启功能.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_13--组件化/手势和动画/3给绘画添加暂停和重启功能.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/jsx/animation.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/animation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/jsx/dist/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/dist/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/jsx/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -282,14 +267,7 @@
       <workItem from="1608352593315" duration="5843000" />
       <workItem from="1608432301545" duration="300000" />
       <workItem from="1608603327267" duration="400000" />
-      <workItem from="1608603844485" duration="18494000" />
-    </task>
-    <task id="LOCAL-00127" summary="重学CSS">
-      <created>1606294657173</created>
-      <option name="number" value="00127" />
-      <option name="presentableId" value="LOCAL-00127" />
-      <option name="project" value="LOCAL" />
-      <updated>1606294657173</updated>
+      <workItem from="1608603844485" duration="20017000" />
     </task>
     <task id="LOCAL-00128" summary="重学CSS">
       <created>1606378776047</created>
@@ -627,7 +605,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608624604967</updated>
     </task>
-    <option name="localTasksCounter" value="176" />
+    <task id="LOCAL-00176" summary="13周">
+      <created>1608628864473</created>
+      <option name="number" value="00176" />
+      <option name="presentableId" value="LOCAL-00176" />
+      <option name="project" value="LOCAL" />
+      <updated>1608628864473</updated>
+    </task>
+    <option name="localTasksCounter" value="177" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -703,10 +688,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="13周" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="-1604" y="58" key="CommitChangelistDialog2" timestamp="1608624604844">
+    <state x="-1604" y="58" key="CommitChangelistDialog2" timestamp="1608628864333">
       <screen x="-1920" y="58" width="1920" height="1057" />
     </state>
-    <state x="-1604" y="58" key="CommitChangelistDialog2/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608624604844" />
+    <state x="-1604" y="58" key="CommitChangelistDialog2/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608628864333" />
     <state x="237" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1608544832909" />
     <state width="661" height="582" key="DebuggerActiveHint" timestamp="1608536325563">
       <screen x="0" y="23" width="1440" height="877" />
@@ -788,10 +773,10 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="439" y="102" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1608538303143" />
-    <state x="-1632" y="197" key="Vcs.Push.Dialog.v2" timestamp="1608624606096">
+    <state x="-1632" y="197" key="Vcs.Push.Dialog.v2" timestamp="1608628865508">
       <screen x="-1920" y="58" width="1920" height="1057" />
     </state>
-    <state x="-1632" y="197" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608624606096" />
+    <state x="-1632" y="197" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608628865508" />
     <state x="216" y="138" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1608544840265" />
     <state x="-1379" y="83" width="838" height="1032" key="search.everywhere.popup" timestamp="1608621337752">
       <screen x="-1920" y="58" width="1920" height="1057" />

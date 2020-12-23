@@ -1,3 +1,78 @@
+<!--
+    处理几个遗留问题， 类 Animation 里面， delay 和 timingFunction 还没有让它去发生作用。
+    先处理 delay， 首先我们在 t 这个位置，我们就减去 delay，也就是说 delay 会被从我们的时间里面扣除，这样我们才可以实现延迟的效果。
+在开始 animation.receive(t); 我们加一个 t>0 的判断， 如果 t<0 说明时间还没有开始，我们不执行动画。
+    start() {
+        let startTime = Date.now();
+        this[PAUSE_TIME] = 0;
+        this[TICK] = () => {
+            let now = Date.now();
+            for (let animation of this[ANIMATIONS]) {
+                let t;
+
+                if (this[START_TIME].get(animation) < startTime)
+                    t = now - startTime - this[PAUSE_TIME] - animation.delay;
+                else
+                    t = now - this[START_TIME].get(animation) - this[PAUSE_TIME] - animation.delay;
+
+                if (animation.duration < t) {
+                    this[ANIMATIONS].delete(animation);
+                    t = animation.duration;
+                }
+                if(t > 0)
+                animation.receive(t);
+            }
+            this[TICK_HANDLER] = requestAnimationFrame(this[TICK]);
+        }
+        this[TICK]();
+    }
+这样 delay 的逻辑就完成了。
+
+接着我们看 timingFunction ，它的逻辑主要用在 receive 方法里面。 这里我们再抽出来一个单独的变量 progress .
+let progress = time / this.duration; 这个就是它在 duration 里面，播放了多长时间。
+但是 range 是否是直接去乘 progress ,如果我们想让动画具有一定的效果，我们是不能直接乘progress.   我们肯定是用range 乘一个 比1 小的数。
+
+看一个网站：https://cubic-bezier.com/#.17,.67,.83,.67
+这是一个讲三次贝塞尔曲线的网站，它的横轴是 time , 纵轴是 progression（进展） , 这个进展是一个跟时间有关的函数，横轴是 0～1，纵轴也是 0～1。
+三次贝塞尔曲线，就是一个从 [0,0], 然后经过两个控制点， 到[1,1] 的一个过程。
+
+我们写一个
+let progress = this.timingFunction(time / this.duration);
+this.object[this.property] = this.template( this.startValue + range * progress );
+
+timingFunction 我们应该如何写，它是关于 0～1 的time，然后返回 0～1 的progress 的这样的一个函数。
+在 CSS 里面我们回去写几类，比如说 linear 的 timingFunction，那么我们在这里也提供一些，跟三次贝塞尔曲线，比较接近的 timingFunction 出来.
+比如 ease, 创建一个 ease.js 文件，
+
+constructor 里面，timingFunction 默认给 (v => v), template 也给一个默认值  (v => v)，这样免得出一些问题。
+    constructor(object, property, startValue, endValue, duration, delay, timingFunction, template) {
+        timingFunction = timingFunction || (v => v);
+        template = template || (v => v);
+
+        this.object = object;
+        this.property = property;
+        this.startValue = startValue;
+        this.endValue = endValue;
+        this.duration = duration;
+        this.delay = delay;
+        this.timingFunction = timingFunction;
+        this.template = template;
+    }
+
+然后我们来看，timingFunction ，如果我们要写一些缓动的效果， 有个常识，所有的 CSS 的 easing ,其实全是由三次贝塞尔曲线构成的，其中 ease,linear
+这几个，它都只是三次贝塞尔曲线下的不同的参数，所以我们解决三次贝塞尔曲线，那么就是我们的一个重点。
+    三次贝塞尔曲线，我们是用一种叫做牛顿积分的方法去求的，我们直接把浏览器里面的 C++ 的代码拿过来，把 C++ 代码改写成 JS 代码，就可以得到这个
+cubicBezier ,它就是一个三次贝塞尔曲线的实现，这个中间用了牛顿积分，然后如果说对这个有兴趣的同学，可以看它给出来的 wiki 的链接，我这个基本上是连
+注释都没有变，只是单纯的把 C++ 代码改成了JS代码，跟浏览器里面的代码实现是完全一致的。
+    例子，在 ease.js 和 animation-dome.js 和 animation.html 里，自己运行看效果。
+这样写完之后，我们的 js Animation 就基本上达到了一个和 css Animation 完全一致的效果，我们 js Animation一个比较厉害的点，是我们可以
+pause 和 resume,  而 CSS 动画，pause 是能停，但你要想让它恢复是千难万难，跑一个一半的贝塞尔曲线，虽然理论上也能跑出来。
+
+最后我们把 Animation 的最后一个方法 reset() 添上， 实现挺简单，我们先 pause ,然后所有的餐素我们给它重置掉。 这样我们的
+
+-->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

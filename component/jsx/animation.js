@@ -20,18 +20,21 @@ export class Timeline {
                 let t;
 
                 if (this[START_TIME].get(animation) < startTime)
-                    t = now - startTime - this[PAUSE_TIME];
+                    t = now - startTime - this[PAUSE_TIME] - animation.delay;
                 else
-                    t = now - this[START_TIME].get(animation) - this[PAUSE_TIME];
+                    t = now - this[START_TIME].get(animation) - this[PAUSE_TIME] - animation.delay;
 
                 if (animation.duration < t) {
                     this[ANIMATIONS].delete(animation);
                     t = animation.duration;
                 }
-                animation.receive(t);
+                if (t > 0)
+                    animation.receive(t);
             }
             this[TICK_HANDLER] = requestAnimationFrame(this[TICK]);
         }
+
+
         this[TICK]();
     }
 
@@ -46,6 +49,13 @@ export class Timeline {
     }
 
     reset() {
+        this.pause();
+        let startTime = Date.now(); // 这样写没有用
+        this[PAUSE_TIME] = 0;
+        this[ANIMATIONS] = new Set();
+        this[START_TIME] = new Map();
+        this[PAUSE_START] = 0;
+        this[TICK_HANDLER] = null;
     }
 
     add(animation, startTime) {
@@ -59,7 +69,10 @@ export class Timeline {
 
 
 export class Animation {
-    constructor(object, property, startValue, endValue, duration, delay, timingFunction,template) {
+    constructor(object, property, startValue, endValue, duration, delay, timingFunction, template) {
+        timingFunction = timingFunction || (v => v);
+        template = template || (v => v);
+
         this.object = object;
         this.property = property;
         this.startValue = startValue;
@@ -70,10 +83,12 @@ export class Animation {
         this.template = template;
     }
 
+    // time 可以理解为，当前动画执行到那个时间。    0 < time < this.duration
     receive(time) {
         console.log('time: ' + time);
         let range = this.endValue - this.startValue;
-        this.object[this.property] = this.template( this.startValue + range * time / this.duration );  //这样写是均匀变化
+        let progress = this.timingFunction(time / this.duration);
+        this.object[this.property] = this.template(this.startValue + range * progress);
     }
 }
 

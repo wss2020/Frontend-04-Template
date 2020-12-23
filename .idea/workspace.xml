@@ -6,13 +6,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/component/jsx/ease.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Week_13--组件化/手势和动画/4完善动画的其他功能.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_13--组件化/手势和动画/4完善动画的其他功能.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/jsx/animation-demo.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/animation-demo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week_13--组件化/手势和动画/5对时间线进行状态管理.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_13--组件化/手势和动画/5对时间线进行状态管理.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/component/jsx/animation.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/animation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/jsx/dist/animation.html" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/dist/animation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/jsx/dist/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/dist/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +45,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/component/jsx/附件/Week13/3给绘画添加暂停和重启功能" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/component/jsx/附件/Week13/4完善动画的其他功能/dist" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -58,19 +55,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/component/jsx/附件/Week13/3给绘画添加暂停和重启功能" />
-      <recent name="$PROJECT_DIR$/component/jsx/附件/Week13/2设计时间线的更新" />
-      <recent name="$PROJECT_DIR$/component/jsx/附件/Week13/1初步建立动画和时间线" />
-      <recent name="$PROJECT_DIR$/component/jsx/附件/5 轮播组件4" />
-      <recent name="$PROJECT_DIR$/z.js数据结构与算法" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/component/jsx/附件/Week12" />
       <recent name="$PROJECT_DIR$/z.js数据结构与算法/8 图/1实现" />
       <recent name="$PROJECT_DIR$/z.js数据结构与算法/3 链表" />
       <recent name="$PROJECT_DIR$/z.js数据结构与算法/3 链表/实现" />
       <recent name="$PROJECT_DIR$/z.js数据结构与算法" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/component/jsx/附件/Week13/4完善动画的其他功能/dist" />
+      <recent name="$PROJECT_DIR$/component/jsx/附件/Week13/4完善动画的其他功能" />
+      <recent name="$PROJECT_DIR$/component/jsx/附件/Week13/3给绘画添加暂停和重启功能" />
+      <recent name="$PROJECT_DIR$/component/jsx/附件/Week13/2设计时间线的更新" />
+      <recent name="$PROJECT_DIR$/component/jsx/附件/Week13/1初步建立动画和时间线" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.test2.js">
@@ -274,21 +271,7 @@
       <workItem from="1608432301545" duration="300000" />
       <workItem from="1608603327267" duration="400000" />
       <workItem from="1608603844485" duration="20031000" />
-      <workItem from="1608688655300" duration="7129000" />
-    </task>
-    <task id="LOCAL-00129" summary="重学CSS">
-      <created>1606384771255</created>
-      <option name="number" value="00129" />
-      <option name="presentableId" value="LOCAL-00129" />
-      <option name="project" value="LOCAL" />
-      <updated>1606384771255</updated>
-    </task>
-    <task id="LOCAL-00130" summary="重学CSS">
-      <created>1606468673688</created>
-      <option name="number" value="00130" />
-      <option name="presentableId" value="LOCAL-00130" />
-      <option name="project" value="LOCAL" />
-      <updated>1606468673688</updated>
+      <workItem from="1608688655300" duration="8729000" />
     </task>
     <task id="LOCAL-00131" summary="重学CSS">
       <created>1606470578559</created>
@@ -619,7 +602,21 @@
       <option name="project" value="LOCAL" />
       <updated>1608630973748</updated>
     </task>
-    <option name="localTasksCounter" value="178" />
+    <task id="LOCAL-00178" summary="13周">
+      <created>1608701838367</created>
+      <option name="number" value="00178" />
+      <option name="presentableId" value="LOCAL-00178" />
+      <option name="project" value="LOCAL" />
+      <updated>1608701838367</updated>
+    </task>
+    <task id="LOCAL-00179" summary="13周">
+      <created>1608702044031</created>
+      <option name="number" value="00179" />
+      <option name="presentableId" value="LOCAL-00179" />
+      <option name="project" value="LOCAL" />
+      <updated>1608702044031</updated>
+    </task>
+    <option name="localTasksCounter" value="180" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -695,9 +692,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="13周" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="-1604" y="58" key="CommitChangelistDialog2" timestamp="1608630973646">
-      <screen x="-1920" y="58" width="1920" height="1057" />
+    <state x="-1604" y="23" key="CommitChangelistDialog2" timestamp="1608702043933">
+      <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
+    <state x="-1604" y="23" key="CommitChangelistDialog2/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608702043933" />
     <state x="-1604" y="58" key="CommitChangelistDialog2/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608630973646" />
     <state x="237" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1608544832909" />
     <state width="661" height="582" key="DebuggerActiveHint" timestamp="1608536325563">
@@ -780,9 +778,10 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="439" y="102" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1608538303143" />
-    <state x="-1632" y="197" key="Vcs.Push.Dialog.v2" timestamp="1608630974695">
-      <screen x="-1920" y="58" width="1920" height="1057" />
+    <state x="-1632" y="162" key="Vcs.Push.Dialog.v2" timestamp="1608702045263">
+      <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
+    <state x="-1632" y="162" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608702045263" />
     <state x="-1632" y="197" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608630974695" />
     <state x="216" y="138" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1608544840265" />
     <state x="-1379" y="83" width="838" height="1032" key="search.everywhere.popup" timestamp="1608621337752">

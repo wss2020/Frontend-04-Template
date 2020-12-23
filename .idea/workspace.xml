@@ -6,10 +6,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Week_14--组件化/手势与动画/1手势的基本知识.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week_13--组件化/手势和动画/4完善动画的其他功能.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_13--组件化/手势和动画/4完善动画的其他功能.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week_13--组件化/手势和动画/5对时间线进行状态管理.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_13--组件化/手势和动画/5对时间线进行状态管理.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/jsx/animation.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/animation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week_14/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Week_14--组件化/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +20,8 @@
       <list>
         <option value="TypeScript File" />
         <option value="CSS File" />
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -45,7 +44,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/component/jsx/附件/Week13/4完善动画的其他功能/dist" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/component/jsx/附件/Week13/4完善动画的其他功能" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -63,11 +62,11 @@
       <recent name="$PROJECT_DIR$/z.js数据结构与算法" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/component/jsx/附件/Week13/4完善动画的其他功能/dist" />
       <recent name="$PROJECT_DIR$/component/jsx/附件/Week13/4完善动画的其他功能" />
+      <recent name="$PROJECT_DIR$/component/jsx/附件/Week13/5对时间线进行状态管理" />
+      <recent name="$PROJECT_DIR$/component/jsx/附件/Week13/4完善动画的其他功能/dist" />
       <recent name="$PROJECT_DIR$/component/jsx/附件/Week13/3给绘画添加暂停和重启功能" />
       <recent name="$PROJECT_DIR$/component/jsx/附件/Week13/2设计时间线的更新" />
-      <recent name="$PROJECT_DIR$/component/jsx/附件/Week13/1初步建立动画和时间线" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.test2.js">
@@ -271,21 +270,7 @@
       <workItem from="1608432301545" duration="300000" />
       <workItem from="1608603327267" duration="400000" />
       <workItem from="1608603844485" duration="20031000" />
-      <workItem from="1608688655300" duration="8729000" />
-    </task>
-    <task id="LOCAL-00131" summary="重学CSS">
-      <created>1606470578559</created>
-      <option name="number" value="00131" />
-      <option name="presentableId" value="LOCAL-00131" />
-      <option name="project" value="LOCAL" />
-      <updated>1606470578559</updated>
-    </task>
-    <task id="LOCAL-00132" summary="重学CSS">
-      <created>1606470782528</created>
-      <option name="number" value="00132" />
-      <option name="presentableId" value="LOCAL-00132" />
-      <option name="project" value="LOCAL" />
-      <updated>1606470782528</updated>
+      <workItem from="1608688655300" duration="14144000" />
     </task>
     <task id="LOCAL-00133" summary="重学CSS">
       <created>1606638845747</created>
@@ -616,7 +601,21 @@
       <option name="project" value="LOCAL" />
       <updated>1608702044031</updated>
     </task>
-    <option name="localTasksCounter" value="180" />
+    <task id="LOCAL-00180" summary="13周">
+      <created>1608703585388</created>
+      <option name="number" value="00180" />
+      <option name="presentableId" value="LOCAL-00180" />
+      <option name="project" value="LOCAL" />
+      <updated>1608703585388</updated>
+    </task>
+    <task id="LOCAL-00181" summary="13周">
+      <created>1608703735606</created>
+      <option name="number" value="00181" />
+      <option name="presentableId" value="LOCAL-00181" />
+      <option name="project" value="LOCAL" />
+      <updated>1608703735606</updated>
+    </task>
+    <option name="localTasksCounter" value="182" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -692,10 +691,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="13周" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="-1604" y="23" key="CommitChangelistDialog2" timestamp="1608702043933">
+    <state x="-1604" y="23" key="CommitChangelistDialog2" timestamp="1608703735495">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state x="-1604" y="23" key="CommitChangelistDialog2/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608702043933" />
+    <state x="-1604" y="23" key="CommitChangelistDialog2/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608703735495" />
     <state x="-1604" y="58" key="CommitChangelistDialog2/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608630973646" />
     <state x="237" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1608544832909" />
     <state width="661" height="582" key="DebuggerActiveHint" timestamp="1608536325563">
@@ -778,10 +777,10 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="439" y="102" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1608538303143" />
-    <state x="-1632" y="162" key="Vcs.Push.Dialog.v2" timestamp="1608702045263">
+    <state x="-1632" y="162" key="Vcs.Push.Dialog.v2" timestamp="1608703736612">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state x="-1632" y="162" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608702045263" />
+    <state x="-1632" y="162" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608703736612" />
     <state x="-1632" y="197" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608630974695" />
     <state x="216" y="138" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1608544840265" />
     <state x="-1379" y="83" width="838" height="1032" key="search.everywhere.popup" timestamp="1608621337752">

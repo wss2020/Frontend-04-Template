@@ -1,0 +1,20 @@
+接下来我们来实现 gesture 的逻辑，
+    我们所有用的这些变量，我们先保证它的逻辑关系和可访问的作用域是正确的，后面我们再整理代码，把它变成一个真正库的时候，我们就会去清理这些变量，去考
+虑把它设置在哪里比较合适。
+    press 的逻辑,start 的时候检查，触发 press,其实只要知道是 pressStart 事件，只是我们这里这里写 press ,还有一个叫 pressEnd,我们很少用到。
+    pan 的逻辑, move 的时候，我们需要关心它是否移动10px, 那么我们需要两个变量， startX,startY .  注意，移动10px之后，它不管再朝哪个方向
+move,也就是说我移动10px之后，我再把它移回来，那么它还是会触发 pan 的事件，这个是符合我们的逻辑的。 所以说这里，它有一个一次性的这样的变量，我们就
+叫 isPan.
+    tap 的逻辑，我们在end 的时候检查， 我们可以给一个 isTap = true, 如果它已经变成了 pan ,那么它就不会触发 tap 的逻辑了，所以它和isPan是一
+个互斥的关系。  为了逻辑上搞得不那么耦合，我们给 isTap 默认值为 true.   if(isTap) 说明触发了 tap 事件，这里我们要去做一下 clearTimeout,如果
+不做，这个 handler 就会立即的触发，这个就是它不论如何，它都会在 5秒钟之后会触发。  if(isPan)的时候，我们就不去 clearTimeout，因为在move方法
+里面我们就已经 clearTimeout，这里我们就不去写保护代码，这样我们在调试阶段，可以发现更多的问题。
+    为了防止有什么问题，
+    handler = setTimeout(() => {
+        isTap = false;
+        isPan = false;
+        isPress = true;
+        handler = null;
+        console.log("press");
+    }, 500);
+在handler 内部，我们也做一个 handler = null,这样写是没有关系的，给它设置为 null, 避免它多次 clear.

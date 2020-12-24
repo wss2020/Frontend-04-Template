@@ -31,11 +31,12 @@
     b.addEventListener("click",function (){ console.log('b1') },true);
     a.addEventListener("click",function (){ console.log('a1') },true);
 /*
-    a1  b  b1  a
     如果我们再给它加上，捕获相关的代码，可以看到，先触发了 a1 的捕获，然后在 b 上的两个事件，依次
 触发,最后我们的事件，又回到冒泡的a 身上，
-    然后如果我们再给它的 b 身上，加一个其他的，不论我们是冒泡还是捕获。
+    a1  b  b1  a
 */
+
+    // 然后如果我们再给它的 b 身上，加一个其他的，不论我们是冒泡还是捕获。
     b.addEventListener('click',function (){ console.log('b3') });
  /*
     a  b  b1  b3  a

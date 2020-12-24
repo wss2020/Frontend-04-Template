@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+    在这段 Events 的代码中，写了一对互相嵌套的元素，其实一个是a,一个是b, 我在JS 里边，把它们的
+变量取了出来，
+-->
+
+
+
+<style>
+    .a{width: 100%;height: 300px;background: lightblue;}
+    .b{width: 100%;height: 200px;background: pink;}
+    .c{width: 100%;height: 100px;background: lightgreen;}
+</style>
+
+<div id="a" class="a">
+    <div id="b" class="b">
+        <div id="c" class="c">
+        </div>
+    </div>
+</div>
+
+    <script>
+        let a = document.getElementById('a');
+        let b = document.getElementById('b');
+        let c = document.getElementById('c');
+
+        //给a 加一个事件监听
+        a.addEventListener("click",function (){ console.log('a') });
+        b.addEventListener("click",function (){ console.log('b') });
+        c.addEventListener("click",function (){ console.log('c') });
+        a.addEventListener("click",function (){ console.log('a1') },true);
+        b.addEventListener("click",function (){ console.log('b1') },true);
+        c.addEventListener("click",function (){ console.log('c1') },true);
+        // a1 b1 c c1 b a
+
+
+        // b.addEventListener('click',function (){ console.log('b3') });
+        // a1 b1 c c1 b b3 a
+
+        // c.addEventListener('click',function (){ console.log('c3') });
+        // a1 b1 c c1 c3  b  a
+
+    </script>
+
+</body>
+</html>

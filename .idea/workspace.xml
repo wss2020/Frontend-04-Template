@@ -6,7 +6,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Week_01/前端技术.xmind" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_14--组件化/手势与动画/6.实现一个flick事件/gesture.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_14--组件化/手势与动画/6.实现一个flick事件/gesture.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_14--组件化/手势与动画/6.实现一个flick事件/笔记.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +45,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Week_14--组件化/手势与动画/5.派发事件" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Week_14--组件化/手势与动画/6.实现一个flick事件" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -61,11 +64,11 @@
       <recent name="$PROJECT_DIR$/component/jsx/附件/Week12" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Week_14--组件化/手势与动画/6.实现一个flick事件" />
       <recent name="$PROJECT_DIR$/Week_14--组件化/手势与动画/5.派发事件" />
       <recent name="$PROJECT_DIR$/Week_14--组件化/手势与动画/4.处理鼠标事件/records" />
       <recent name="$PROJECT_DIR$/Week_14--组件化/手势与动画/4.处理鼠标事件" />
       <recent name="$PROJECT_DIR$/Week_14--组件化/手势与动画/3实现手势的逻辑" />
-      <recent name="$PROJECT_DIR$/Week_14--组件化/手势与动画/2实现鼠标操作/record" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.test.js">
@@ -274,14 +277,7 @@
       <workItem from="1608603844485" duration="20031000" />
       <workItem from="1608688655300" duration="16582000" />
       <workItem from="1608775148413" duration="14582000" />
-      <workItem from="1608861300072" duration="15640000" />
-    </task>
-    <task id="LOCAL-00142" summary="重学CSS">
-      <created>1606897622994</created>
-      <option name="number" value="00142" />
-      <option name="presentableId" value="LOCAL-00142" />
-      <option name="project" value="LOCAL" />
-      <updated>1606897622994</updated>
+      <workItem from="1608861300072" duration="16842000" />
     </task>
     <task id="LOCAL-00143" summary="重学CSS">
       <created>1606986857730</created>
@@ -619,7 +615,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608882714237</updated>
     </task>
-    <option name="localTasksCounter" value="191" />
+    <task id="LOCAL-00191" summary="14周">
+      <created>1608883326480</created>
+      <option name="number" value="00191" />
+      <option name="presentableId" value="LOCAL-00191" />
+      <option name="project" value="LOCAL" />
+      <updated>1608883326480</updated>
+    </task>
+    <option name="localTasksCounter" value="192" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -704,10 +707,10 @@
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
     <state x="-1268" y="380" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608775458911" />
-    <state x="-1604" y="23" key="CommitChangelistDialog2" timestamp="1608882714106">
+    <state x="-1604" y="23" key="CommitChangelistDialog2" timestamp="1608883326356">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state x="-1604" y="23" key="CommitChangelistDialog2/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608882714106" />
+    <state x="-1604" y="23" key="CommitChangelistDialog2/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608883326356" />
     <state x="-1604" y="58" key="CommitChangelistDialog2/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608630973646" />
     <state x="237" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1608544832909" />
     <state width="661" height="582" key="DebuggerActiveHint" timestamp="1608536325563">
@@ -795,10 +798,10 @@
     </state>
     <state x="-1335" y="118" key="RollbackChangesDialog/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608776628857" />
     <state x="439" y="102" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1608538303143" />
-    <state x="-1632" y="162" key="Vcs.Push.Dialog.v2" timestamp="1608882715251">
+    <state x="-1632" y="162" key="Vcs.Push.Dialog.v2" timestamp="1608883327690">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state x="-1632" y="162" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608882715251" />
+    <state x="-1632" y="162" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608883327690" />
     <state x="-1632" y="197" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608630974695" />
     <state x="216" y="138" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1608544840265" />
     <state x="-1379" y="83" width="838" height="1032" key="search.everywhere.popup" timestamp="1608621337752">

@@ -6,10 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Week_10---重学CSS/CSS.xmind" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Week_10---重学CSS/前端技术.xmind" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week_14--组件化/手势与动画/5.派发事件/笔记.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_14--组件化/手势与动画/5.派发事件/笔记.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_01/前端技术.xmind" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,11 +54,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Week_01" />
       <recent name="$PROJECT_DIR$/Week_10---重学CSS" />
       <recent name="$PROJECT_DIR$/Week_14--组件化/手势与动画/1手势的基本知识" />
       <recent name="$PROJECT_DIR$/Week_14--组件化/手势与动画" />
       <recent name="$PROJECT_DIR$/component/jsx/附件/Week12" />
-      <recent name="$PROJECT_DIR$/z.js数据结构与算法/8 图/1实现" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Week_14--组件化/手势与动画/5.派发事件" />
@@ -277,14 +274,7 @@
       <workItem from="1608603844485" duration="20031000" />
       <workItem from="1608688655300" duration="16582000" />
       <workItem from="1608775148413" duration="14582000" />
-      <workItem from="1608861300072" duration="15246000" />
-    </task>
-    <task id="LOCAL-00141" summary="重学CSS">
-      <created>1606895509626</created>
-      <option name="number" value="00141" />
-      <option name="presentableId" value="LOCAL-00141" />
-      <option name="project" value="LOCAL" />
-      <updated>1606895509626</updated>
+      <workItem from="1608861300072" duration="15640000" />
     </task>
     <task id="LOCAL-00142" summary="重学CSS">
       <created>1606897622994</created>
@@ -622,7 +612,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608881236875</updated>
     </task>
-    <option name="localTasksCounter" value="190" />
+    <task id="LOCAL-00190" summary="14周">
+      <created>1608882714237</created>
+      <option name="number" value="00190" />
+      <option name="presentableId" value="LOCAL-00190" />
+      <option name="project" value="LOCAL" />
+      <updated>1608882714237</updated>
+    </task>
+    <option name="localTasksCounter" value="191" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -707,10 +704,10 @@
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
     <state x="-1268" y="380" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608775458911" />
-    <state x="-1604" y="23" key="CommitChangelistDialog2" timestamp="1608881236735">
+    <state x="-1604" y="23" key="CommitChangelistDialog2" timestamp="1608882714106">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state x="-1604" y="23" key="CommitChangelistDialog2/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608881236735" />
+    <state x="-1604" y="23" key="CommitChangelistDialog2/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608882714106" />
     <state x="-1604" y="58" key="CommitChangelistDialog2/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608630973646" />
     <state x="237" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1608544832909" />
     <state width="661" height="582" key="DebuggerActiveHint" timestamp="1608536325563">
@@ -798,10 +795,10 @@
     </state>
     <state x="-1335" y="118" key="RollbackChangesDialog/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608776628857" />
     <state x="439" y="102" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1608538303143" />
-    <state x="-1632" y="162" key="Vcs.Push.Dialog.v2" timestamp="1608881238476">
+    <state x="-1632" y="162" key="Vcs.Push.Dialog.v2" timestamp="1608882715251">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state x="-1632" y="162" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608881238476" />
+    <state x="-1632" y="162" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608882715251" />
     <state x="-1632" y="197" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608630974695" />
     <state x="216" y="138" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1608544840265" />
     <state x="-1379" y="83" width="838" height="1032" key="search.everywhere.popup" timestamp="1608621337752">

@@ -1,0 +1,58 @@
+接下来我们来看这个事件。
+现在这个 gesture 我们已经识别出来了，它到底是什么 gesture,  现在我们可能需要一个派发事件的一个过程，那么在 DOM 里面事件的派发，它是一种使用
+new event ,然后在它上面加一些属性，然后最后把它派发出去的一种方式，我们在最后写一个统一的 dispatch 函数。
+先看一下如何去创建一个 event ,在新版的 API 里面，创建 event 是非常简单的，
+let event = new Event(type);  或者  let event = new CustomEvent(type); 这个我们需要传入一个参数。
+这里我们用一个普通的event ,let event = new Event(type);  这个 event 也是可以继承的。
+这里，我们先创建 event ,然后再考虑我们到底要派发什么样的东西。
+<script>
+    function dispatch(type, context, point) {
+        let event = new Event(type);
+        console.log(event);
+    }
+</script>
+
+对于 dispatch 函数的参数 context,point ，我们预先给它处理一下，然后再给它统一的传进去，
+<script>
+    //看如何处理，在 end 中, 调用 dispatch ，第二个参数设置为空对象{},因为它不需要传入任何的属性的，我们就给它一个空的 properties。
+    let end = (point, context) => {
+        if (context.isTap) {
+            dispatch('end',{});
+            clearTimeout(context.handler);
+        }
+        if (context.isPan) {
+            console.log('panEnd');
+        }
+        if (context.isPress) {
+            console.log('pressEnd');
+        }
+        //console.log("end", point.clientX, point.clientY)
+    }
+
+    // 这样写，我们的 element 上就派发了这个事件。
+    function dispatch(type, properties) {
+        let event = new Event(type);
+        for(let name in properties){
+            event[name] = properties[name];
+        }
+        element.dispatchEvent(event)
+    }
+</script>
+
+还有一个要注意的地方，我们以前写的 mouse 的 listener 它都是在 element 上，这个应该是 document.
+
+在 gesture.html 中写
+<script>
+    document.documentElement.addEventListener("tap",()=>{
+        console.log("tap event trigger!");
+    })
+</script>
+
+执行看效果。
+
+这个时候我们看到这个事件，就可以像正常的元素上一样去使用了。  我们整体的功能，到这里就差不多了。
+
+
+
+
+

@@ -35,7 +35,7 @@ let event = new Event(type);  或者  let event = new CustomEvent(type); 这个�
         for(let name in properties){
             event[name] = properties[name];
         }
-        element.dispatchEvent(event)
+        element.dispatchEvent(event);
     }
 </script>
 

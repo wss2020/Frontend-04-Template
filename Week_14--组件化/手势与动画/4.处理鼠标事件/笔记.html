@@ -1,0 +1,237 @@
+let handler;
+let startX, startY;
+let isTap = true, isPan = false, isPress = false;
+这些变量，是不是应该是全局的。
+    如果我们从触屏的角度去考虑，它可能会有多个 touch 的情况，   如果我们从鼠标的情况去考虑，它可能会有左右键的区分。  这个时候我们发现，全局变量的
+形式，显然是错误的。
+    如果不是全局的话，该存在哪里？   除了全局，我们只有一个选项，就是我们在函数调用的时候，给它传入一个参数 context。
+比如：
+    let start = (point, context) => {
+        //console.log("start", point.clientX, point.clientY)
+        context.startX = point.clientX, context.startY = point.clientY;
+
+        context.isTap = true;
+        context.isPan = false;
+        context.isPress = false;
+
+        context.handler = setTimeout(() => {
+            context.isTap = false;
+            context.isPan = false;
+            context.isPress = true;
+            context.handler = null;
+            console.log("press");
+        }, 500);
+    }
+这里我们就可以看到，当我们去处理事件的时候，我们多传一个 context 这样的参数，就可以去区分它们的，到底是那一个点了。
+
+这里我们先去处理 touch 事件，touch上面有一个 identifier ,所以我们在 start 的时候，我们来创建一个 context ,尝试用一个 Map 去保存这个
+context.
+比如：
+    let contexts = new Map();
+    element.addEventListener("touchstart", event => {
+        for (let touch of event.changedTouches) {
+            let context = Object.create(null);
+            contexts.set(touch.identifier, context);
+            start(touch,context);
+        }
+    })
+
+    element.addEventListener("touchmove", event => {
+        for (let touch of event.changedTouches) {
+            let context = contexts.get(touch.identifier);
+            move(touch, context);
+        }
+    })
+
+注意，结束的时候，要把 contexts 中保存的对应事件清除。
+
+
+
+接着处理鼠标的拖拽，我们可以只支持鼠标的左键拖拽了。 这样我们在 start 的时候，我们来判断一下它的左键是否按下就可以了，实际上我们的鼠标，它是支持左键
+右键 中键， 前进 后退，在我们的浏览器的模型里面，它至少支持5个键的 down 和 up ,这个时候，其实如果我们想把这个5个键分开。 我们可以处理左键拖拽，右
+键拖拽，想处理这样的东西，那么我们可以在 mouse 的这个事件里面去处理一下它的不同的按键的。
+    那么这里首先，我们需要知道一个常识，mousedown 的 event 发生的时候，它这个 event 上有一个 button , 这个属性它会是一个 12345 这样的值，
+这个就表示它按下了那个键，我们在这里加一个 console.log.
+    element.addEventListener("mousedown", event => {
+        console.log(event.button);
+        start(event);
+
+        let mousemove = event => {
+            move(event);
+        }
+        let mouseup = event => {
+            end(event);
+            element.removeEventListener("mousemove", mousemove);
+            element.removeEventListener("mouseup", mouseup);
+        }
+        element.addEventListener("mousemove", mousemove);
+        element.addEventListener("mouseup", mouseup);
+    })
+执行可以看到，左键 event.button 的值是 0， 右键的值是 2， 高级一点的鼠标，中间的值是1。
+这个 button，我们是可以根据 button ,创建一个 context ,  用 let context = Object.create(null); 来创建对象，这是一个好习惯，这表示我们要
+用这个对象做一个 KV 的匹配，这样可以避免 object 上面的原始属性，再跳出来添乱。
+    然后我们设置属性，我们用什么做 K 呢？ 为了跟触屏去区分，我们用 "mouse" + event.button.
+    mousemove 的时候，我们就看它触发的是哪个 context 的 mousemove,
+    element.addEventListener("mousedown", event => {
+
+        let context = Object.create(null);
+        contexts.set("mouse" + event.button, context);
+
+        start(event,context);
+
+        let mousemove = event => {
+            contexts.get("mouse" + event.button);
+            move(event);
+        }
+        let mouseup = event => {
+            end(event);
+            element.removeEventListener("mousemove", mousemove);
+            element.removeEventListener("mouseup", mouseup);
+        }
+        element.addEventListener("mousemove", mousemove);
+        element.addEventListener("mouseup", mouseup);
+    })
+    这样写有一个致命的问题，就是我 mousedown 的时候，它是分按键的， 但是 mousemove 的时候，它可是不分按键的，所以说其实 mousedown 里面并没有
+button，所以我们也没有办法去响应 mousemove , 因为我不按键，我这个鼠标也可以在屏幕上晃来晃去，它不一定是按住的时候去移动。
+    但是 mousemove 里面，它有一个 event.buttons ,它表示是有哪些键被按下来了， 那这个 buttons 是一个什么东西呢？ 这个地方用了一个非常古典的
+设计，叫做 掩码。
+    掩码是什么意思？
+     就是我们用一个二进制来表示，
+        0b1111：表示5个键全按下来了；
+        0b0001：表示我们只按了一个左键；
+        0b0010：表示我们只按了一个中键；
+        0b0011：表示我们同时按了中键 和 左键； ...
+它这种设计，是一个非常古典的一种设计思想，它用掩码来做，所以我们也必须用掩码的形式去处理它。
+
+    这里我们就挨个去看，这 5个键有没有，我们首先让 button 变量等于1，通过把这个 button 不断的移位，然后来把它变成 5个键，然后我们也不假设它一共
+有5个键，我们就   while (button <= event.buttons){}   这个保证它不会移出界， 它如果 button 比这边 buttons 多了一位的话，那么他就一定会
+等于这个值了，break 掉了。
+    这时，buttons 它就变成了 1 2 4 8 16 32 这样的值，这时我们用移位，不然我们想从 1 2 4 8 16 算出来，它是第几位，这就很麻烦了，所以这里我们
+这样写.
+    contexts.set("mouse" + (1<< event.button ), context);
+    我们不用 button 作为 key ,我们用1移 button 位作为 key, 这样这个key 就是 1 2 4 8 16 了。
+    element.addEventListener("mousedown", event => {
+
+        let context = Object.create(null);
+        contexts.set("mouse" + (1<< event.button ), context);
+
+        start(event,context);
+        let mousemove = event => {
+            let button = 1;
+            while (button <= event.buttons){
+                    let context = contexts.get("mouse" + button);
+                    move(event,context);
+                    button = button << 1;
+                }
+        }
+        let mouseup = event => {
+            end(event);
+            element.removeEventListener("mousemove", mousemove);
+            element.removeEventListener("mouseup", mouseup);
+        }
+        element.addEventListener("mousemove", mousemove);
+        element.addEventListener("mouseup", mouseup);
+    })
+其中代码
+let mousemove = event => {
+    let button = 1;
+    while (button <= event.buttons){
+        let context = contexts.get("mouse" + button);
+        move(event,context);
+        button = button << 1;
+    }
+}
+while 循环了掩码的 5位，然后我们去看看掩码是不是有匹配上。 匹配上了，它就有这一位。  这样我们就知道，哪些键被按下去了。
+这是 mousemove 里面的处理。
+
+mouseup 的处理跟 start 类似， mouseup 的时候，我们是有 button 这个属性的，所以我们就直接取出来， 最后我们给它删掉。
+注意：这个 delete 一定要出现在这个 end() 这个 callback 调用之后，不然这个 context 就变成了一个野生的 context。
+    let mouseup = event => {
+        let context = contexts.get("mouse" + (1 << event.button));
+        end(event,context);
+        contexts.delete("mouse" + (1 << event.button));
+        element.removeEventListener("mousemove", mousemove);
+        element.removeEventListener("mouseup", mouseup);
+    }
+
+执行测试，注意这里，我们做一个处理。
+<body  oncontextmenu="event.preventDefault()"></body>
+不处理的话，我们右键一按，它就弹出菜单了。
+
+
+代码有问题。
+其中代码
+let mousemove = event => {
+    let button = 1;
+    while (button <= event.buttons){
+        let context = contexts.get("mouse" + button);
+        move(event,context);
+        button = button << 1;
+    }
+}
+少了处理的逻辑，while 里面处理的不对，这里只要小于就执行，不对， 我们还要判断，事件是否按下去了。
+这里我们用一个 按位与 运算， if(button & event.buttons) 为真，也就是只有掩码成立的时候，我们再去执行 move 的回调，这个就是掩码的使用方式。
+    然后这里面有一个坑，它这个 buttons 里面的顺序，跟这个 button 的顺序，跟这个 event.button 的顺序，有点不太一样，它的第二位和第三位刚好是
+反过来的，所以说 鼠标的中键 和 右键的顺序，是正好反的，所以这里我们就需要去对它，做一个额外的处理。
+let mousemove = event => {
+    let button = 1;
+    while (button <= event.buttons){
+        if(button & event.buttons){
+            let key;
+            if(button === 2)
+                 key = 4;
+            else if(button === 4)
+                key = 2;
+            else
+                 key = button;
+            let context = contexts.get("mouse" + key);
+            move(event,context);
+        }
+        button = button << 1;
+    }
+}
+这样，我们右键和中键的顺序就被调整正确了，这个是一个需要特别注意的地方，这个地方我们需要写一个注释，
+// order of buttons & button property is not same
+
+还有一个地方没有处理，就是 end 的时候会报错，如果我们两个键同时按下的时候会抛错。
+    其实我们每次 mousedown 的时候，它都 addEventListener 了两个 key 的话，那么实际上 mouseup 是被多绑定了一次，mousemove 也是被多绑定
+了一次， 这时，它其实 mouseup 调用的次数是过多的。
+    这时我们需要用一个新的全局变量 isListeningMouse 的变量，来去处理一下我们的监听，如果已经在监听了，我们就不再重复去绑定了 mousemove 和
+mouseup 事件了，因为我们在 mousemove 里面，它就是可能多次的触发 move 这个事件的。
+    好，我们把这个逻辑加上, 此外，我们在 mouseup 的时候，也不是一下子就把 eventListener 给它抹掉了，这个时候我们是要判断一下，是不是还有key在
+的，如果 buttons 里面，已经完全空了的话，那么它一定等于 0 ，那么这个时候，我们才去把这个所有的事件都给它取消监听 remove 掉，然后不要忘了，把
+isListeningMouse 给它重置掉。
+<script>
+    let isListeningMouse = false;
+
+    let mouseup = event => {
+        console.log("end", event.button);
+        let context = contexts.get("mouse" + (1 << event.button));
+        end(event, context);
+        contexts.delete("mouse" + (1 << event.button));
+        if (event.buttons === 0) {
+            element.removeEventListener("mousemove", mousemove);
+            element.removeEventListener("mouseup", mouseup);
+            isListeningMouse = false;
+        }
+    }
+    if (!isListeningMouse) {
+        element.addEventListener("mousemove", mousemove);
+        element.addEventListener("mouseup", mouseup);
+        isListeningMouse = true;
+    }
+</script>
+这样我们的鼠标的逻辑，才算是写完整。
+
+这样到这里为止，我们已经把 监听 和 识别 都已经写完了，再接下来，我们将会跟大家讨论一下，如何去实现事件的派发和处理.
+
+
+
+
+
+
+
+
+
+
+

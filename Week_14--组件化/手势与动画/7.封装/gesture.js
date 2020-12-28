@@ -186,7 +186,7 @@ export class Recognizer{
 
         if(v > 1.5){
             context.isFlick = true;
-            this.dispatcher.dispatch("panEnd",{
+            this.dispatcher.dispatch("flick",{
                 startX: context.startX,
                 startY: context.startY,
                 clientX: point.clientX,

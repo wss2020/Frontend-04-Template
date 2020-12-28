@@ -1,0 +1,35 @@
+    功能基本上都做了实现，但是我们最开始的元素 let element = document.documentElement; 还是一个写死的元素，
+所以在这里，我们需要考虑一下封装。
+    这里，如果我们把它做一个解耦去处理，会发现其实它可以分成三个部分，一个是 listen 部分，一个是识别的部分 recognize ,还有一个是最后的分发的部分，
+它实际上我们的信息的流向，它是一个监听识别和重新分发的过程，所以说，我们如果说去实现我们的 API，我们可以把这三个部分解耦的,具体如下。
+    首先我们先做一个 listener 类，listener 它可以去监听鼠标事件，也可以去监听手势事件，然后它就会把它以 start move 和 end 的形式，分发给我们
+的识别模块，我们的识别模块，然后我们的识别模块，再去调用分发。  所以说，其实我们最后它可能，如果说我们的解耦的方式，它可能是 new 一个 Listener ,
+然后 Listener 里面，它调用一个 Recognizer , 然后 Recognizer 里面再调用一个 new Dispatcher 或是一个回调函数 dispatch.
+像这样 new Listener( new Recognize(new Recognizer( new Dispatcher )) )
+或者是这样  new Listener( new Recognize(new Dispatch( dispatch )) )
+    这个 Listener 其实可以是一个 DOM Listener ,或者是一个别的什么 Listener ，   dispatch 也可以是一个 DOM Dispatcher,或者是一个别的
+什么 dispatch，甚至它就是一个事件，它去接收 type 和 properties .
+
+    如果我们希望有一个一体化的处理方法,添加一个
+    export function enableGesture(element){}
+
+    首先重构 listener 类，我们把 listener 的方法，全都给它放进来。   然后 start ,move ,end 方法，我们前面加 recognizer. ,我们指定当前执
+行的是那个监听器。
+    export class Listener{
+         constructor(element, recognizer) {
+
+        }
+    }
+
+这样我们就可以在 recognizer 里面，安心地写我们的 start,move,end , 把 start,move,end 方法，分别写到 recognizer 类里面。
+接着写派发事件，注意，panStart 事件中，肯定是有数据的，一般来说，我们是把 startX,startY,clientX,clientY 放进去,就给它个参数，不够我们再加。
+这里面，可能给一个 isVertical 作为第5个参数,我们来区分，它是上下滑，还是左右滑的， 我们在一些场景里面是有用的。 注意 isVertical 要存到 context
+里面，
+    context.isVertical =  Math.abs(dx) < Math.abs(dy);
+    dispatch("panStart",{
+        startX: context.startX,
+        startY: context.startY,
+        clientX: point.clientX,
+        clientY: point.clientY,
+        isVertical: context.isVertical
+    })

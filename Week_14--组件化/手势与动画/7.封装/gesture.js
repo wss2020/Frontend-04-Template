@@ -1,16 +1,5 @@
 let element = document.documentElement;
-
-
-
-
-
-
-
-
-
-
 // listen => recognize => dispatch
-
 
 export class Dispatcher{
     constructor(element) {

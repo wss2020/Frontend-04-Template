@@ -1,0 +1,25 @@
+<body  oncontextmenu="event.preventDefault()"></body>
+<script src="gesture.js"></script>
+<script>
+    document.documentElement.addEventListener("tap",()=>{
+        console.log("tap event trigger!");
+    })
+    document.documentElement.addEventListener("pressStart",()=>{
+        console.log("pressStart event trigger!");
+    })
+    document.documentElement.addEventListener("pressEnd",()=>{
+        console.log("pressEnd event trigger!");
+    })
+    document.documentElement.addEventListener("panStart",()=>{
+        console.log("panStart event trigger!");
+    })
+    document.documentElement.addEventListener("pan",()=>{
+        console.log("pan event trigger!");
+    })
+    document.documentElement.addEventListener("panEnd",()=>{
+        console.log("panEnd event trigger!");
+    })
+    document.documentElement.addEventListener("flick",()=>{
+        console.log("flick event trigger!");
+    })
+</script>

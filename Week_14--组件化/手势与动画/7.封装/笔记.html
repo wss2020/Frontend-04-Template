@@ -11,7 +11,9 @@
 什么 dispatch，甚至它就是一个事件，它去接收 type 和 properties .
 
     如果我们希望有一个一体化的处理方法,添加一个
-    export function enableGesture(element){}
+    export function enableGesture(element){
+        new Listener(element,new Recognizer( new Dispatcher(element)))
+    }
 
     首先重构 listener 类，我们把 listener 的方法，全都给它放进来。   然后 start ,move ,end 方法，我们前面加 recognizer. ,我们指定当前执
 行的是那个监听器。
@@ -24,7 +26,7 @@
 这样我们就可以在 recognizer 里面，安心地写我们的 start,move,end , 把 start,move,end 方法，分别写到 recognizer 类里面。
 接着写派发事件，注意，panStart 事件中，肯定是有数据的，一般来说，我们是把 startX,startY,clientX,clientY 放进去,就给它个参数，不够我们再加。
 这里面，可能给一个 isVertical 作为第5个参数,我们来区分，它是上下滑，还是左右滑的， 我们在一些场景里面是有用的。 注意 isVertical 要存到 context
-里面，
+里面，这样的话，我们是可以只响应 vertical 的 pan .
     context.isVertical =  Math.abs(dx) < Math.abs(dy);
     dispatch("panStart",{
         startX: context.startX,
@@ -33,3 +35,4 @@
         clientY: point.clientY,
         isVertical: context.isVertical
     })
+注意： panEnd 的时候，我们有时候还有区分它是不是 flick ,所以我们要把 panEnd 的逻辑，放到 flick 之后。

@@ -4,40 +4,40 @@ let isListeningMouse = false;
 element.addEventListener("mousedown", event => {
 
     let context = Object.create(null);
-    contexts.set("mouse" + (1<< event.button ), context);
+    contexts.set("mouse" + (1 << event.button), context);
 
-    start(event,context);
+    start(event, context);
 
     let mousemove = event => {
         let button = 1;
-        while (button <= event.buttons){
-            if(button & event.buttons){
+        while (button <= event.buttons) {
+            if (button & event.buttons) {
                 // order of buttons & button property is not same
                 let key;
-                if(button === 2)
+                if (button === 2)
                     key = 4;
-                else if(button === 4)
+                else if (button === 4)
                     key = 2;
                 else
                     key = button;
                 let context = contexts.get("mouse" + key);
-                move(event,context);
+                move(event, context);
             }
             button = button << 1;
         }
     }
     let mouseup = event => {
-        console.log("end",event.button);
+        console.log("end", event.button);
         let context = contexts.get("mouse" + (1 << event.button));
-        end(event,context);
+        end(event, context);
         contexts.delete("mouse" + (1 << event.button));
-        if(event.buttons === 0){
+        if (event.buttons === 0) {
             document.removeEventListener("mousemove", mousemove);
             document.removeEventListener("mouseup", mouseup);
             isListeningMouse = false;
         }
     }
-    if(!isListeningMouse){
+    if (!isListeningMouse) {
         document.addEventListener("mousemove", mousemove);
         document.addEventListener("mouseup", mouseup);
         isListeningMouse = true;
@@ -81,6 +81,11 @@ element.addEventListener("touchcancel", event => {
 let start = (point, context) => {
     //console.log("start", point.clientX, point.clientY)
     context.startX = point.clientX, context.startY = point.clientY;
+    context.points = [{
+        t: Date.now(),
+        x: point.clientX,
+        y: point.clientY,
+    }];
 
     context.isTap = true;
     context.isPan = false;
@@ -111,11 +116,18 @@ let move = (point, context) => {
         console.log(dx, dy);
         console.log("pan");
     }
+
+    context.points = context.points.filter(point => Date.now() - point.t < 5000);
+    context.points.push({
+        t: Date.now(),
+        x: point.clientX,
+        y: point.clientY,
+    });
 }
 
 let end = (point, context) => {
     if (context.isTap) {
-        dispatch('tap',{})
+        dispatch('tap', {})
         clearTimeout(context.handler);
     }
     if (context.isPan) {
@@ -123,6 +135,20 @@ let end = (point, context) => {
     }
     if (context.isPress) {
         console.log('pressEnd');
+    }
+    context.points = context.points.filter(point => Date.now() - point.t < 5000);
+    let d, v;
+    if (!context.points.length) {
+        v = 0;
+    } else {
+        d = Math.sqrt((point.clientX - context.points[0].x) ** 2 + (point.clientY - context.points[0].y) ** 2);
+        v = d / (Date.now() - context.points[0].t);
+    }
+    if(v > 1.5){
+        console.log("flick");
+        context.isFlick = true;
+    }else{
+        context.isFlick = false;
     }
     //console.log("end", point.clientX, point.clientY)
 }
@@ -134,7 +160,7 @@ let cancel = (point, context) => {
 
 function dispatch(type, properties) {
     let event = new Event(type);
-    for(let name in properties){
+    for (let name in properties) {
         event[name] = properties[name];
     }
     element.dispatchEvent(event);

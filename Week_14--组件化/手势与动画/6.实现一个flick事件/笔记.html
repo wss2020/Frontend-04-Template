@@ -1,2 +1,42 @@
 最后我们来考虑一下，如何去实现一个，我们的最后一个最特别的事件，flick 事件。
-    flick 事件，在所有的事件体系里面，它是比较特殊的，因为它最后实际上是一个，需要判断速度的一个事情。  所以我们如何去判断速度呢？
+    flick 事件，在所有的事件体系里面，它是比较特殊的，因为它最后实际上是一个，需要判断速度的一个事情。
+所以我们如何去判断速度呢？
+    在move 的时候，得到当前这一次move 的速度，但这个并不能够帮助我们去处理，因为这个速度，如果我们只判断 ，两个点之间的速度，根据浏览器实现的不同，
+它会有一个较大的误差，所以我们对速度的判断，应该是取数个点，然后把它进行一个平均，这里我们会采用一个，存储一段时间之内的这样的点，用这样的一种方式来把
+它做速度的平均和计算。
+    我们需要在 context 里面，存储一个全局的变量，在 start 的时候，我们就要去初始化一个数组，context.points = []; 然后这个数组，我们会把
+point 的 X和Y 存进去，每一个点，我们存储一个 时间加上坐标的一个位置，
+context.points = [{
+    r: Date.now(),
+    x: point.clientX,
+    y: point.clientY,
+}];
+然后每次 move 的时候，我们再重新放进去一个点,在放进新的点之前，我们会对它进行一次过滤。
+context.points = context.points.filter(point => Date.now() - point.t < 500);
+context.points.push({
+    r: Date.now(),
+    x: point.clientX,
+    y: point.clientY,
+});
+我们让它只存储半秒内的点，这样我们对速度的计算，总是最新的一段的速度。
+
+然后在 end 的时候，我们来计算一下速度。
+    context.points = context.points.filter(point => Date.now() - point.t < 5000);
+    let d, v;
+    if (!context.points.length) {
+        v = 0;
+    } else {
+        d = Math.sqrt((point.clientX - context.points[0].x) ** 2 + (point.clientY - context.points[0].y) ** 2);
+        v = d / (Date.now() - context.points[0].t);
+    }
+    console.log(v);
+我们认为这个速度只要大于 1.5 就是比较快的了，经过作者的测试和分析，这个速度 v 的单位是 像素每毫秒。
+    if(v > 1.5){
+        console.log("flick");
+        context.isFlick = true;
+    }else{
+        context.isFlick = false;
+    }
+
+   最后，我们这里还有一些，console.log 没有去调用 dispatch , 这个就交给同学们，自己去完成，把这个事件，加上它必要的参数，我们需要的参数可能都在
+context 里面，最终把这个 gesture 的功能完成了。

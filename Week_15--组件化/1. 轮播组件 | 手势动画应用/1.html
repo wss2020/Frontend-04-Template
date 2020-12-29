@@ -13,5 +13,40 @@ animation gesture 和 carousel 都有一定的复杂性，当我们做了结构�
 也存下来。
 
     然后我们来写 gesture,首先我们需要对这个 root ,我们这个 root 是一个新创建的一个元素，所以我们要对它做一个，enableGesture 这样的一个操作，
-我们现在 root 上去 enableGesture ,
+我们先在 root 上去 enableGesture(this.root) , 然后我们就可以在 root 上面，去加监听 gesture 事件了，试一试。
+    this.root.addEventListener("pan", event => {
+        console.log(event.clientX);
+    })
+查看效果，没问题。
+
+    接下来，我们看看，使用 gesture 这个库，去完成我们的 carousel ,如何去做，这里面有一个比较复杂的逻辑，就是说，它有一个 dx 的这样的一个概念，
+move 的时候，我们本来是 clientX 减去一个 startX, 那这个时候，我们可以用 event.clientX 减去 event.startX .
+    this.root.addEventListener("pan", event => {
+        console.log(event.clientX - event.startX);
+    })
+然后我们把它，还是跟原来的代码一样, current 的这些逻辑，我们都不用动。
+    pos = (pos + children.length ) % children.length;
+这行代码，加一个 children.length ，它有可能还是会出现负数，我们处理一下， 先对 length 去余，这样，它不管负数有多大，它都会变成一个小于 length
+的一个数，加下来我们再除以一个 length 就可以了。  余数取余运算，都是数论里面的知识，但它是数论里面最入门的知识。
+    pos = (pos % children.length + children.length ) % children.length;
+    同样，我们再把 panEnd 加上，把 up 的代码拿过来。
+
+    接下来，我们把时间也给它加上去，然后并且使用我们的，animation 来解决这个问题，
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

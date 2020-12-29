@@ -10,7 +10,7 @@ export class Dispatcher{
         for (let name in properties) {
             event[name] = properties[name];
         }
-        element.dispatchEvent(event);
+        this.element.dispatchEvent(event);
     }
 }
 

@@ -21,7 +21,6 @@ let a = <Carousel src={d}/>;
 a.mountTo(document.body)
 
 
-tl.start();
 
 
 

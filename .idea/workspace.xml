@@ -5,11 +5,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Week_14--组件化/手势与动画/6.实现一个flick事件/gesture.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Week_14--组件化/手势与动画/6.实现一个flick事件/gesture.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Week_14--组件化/手势与动画/6.实现一个flick事件/笔记.html" afterDir="false" />
+    <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="14周">
+      <change afterPath="$PROJECT_DIR$/Week_15--组件化/1. 轮播组件 | 手势动画应用/1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/component/jsx/gesture.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week_15/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Week_15--组件化/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/jsx/carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/carousel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/jsx/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +23,8 @@
       <list>
         <option value="TypeScript File" />
         <option value="CSS File" />
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -45,7 +47,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Week_14--组件化/手势与动画/6.实现一个flick事件" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/component/jsx" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -56,6 +58,13 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/component/jsx" />
+      <recent name="$PROJECT_DIR$/Week_14--组件化/手势与动画/7.封装" />
+      <recent name="$PROJECT_DIR$/Week_14--组件化/手势与动画/6.实现一个flick事件/demo" />
+      <recent name="$PROJECT_DIR$/component/jsx/附件/Week13/6.实现一个flick事件" />
+      <recent name="$PROJECT_DIR$/Week_14--组件化/手势与动画/6.实现一个flick事件" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Week_01" />
       <recent name="$PROJECT_DIR$/Week_10---重学CSS" />
@@ -63,22 +72,12 @@
       <recent name="$PROJECT_DIR$/Week_14--组件化/手势与动画" />
       <recent name="$PROJECT_DIR$/component/jsx/附件/Week12" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Week_14--组件化/手势与动画/6.实现一个flick事件" />
-      <recent name="$PROJECT_DIR$/Week_14--组件化/手势与动画/5.派发事件" />
-      <recent name="$PROJECT_DIR$/Week_14--组件化/手势与动画/4.处理鼠标事件/records" />
-      <recent name="$PROJECT_DIR$/Week_14--组件化/手势与动画/4.处理鼠标事件" />
-      <recent name="$PROJECT_DIR$/Week_14--组件化/手势与动画/3实现手势的逻辑" />
-    </key>
   </component>
-  <component name="RunManager" selected="Node.js.test.js">
-    <configuration name="1普通链表.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/z.js数据结构与算法/3 链表/1 实现/1普通链表.js" working-dir="$PROJECT_DIR$/z.js数据结构与算法/3 链表/1 实现">
+  <component name="RunManager" selected="JavaScript Debug.gesture.html">
+    <configuration name="gesture.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Frontend-04-Template/Week_14--组件化/手势与动画/7.封装/gesture.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="1.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/z.js数据结构与算法/5 字典/1实现/1.js" working-dir="$PROJECT_DIR$/z.js数据结构与算法/5 字典/1实现">
-      <method v="2" />
-    </configuration>
-    <configuration name="2二叉树和二叉搜索树.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/z.js数据结构与算法/8 图/1实现/2二叉树和二叉搜索树.js" working-dir="$PROJECT_DIR$/z.js数据结构与算法/8 图/1实现">
       <method v="2" />
     </configuration>
     <configuration name="demo.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Week_14--组件化/手势与动画/4.处理鼠标事件/demo.js" working-dir="$PROJECT_DIR$/Week_14--组件化/手势与动画/4.处理鼠标事件">
@@ -94,7 +93,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Node.js.1普通链表.js" />
+      <item itemvalue="JavaScript Debug.gesture.html" />
+      <item itemvalue="Node.js.1.js" />
       <item itemvalue="Node.js.winter正则写的词法分析.js" />
       <item itemvalue="Node.js.test2.js" />
       <item itemvalue="Node.js.demo.js" />
@@ -102,11 +102,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.gesture.html" />
         <item itemvalue="Node.js.test.js" />
         <item itemvalue="Node.js.demo.js" />
         <item itemvalue="Node.js.test2.js" />
         <item itemvalue="Node.js.winter正则写的词法分析.js" />
-        <item itemvalue="Node.js.1普通链表.js" />
       </list>
     </recent_temporary>
   </component>
@@ -277,63 +277,8 @@
       <workItem from="1608603844485" duration="20031000" />
       <workItem from="1608688655300" duration="16582000" />
       <workItem from="1608775148413" duration="14582000" />
-      <workItem from="1608861300072" duration="16842000" />
-    </task>
-    <task id="LOCAL-00143" summary="重学CSS">
-      <created>1606986857730</created>
-      <option name="number" value="00143" />
-      <option name="presentableId" value="LOCAL-00143" />
-      <option name="project" value="LOCAL" />
-      <updated>1606986857730</updated>
-    </task>
-    <task id="LOCAL-00144" summary="重学CSS">
-      <created>1607043227478</created>
-      <option name="number" value="00144" />
-      <option name="presentableId" value="LOCAL-00144" />
-      <option name="project" value="LOCAL" />
-      <updated>1607043227479</updated>
-    </task>
-    <task id="LOCAL-00145" summary="jSX">
-      <created>1607043252248</created>
-      <option name="number" value="00145" />
-      <option name="presentableId" value="LOCAL-00145" />
-      <option name="project" value="LOCAL" />
-      <updated>1607043252248</updated>
-    </task>
-    <task id="LOCAL-00146" summary="重学CSS">
-      <created>1607051485001</created>
-      <option name="number" value="00146" />
-      <option name="presentableId" value="LOCAL-00146" />
-      <option name="project" value="LOCAL" />
-      <updated>1607051485001</updated>
-    </task>
-    <task id="LOCAL-00147" summary="组件">
-      <created>1607051528091</created>
-      <option name="number" value="00147" />
-      <option name="presentableId" value="LOCAL-00147" />
-      <option name="project" value="LOCAL" />
-      <updated>1607051528092</updated>
-    </task>
-    <task id="LOCAL-00148" summary="Component">
-      <created>1607075381283</created>
-      <option name="number" value="00148" />
-      <option name="presentableId" value="LOCAL-00148" />
-      <option name="project" value="LOCAL" />
-      <updated>1607075381283</updated>
-    </task>
-    <task id="LOCAL-00149" summary="重学CSS">
-      <created>1607592970528</created>
-      <option name="number" value="00149" />
-      <option name="presentableId" value="LOCAL-00149" />
-      <option name="project" value="LOCAL" />
-      <updated>1607592970529</updated>
-    </task>
-    <task id="LOCAL-00150" summary="组件">
-      <created>1607668272015</created>
-      <option name="number" value="00150" />
-      <option name="presentableId" value="LOCAL-00150" />
-      <option name="project" value="LOCAL" />
-      <updated>1607668272016</updated>
+      <workItem from="1608861300072" duration="16868000" />
+      <workItem from="1609120556026" duration="14017000" />
     </task>
     <task id="LOCAL-00151" summary="组件">
       <created>1608085897377</created>
@@ -622,7 +567,63 @@
       <option name="project" value="LOCAL" />
       <updated>1608883326480</updated>
     </task>
-    <option name="localTasksCounter" value="192" />
+    <task id="LOCAL-00192" summary="14周">
+      <created>1608888927558</created>
+      <option name="number" value="00192" />
+      <option name="presentableId" value="LOCAL-00192" />
+      <option name="project" value="LOCAL" />
+      <updated>1608888927559</updated>
+    </task>
+    <task id="LOCAL-00193" summary="14周">
+      <created>1609123588360</created>
+      <option name="number" value="00193" />
+      <option name="presentableId" value="LOCAL-00193" />
+      <option name="project" value="LOCAL" />
+      <updated>1609123588360</updated>
+    </task>
+    <task id="LOCAL-00194" summary="14周">
+      <created>1609124256842</created>
+      <option name="number" value="00194" />
+      <option name="presentableId" value="LOCAL-00194" />
+      <option name="project" value="LOCAL" />
+      <updated>1609124256842</updated>
+    </task>
+    <task id="LOCAL-00195" summary="14周">
+      <created>1609124283509</created>
+      <option name="number" value="00195" />
+      <option name="presentableId" value="LOCAL-00195" />
+      <option name="project" value="LOCAL" />
+      <updated>1609124283509</updated>
+    </task>
+    <task id="LOCAL-00196" summary="14周">
+      <created>1609138460598</created>
+      <option name="number" value="00196" />
+      <option name="presentableId" value="LOCAL-00196" />
+      <option name="project" value="LOCAL" />
+      <updated>1609138460599</updated>
+    </task>
+    <task id="LOCAL-00197" summary="14周">
+      <created>1609140586035</created>
+      <option name="number" value="00197" />
+      <option name="presentableId" value="LOCAL-00197" />
+      <option name="project" value="LOCAL" />
+      <updated>1609140586035</updated>
+    </task>
+    <task id="LOCAL-00198" summary="14周">
+      <created>1609140810471</created>
+      <option name="number" value="00198" />
+      <option name="presentableId" value="LOCAL-00198" />
+      <option name="project" value="LOCAL" />
+      <updated>1609140810471</updated>
+    </task>
+    <task id="LOCAL-00199" summary="14周">
+      <created>1609140916044</created>
+      <option name="number" value="00199" />
+      <option name="presentableId" value="LOCAL-00199" />
+      <option name="project" value="LOCAL" />
+      <updated>1609140916045</updated>
+    </task>
+    <option name="localTasksCounter" value="200" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -707,10 +708,10 @@
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
     <state x="-1268" y="380" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608775458911" />
-    <state x="-1604" y="23" key="CommitChangelistDialog2" timestamp="1608883326356">
+    <state x="-1604" y="23" key="CommitChangelistDialog2" timestamp="1609140915948">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state x="-1604" y="23" key="CommitChangelistDialog2/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608883326356" />
+    <state x="-1604" y="23" key="CommitChangelistDialog2/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1609140915948" />
     <state x="-1604" y="58" key="CommitChangelistDialog2/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608630973646" />
     <state x="237" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1608544832909" />
     <state width="661" height="582" key="DebuggerActiveHint" timestamp="1608536325563">
@@ -721,28 +722,28 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="140" y="100" key="DiffContextDialog/0.23.1440.877@0.23.1440.877" timestamp="1608536607239" />
-    <state width="1894" height="167" key="GridCell.Tab.0.bottom" timestamp="1608878405695">
+    <state width="1894" height="167" key="GridCell.Tab.0.bottom" timestamp="1608888946910">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state width="1894" height="167" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608878405695" />
+    <state width="1894" height="167" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608888946910" />
     <state width="1894" height="187" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608630983909" />
     <state width="1414" height="175" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1608544852116" />
-    <state width="1894" height="167" key="GridCell.Tab.0.center" timestamp="1608878405694">
+    <state width="1894" height="167" key="GridCell.Tab.0.center" timestamp="1608888946909">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state width="1894" height="167" key="GridCell.Tab.0.center/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608878405694" />
+    <state width="1894" height="167" key="GridCell.Tab.0.center/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608888946909" />
     <state width="1894" height="187" key="GridCell.Tab.0.center/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608630983908" />
     <state width="1414" height="175" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1608544852116" />
-    <state width="1894" height="167" key="GridCell.Tab.0.left" timestamp="1608878405693">
+    <state width="1894" height="167" key="GridCell.Tab.0.left" timestamp="1608888946908">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state width="1894" height="167" key="GridCell.Tab.0.left/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608878405693" />
+    <state width="1894" height="167" key="GridCell.Tab.0.left/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608888946908" />
     <state width="1894" height="187" key="GridCell.Tab.0.left/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608630983907" />
     <state width="1414" height="175" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1608544852115" />
-    <state width="1894" height="167" key="GridCell.Tab.0.right" timestamp="1608878405694">
+    <state width="1894" height="167" key="GridCell.Tab.0.right" timestamp="1608888946909">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state width="1894" height="167" key="GridCell.Tab.0.right/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608878405694" />
+    <state width="1894" height="167" key="GridCell.Tab.0.right/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608888946909" />
     <state width="1894" height="187" key="GridCell.Tab.0.right/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608630983908" />
     <state width="1414" height="175" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1608544852116" />
     <state width="1414" height="175" key="GridCell.Tab.1.bottom" timestamp="1608544852117">
@@ -798,15 +799,20 @@
     </state>
     <state x="-1335" y="118" key="RollbackChangesDialog/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608776628857" />
     <state x="439" y="102" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1608538303143" />
-    <state x="-1632" y="162" key="Vcs.Push.Dialog.v2" timestamp="1608883327690">
+    <state x="-1632" y="162" key="Vcs.Push.Dialog.v2" timestamp="1609140917353">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state x="-1632" y="162" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608883327690" />
+    <state x="-1632" y="162" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1609140917353" />
     <state x="-1632" y="197" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608630974695" />
     <state x="216" y="138" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1608544840265" />
-    <state x="-1379" y="83" width="838" height="1032" key="search.everywhere.popup" timestamp="1608621337752">
-      <screen x="-1920" y="58" width="1920" height="1057" />
+    <state x="-1920" y="23" width="1511" height="996" key="dock-window-1" timestamp="1609121618065">
+      <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
+    <state x="-1920" y="23" width="1511" height="996" key="dock-window-1/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1609121618065" />
+    <state x="-1379" y="48" width="838" height="1032" key="search.everywhere.popup" timestamp="1609124519246">
+      <screen x="-1920" y="23" width="1920" height="1057" />
+    </state>
+    <state x="-1379" y="48" width="838" height="1032" key="search.everywhere.popup/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1609124519246" />
     <state x="-1379" y="83" width="838" height="1032" key="search.everywhere.popup/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608621337752" />
   </component>
   <component name="XDebuggerManager">

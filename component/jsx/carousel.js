@@ -1,4 +1,8 @@
 import {Component} from "./framework.js"
+import {ease} from "./ease.js";
+import {Timeline, Animation} from "./animation.js";
+import {enableGesture} from "./gesture.js";
+
 export class Carousel extends Component {
     constructor() {
         super();
@@ -18,8 +22,12 @@ export class Carousel extends Component {
             this.root.appendChild(child);
         }
 
+        enableGesture(this.root);
+
+        let children = this.root.children;
+
         let position = 0;
-        this.root.addEventListener("mousedown", event => {
+        /** this.root.addEventListener("mousedown", event => {
             let children = this.root.children;
             let startX = event.clientX
             let move = event => {
@@ -50,7 +58,7 @@ export class Carousel extends Component {
             }
             document.addEventListener("mousemove", move)
             document.addEventListener("mouseup", up)
-        })
+        })*/
 
 
         // 关掉自动播放

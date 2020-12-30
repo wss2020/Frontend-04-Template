@@ -90,14 +90,15 @@
 
     let hash = new HashTable();
     hash.put('Gandalf', "fandalf@qq.com");
-    hash.put('John', "john@qq.com");
-    hash.put('Tyrion', "tyrion@qq.com");
+    hash.put('aGndalf', "john@qq.com");
 
-    console.log(hash.get('Gandalf'));
-    console.log(hash.get('John'));
+    hash.print();
 
-    hash.remove('Gandalf');
-    console.log(hash.get('Gandalf'));
+    console.log( hash.get('Gandalf')  );
+    console.log( hash.get('aGndalf')  );
+
+    hash.remove('aGndalf');
+    console.log(hash.print())
 
 
 </script>

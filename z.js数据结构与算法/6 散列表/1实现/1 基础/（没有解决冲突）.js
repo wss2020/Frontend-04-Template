@@ -56,6 +56,7 @@ class HashTable {
 }
 
 let hash = new HashTable();
+/*
 hash.put('Gandalf', "fandalf@qq.com");
 hash.put('John', "john@qq.com");
 hash.put('Tyrion', "tyrion@qq.com");
@@ -65,3 +66,9 @@ console.log(hash.get('John'));
 
 hash.remove('Gandalf');
 console.log(hash.get('Gandalf'));
+*/
+
+hash.put('Gandalf', "fandalf@qq.com");
+hash.put('aGndalf', "john@qq.com");
+
+hash.print();

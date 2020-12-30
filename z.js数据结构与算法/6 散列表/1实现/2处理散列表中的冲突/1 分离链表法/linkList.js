@@ -170,7 +170,7 @@ class LinkList{
     }
 }
 
-let list = new LinkList();
+/*let list = new LinkList();
 list.append(15);
 list.append(16);
 list.append(17);
@@ -179,4 +179,4 @@ list.removeAt(2);
 // console.log(  list.indexOf(56) );
 // list.remove(16);
 // console.log(list.getHead());
-console.log( list.toString() );
+console.log( list.toString() );*/

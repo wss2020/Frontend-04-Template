@@ -1,4 +1,3 @@
-
 分离链接法： 包括为散列表的每一个位置创建一个链表并将元素存储在里面。 它是解决冲突的最简单的方法，但是它在 HashTable 实例之外还需要额外的存储空间。
 
 对于 分离链接 和 线性探查 来说，只需要重写三个方法： put、get 和 remove。这三个方法每种技术实现中都是不同的。
@@ -42,8 +41,9 @@ ValuePair 类,只会将 key 和 value 存储在一个 Object 实例中。 我们
 
         put(key, value) {
             let position = this.loseLoseHashCode(key);
-            if (this.table[position] == undefined)
-                this[position] = new LinkList();
+            if (this.table[position] == undefined) {
+                this.table[position] = new LinkList();
+            }
             this.table[position].append(new ValuePair(key, value));
         }
 
@@ -98,15 +98,15 @@ ValuePair 类,只会将 key 和 value 存储在一个 Object 实例中。 我们
 
     let hash = new HashTable();
     hash.put('Gandalf', "fandalf@qq.com");
-    hash.put('John', "john@qq.com");
-    hash.put('Tyrion', "tyrion@qq.com");
+    hash.put('aGndalf', "john@qq.com");
 
-    console.log(hash.get('Gandalf'));
-    console.log(hash.get('John'));
+    hash.print();
 
-    hash.remove('Gandalf');
-    console.log(hash.get('Gandalf'));
+    console.log( hash.get('Gandalf')  );
+    console.log( hash.get('aGndalf')  );
 
+    hash.remove('aGndalf');
+    console.log(hash.print())
 
 </script>
 

@@ -1,0 +1,111 @@
+线性探查：当想在表中某个位置加入一个新元素的时候，如果索引为 index 的位置已经被占据了，就尝试 index+1 的位置。如果index+1 的位置也被占据了，就
+尝试index+2的位置，以此类推。
+
+<script src="linkList.js"></script>
+<script>
+    class ValuePair {
+        constructor(key, value) {
+            this.key = key;
+            this.value = value;
+        }
+
+        toString() {
+            return '[' + this.key + ' - ' + this.value + ']';
+        }
+    }
+
+    class HashTable {
+        constructor() {
+            this.table = [];
+        }
+
+        // 散列函数
+        loseLoseHashCode(key) {
+            let hash = 0;
+            for (let i = 0; i < key.length; i++) {
+                hash += key.charCodeAt(i);
+            }
+            return hash % 37;
+        }
+
+        // 辅助方法，输出 HashTable 中的值
+        print() {
+            for (let i = 0; i < this.table.length; i++) {
+                if (this.table[i] !== undefined) {
+                    console.log(i + ": " + this.table[i]);
+                }
+            }
+        }
+
+        put(key, value) {
+            let position = this.loseLoseHashCode(key);
+            if (this.table[position] == undefined) {
+                this.table[position] = new ValuePair(key, value);
+            } else {
+                let index = ++position;
+                while (this.table[index] != undefined) {
+                    index++;
+                }
+                this.table[index] = new ValuePair(key, value);
+            }
+        }
+
+        get(key) {
+            let position = this.loseLoseHashCode(key);
+            if(this.table[position] !== undefined){
+                if(this.table[position].key === key){
+                    return this.table[position].value;
+                }else{
+                    let index = ++position;
+                    while (this.table[index] === undefined || this.table[index].key !== key){
+                        index++;
+                    }
+                    if(this.table[index].key === key){
+                        return this.table[index].value;
+                    }
+                }
+            }
+            return undefined;
+        }
+
+        remove(key) {
+            let position = this.loseLoseHashCode(key);
+            if(this.table[position] !== undefined){
+                if(this.table[position].key === key){
+                    this.table[position] = undefined;
+                }else{
+                    let index = ++position;
+                    while (this.table[index] === undefined || this.table[index].key !== key){
+                        index++;
+                    }
+                    if(this.table[index].key === key){
+                        this.table[position] = undefined;
+                    }
+                }
+            }
+            return undefined;
+        }
+
+    }
+
+    let hash = new HashTable();
+    hash.put('Gandalf', "fandalf@qq.com");
+    hash.put('John', "john@qq.com");
+    hash.put('Tyrion', "tyrion@qq.com");
+
+    console.log(hash.get('Gandalf'));
+    console.log(hash.get('John'));
+
+    hash.remove('Gandalf');
+    console.log(hash.get('Gandalf'));
+
+
+</script>
+
+
+
+
+
+
+
+

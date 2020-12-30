@@ -1,0 +1,119 @@
+
+分离链接法： 包括为散列表的每一个位置创建一个链表并将元素存储在里面。 它是解决冲突的最简单的方法，但是它在 HashTable 实例之外还需要额外的存储空间。
+
+对于 分离链接 和 线性探查 来说，只需要重写三个方法： put、get 和 remove。这三个方法每种技术实现中都是不同的。
+为了实现一个使用了分离链接的 HashTable 实例，我们需要一个新的辅助类来表示将要加入 LinkedList 实例的元素。 我们管它叫 ValuePair 类。
+ValuePair 类,只会将 key 和 value 存储在一个 Object 实例中。 我们也重写了 toString 方法，以便在浏览器控制台中输入结果。
+<script src="linkList.js"></script>
+<script>
+    class ValuePair {
+        constructor(key, value) {
+            this.key = key;
+            this.value = value;
+        }
+
+        toString() {
+            return '[' + this.key + ' - ' + this.value + ']';
+        }
+    }
+
+    class HashTable {
+        constructor() {
+            this.table = [];
+        }
+
+        // 散列函数
+        loseLoseHashCode(key) {
+            let hash = 0;
+            for (let i = 0; i < key.length; i++) {
+                hash += key.charCodeAt(i);
+            }
+            return hash % 37;
+        }
+
+        // 辅助方法，输出 HashTable 中的值
+        print() {
+            for (let i = 0; i < this.table.length; i++) {
+                if (this.table[i] !== undefined) {
+                    console.log(i + ": " + this.table[i]);
+                }
+            }
+        }
+
+        put(key, value) {
+            let position = this.loseLoseHashCode(key);
+            if (this.table[position] == undefined)
+                this[position] = new LinkList();
+            this.table[position].append(new ValuePair(key, value));
+        }
+
+        get(key) {
+            let position = this.loseLoseHashCode(key);
+            if (this.table[position] !== undefined) {
+                // 遍历链表来寻找 键/值
+                let current = this.table[position].getHead();
+                while (current.next) {
+                    if (current.element.key === key) {
+                        return current.element.value;
+                    }
+                    current = current.next;
+                }
+
+                // 检查元素在链表第一个 或 最后一个节点的情况
+                if (current.element.key === key) {
+                    return current.element.value;
+                }
+            }
+            return undefined;
+        }
+
+        remove(key) {
+            let position = this.loseLoseHashCode(key);
+            if (this.table[position] !== undefined) {
+                let current = this.table[position].getHead();
+                while (current.next) {
+                    if (current.element.key === key) {
+                        this.table[position].remove(current.element);
+                        if (this.table[position].isEmpty()) {
+                            this.table[position] = undefined;
+                        }
+                        return true;
+                    }
+                    current = current.next;
+                }
+
+                // 检查是否为第一个或最后一个元素
+                if (current.element.key === key) {
+                    this.table[position].remove(current.element);
+                    if (this.table[position].isEmpty()) {
+                        this.table[position] = undefined;
+                    }
+                    return true;
+                }
+            }
+            return false;
+        }
+
+    }
+
+    let hash = new HashTable();
+    hash.put('Gandalf', "fandalf@qq.com");
+    hash.put('John', "john@qq.com");
+    hash.put('Tyrion', "tyrion@qq.com");
+
+    console.log(hash.get('Gandalf'));
+    console.log(hash.get('John'));
+
+    hash.remove('Gandalf');
+    console.log(hash.get('Gandalf'));
+
+
+</script>
+
+
+
+
+
+
+
+

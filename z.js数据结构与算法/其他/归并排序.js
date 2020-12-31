@@ -1,33 +1,28 @@
+/**
+ * @param to_sort-等待排序的数组
+ * @return int[]-排序后的数组
+ * @Description: 使用函数的递归（嵌套）调用，实现归并排序（从小到大）
+ */
+function merge_sort(to_sort) {
+    if (to_sort == null) return 0;
+    // 如果分解到只剩一个数，返回该数
+    if (to_sort.length === 1) return to_sort;
 
+    // 将数组分解成左右两半
+    let mid = Math.round(to_sort.length / 2);
+    let left = to_sort.slice(0, mid);
+    let right = to_sort.slice(mid, to_sort.length);
 
-    /**
-     * @param to_sort-等待排序的数组
-     * @return int[]-排序后的数组
-     * @Description: 使用函数的递归（嵌套）调用，实现归并排序（从小到大）
-     */
-    function merge_sort(to_sort) {
-        if (to_sort == null) return new int[0];
-        // 如果分解到只剩一个数，返回该数
-        if (to_sort.length == 1) return to_sort;
+    // 嵌套调用，对两半分别进行排序
+    left = merge_sort(left);
+    right = merge_sort(right);
 
-        // 将数组分解成左右两半
-        int
-        mid = to_sort.length / 2;
-        int[]
-        left = Arrays.copyOfRange(to_sort, 0, mid);
-        int[]
-        right = Arrays.copyOfRange(to_sort, mid, to_sort.length);
+    // 合并排序后的两半
 
-        // 嵌套调用，对两半分别进行排序
-        left = merge_sort(left);
-        right = merge_sort(right);
+    const merged = merge(left, right);
 
-        // 合并排序后的两半
-
-       const merged = merge(left, right);
-
-        return merged;
-    }
+    return merged;
+}
 
 
 /**
@@ -56,12 +51,12 @@ function merge(a, b) {
 
     // 将某个数组内剩余的数字放入合并后的数组中
     if (ai < a.length) {
-        for (int i = ai; i < a.length; i++) {
+        for (let i = ai; i < a.length; i++) {
             merged_one[mi] = a[i];
             mi++;
         }
     } else {
-        for (int i = bi; i < b.length; i++) {
+        for (let i = bi; i < b.length; i++) {
             merged_one[mi] = b[i];
             mi++;
         }
@@ -70,14 +65,14 @@ function merge(a, b) {
     return merged_one;
 }
 
-public static void main(String[] args) {
+function main() {
+    //const to_sort = [3434, 3356, 67, 12334, 878667, 387];
+    const to_sort = [34, 77, 67, 12, 66, 44];
+    const sorted = merge_sort(to_sort);
 
-    int[] to_sort = {3434, 3356, 67, 12334, 878667, 387};
-    int[] sorted = Lesson6_1.merge_sort(to_sort);
-
-    for (int i = 0; i < sorted.length; i++) {
-        System.out.println(sorted[i]);
+    for (let i = 0; i < sorted.length; i++) {
+        console.log(sorted[i])
     }
 }
 
-}
+main();

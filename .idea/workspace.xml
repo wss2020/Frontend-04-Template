@@ -6,8 +6,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/z.js数据结构与算法/其他/归并排序.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week_15--组件化/1. 轮播组件 | 手势动画应用/1.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_15--组件化/1. 轮播组件 | 手势动画应用/1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/jsx/carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/carousel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/jsx/dist/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/dist/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/component/jsx/dist/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/dist/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,14 +73,14 @@
       <recent name="$PROJECT_DIR$/Week_01" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.使用函数的递归（嵌套）调用，找出所有可能的奖赏组合.js">
+  <component name="RunManager" selected="Node.js.（没有解决冲突）.js">
     <configuration name="（没有解决冲突）.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/z.js数据结构与算法/6 散列表/1实现/1 基础/（没有解决冲突）.js" working-dir="$PROJECT_DIR$/z.js数据结构与算法/6 散列表/1实现/1 基础">
       <method v="2" />
     </configuration>
     <configuration name="使用函数的递归（嵌套）调用，找出所有可能的奖赏组合.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/z.js数据结构与算法/其他/使用函数的递归（嵌套）调用，找出所有可能的奖赏组合.js" working-dir="$PROJECT_DIR$/z.js数据结构与算法/其他">
       <method v="2" />
     </configuration>
-    <configuration name="demo.js (1)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/z.js数据结构与算法/6 散列表/1实现/2处理散列表中的冲突/1 分离链表法/demo.js" working-dir="$PROJECT_DIR$/z.js数据结构与算法/6 散列表/1实现/2处理散列表中的冲突/1 分离链表法">
+    <configuration name="归并排序.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/z.js数据结构与算法/其他/归并排序.js" working-dir="$PROJECT_DIR$/z.js数据结构与算法/其他">
       <method v="2" />
     </configuration>
     <configuration name="demo.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/z.js数据结构与算法/其他/demo.js" working-dir="$PROJECT_DIR$/z.js数据结构与算法/其他">
@@ -88,18 +91,14 @@
     </configuration>
     <list>
       <item itemvalue="Node.js.（没有解决冲突）.js" />
-      <item itemvalue="Node.js.demo.js (1)" />
       <item itemvalue="Node.js.linkList.js" />
-      <item itemvalue="Node.js.使用函数的递归（嵌套）调用，找出所有可能的奖赏组合.js" />
       <item itemvalue="Node.js.demo.js" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Node.js.使用函数的递归（嵌套）调用，找出所有可能的奖赏组合.js" />
         <item itemvalue="Node.js.demo.js" />
         <item itemvalue="Node.js.（没有解决冲突）.js" />
         <item itemvalue="Node.js.linkList.js" />
-        <item itemvalue="Node.js.demo.js (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -277,21 +276,9 @@
       <workItem from="1609296414408" duration="371000" />
       <workItem from="1609379429034" duration="1845000" />
       <workItem from="1609401091690" duration="4000" />
-      <workItem from="1609402193477" duration="2813000" />
-    </task>
-    <task id="LOCAL-00158" summary="数据结构和算法">
-      <created>1608180203199</created>
-      <option name="number" value="00158" />
-      <option name="presentableId" value="LOCAL-00158" />
-      <option name="project" value="LOCAL" />
-      <updated>1608180203199</updated>
-    </task>
-    <task id="LOCAL-00159" summary="数据结构 栈">
-      <created>1608187948920</created>
-      <option name="number" value="00159" />
-      <option name="presentableId" value="LOCAL-00159" />
-      <option name="project" value="LOCAL" />
-      <updated>1608187948920</updated>
+      <workItem from="1609402193477" duration="3200000" />
+      <workItem from="1609726050245" duration="13000" />
+      <workItem from="1609828818443" duration="1364000" />
     </task>
     <task id="LOCAL-00160" summary="数据结构 栈">
       <created>1608189596857</created>
@@ -622,7 +609,21 @@
       <option name="project" value="LOCAL" />
       <updated>1609403858096</updated>
     </task>
-    <option name="localTasksCounter" value="207" />
+    <task id="LOCAL-00207" summary="递归">
+      <created>1609406903525</created>
+      <option name="number" value="00207" />
+      <option name="presentableId" value="LOCAL-00207" />
+      <option name="project" value="LOCAL" />
+      <updated>1609406903525</updated>
+    </task>
+    <task id="LOCAL-00208" summary="归并排序">
+      <created>1609407237161</created>
+      <option name="number" value="00208" />
+      <option name="presentableId" value="LOCAL-00208" />
+      <option name="project" value="LOCAL" />
+      <updated>1609407237161</updated>
+    </task>
+    <option name="localTasksCounter" value="209" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -671,7 +672,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="字符串分析算法" />
     <MESSAGE value="proxy 与 双向数据绑定" />
     <MESSAGE value="重学 JavaScript" />
     <MESSAGE value="js 表达式" />
@@ -696,7 +696,8 @@
     <MESSAGE value="15周" />
     <MESSAGE value="散列表" />
     <MESSAGE value="递归" />
-    <option name="LAST_COMMIT_MESSAGE" value="递归" />
+    <MESSAGE value="归并排序" />
+    <option name="LAST_COMMIT_MESSAGE" value="归并排序" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-1190" y="353" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1608882705253">
@@ -707,10 +708,10 @@
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
     <state x="-1268" y="380" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608775458911" />
-    <state x="-1604" y="23" key="CommitChangelistDialog2" timestamp="1609403857959">
+    <state x="-1604" y="23" key="CommitChangelistDialog2" timestamp="1609407237051">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state x="-1604" y="23" key="CommitChangelistDialog2/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1609403857959" />
+    <state x="-1604" y="23" key="CommitChangelistDialog2/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1609407237051" />
     <state x="-1604" y="58" key="CommitChangelistDialog2/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608630973646" />
     <state x="237" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1608544832909" />
     <state width="661" height="582" key="DebuggerActiveHint" timestamp="1608536325563">
@@ -721,28 +722,28 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="140" y="100" key="DiffContextDialog/0.23.1440.877@0.23.1440.877" timestamp="1608536607239" />
-    <state width="1691" height="184" key="GridCell.Tab.0.bottom" timestamp="1609403954321">
+    <state width="1691" height="97" key="GridCell.Tab.0.bottom" timestamp="1609407278377">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state width="1691" height="184" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1609403954321" />
+    <state width="1691" height="97" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1609407278377" />
     <state width="1894" height="187" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608630983909" />
     <state width="1414" height="175" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1608544852116" />
-    <state width="1691" height="184" key="GridCell.Tab.0.center" timestamp="1609403954320">
+    <state width="1691" height="97" key="GridCell.Tab.0.center" timestamp="1609407278375">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state width="1691" height="184" key="GridCell.Tab.0.center/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1609403954320" />
+    <state width="1691" height="97" key="GridCell.Tab.0.center/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1609407278375" />
     <state width="1894" height="187" key="GridCell.Tab.0.center/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608630983908" />
     <state width="1414" height="175" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1608544852116" />
-    <state width="1691" height="184" key="GridCell.Tab.0.left" timestamp="1609403954320">
+    <state width="1691" height="97" key="GridCell.Tab.0.left" timestamp="1609407278375">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state width="1691" height="184" key="GridCell.Tab.0.left/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1609403954320" />
+    <state width="1691" height="97" key="GridCell.Tab.0.left/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1609407278375" />
     <state width="1894" height="187" key="GridCell.Tab.0.left/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608630983907" />
     <state width="1414" height="175" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1608544852115" />
-    <state width="1691" height="184" key="GridCell.Tab.0.right" timestamp="1609403954321">
+    <state width="1691" height="97" key="GridCell.Tab.0.right" timestamp="1609407278376">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state width="1691" height="184" key="GridCell.Tab.0.right/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1609403954321" />
+    <state width="1691" height="97" key="GridCell.Tab.0.right/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1609407278376" />
     <state width="1894" height="187" key="GridCell.Tab.0.right/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608630983908" />
     <state width="1414" height="175" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1608544852116" />
     <state width="1414" height="175" key="GridCell.Tab.1.bottom" timestamp="1608544852117">
@@ -798,10 +799,10 @@
     </state>
     <state x="-1335" y="118" key="RollbackChangesDialog/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608776628857" />
     <state x="439" y="102" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1608538303143" />
-    <state x="-1632" y="162" key="Vcs.Push.Dialog.v2" timestamp="1609403859078">
+    <state x="-1632" y="162" key="Vcs.Push.Dialog.v2" timestamp="1609407238722">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state x="-1632" y="162" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1609403859078" />
+    <state x="-1632" y="162" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1609407238722" />
     <state x="-1632" y="197" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608630974695" />
     <state x="216" y="138" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1608544840265" />
     <state x="-1309" y="203" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1609313077325">

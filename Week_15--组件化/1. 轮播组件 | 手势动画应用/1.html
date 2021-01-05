@@ -31,9 +31,21 @@ move 的时候，我们本来是 clientX 减去一个 startX, 那这个时候，
     pos = (pos % children.length + children.length ) % children.length;
     同样，我们再把 panEnd 加上，把 up 的代码拿过来。
 
-    接下来，我们把时间也给它加上去，然后并且使用我们的，animation 来解决这个问题，
+    接下来，我们把时间也给它加上去，然后并且使用我们的，animation 来解决这个问题，这里我们就沿用鼠标事件的时候，所使用的 position ,我们就不用这个
+currentIndex 了。 然后 main.html 中 transition: ease 0.5s; 去掉，不然会给我们造成一些困扰。  我真一帧移动的时候，它都会给我加这个动画就很
+烦，
+next.style.transform = `translateX(${100 - nextIndex * 100}%)`;
+改成
+next.style.transform = `translateX(${500 - nextIndex * 500}px)`;
+我们要精准操作，就要用 px.
 
+current 的 transform 的开始值，他一定是我们的position,它一定是跟着 position 走的，它是 -position * 500,
+终止值是 -500 - position * 500，
 
+next 呢，
+timeline.add(new Animation(next.style,"transform",
+500 - nextIndex * 500,  - nextIndex * 500,500, 0, ease,
+v => `translateX(${v}px)`))
 
 
 

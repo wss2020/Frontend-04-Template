@@ -23,31 +23,55 @@ export class Carousel extends Component {
         }
 
         enableGesture(this.root);
+        let timeline = new Timeline;
+        timeline.start();
 
         let children = this.root.children;
         let position = 0;
 
         this.root.addEventListener("pan", event => {
             let x = event.clientX - event.startX;
-            let current = position - ((x - x%500 )/ 500);
-            for(let offset of [-1,0,1]){
+            let current = position - ((x - x % 500) / 500);
+            for (let offset of [-1, 0, 1]) {
                 let pos = current + offset;
-                pos = (pos % children.length + children.length ) % children.length;
+                pos = (pos % children.length + children.length) % children.length;
                 children[pos].style.transition = "none";
-                children[pos].style.transform = `translateX(${ -pos*500 + offset*500 + x%500}px)`;
+                children[pos].style.transform = `translateX(${-pos * 500 + offset * 500 + x % 500}px)`;
             }
         })
 
         this.root.addEventListener("panEnd", event => {
             let x = event.clientX - event.startX;
             position = position - Math.round(x / 500);
-            for(let offset of [0,-Math.sign( Math.round( x/500 ) - x + 250 * Math.sign(x) )]){
+            for (let offset of [0, -Math.sign(Math.round(x / 500) - x + 250 * Math.sign(x))]) {
                 let pos = position + offset;
-                pos = (pos % children.length + children.length ) % children.length;
+                pos = (pos % children.length + children.length) % children.length;
                 children[pos].style.transition = "";
-                children[pos].style.transform = `translateX(${ -pos*500 + offset*500}px)`;
+                children[pos].style.transform = `translateX(${-pos * 500 + offset * 500}px)`;
             }
         })
+
+
+        setInterval(() => {
+            let children = this.root.children;
+            let nextIndex = (position + 1) % children.length;
+
+            let current = children[position];
+            let next = children[nextIndex];
+
+            next.style.transition = "none";
+            next.style.transform = `translateX(${500 - nextIndex * 500}px)`;
+
+            timeline.add(new Animation(current.style,"transform",
+                - position * 500, -500 - position * 500, 500, 0, ease,
+                    v => `translateX(${v}px)`))
+
+            timeline.add(new Animation(next.style,"transform",
+                500 - nextIndex * 500,  - nextIndex * 500,500, 0, ease,
+                v => `translateX(${v}px)`))
+
+            position = nextIndex;
+        }, 3000);
 
 
         /** this.root.addEventListener("mousedown", event => {

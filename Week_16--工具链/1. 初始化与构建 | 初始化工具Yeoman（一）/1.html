@@ -1,0 +1,46 @@
+学习如何为我们的 JavaScript 的生产环境，去制作一套工具链，来覆盖前段开发的各个环节。
+
+推荐网址： yeoman.io/authoring/index.html
+所有工具的开端就是我们的 脚手架，有的人把脚手架误解跟工具链是一回事。 并不是这样，我们会把 generator 称作脚手架，
+yeoman 现在是社区比较流行的一个脚手架的生成器，它叫 generator 的 generator ，也就是说我们通过 yeoman 的框架，我们可以轻易的去开发一个，能够去
+初始化项目，创建模版的一个工具。
+    首先学习一下，yeoman 的使用.  新建一个文件夹 toolchain .  npm init
+    然后我们在这个文件下，先创建 yeoman ,    npm install yeoman-generator     ，yeoman 它也有一些依赖，所以安了一大堆的模块，接下来我们
+先去按照 yeoman 的文档，去创建它的目录结构，
+首先创建一个 generators 目录，在里面创建一个app 目录，在app 里面，创建一个 index.js.
+这样我们就有了一个基础的，这样的目录结构和文件。   routes 目录可以不去创建，它是为了我们去创建一个比较复杂的 generators 。
+
+    接着，我们就按照 yeoman 编写的方式去，把这个代码 copy 过来。
+var Generator = require('yeoman-generator');
+module.exports = class extends Generator {};
+
+    然后，yeoman 是这样，yeoman 它允许你去创建一个，简单的一个命令行交互的形式。 首先我们看，yeoman 的 api 是非常的奇怪的，他会顺次执行一个
+class 里面所有的方法， 所以这个和我们的认知，不是特别的一致。
+this.option('babel');  其实就是允许我们去加 babel 的 flag ,这个我们暂时也用不到，那么我们把它直接删掉。
+
+    这个时候，就是一个可用的 generator 的样子了， package.json 里，我们可以把  "main": "index.js",
+改成 "main": "generators/app/index.js".
+
+    我们打开 Terminal , 然后我们退到根目录 toolchain 下面，执行  npm link 命令，这个命令会把一个我们在本地的模块，link 到我们的 npm 的标准
+的模块里面去，所以你看到，它把 toolchain 的全局的模块，就变成了我们的开发中的模块。
+/usr/local/lib/node_modules/toolchain -> /Users/wangshuaishuai/Frontend-04-Template/toolchain
+link 完了之后，我们就可以用 yeoman 去启动它了。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

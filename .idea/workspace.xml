@@ -6,11 +6,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Week_16--工具链/1. 初始化与构建 | 初始化工具Yeoman（一）/1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/toolchain/generators/app/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week_15--组件化/1. 轮播组件 | 手势动画应用/1.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_15--组件化/1. 轮播组件 | 手势动画应用/1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/jsx/carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/carousel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/jsx/dist/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/dist/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/component/jsx/dist/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/component/jsx/dist/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week_10---重学CSS/1 CSS排版/5 BFC合并/2.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_10---重学CSS/1 CSS排版/5 BFC合并/2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Week_16/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Week_16--工具链/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +47,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/z.js数据结构与算法/6 散列表/1实现/2处理散列表中的冲突" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Week_10---重学CSS/1 CSS排版/3 正常流的行级排布" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -58,19 +58,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/z.js数据结构与算法/6 散列表/1实现/2处理散列表中的冲突" />
-      <recent name="$PROJECT_DIR$/z.js数据结构与算法/6 散列表/1实现/2处理散列表中的冲突/1 分离链表法" />
-      <recent name="$PROJECT_DIR$/z.js数据结构与算法/6 散列表/1实现/1 基础" />
-      <recent name="$PROJECT_DIR$/z.js数据结构与算法/6 散列表/1实现/2分离链表法" />
-      <recent name="$PROJECT_DIR$/z.js数据结构与算法/6 散列表/1实现 未结束" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/z.js数据结构与算法/6 散列表/1实现/2处理散列表中的冲突/1 分离链表法" />
       <recent name="$PROJECT_DIR$/z.js数据结构与算法/6 散列表/1实现/3创建更好的散列函数" />
       <recent name="$PROJECT_DIR$/z.js数据结构与算法/7 树" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/Week_01" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Week_10---重学CSS/1 CSS排版/3 正常流的行级排布" />
+      <recent name="$PROJECT_DIR$/z.js数据结构与算法/6 散列表/1实现/2处理散列表中的冲突" />
+      <recent name="$PROJECT_DIR$/z.js数据结构与算法/6 散列表/1实现/2处理散列表中的冲突/1 分离链表法" />
+      <recent name="$PROJECT_DIR$/z.js数据结构与算法/6 散列表/1实现/1 基础" />
+      <recent name="$PROJECT_DIR$/z.js数据结构与算法/6 散列表/1实现/2分离链表法" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.（没有解决冲突）.js">
@@ -278,21 +278,7 @@
       <workItem from="1609401091690" duration="4000" />
       <workItem from="1609402193477" duration="3200000" />
       <workItem from="1609726050245" duration="13000" />
-      <workItem from="1609828818443" duration="1364000" />
-    </task>
-    <task id="LOCAL-00160" summary="数据结构 栈">
-      <created>1608189596857</created>
-      <option name="number" value="00160" />
-      <option name="presentableId" value="LOCAL-00160" />
-      <option name="project" value="LOCAL" />
-      <updated>1608189596857</updated>
-    </task>
-    <task id="LOCAL-00161" summary="数据结构 栈">
-      <created>1608191399592</created>
-      <option name="number" value="00161" />
-      <option name="presentableId" value="LOCAL-00161" />
-      <option name="project" value="LOCAL" />
-      <updated>1608191399592</updated>
+      <workItem from="1609828818443" duration="10290000" />
     </task>
     <task id="LOCAL-00162" summary="数据结构 队列">
       <created>1608192724074</created>
@@ -623,7 +609,21 @@
       <option name="project" value="LOCAL" />
       <updated>1609407237161</updated>
     </task>
-    <option name="localTasksCounter" value="209" />
+    <task id="LOCAL-00209" summary="15">
+      <created>1609830232429</created>
+      <option name="number" value="00209" />
+      <option name="presentableId" value="LOCAL-00209" />
+      <option name="project" value="LOCAL" />
+      <updated>1609830232430</updated>
+    </task>
+    <task id="LOCAL-00210" summary="15">
+      <created>1609839912653</created>
+      <option name="number" value="00210" />
+      <option name="presentableId" value="LOCAL-00210" />
+      <option name="project" value="LOCAL" />
+      <updated>1609839912653</updated>
+    </task>
+    <option name="localTasksCounter" value="211" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -672,7 +672,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="proxy 与 双向数据绑定" />
     <MESSAGE value="重学 JavaScript" />
     <MESSAGE value="js 表达式" />
     <MESSAGE value="浏览器工作原理" />
@@ -697,7 +696,8 @@
     <MESSAGE value="散列表" />
     <MESSAGE value="递归" />
     <MESSAGE value="归并排序" />
-    <option name="LAST_COMMIT_MESSAGE" value="归并排序" />
+    <MESSAGE value="15" />
+    <option name="LAST_COMMIT_MESSAGE" value="15" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-1190" y="353" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1608882705253">
@@ -708,10 +708,10 @@
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
     <state x="-1268" y="380" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608775458911" />
-    <state x="-1604" y="23" key="CommitChangelistDialog2" timestamp="1609407237051">
+    <state x="-1604" y="23" key="CommitChangelistDialog2" timestamp="1609839912464">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state x="-1604" y="23" key="CommitChangelistDialog2/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1609407237051" />
+    <state x="-1604" y="23" key="CommitChangelistDialog2/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1609839912464" />
     <state x="-1604" y="58" key="CommitChangelistDialog2/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608630973646" />
     <state x="237" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1608544832909" />
     <state width="661" height="582" key="DebuggerActiveHint" timestamp="1608536325563">
@@ -794,15 +794,15 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1414" height="175" key="GridCell.Tab.3.right/0.23.1440.877@0.23.1440.877" timestamp="1608544852119" />
-    <state x="-1335" y="118" key="RollbackChangesDialog" timestamp="1608776628857">
+    <state x="-1335" y="118" key="RollbackChangesDialog" timestamp="1609839800914">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state x="-1335" y="118" key="RollbackChangesDialog/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608776628857" />
+    <state x="-1335" y="118" key="RollbackChangesDialog/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1609839800914" />
     <state x="439" y="102" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1608538303143" />
-    <state x="-1632" y="162" key="Vcs.Push.Dialog.v2" timestamp="1609407238722">
+    <state x="-1632" y="162" key="Vcs.Push.Dialog.v2" timestamp="1609839913975">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state x="-1632" y="162" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1609407238722" />
+    <state x="-1632" y="162" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1609839913975" />
     <state x="-1632" y="197" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608630974695" />
     <state x="216" y="138" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1608544840265" />
     <state x="-1309" y="203" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1609313077325">

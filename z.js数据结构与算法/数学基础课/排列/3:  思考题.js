@@ -13,8 +13,8 @@ const classes = ['a', 'b', 'c', 'd', 'e']
  */
 function get_password(n, result = '') {
 
-    // 找到了密码，输出结果
-    if (n === 0 || result === password) {
+    // 密码可尝试的位数为0，停止递归。  找到了密码，输出结果
+    if (n === 0) {
         // console.log(result);
         if(result === password ){
             console.log('找到了密码：' + result);

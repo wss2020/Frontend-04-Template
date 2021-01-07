@@ -3,7 +3,6 @@
  * （提示：根据可重复排列的规律，生成所有可能的 4 位密码。）
  * */
 
-
 const password = 'bacd'
 const classes = ['a', 'b', 'c', 'd', 'e']
 

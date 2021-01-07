@@ -5,6 +5,7 @@
 
 const password = 'bacd'
 const classes = ['a', 'b', 'c', 'd', 'e']
+let isFinish = false;
 
 /**
  * @Description:  使用函数的递归（嵌套）调用，找出所有可能的密码顺序
@@ -15,14 +16,17 @@ function get_password(n, result = '') {
 
     // 找到了密码，输出结果
     if (n === 0 || result === password) {
-        // console.log(result);
+        console.log(result);
         if(result === password ){
             console.log('找到了密码：' + result);
+            isFinish = true;
         }
         return;
     }
 
     for (let i = 0; i < classes.length; i++) {
+        if(isFinish) break;
+
         // 从剩下的未选的字母中，选择一个，加入结果
         let new_result = result.slice();
         new_result = new_result + classes[i];

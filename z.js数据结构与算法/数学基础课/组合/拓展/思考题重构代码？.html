@@ -1,0 +1,133 @@
+<script src="Set.js"></script>
+<script>
+    /**
+     * 假设现在需要设计一个抽奖系统。需要依次从 10 个人中，抽取三等奖 3 名，二等奖 2 名和一等奖 1 名。
+     * 请列出所有可能的组合，需要注意的每人最多只能被抽中 1 次。
+     * */
+    /**
+     从10人中选3人得3等奖，C(10, 3) = 120
+     再从剩下7人中选2人的3等奖，C(7, 2) = 21
+     再从剩下5人中选1人得1等奖， C(5, 1) = 5
+     总共有大约有 120×21×5=12600  种可能性，
+
+     * */
+
+    class Combination {
+        /**
+         *  teams-参与抽奖的10个人
+         *  saveThrees-保存所有的可能获得 3等奖 人数的组合
+         */
+        constructor() {
+            this.teams = ["P1", "P2", "P3", "P4", "P5", "P6", "P7", "P8", "P9", "P10"];
+            this.saveThrees = [];
+        }
+
+
+        /**
+         * @Description: 使用函数的递归（嵌套）调用，找出所有可能的人数组合
+         * @param teams-目前还剩多少人没有参与组合，result-保存当前已经组合的人数
+         * @return void
+         */
+        combine(teams, result, m, saveArray) {
+
+            // 挑选完了m个元素，输出结果
+            if (result.length == m) {
+                saveArray.push(result);
+                //console.log(result);
+                return;
+            }
+
+            for (let i = 0; i < teams.length; i++) {
+                // 从剩下的任素中，选择一人，加入结果
+                let newResult = result.slice();
+                newResult.push(teams[i]);
+
+                // 只考虑当前选择之后的所有任素
+                let rest_teams = teams.slice(i + 1, teams.length);
+
+                // 递归调用，对于剩余的人数继续生成组合
+                this.combine(rest_teams, newResult, m, saveArray);
+            }
+
+        }
+
+        getSeven(array) {
+            let set = this.set.clone();
+            array.forEach(item => {
+                set.remove(item)
+            })
+            return set.values();
+        }
+
+        getCurrentResultPre1(array, value) {
+            let result = [], aSeven, param;
+            array.map((item, i) => {
+                if (value === 2) {
+                    aSeven = this.getSeven(item);
+                    result[i] = {"Price3": item, "Price2s": []};
+                    param = result[i].Price2s;
+                } else {
+                    aSeven = item.rest_result;
+                    result[i] = {"Price3": item.Price3, "Price2": item.Price2, "Price1s": []};
+                    param = result[i].Price1s;
+                }
+                this.combine(aSeven, [], value, param);
+            })
+            //console.log(result);
+            return result;
+        }
+
+        getCurrentResultPre2(result, value) {
+            let that = this;
+            function func1(item,Prices){
+                Prices.map((element,j) =>{
+                        newResult.push({"Price3": item.Price3, "Price2": item.Price2s[j],
+                            "rest_result": that.getSeven(item.Price3.concat(element))})
+                })
+            }
+            function func2(item,Prices){
+                Prices.map((element,j) =>{
+                        newResult.push({"Price3": item.Price3, "Price2": item.Price2, "Price1": element})
+                })
+            }
+
+            let newResult = [];
+            result.map(item=>{
+                if(value === 2)  func1(item,item.Price2s);
+                else func2(item,item.Price1s);
+            })
+            return newResult;
+        }
+
+
+
+        getCurrentResult(array,index) {
+            let result = this.getCurrentResultPre1(array, index);
+            return this.getCurrentResultPre2(result, index)
+        }
+
+
+        main() {
+            this.set = new Set();
+            this.teams.map(item => {
+                this.set.add(item)
+            });
+
+            // 算出所有 从10人中选3人得3等奖，C(10, 3) = 120 的结果，存入  this.saveThrees
+            this.combine(this.teams, [], 3, this.saveThrees);
+
+            // 算出所有 C(10, 3) * C(7, 2) 的结果
+            let result = this.getCurrentResult(this.saveThrees,2);
+            //console.log(result);
+
+            // 算出所有 C(10, 3) * C(7, 2) * C(5, 1) 的结果
+            let result1 = this.getCurrentResult(result,1);
+            console.log(result1);
+
+        }
+
+    }
+
+    new Combination().main();
+</script>
+

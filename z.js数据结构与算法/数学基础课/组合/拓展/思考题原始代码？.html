@@ -1,0 +1,142 @@
+<script src="Set.js"></script>
+<script>
+    /**
+     * 假设现在需要设计一个抽奖系统。需要依次从 10 个人中，抽取三等奖 3 名，二等奖 2 名和一等奖 1 名。
+     * 请列出所有可能的组合，需要注意的每人最多只能被抽中 1 次。
+     * */
+
+
+    /**
+     从10人中选3人得3等奖，C(10, 3) = 120
+     再从剩下7人中选2人的3等奖，C(7, 2) = 21
+     再从剩下5人中选1人得1等奖， C(5, 1) = 5
+     总共有大约有 120×21×5=12600  种可能性，
+
+     当数据量比较小时，还是可以算的：
+     * */
+
+    class Combination {
+        /**
+         *  teams-参与抽奖的10个人
+         *  saveThrees-保存所有的可能获得 3等奖 人数的组合
+         */
+        constructor() {
+            this.teams = ["P1", "P2", "P3", "P4", "P5", "P6", "P7", "P8", "P9", "P10"];
+            this.saveThrees = [];
+        }
+
+
+        /**
+         * @Description:    使用函数的递归（嵌套）调用，找出所有可能的人数组合
+         * @param teams-目前还剩多少人没有参与组合，result-保存当前已经组合的人数
+         * @return void
+         */
+        combine(teams, result, m, saveArray) {
+
+            // 挑选完了m个元素，输出结果
+            if (result.length == m) {
+                saveArray.push(result);
+                //console.log(result);
+                return;
+            }
+
+            for (let i = 0; i < teams.length; i++) {
+                // 从剩下的任素中，选择一人，加入结果
+                let newResult = result.slice();
+                newResult.push(teams[i]);
+
+                // 只考虑当前选择之后的所有任素
+                let rest_teams = teams.slice(i + 1, teams.length);
+
+                // 递归调用，对于剩余的人数继续生成组合
+                this.combine(rest_teams, newResult, m, saveArray);
+            }
+
+        }
+
+        getSeven(array) {
+            let set = this.set.clone();
+            array.forEach(item => {
+                set.remove(item);
+            })
+            return set.values();
+        }
+
+        getCurrentResult() {
+            let result = [];
+            for (let i = 0; i < this.saveThrees.length; i++) {
+                const aSeven = this.getSeven(this.saveThrees[i]);
+                result[i] = {
+                    "Price3": this.saveThrees[i],
+                    "Price2s": []
+                }
+                this.combine(aSeven, [], 2, result[i].Price2s);
+            }
+            //console.log(result);
+
+            let newResult = [];
+            for (let i = 0; i < result.length; i++) {
+                const Price2s = result[i].Price2s;
+                for (let j = 0; j < Price2s.length; j++) {
+                    newResult.push({
+                        "Price3": result[i].Price3,
+                        "Price2": result[i].Price2s[j],
+                        "rest_result": this.getSeven(result[i].Price3.concat(Price2s[j]))
+                    })
+                }
+            }
+            return newResult;
+        }
+
+        getCurrentResult1(array) {
+            let result = [];
+            for (let i = 0; i < array.length; i++) {
+                const aSeven = array[i].rest_result;
+                result[i] = {
+                    "Price3": array[i].Price3,
+                    "Price2": array[i].Price2,
+                    "Price1s": []
+                };
+                this.combine(aSeven, [], 1, result[i].Price1s);
+            }
+            //console.log(result);
+
+            let newResult = [];
+            for (let i = 0; i < result.length; i++) {
+                const Price1s = result[i].Price1s;
+                for (let j = 0; j < Price1s.length; j++) {
+                    newResult.push({
+                        "Price3": result[i].Price3,
+                        "Price2": result[i].Price2,
+                        "Price1": Price1s[j]
+                    })
+                }
+            }
+            return newResult;
+        }
+
+
+        main() {
+            this.set = new Set();
+            this.teams.map(item => {
+                this.set.add(item)
+            });
+
+            // 算出所有 从10人中选3人得3等奖，C(10, 3) = 120 的结果，存入  this.saveThrees
+            this.combine(this.teams, [], 3, this.saveThrees);
+
+            // 算出所有 C(10, 3) * C(7, 2) 的结果
+            let result = this.getCurrentResult();
+             //console.log(result);
+
+            // 算出所有 C(10, 3) * C(7, 2) * C(5, 1) 的结果
+            let result1 = this.getCurrentResult1(result);
+            console.log(result1);
+
+        }
+
+    }
+
+    new Combination().main();
+</script>
+

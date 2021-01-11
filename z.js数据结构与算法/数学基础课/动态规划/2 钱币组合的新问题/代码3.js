@@ -22,17 +22,17 @@ function MinCount(i) {
     arr[7] = {count: 1, value: [7]};
     if (arr[i]) return arr[i];
 
-        const Money2Count = i - 2 > 1 ? MinCount(i - 2) : {key: Infinity, value: []};
-        const Money3Count = i - 3 > 1 ? MinCount(i - 3) : {key: Infinity, value: []};
-        const Money7Count = i - 7 > 1 ? MinCount(i - 7) : {key: Infinity, value: []};
+    const Money2Count = i - 2 > 1 ? MinCount(i - 2) : {key: Infinity, value: []};
+    const Money3Count = i - 3 > 1 ? MinCount(i - 3) : {key: Infinity, value: []};
+    const Money7Count = i - 7 > 1 ? MinCount(i - 7) : {key: Infinity, value: []};
 
-        let {count, value} = checkMin(Money2Count, Money3Count, Money7Count);
-        arr[i] = {count: count, value: value}
+    let {count, value} = checkMin(Money2Count, Money3Count, Money7Count);
+    arr[i] = {count: count, value: value}
 
     return arr[i];
 }
 
-console.log(MinCount(100) );
+console.log(MinCount(100));
 console.log("sumCount: " + sumCount);
 
 

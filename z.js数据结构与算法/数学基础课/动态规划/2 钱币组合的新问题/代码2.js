@@ -37,7 +37,7 @@ function MinCount(i) {
     return arr[i];
 }
 
-console.log(MinCount(10000 ));
+console.log(MinCount(100 ));
 console.log("count: " + count);
 
 

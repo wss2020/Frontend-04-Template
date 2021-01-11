@@ -7,6 +7,7 @@ function MinCount(i) {
     arr[2] = 1;
     arr[3] = 1;
     arr[4] = 2;
+    arr[7] = 1;
     if(arr[i])  return arr[i];
 
     if (i > 4) {

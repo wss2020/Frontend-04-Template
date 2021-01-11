@@ -20,6 +20,7 @@ function MinCount(i) {
     arr[2] = 1;
     arr[3] = 1;
     arr[4] = 2;
+    arr[7] = 1;
     if(arr[i]) return arr[i];
 
     if (i > 4) {
@@ -36,5 +37,5 @@ function MinCount(i) {
     return arr[i];
 }
 
-console.log(MinCount(1000));
+console.log(MinCount(10000 ));
 console.log("count: " + count);

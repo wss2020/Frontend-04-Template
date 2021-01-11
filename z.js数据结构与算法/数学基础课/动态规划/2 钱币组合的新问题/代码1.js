@@ -1,3 +1,5 @@
+// 不推荐使用
+
 let count = 0;
 let arr = [];
 function MinCount(i) {

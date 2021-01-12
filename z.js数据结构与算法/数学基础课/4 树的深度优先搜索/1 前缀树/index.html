@@ -12,16 +12,16 @@
      * @Description:    前缀树的结点
      */
     class TreeNode {
-        //l  结点的名称，在前缀树里是单个字母
-        //pre 从树的根到当前结点这条通路上，全部字母所组成的前缀。例如通路b->o->y，对于字母o结点而言，前缀是b；对于字母y结点而言，前缀是bo
-        //exp 词条的解释
+        //label  结点的名称，在前缀树里是单个字母
+        //prefix 从树的根到当前结点这条通路上，全部字母所组成的前缀。例如通路b->o->y，对于字母o结点而言，前缀是b；对于字母y结点而言，前缀是bo
+        //explanation 词条的解释
         //sons  使用哈希映射存放子结点。哈希便于确认是否已经添加过某个字母对应的结点。
 
         // 初始化结点
-        constructor(l, pre, exp) {
-            this.label = l;
-            this.prefix = pre;
-            this.explanation = exp;
+        constructor(label, prefix, explanation) {
+            this.label = label;
+            this.prefix = prefix;
+            this.explanation = explanation;
             this.sons = new HashTable();
         }
     }

@@ -53,6 +53,16 @@ class HashTable {
         this.table[this.loseLoseHashCode(key)] = undefined;
     }
 
+    containsKey(key){
+        let value = this.loseLoseHashCode(key);
+        for (let i = 0; i < this.table.length; i++) {
+            if (this.table[i] !== undefined) {
+                if(i === value )  return true;
+            }
+        }
+        return false;
+    }
+
 }
 
 let hash = new HashTable();
@@ -70,5 +80,10 @@ console.log(hash.get('Gandalf'));
 
 hash.put('Gandalf', "fandalf@qq.com");
 hash.put('aGndalf', "john@qq.com");
+hash.put('a', "a@qq.com");
+
 
 hash.print();
+
+console.log(  hash.containsKey('a') );
+console.log(  hash.containsKey('b') );

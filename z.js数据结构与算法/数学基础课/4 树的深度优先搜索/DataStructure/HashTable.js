@@ -10,7 +10,8 @@ class HashTable {
         for (let i = 0; i < key.length; i++) {
             hash += key.charCodeAt(i);
         }
-        return hash % 37;
+        // return hash % 37;
+        return hash;
     }
 
     // 辅助方法，输出 HashTable 中的值

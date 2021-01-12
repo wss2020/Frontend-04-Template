@@ -110,17 +110,31 @@
         lookup(word) {
             return this.lookupAWord(word, this.root);
         }
+
+
+        // 使用深度优先搜索，访问字典里所有的单词
+        dfs(parent) {
+            if (parent.sons.size() == 0) {
+                // 已经到达叶子结点了，表明找到一个单词，输入
+                console.log(parent.prefix + parent.label);
+
+            } else {
+                // 还不是叶子结点，遍历每个子结点，找出可能的通路
+                // 简洁写法
+                // parent.sons.table.map(item=>{ if(item !== undefined ) this.dfs(item) })
+                let items = parent.sons.table;
+                for(let i=0; i<items.length; i++){
+                    if(items[i] !== undefined ) this.dfs(items[i])
+                }
+            }
+        }
+
     }
 
     const l12_1 = new Lesson12_1();
     let words = ["zoo", "geometry", "bat", "boy", "geek", "address", "zebra"];		// 模拟字典
     l12_1.buildPrefixTree(words);
+    l12_1.dfs(l12_1.root);
 
-    console.log(l12_1.root);
-
-    console.log(l12_1.lookup("bo"));			//测试不存在的词（情况一）
-    console.log(l12_1.lookup("battle"));		//测试不存在的词（情况二）
-    console.log(l12_1.lookup("go"));			//测试不存在的词（情况三）
-    console.log(l12_1.lookup("boy"));		//测试存在的词
 </script>
 

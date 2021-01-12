@@ -16,7 +16,7 @@
 
          getMin(MoneyCounts,coins) {
             let arrCounts = MoneyCounts.map(item=>item.count);
-            let result = main(arrCounts);
+            let result = minToMax(arrCounts);
             let i = arrCounts.indexOf(result[0]) ;
             return {count: MoneyCounts[i].count + 1, value: MoneyCounts[i].value.concat(coins[i])};
         }

@@ -67,7 +67,7 @@ function merge(a, b) {
     return merged_one;
 }
 
-function main(to_sort) {
+function minToMax(to_sort) {
     return merge_sort(to_sort);
 }
 

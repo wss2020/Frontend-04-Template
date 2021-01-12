@@ -24,7 +24,7 @@ function MinCount(i,coins) {
 
     let MoneyCounts = coins.map(item=>{
         // 这个判断条件 大于多少，要根据具体情况，不过，这个值，可以作为参数，传进来。
-         return i - item > 0 ? MinCount(i - item,coins) : {key: Infinity, value: []};
+         return i - item > 0 ? MinCount(i - item,coins) : {count: Infinity, value: []};
     });
 
     let {count, value} = getMin(MoneyCounts,coins);

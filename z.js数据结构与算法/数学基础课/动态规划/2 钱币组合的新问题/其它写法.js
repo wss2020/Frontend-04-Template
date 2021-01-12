@@ -31,6 +31,6 @@ function makeChange(coins, amount) {
     return (cache[amount] = min);
 }
 
-console.log(makeChange([2, 3, 7], 100));
+console.log(makeChange([1, 2, 3, 7], 100));
 
 console.log(count);

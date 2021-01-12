@@ -1,0 +1,50 @@
+<script src="merge.js"></script>
+<script>
+    class MinCoinChange{
+        constructor(coins,amount) {
+            this.sumCount = 0;
+            this.amount = amount;
+            this.coins = coins;
+            this.arr = this.InitData(coins);
+        }
+
+        InitData(coins){
+            let arr = {};
+            coins.map(item=>{ arr[item] = {count: 1, value: [item]} });
+            return arr;
+        }
+
+         getMin(MoneyCounts,coins) {
+            let arrCounts = MoneyCounts.map(item=>item.count);
+            let result = main(arrCounts);
+            let i = arrCounts.indexOf(result[0]) ;
+            return {count: MoneyCounts[i].count + 1, value: MoneyCounts[i].value.concat(coins[i])};
+        }
+
+         MinCount(i) {
+            this.sumCount++;
+            let coins = this.coins;
+            let arr = this.arr;
+
+            if (arr[i]) return arr[i];
+
+            let {count, value} = this.getMin(
+                coins.map(item=>{
+                    return i - item > this.amount ? this.MinCount(i - item,coins) : {count: Infinity, value: []};
+                }),
+                coins
+            );
+            arr[i] = {count: count, value: value}
+            return arr[i];
+        }
+
+    }
+
+
+    let result = new MinCoinChange([1,2,3,7],0);
+    console.log( result.MinCount(100) );
+    console.log(result);
+</script>
+
+
+

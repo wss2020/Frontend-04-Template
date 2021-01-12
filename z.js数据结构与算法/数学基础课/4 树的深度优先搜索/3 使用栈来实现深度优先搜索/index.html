@@ -160,22 +160,6 @@
                         stack.push(stackTemp.pop());
                     }
                 }
-             // {
-             //        // 非叶子结点，遍历它的每个子结点
-             //        Iterator<Entry<Character, TreeNode>> iter
-             //            = node.sons.entrySet().iterator();
-             //
-             //        // 注意，这里使用了一个临时的栈stackTemp
-             //        // 这样做是为了保持遍历的顺序，和递归遍历的顺序是一致的
-             //        // 如果不要求一致，可以直接压入stack
-             //        Stack<TreeNode> stackTemp = new Stack<TreeNode>();
-             //        while (iter.hasNext()) {
-             //            stackTemp.push(iter.next().getValue());
-             //        }
-             //        while (!stackTemp.isEmpty()) {
-             //            stack.push(stackTemp.pop());
-             //        }
-             //    }
             }
         }
 

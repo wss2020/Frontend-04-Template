@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body></body>
+</html>
+<script src="HashTable.js"></script>
+<script>
+    /**
+     * @Description:    前缀树的结点
+     */
+    class TreeNode {
+        //l  结点的名称，在前缀树里是单个字母
+        //pre 从树的根到当前结点这条通路上，全部字母所组成的前缀。例如通路b->o->y，对于字母o结点而言，前缀是b；对于字母y结点而言，前缀是bo
+        //exp 词条的解释
+        //sons  使用哈希映射存放子结点。哈希便于确认是否已经添加过某个字母对应的结点。
+
+        // 初始化结点
+        constructor(l, pre, exp) {
+            this.label = l;
+            this.prefix = pre;
+            this.explanation = exp;
+            this.sons = new HashTable();
+        }
+    }
+
+    class Lesson12_1 {
+        constructor() {
+            this.root = new TreeNode(' ', "", "");
+        }
+
+        /**
+         * @Description:    通过递归的方式，构建前缀树的每个结点。
+         * 每次调用，都拿出给定字符串的首字母，查找该字母的结点是否已经存在。
+         * 不存在的话就建立一个。然后嵌套调用，重复这个步骤，直到等待处理的字符串为空
+         * @param str-还未处理的字符串，pre-当前的前缀，parent-当前结点的父结点
+         * @return void
+         */
+        processOneWord(str, pre, parent) {
+
+            // 如果没有剩下的字符，表示某个单词处理完毕，设置解释并返回
+            if (str.length === 0) {
+                parent.explanation = `The explanation of ${pre} is ...`;
+                return;
+            }
+
+            // 处理当前字符串的第一个字母
+            const c = str[0];
+
+            let found = null;
+
+            // 如果字母结点已经存在于当前父结点之下，找出它。否则就新生成一个
+            if (parent.sons.containsKey(c)) {
+                found = parent.sons.get(c);
+
+            } else {
+                let son = new TreeNode(c, pre, "");
+                parent.sons.put(c, son);
+                found = son;
+            }
+
+            // 递归调用，处理剩下的字符串。记得传入当前的前缀和结点
+            this.processOneWord(str.substring(1), pre + c, found);
+        }
+
+
+        // 前缀树根的初始化和构造前缀树的函数
+
+        buildPrefixTree(words) {
+
+            for (let i = 0; i < words.length; i++) {
+                this.processOneWord(words[i], "", this.root);
+            }
+
+        }
+
+
+        /**
+         * @Description:    通过递归的方式，查询前缀树的每个结点。
+         * 每次调用，都拿出给定字符串的首字母，查找该字母的结点是否已经存在。不存在的话就返回“not found!”。
+         * 如果存在，继续嵌套调用，重复这个步骤。直到等待处理的字符串为空，或者到达前缀树的叶子结点
+         * @param str-还未处理的字符串，pre-当前的前缀，parent-当前结点的父结点
+         * @return String-查找到的单词之解释，或者没有找到“not found!”
+         */
+        lookupAWord(word, parent) {
+
+            // 等待处理的字符串为空
+            if ("" === word) {
+                // 是否为一个合法的单词
+                if ("" === parent.explanation) {
+                    return "情况一 not found!";
+                } else return parent.explanation;
+            }
+
+            // 到达叶子结点，仍然没有找到
+            if (parent.sons.size() === 0) {
+                return "情况三 not found!";
+            }
+
+            // 拿出待处理字符串的首字母，如果找到了该字母就继续递归查找下去，否则返回“not found!”
+            let c = word[0];
+            if (parent.sons.containsKey(c)) {
+                return this.lookupAWord(word.substr(1), parent.sons.get(c));
+            } else {
+                return "情况二 not found!";
+            }
+
+        }
+
+        // 查询前缀树的函数
+        lookup(word) {
+            return this.lookupAWord(word, this.root);
+        }
+    }
+
+    const l12_1 = new Lesson12_1();
+    let words = ["zoo", "geometry", "bat", "boy", "geek", "address", "zebra"];		// 模拟字典
+    l12_1.buildPrefixTree(words);
+
+    console.log(l12_1.root);
+
+    console.log(l12_1.lookup("bo"));			//测试不存在的词（情况一）
+    console.log(l12_1.lookup("battle"));		//测试不存在的词（情况二）
+    console.log(l12_1.lookup("go"));			//测试不存在的词（情况三）
+    console.log(l12_1.lookup("boy"));		//测试存在的词
+</script>
+

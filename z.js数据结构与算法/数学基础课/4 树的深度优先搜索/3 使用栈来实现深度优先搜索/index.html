@@ -7,6 +7,7 @@
 <body></body>
 </html>
 <script src="../DataStructure/HashTable.js"></script>
+<script src="../DataStructure/Stack.js"></script>
 <script>
     /**
      * @Description:    前缀树的结点
@@ -142,22 +143,39 @@
                 if (node.sons.size() == 0) {
                     // 已经到达叶子结点了，输出
                     console.log(node.prefix + node.label);
-                } else {
+
+                } else  {
                     // 非叶子结点，遍历它的每个子结点
-                    Iterator < Entry < Character, TreeNode >> iter
-                        = node.sons.entrySet().iterator();
+                    let items = node.sons.table;
 
                     // 注意，这里使用了一个临时的栈stackTemp
                     // 这样做是为了保持遍历的顺序，和递归遍历的顺序是一致的
                     // 如果不要求一致，可以直接压入stack
-                    Stack < TreeNode > stackTemp = new Stack < TreeNode > ();
-                    while (iter.hasNext()) {
-                        stackTemp.push(iter.next().getValue());
+                    let stackTemp = new Stack();
+
+                    for (let i = 0; i < items.length; i++) {
+                        if (items[i] !== undefined) stackTemp.push( items[i] );
                     }
                     while (!stackTemp.isEmpty()) {
                         stack.push(stackTemp.pop());
                     }
                 }
+             // {
+             //        // 非叶子结点，遍历它的每个子结点
+             //        Iterator<Entry<Character, TreeNode>> iter
+             //            = node.sons.entrySet().iterator();
+             //
+             //        // 注意，这里使用了一个临时的栈stackTemp
+             //        // 这样做是为了保持遍历的顺序，和递归遍历的顺序是一致的
+             //        // 如果不要求一致，可以直接压入stack
+             //        Stack<TreeNode> stackTemp = new Stack<TreeNode>();
+             //        while (iter.hasNext()) {
+             //            stackTemp.push(iter.next().getValue());
+             //        }
+             //        while (!stackTemp.isEmpty()) {
+             //            stack.push(stackTemp.pop());
+             //        }
+             //    }
             }
         }
 
@@ -166,7 +184,7 @@
     const l12_1 = new Lesson12_1();
     let words = ["zoo", "geometry", "bat", "boy", "geek", "address", "zebra"];		// 模拟字典
     l12_1.buildPrefixTree(words);
-    l12_1.dfs(l12_1.root);
-
+    // l12_1.dfs(l12_1.root);
+    l12_1.dfsByStack(l12_1.root);
 </script>
 

@@ -154,7 +154,9 @@
                     let stackTemp = new Stack();
 
                     for (let i = 0; i < items.length; i++) {
-                        if (items[i] !== undefined) stackTemp.push( items[i] );
+                        if (items[i] !== undefined) {
+                            stackTemp.push( items[i] );
+                        }
                     }
                     while (!stackTemp.isEmpty()) {
                         stack.push(stackTemp.pop());

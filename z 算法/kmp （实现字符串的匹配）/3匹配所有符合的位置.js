@@ -47,10 +47,12 @@ function kmp(source, pattern) {
 let result1 =  kmp("zzabc abc bc bc","bc");
 let result2 =  kmp("aaaaa","aa");
 let result3 =  kmp("ababa","a");
+let result4 =  kmp("好好学习，天天向上，学习，学习，学习学习","学习");
 
 console.log(result1);
 console.log(result2);
 console.log(result3);
+console.log(result4);
 
 
 

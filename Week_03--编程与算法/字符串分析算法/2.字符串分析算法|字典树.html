@@ -5,8 +5,8 @@
 <script>
     let $ = Symbol("$");
 
-    class Trie{
-        constructor(){
+    class Trie {
+        constructor() {
             // 用一个空对象，来保存字典树里面的这些值。
             // js 里面最合适用作保存字典树里面的分支的这样的一种数据结构，就是Object 或者是 Map.
             // 因为字典树里，只会存字符串，所以说 对象 和 Map 没有本质的区别，
@@ -17,13 +17,13 @@
         }
 
         // insert 方法，把一个字符串插进字典树里，
-        insert(word){
+        insert(word) {
             // 设一个变量node,一开始让它等于 root,从root开始，逐级地把字符串，放进这个树的子树里面去，
             // 如果这颗子树不存在，我们就去for 循环这个，传进来的 word 这个新字符串。
             // 子树不存在，就先创建子树，然后再让node 到下一个层级去，就像查字典，翻到对应的字母的位置。
             let node = this.root;
-            for(let c of word){
-                if(!node[c])
+            for (let c of word) {
+                if (!node[c])
                     node[c] = Object.create(null);
                 node = node[c];
             }
@@ -32,16 +32,14 @@
             // 但是其实，这个地方用 $ 是不合适的，因为如果我们的字符串，它本身就支持$这个内容的话，这样做会出问题。
             // 一个更好的方案是，我们去 let $ = Symbol("$");
             // 利用 Symbol 这种，不可重复的特点，那么我们就可以让截止符的代码更加严谨一些。
-            if(!($ in node))
-                node[$] = 0;
-            node[$] ++;
+            if (!($ in node)) node[$] = 0;
+            node[$]++;
         }
-
 
 
         // 获取产生最多
         // most方法，它要去遍历整个数，
-        most(){
+        most() {
             let max = 0;
             let maxWord = null;
             // 我们想访问这颗数上的单词，怎么办？
@@ -53,26 +51,35 @@
             // 在递归调用的时候，每一次往下潜进一层的时候，我们都在word上，追加一个当前树的名字。
             // 这样我们访问到最后，得到这个节点的时候，我们同时能够获得word，
             // 我们用一个变量 max 来记录，最后 word 出现的次数，并且我们把max word，这个word 记下来。
-            let visit = (node,word)=>{
-                if(node[$] && node[$] > max){
-                    max = node[$];
-                    maxWord = word;
+
+            /**
+             * param-node:当前结点， word-记录 累加当前的单词
+             * */
+            let visit = (node, word) => {
+                //截止条件
+                if (node[$]) {
+                    if (node[$] > max) {
+                        max = node[$];
+                        maxWord = word;
+                    }
+                    return;
                 }
-                for(let p in node){
-                    visit(node[p],word + p);
+
+                for (let p in node) {
+                    visit(node[p], word + p);
                 }
             };
             visit(this.root, "");
-            console.log(maxWord,max);
+            console.log(maxWord, max);
         }
     }
 
     // randomWord 产生一个随机的单词，
     function randomWord(length) {
-         let s = "";
-         for(let i=0; i<length; i++)
-             s += String.fromCharCode(Math.random() * 26 + "a".charCodeAt(0));
-         return s;
+        let s = "";
+        for (let i = 0; i < length; i++)
+            s += String.fromCharCode(Math.random() * 26 + "a".charCodeAt(0));
+        return s;
     }
 
 
@@ -80,7 +87,7 @@
     let trie = new Trie();
 
     // 给它去插入 10 万个空的字符（随机创建的单词）
-    for(let i=0; i<100000; i++){
+    for (let i = 0; i < 100000; i++) {
         trie.insert(randomWord(4))
     }
 
@@ -96,8 +103,6 @@
 
 
 </script>
-
-
 
 
 <!DOCTYPE html>

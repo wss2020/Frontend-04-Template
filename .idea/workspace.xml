@@ -5,12 +5,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Week_16--工具链/1. 初始化与构建 | 初始化工具Yeoman（一）/1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/toolchain/generators/app/index.js" afterDir="false" />
+    <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="散列表 添加">
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/3__js.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_03--编程与算法/字符串分析算法/kmp /demo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Week_03--编程与算法/字符串分析算法/kmp /demo1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/z 算法/kmp （实现字符串的匹配）/1.字符串分析算法|KMP字符串模式匹配算法.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/z 算法/kmp （实现字符串的匹配）/2.只匹配第一个符合的位置.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/z 算法/kmp （实现字符串的匹配）/3匹配所有符合的位置.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/z 算法/编辑距离（实现查询推荐）/1 编辑距离（实现查询推荐）.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/z 算法/编辑距离（实现查询推荐）/状态转移表.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week_10---重学CSS/1 CSS排版/5 BFC合并/2.html" beforeDir="false" afterPath="$PROJECT_DIR$/Week_10---重学CSS/1 CSS排版/5 BFC合并/2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Week_16/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Week_16--工具链/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,8 +51,9 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Week_10---重学CSS/1 CSS排版/3 正常流的行级排布" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/z 算法" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -59,46 +64,51 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/z.js数据结构与算法/6 散列表/1实现/2处理散列表中的冲突/1 分离链表法" />
-      <recent name="$PROJECT_DIR$/z.js数据结构与算法/6 散列表/1实现/3创建更好的散列函数" />
-      <recent name="$PROJECT_DIR$/z.js数据结构与算法/7 树" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/Week_01" />
+      <recent name="$PROJECT_DIR$/Week_10---重学CSS/1 CSS排版/6 Flex 排版" />
+      <recent name="$PROJECT_DIR$/z.js数据结构与算法/数学基础课/4 树的深度优先搜索/DataStructure" />
+      <recent name="$PROJECT_DIR$/z.js数据结构与算法/数学基础课/动态规划/2 钱币组合的新问题" />
+      <recent name="$PROJECT_DIR$/z.js数据结构与算法/数学基础课/动态规划/1 编辑距离（实现查询推荐）" />
+      <recent name="$PROJECT_DIR$/z.js数据结构与算法/数学基础课/组合/拓展" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Week_10---重学CSS/1 CSS排版/3 正常流的行级排布" />
-      <recent name="$PROJECT_DIR$/z.js数据结构与算法/6 散列表/1实现/2处理散列表中的冲突" />
-      <recent name="$PROJECT_DIR$/z.js数据结构与算法/6 散列表/1实现/2处理散列表中的冲突/1 分离链表法" />
-      <recent name="$PROJECT_DIR$/z.js数据结构与算法/6 散列表/1实现/1 基础" />
-      <recent name="$PROJECT_DIR$/z.js数据结构与算法/6 散列表/1实现/2分离链表法" />
+      <recent name="$PROJECT_DIR$/z 算法" />
+      <recent name="$PROJECT_DIR$/z 算法/kmp" />
+      <recent name="$PROJECT_DIR$/Week_03--编程与算法/字符串分析算法/kmp " />
+      <recent name="$PROJECT_DIR$/z.js数据结构与算法/数学基础课/5 树的广度优先搜索/DataStructure" />
+      <recent name="$PROJECT_DIR$/z.js数据结构与算法/数学基础课/5 树的广度优先搜索/1 使用4的例子，用队列来实现广度优先搜素" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.（没有解决冲突）.js">
-    <configuration name="（没有解决冲突）.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/z.js数据结构与算法/6 散列表/1实现/1 基础/（没有解决冲突）.js" working-dir="$PROJECT_DIR$/z.js数据结构与算法/6 散列表/1实现/1 基础">
+  <component name="RunManager" selected="Node.js.3匹配所有符合的位置.js">
+    <configuration name="3.字符串分析算法|KMP字符串模式匹配算法.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Frontend-04-Template/Week_03--编程与算法/字符串分析算法/3.字符串分析算法|KMP字符串模式匹配算法.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
-    <configuration name="使用函数的递归（嵌套）调用，找出所有可能的奖赏组合.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/z.js数据结构与算法/其他/使用函数的递归（嵌套）调用，找出所有可能的奖赏组合.js" working-dir="$PROJECT_DIR$/z.js数据结构与算法/其他">
+    <configuration name="index.html (1)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Frontend-04-Template/z.js数据结构与算法/数学基础课/4 树的深度优先搜索/2 使用递归来实现深度优先搜索/index.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
-    <configuration name="归并排序.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/z.js数据结构与算法/其他/归并排序.js" working-dir="$PROJECT_DIR$/z.js数据结构与算法/其他">
+    <configuration name="3匹配所有符合的位置.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/z 算法/kmp （实现字符串的匹配）/3匹配所有符合的位置.js" working-dir="$PROJECT_DIR$/z 算法/kmp （实现字符串的匹配）">
       <method v="2" />
     </configuration>
-    <configuration name="demo.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/z.js数据结构与算法/其他/demo.js" working-dir="$PROJECT_DIR$/z.js数据结构与算法/其他">
+    <configuration name="demo1.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Week_03--编程与算法/字符串分析算法/kmp /demo1.js" working-dir="$PROJECT_DIR$/Week_03--编程与算法/字符串分析算法/kmp ">
       <method v="2" />
     </configuration>
-    <configuration name="linkList.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/z.js数据结构与算法/6 散列表/1实现/2处理散列表中的冲突/1 分离链表法/linkList.js" working-dir="$PROJECT_DIR$/z.js数据结构与算法/6 散列表/1实现/2处理散列表中的冲突/1 分离链表法">
+    <configuration name="demo.js (1)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Week_03--编程与算法/字符串分析算法/kmp /demo.js" working-dir="$PROJECT_DIR$/Week_03--编程与算法/字符串分析算法/kmp ">
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Node.js.（没有解决冲突）.js" />
-      <item itemvalue="Node.js.linkList.js" />
-      <item itemvalue="Node.js.demo.js" />
+      <item itemvalue="JavaScript Debug.index.html (1)" />
+      <item itemvalue="Node.js.3.思考题.js" />
+      <item itemvalue="JavaScript Debug.3.字符串分析算法|KMP字符串模式匹配算法.html" />
+      <item itemvalue="Node.js.demo.js (1)" />
+      <item itemvalue="Node.js.demo1.js" />
+      <item itemvalue="Node.js.3匹配所有符合的位置.js" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Node.js.demo.js" />
-        <item itemvalue="Node.js.（没有解决冲突）.js" />
-        <item itemvalue="Node.js.linkList.js" />
+        <item itemvalue="Node.js.3匹配所有符合的位置.js" />
+        <item itemvalue="Node.js.demo1.js" />
+        <item itemvalue="Node.js.demo.js (1)" />
+        <item itemvalue="JavaScript Debug.3.字符串分析算法|KMP字符串模式匹配算法.html" />
+        <item itemvalue="JavaScript Debug.index.html (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -278,280 +288,15 @@
       <workItem from="1609401091690" duration="4000" />
       <workItem from="1609402193477" duration="3200000" />
       <workItem from="1609726050245" duration="13000" />
-      <workItem from="1609828818443" duration="10290000" />
-    </task>
-    <task id="LOCAL-00162" summary="数据结构 队列">
-      <created>1608192724074</created>
-      <option name="number" value="00162" />
-      <option name="presentableId" value="LOCAL-00162" />
-      <option name="project" value="LOCAL" />
-      <updated>1608192724074</updated>
-    </task>
-    <task id="LOCAL-00163" summary="数据结构 队列">
-      <created>1608194151732</created>
-      <option name="number" value="00163" />
-      <option name="presentableId" value="LOCAL-00163" />
-      <option name="project" value="LOCAL" />
-      <updated>1608194151732</updated>
-    </task>
-    <task id="LOCAL-00164" summary="数据结构 队列">
-      <created>1608195852787</created>
-      <option name="number" value="00164" />
-      <option name="presentableId" value="LOCAL-00164" />
-      <option name="project" value="LOCAL" />
-      <updated>1608195852787</updated>
-    </task>
-    <task id="LOCAL-00165" summary="数据结构 队列">
-      <created>1608195880791</created>
-      <option name="number" value="00165" />
-      <option name="presentableId" value="LOCAL-00165" />
-      <option name="project" value="LOCAL" />
-      <updated>1608195880791</updated>
-    </task>
-    <task id="LOCAL-00166" summary="数据结构 队列">
-      <created>1608197292701</created>
-      <option name="number" value="00166" />
-      <option name="presentableId" value="LOCAL-00166" />
-      <option name="project" value="LOCAL" />
-      <updated>1608197292701</updated>
-    </task>
-    <task id="LOCAL-00167" summary="数据结构">
-      <created>1608198119857</created>
-      <option name="number" value="00167" />
-      <option name="presentableId" value="LOCAL-00167" />
-      <option name="project" value="LOCAL" />
-      <updated>1608198119857</updated>
-    </task>
-    <task id="LOCAL-00168" summary="数据结构">
-      <created>1608361494083</created>
-      <option name="number" value="00168" />
-      <option name="presentableId" value="LOCAL-00168" />
-      <option name="project" value="LOCAL" />
-      <updated>1608361494086</updated>
-    </task>
-    <task id="LOCAL-00169" summary="数据结构">
-      <created>1608537768670</created>
-      <option name="number" value="00169" />
-      <option name="presentableId" value="LOCAL-00169" />
-      <option name="project" value="LOCAL" />
-      <updated>1608537768670</updated>
-    </task>
-    <task id="LOCAL-00170" summary="数据结构 树">
-      <created>1608539624887</created>
-      <option name="number" value="00170" />
-      <option name="presentableId" value="LOCAL-00170" />
-      <option name="project" value="LOCAL" />
-      <updated>1608539624887</updated>
-    </task>
-    <task id="LOCAL-00171" summary="数据结构">
-      <created>1608540150012</created>
-      <option name="number" value="00171" />
-      <option name="presentableId" value="LOCAL-00171" />
-      <option name="project" value="LOCAL" />
-      <updated>1608540150012</updated>
-    </task>
-    <task id="LOCAL-00172" summary="重学">
-      <created>1608544811376</created>
-      <option name="number" value="00172" />
-      <option name="presentableId" value="LOCAL-00172" />
-      <option name="project" value="LOCAL" />
-      <updated>1608544811377</updated>
-    </task>
-    <task id="LOCAL-00173" summary="重学">
-      <created>1608544833003</created>
-      <option name="number" value="00173" />
-      <option name="presentableId" value="LOCAL-00173" />
-      <option name="project" value="LOCAL" />
-      <updated>1608544833003</updated>
-    </task>
-    <task id="LOCAL-00174" summary="13周">
-      <created>1608619778735</created>
-      <option name="number" value="00174" />
-      <option name="presentableId" value="LOCAL-00174" />
-      <option name="project" value="LOCAL" />
-      <updated>1608619778735</updated>
-    </task>
-    <task id="LOCAL-00175" summary="13周">
-      <created>1608624604967</created>
-      <option name="number" value="00175" />
-      <option name="presentableId" value="LOCAL-00175" />
-      <option name="project" value="LOCAL" />
-      <updated>1608624604967</updated>
-    </task>
-    <task id="LOCAL-00176" summary="13周">
-      <created>1608628864473</created>
-      <option name="number" value="00176" />
-      <option name="presentableId" value="LOCAL-00176" />
-      <option name="project" value="LOCAL" />
-      <updated>1608628864473</updated>
-    </task>
-    <task id="LOCAL-00177" summary="13周">
-      <created>1608630973747</created>
-      <option name="number" value="00177" />
-      <option name="presentableId" value="LOCAL-00177" />
-      <option name="project" value="LOCAL" />
-      <updated>1608630973748</updated>
-    </task>
-    <task id="LOCAL-00178" summary="13周">
-      <created>1608701838367</created>
-      <option name="number" value="00178" />
-      <option name="presentableId" value="LOCAL-00178" />
-      <option name="project" value="LOCAL" />
-      <updated>1608701838367</updated>
-    </task>
-    <task id="LOCAL-00179" summary="13周">
-      <created>1608702044031</created>
-      <option name="number" value="00179" />
-      <option name="presentableId" value="LOCAL-00179" />
-      <option name="project" value="LOCAL" />
-      <updated>1608702044031</updated>
-    </task>
-    <task id="LOCAL-00180" summary="13周">
-      <created>1608703585388</created>
-      <option name="number" value="00180" />
-      <option name="presentableId" value="LOCAL-00180" />
-      <option name="project" value="LOCAL" />
-      <updated>1608703585388</updated>
-    </task>
-    <task id="LOCAL-00181" summary="13周">
-      <created>1608703735606</created>
-      <option name="number" value="00181" />
-      <option name="presentableId" value="LOCAL-00181" />
-      <option name="project" value="LOCAL" />
-      <updated>1608703735606</updated>
-    </task>
-    <task id="LOCAL-00182" summary="14周">
-      <created>1608710117336</created>
-      <option name="number" value="00182" />
-      <option name="presentableId" value="LOCAL-00182" />
-      <option name="project" value="LOCAL" />
-      <updated>1608710117336</updated>
-    </task>
-    <task id="LOCAL-00183" summary="14周">
-      <created>1608710172462</created>
-      <option name="number" value="00183" />
-      <option name="presentableId" value="LOCAL-00183" />
-      <option name="project" value="LOCAL" />
-      <updated>1608710172462</updated>
-    </task>
-    <task id="LOCAL-00184" summary="14周">
-      <created>1608711932657</created>
-      <option name="number" value="00184" />
-      <option name="presentableId" value="LOCAL-00184" />
-      <option name="project" value="LOCAL" />
-      <updated>1608711932657</updated>
-    </task>
-    <task id="LOCAL-00185" summary="14周">
-      <created>1608776951874</created>
-      <option name="number" value="00185" />
-      <option name="presentableId" value="LOCAL-00185" />
-      <option name="project" value="LOCAL" />
-      <updated>1608776951875</updated>
-    </task>
-    <task id="LOCAL-00186" summary="14周">
-      <created>1608781195658</created>
-      <option name="number" value="00186" />
-      <option name="presentableId" value="LOCAL-00186" />
-      <option name="project" value="LOCAL" />
-      <updated>1608781195658</updated>
-    </task>
-    <task id="LOCAL-00187" summary="14周">
-      <created>1608790761522</created>
-      <option name="number" value="00187" />
-      <option name="presentableId" value="LOCAL-00187" />
-      <option name="project" value="LOCAL" />
-      <updated>1608790761522</updated>
-    </task>
-    <task id="LOCAL-00188" summary="14周">
-      <created>1608876896744</created>
-      <option name="number" value="00188" />
-      <option name="presentableId" value="LOCAL-00188" />
-      <option name="project" value="LOCAL" />
-      <updated>1608876896744</updated>
-    </task>
-    <task id="LOCAL-00189" summary="14周">
-      <created>1608881236874</created>
-      <option name="number" value="00189" />
-      <option name="presentableId" value="LOCAL-00189" />
-      <option name="project" value="LOCAL" />
-      <updated>1608881236875</updated>
-    </task>
-    <task id="LOCAL-00190" summary="14周">
-      <created>1608882714237</created>
-      <option name="number" value="00190" />
-      <option name="presentableId" value="LOCAL-00190" />
-      <option name="project" value="LOCAL" />
-      <updated>1608882714237</updated>
-    </task>
-    <task id="LOCAL-00191" summary="14周">
-      <created>1608883326480</created>
-      <option name="number" value="00191" />
-      <option name="presentableId" value="LOCAL-00191" />
-      <option name="project" value="LOCAL" />
-      <updated>1608883326480</updated>
-    </task>
-    <task id="LOCAL-00192" summary="14周">
-      <created>1608888927558</created>
-      <option name="number" value="00192" />
-      <option name="presentableId" value="LOCAL-00192" />
-      <option name="project" value="LOCAL" />
-      <updated>1608888927559</updated>
-    </task>
-    <task id="LOCAL-00193" summary="14周">
-      <created>1609123588360</created>
-      <option name="number" value="00193" />
-      <option name="presentableId" value="LOCAL-00193" />
-      <option name="project" value="LOCAL" />
-      <updated>1609123588360</updated>
-    </task>
-    <task id="LOCAL-00194" summary="14周">
-      <created>1609124256842</created>
-      <option name="number" value="00194" />
-      <option name="presentableId" value="LOCAL-00194" />
-      <option name="project" value="LOCAL" />
-      <updated>1609124256842</updated>
-    </task>
-    <task id="LOCAL-00195" summary="14周">
-      <created>1609124283509</created>
-      <option name="number" value="00195" />
-      <option name="presentableId" value="LOCAL-00195" />
-      <option name="project" value="LOCAL" />
-      <updated>1609124283509</updated>
-    </task>
-    <task id="LOCAL-00196" summary="14周">
-      <created>1609138460598</created>
-      <option name="number" value="00196" />
-      <option name="presentableId" value="LOCAL-00196" />
-      <option name="project" value="LOCAL" />
-      <updated>1609138460599</updated>
-    </task>
-    <task id="LOCAL-00197" summary="14周">
-      <created>1609140586035</created>
-      <option name="number" value="00197" />
-      <option name="presentableId" value="LOCAL-00197" />
-      <option name="project" value="LOCAL" />
-      <updated>1609140586035</updated>
-    </task>
-    <task id="LOCAL-00198" summary="14周">
-      <created>1609140810471</created>
-      <option name="number" value="00198" />
-      <option name="presentableId" value="LOCAL-00198" />
-      <option name="project" value="LOCAL" />
-      <updated>1609140810471</updated>
-    </task>
-    <task id="LOCAL-00199" summary="14周">
-      <created>1609140916044</created>
-      <option name="number" value="00199" />
-      <option name="presentableId" value="LOCAL-00199" />
-      <option name="project" value="LOCAL" />
-      <updated>1609140916045</updated>
-    </task>
-    <task id="LOCAL-00200" summary="15周">
-      <created>1609206270496</created>
-      <option name="number" value="00200" />
-      <option name="presentableId" value="LOCAL-00200" />
-      <option name="project" value="LOCAL" />
-      <updated>1609206270496</updated>
+      <workItem from="1609828818443" duration="10579000" />
+      <workItem from="1609925582340" duration="1679000" />
+      <workItem from="1609997171814" duration="10315000" />
+      <workItem from="1610075314051" duration="11220000" />
+      <workItem from="1610329258578" duration="12792000" />
+      <workItem from="1610359024571" duration="24000" />
+      <workItem from="1610415081786" duration="16269000" />
+      <workItem from="1610501459982" duration="13145000" />
+      <workItem from="1610588249535" duration="12299000" />
     </task>
     <task id="LOCAL-00201" summary="15周">
       <created>1609228772230</created>
@@ -623,7 +368,280 @@
       <option name="project" value="LOCAL" />
       <updated>1609839912653</updated>
     </task>
-    <option name="localTasksCounter" value="211" />
+    <task id="LOCAL-00211" summary="15">
+      <created>1609840726019</created>
+      <option name="number" value="00211" />
+      <option name="presentableId" value="LOCAL-00211" />
+      <option name="project" value="LOCAL" />
+      <updated>1609840726019</updated>
+    </task>
+    <task id="LOCAL-00212" summary="15">
+      <created>1610003965387</created>
+      <option name="number" value="00212" />
+      <option name="presentableId" value="LOCAL-00212" />
+      <option name="project" value="LOCAL" />
+      <updated>1610003965388</updated>
+    </task>
+    <task id="LOCAL-00213" summary="排列 组合">
+      <created>1610009350592</created>
+      <option name="number" value="00213" />
+      <option name="presentableId" value="LOCAL-00213" />
+      <option name="project" value="LOCAL" />
+      <updated>1610009350592</updated>
+    </task>
+    <task id="LOCAL-00214" summary="排列 组合">
+      <created>1610009387684</created>
+      <option name="number" value="00214" />
+      <option name="presentableId" value="LOCAL-00214" />
+      <option name="project" value="LOCAL" />
+      <updated>1610009387684</updated>
+    </task>
+    <task id="LOCAL-00215" summary="排列 组合">
+      <created>1610009799249</created>
+      <option name="number" value="00215" />
+      <option name="presentableId" value="LOCAL-00215" />
+      <option name="project" value="LOCAL" />
+      <updated>1610009799250</updated>
+    </task>
+    <task id="LOCAL-00216" summary="排列 组合">
+      <created>1610010034037</created>
+      <option name="number" value="00216" />
+      <option name="presentableId" value="LOCAL-00216" />
+      <option name="project" value="LOCAL" />
+      <updated>1610010034037</updated>
+    </task>
+    <task id="LOCAL-00217" summary="排列 组合">
+      <created>1610010589106</created>
+      <option name="number" value="00217" />
+      <option name="presentableId" value="LOCAL-00217" />
+      <option name="project" value="LOCAL" />
+      <updated>1610010589106</updated>
+    </task>
+    <task id="LOCAL-00218" summary="排列 组合">
+      <created>1610011121001</created>
+      <option name="number" value="00218" />
+      <option name="presentableId" value="LOCAL-00218" />
+      <option name="project" value="LOCAL" />
+      <updated>1610011121001</updated>
+    </task>
+    <task id="LOCAL-00219" summary="排列 组合">
+      <created>1610013483368</created>
+      <option name="number" value="00219" />
+      <option name="presentableId" value="LOCAL-00219" />
+      <option name="project" value="LOCAL" />
+      <updated>1610013483369</updated>
+    </task>
+    <task id="LOCAL-00220" summary="排列 组合">
+      <created>1610013556048</created>
+      <option name="number" value="00220" />
+      <option name="presentableId" value="LOCAL-00220" />
+      <option name="project" value="LOCAL" />
+      <updated>1610013556048</updated>
+    </task>
+    <task id="LOCAL-00221" summary="排列 组合">
+      <created>1610092275214</created>
+      <option name="number" value="00221" />
+      <option name="presentableId" value="LOCAL-00221" />
+      <option name="project" value="LOCAL" />
+      <updated>1610092275215</updated>
+    </task>
+    <task id="LOCAL-00222" summary="动态规划">
+      <created>1610346673341</created>
+      <option name="number" value="00222" />
+      <option name="presentableId" value="LOCAL-00222" />
+      <option name="project" value="LOCAL" />
+      <updated>1610346673342</updated>
+    </task>
+    <task id="LOCAL-00223" summary="动态规划">
+      <created>1610346940291</created>
+      <option name="number" value="00223" />
+      <option name="presentableId" value="LOCAL-00223" />
+      <option name="project" value="LOCAL" />
+      <updated>1610346940291</updated>
+    </task>
+    <task id="LOCAL-00224" summary="动态规划">
+      <created>1610353769558</created>
+      <option name="number" value="00224" />
+      <option name="presentableId" value="LOCAL-00224" />
+      <option name="project" value="LOCAL" />
+      <updated>1610353769558</updated>
+    </task>
+    <task id="LOCAL-00225" summary="动态规划">
+      <created>1610358332288</created>
+      <option name="number" value="00225" />
+      <option name="presentableId" value="LOCAL-00225" />
+      <option name="project" value="LOCAL" />
+      <updated>1610358332288</updated>
+    </task>
+    <task id="LOCAL-00226" summary="动态规划">
+      <created>1610358710133</created>
+      <option name="number" value="00226" />
+      <option name="presentableId" value="LOCAL-00226" />
+      <option name="project" value="LOCAL" />
+      <updated>1610358710133</updated>
+    </task>
+    <task id="LOCAL-00227" summary="动态规划">
+      <created>1610358767205</created>
+      <option name="number" value="00227" />
+      <option name="presentableId" value="LOCAL-00227" />
+      <option name="project" value="LOCAL" />
+      <updated>1610358767205</updated>
+    </task>
+    <task id="LOCAL-00228" summary="动态规划">
+      <created>1610358958570</created>
+      <option name="number" value="00228" />
+      <option name="presentableId" value="LOCAL-00228" />
+      <option name="project" value="LOCAL" />
+      <updated>1610358958570</updated>
+    </task>
+    <task id="LOCAL-00229" summary="动态规划">
+      <created>1610419073624</created>
+      <option name="number" value="00229" />
+      <option name="presentableId" value="LOCAL-00229" />
+      <option name="project" value="LOCAL" />
+      <updated>1610419073626</updated>
+    </task>
+    <task id="LOCAL-00230" summary="动态规划">
+      <created>1610419114440</created>
+      <option name="number" value="00230" />
+      <option name="presentableId" value="LOCAL-00230" />
+      <option name="project" value="LOCAL" />
+      <updated>1610419114440</updated>
+    </task>
+    <task id="LOCAL-00231" summary="动态规划">
+      <created>1610421858634</created>
+      <option name="number" value="00231" />
+      <option name="presentableId" value="LOCAL-00231" />
+      <option name="project" value="LOCAL" />
+      <updated>1610421858634</updated>
+    </task>
+    <task id="LOCAL-00232" summary="散列表 添加 containsKey 方法">
+      <created>1610438828699</created>
+      <option name="number" value="00232" />
+      <option name="presentableId" value="LOCAL-00232" />
+      <option name="project" value="LOCAL" />
+      <updated>1610438828699</updated>
+    </task>
+    <task id="LOCAL-00233" summary="前缀树">
+      <created>1610441010739</created>
+      <option name="number" value="00233" />
+      <option name="presentableId" value="LOCAL-00233" />
+      <option name="project" value="LOCAL" />
+      <updated>1610441010740</updated>
+    </task>
+    <task id="LOCAL-00234" summary="前缀树">
+      <created>1610441368353</created>
+      <option name="number" value="00234" />
+      <option name="presentableId" value="LOCAL-00234" />
+      <option name="project" value="LOCAL" />
+      <updated>1610441368353</updated>
+    </task>
+    <task id="LOCAL-00235" summary="树的深度优先搜索">
+      <created>1610442028188</created>
+      <option name="number" value="00235" />
+      <option name="presentableId" value="LOCAL-00235" />
+      <option name="project" value="LOCAL" />
+      <updated>1610442028188</updated>
+    </task>
+    <task id="LOCAL-00236" summary="树的深度优先搜索">
+      <created>1610444584258</created>
+      <option name="number" value="00236" />
+      <option name="presentableId" value="LOCAL-00236" />
+      <option name="project" value="LOCAL" />
+      <updated>1610444584258</updated>
+    </task>
+    <task id="LOCAL-00237" summary="使用栈来实现深度优先搜索">
+      <created>1610445264198</created>
+      <option name="number" value="00237" />
+      <option name="presentableId" value="LOCAL-00237" />
+      <option name="project" value="LOCAL" />
+      <updated>1610445264198</updated>
+    </task>
+    <task id="LOCAL-00238" summary="使用栈来实现深度优先搜索">
+      <created>1610445364591</created>
+      <option name="number" value="00238" />
+      <option name="presentableId" value="LOCAL-00238" />
+      <option name="project" value="LOCAL" />
+      <updated>1610445364591</updated>
+    </task>
+    <task id="LOCAL-00239" summary="使用栈来使用深度优先搜索">
+      <created>1610445502970</created>
+      <option name="number" value="00239" />
+      <option name="presentableId" value="LOCAL-00239" />
+      <option name="project" value="LOCAL" />
+      <updated>1610445502970</updated>
+    </task>
+    <task id="LOCAL-00240" summary="使用栈来实现深度优先搜索">
+      <created>1610503739118</created>
+      <option name="number" value="00240" />
+      <option name="presentableId" value="LOCAL-00240" />
+      <option name="project" value="LOCAL" />
+      <updated>1610503739119</updated>
+    </task>
+    <task id="LOCAL-00241" summary="4">
+      <created>1610505782485</created>
+      <option name="number" value="00241" />
+      <option name="presentableId" value="LOCAL-00241" />
+      <option name="project" value="LOCAL" />
+      <updated>1610505782486</updated>
+    </task>
+    <task id="LOCAL-00242" summary="广度优先搜索">
+      <created>1610519537587</created>
+      <option name="number" value="00242" />
+      <option name="presentableId" value="LOCAL-00242" />
+      <option name="project" value="LOCAL" />
+      <updated>1610519537587</updated>
+    </task>
+    <task id="LOCAL-00243" summary="广度优先搜索">
+      <created>1610519581407</created>
+      <option name="number" value="00243" />
+      <option name="presentableId" value="LOCAL-00243" />
+      <option name="project" value="LOCAL" />
+      <updated>1610519581407</updated>
+    </task>
+    <task id="LOCAL-00244" summary="散列表 添加">
+      <created>1610519685078</created>
+      <option name="number" value="00244" />
+      <option name="presentableId" value="LOCAL-00244" />
+      <option name="project" value="LOCAL" />
+      <updated>1610519685078</updated>
+    </task>
+    <task id="LOCAL-00245" summary="深度优先搜索">
+      <created>1610519782835</created>
+      <option name="number" value="00245" />
+      <option name="presentableId" value="LOCAL-00245" />
+      <option name="project" value="LOCAL" />
+      <updated>1610519782835</updated>
+    </task>
+    <task id="LOCAL-00246" summary="广度优先搜索">
+      <created>1610522548399</created>
+      <option name="number" value="00246" />
+      <option name="presentableId" value="LOCAL-00246" />
+      <option name="project" value="LOCAL" />
+      <updated>1610522548399</updated>
+    </task>
+    <task id="LOCAL-00247" summary="flex layout">
+      <created>1610531790265</created>
+      <option name="number" value="00247" />
+      <option name="presentableId" value="LOCAL-00247" />
+      <option name="project" value="LOCAL" />
+      <updated>1610531790265</updated>
+    </task>
+    <task id="LOCAL-00248" summary="flex layout">
+      <created>1610531870780</created>
+      <option name="number" value="00248" />
+      <option name="presentableId" value="LOCAL-00248" />
+      <option name="project" value="LOCAL" />
+      <updated>1610531870780</updated>
+    </task>
+    <task id="LOCAL-00249" summary="字典树">
+      <created>1610593493113</created>
+      <option name="number" value="00249" />
+      <option name="presentableId" value="LOCAL-00249" />
+      <option name="project" value="LOCAL" />
+      <updated>1610593493113</updated>
+    </task>
+    <option name="localTasksCounter" value="250" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -672,19 +690,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="重学 JavaScript" />
-    <MESSAGE value="js 表达式" />
-    <MESSAGE value="浏览器工作原理" />
-    <MESSAGE value="HTTP 请求" />
-    <MESSAGE value="HTTP 解析" />
-    <MESSAGE value="寻路" />
-    <MESSAGE value="HTML 解析" />
-    <MESSAGE value="CSS 计算" />
-    <MESSAGE value="jSX" />
-    <MESSAGE value="Component" />
-    <MESSAGE value="重学CSS" />
-    <MESSAGE value="组件" />
-    <MESSAGE value="数据结构和算法" />
     <MESSAGE value="数据结构 栈" />
     <MESSAGE value="数据结构 队列" />
     <MESSAGE value="数据结构 树" />
@@ -697,7 +702,20 @@
     <MESSAGE value="递归" />
     <MESSAGE value="归并排序" />
     <MESSAGE value="15" />
-    <option name="LAST_COMMIT_MESSAGE" value="15" />
+    <MESSAGE value="排列 组合" />
+    <MESSAGE value="动态规划" />
+    <MESSAGE value="散列表 添加 containsKey 方法" />
+    <MESSAGE value="前缀树" />
+    <MESSAGE value="树的深度优先搜索" />
+    <MESSAGE value="使用栈来使用深度优先搜索" />
+    <MESSAGE value="使用栈来实现深度优先搜索" />
+    <MESSAGE value="4" />
+    <MESSAGE value="散列表 添加" />
+    <MESSAGE value="深度优先搜索" />
+    <MESSAGE value="广度优先搜索" />
+    <MESSAGE value="flex layout" />
+    <MESSAGE value="字典树" />
+    <option name="LAST_COMMIT_MESSAGE" value="字典树" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-1190" y="353" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1608882705253">
@@ -708,115 +726,147 @@
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
     <state x="-1268" y="380" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608775458911" />
-    <state x="-1604" y="23" key="CommitChangelistDialog2" timestamp="1609839912464">
+    <state x="-1554" y="122" width="1016" height="877" key="CommitChangelistDialog2" timestamp="1610593492832">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state x="-1604" y="23" key="CommitChangelistDialog2/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1609839912464" />
+    <state x="-1554" y="122" width="1016" height="877" key="CommitChangelistDialog2/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1610593492832" />
+    <state x="237" y="23" key="CommitChangelistDialog2/0.23.1440.877/-1920.23.1920.1057@0.23.1440.877" timestamp="1610003965152" />
     <state x="-1604" y="58" key="CommitChangelistDialog2/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608630973646" />
     <state x="237" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1608544832909" />
     <state width="661" height="582" key="DebuggerActiveHint" timestamp="1608536325563">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="661" height="582" key="DebuggerActiveHint/0.23.1440.877@0.23.1440.877" timestamp="1608536325563" />
-    <state x="140" y="100" key="DiffContextDialog" timestamp="1608536607239">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state x="140" y="100" key="DiffContextDialog/0.23.1440.877@0.23.1440.877" timestamp="1608536607239" />
-    <state width="1691" height="97" key="GridCell.Tab.0.bottom" timestamp="1609407278377">
+    <state x="-1733" y="116" width="1732" height="723" key="DiffContextDialog" timestamp="1610519515471">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state width="1691" height="97" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1609407278377" />
+    <state x="-1733" y="116" width="1732" height="723" key="DiffContextDialog/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1610519515470" />
+    <state x="140" y="100" key="DiffContextDialog/0.23.1440.877@0.23.1440.877" timestamp="1608536607239" />
+    <state width="1875" height="181" key="GridCell.Tab.0.bottom" timestamp="1610613067436">
+      <screen x="-1920" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1388" height="233" key="GridCell.Tab.0.bottom/0.0.1440.900/-1920.0.1920.1080@0.0.1440.900" timestamp="1610433764913" />
+    <state width="1875" height="181" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1610613067436" />
+    <state width="1388" height="151" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.23.1920.1057@0.23.1440.877" timestamp="1610434667594" />
     <state width="1894" height="187" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608630983909" />
     <state width="1414" height="175" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1608544852116" />
-    <state width="1691" height="97" key="GridCell.Tab.0.center" timestamp="1609407278375">
+    <state width="1875" height="181" key="GridCell.Tab.0.center" timestamp="1610613067435">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state width="1691" height="97" key="GridCell.Tab.0.center/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1609407278375" />
+    <state width="1388" height="233" key="GridCell.Tab.0.center/0.0.1440.900/-1920.0.1920.1080@0.0.1440.900" timestamp="1610433764912" />
+    <state width="1875" height="181" key="GridCell.Tab.0.center/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1610613067435" />
+    <state width="1388" height="151" key="GridCell.Tab.0.center/0.23.1440.877/-1920.23.1920.1057@0.23.1440.877" timestamp="1610434667593" />
     <state width="1894" height="187" key="GridCell.Tab.0.center/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608630983908" />
     <state width="1414" height="175" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1608544852116" />
-    <state width="1691" height="97" key="GridCell.Tab.0.left" timestamp="1609407278375">
+    <state width="1875" height="181" key="GridCell.Tab.0.left" timestamp="1610613067434">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state width="1691" height="97" key="GridCell.Tab.0.left/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1609407278375" />
+    <state width="1388" height="233" key="GridCell.Tab.0.left/0.0.1440.900/-1920.0.1920.1080@0.0.1440.900" timestamp="1610433764911" />
+    <state width="1875" height="181" key="GridCell.Tab.0.left/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1610613067434" />
+    <state width="1388" height="151" key="GridCell.Tab.0.left/0.23.1440.877/-1920.23.1920.1057@0.23.1440.877" timestamp="1610434667592" />
     <state width="1894" height="187" key="GridCell.Tab.0.left/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608630983907" />
     <state width="1414" height="175" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1608544852115" />
-    <state width="1691" height="97" key="GridCell.Tab.0.right" timestamp="1609407278376">
+    <state width="1875" height="181" key="GridCell.Tab.0.right" timestamp="1610613067435">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state width="1691" height="97" key="GridCell.Tab.0.right/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1609407278376" />
+    <state width="1388" height="233" key="GridCell.Tab.0.right/0.0.1440.900/-1920.0.1920.1080@0.0.1440.900" timestamp="1610433764913" />
+    <state width="1875" height="181" key="GridCell.Tab.0.right/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1610613067435" />
+    <state width="1388" height="151" key="GridCell.Tab.0.right/0.23.1440.877/-1920.23.1920.1057@0.23.1440.877" timestamp="1610434667594" />
     <state width="1894" height="187" key="GridCell.Tab.0.right/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608630983908" />
     <state width="1414" height="175" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1608544852116" />
-    <state width="1414" height="175" key="GridCell.Tab.1.bottom" timestamp="1608544852117">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1875" height="403" key="GridCell.Tab.1.bottom" timestamp="1610603144033">
+      <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
+    <state width="1875" height="403" key="GridCell.Tab.1.bottom/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1610603144033" />
     <state width="1414" height="175" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1608544852117" />
-    <state width="1414" height="175" key="GridCell.Tab.1.center" timestamp="1608544852117">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1875" height="403" key="GridCell.Tab.1.center" timestamp="1610603144033">
+      <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
+    <state width="1875" height="403" key="GridCell.Tab.1.center/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1610603144033" />
     <state width="1414" height="175" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1608544852117" />
-    <state width="1414" height="175" key="GridCell.Tab.1.left" timestamp="1608544852117">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1875" height="403" key="GridCell.Tab.1.left" timestamp="1610603144032">
+      <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
+    <state width="1875" height="403" key="GridCell.Tab.1.left/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1610603144032" />
     <state width="1414" height="175" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1608544852117" />
-    <state width="1414" height="175" key="GridCell.Tab.1.right" timestamp="1608544852117">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1875" height="403" key="GridCell.Tab.1.right" timestamp="1610603144033">
+      <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
+    <state width="1875" height="403" key="GridCell.Tab.1.right/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1610603144033" />
     <state width="1414" height="175" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1608544852117" />
-    <state width="1414" height="175" key="GridCell.Tab.2.bottom" timestamp="1608544852118">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1875" height="403" key="GridCell.Tab.2.bottom" timestamp="1610603144035">
+      <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
+    <state width="1875" height="403" key="GridCell.Tab.2.bottom/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1610603144035" />
     <state width="1414" height="175" key="GridCell.Tab.2.bottom/0.23.1440.877@0.23.1440.877" timestamp="1608544852118" />
-    <state width="1414" height="175" key="GridCell.Tab.2.center" timestamp="1608544852118">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1875" height="403" key="GridCell.Tab.2.center" timestamp="1610603144034">
+      <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
+    <state width="1875" height="403" key="GridCell.Tab.2.center/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1610603144034" />
     <state width="1414" height="175" key="GridCell.Tab.2.center/0.23.1440.877@0.23.1440.877" timestamp="1608544852118" />
-    <state width="1414" height="175" key="GridCell.Tab.2.left" timestamp="1608544852118">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1875" height="403" key="GridCell.Tab.2.left" timestamp="1610603144034">
+      <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
+    <state width="1875" height="403" key="GridCell.Tab.2.left/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1610603144034" />
     <state width="1414" height="175" key="GridCell.Tab.2.left/0.23.1440.877@0.23.1440.877" timestamp="1608544852118" />
-    <state width="1414" height="175" key="GridCell.Tab.2.right" timestamp="1608544852118">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1875" height="403" key="GridCell.Tab.2.right" timestamp="1610603144034">
+      <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
+    <state width="1875" height="403" key="GridCell.Tab.2.right/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1610603144034" />
     <state width="1414" height="175" key="GridCell.Tab.2.right/0.23.1440.877@0.23.1440.877" timestamp="1608544852118" />
-    <state width="1414" height="175" key="GridCell.Tab.3.bottom" timestamp="1608544852119">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1894" height="319" key="GridCell.Tab.3.bottom" timestamp="1610358970023">
+      <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
+    <state width="1894" height="319" key="GridCell.Tab.3.bottom/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1610358970023" />
     <state width="1414" height="175" key="GridCell.Tab.3.bottom/0.23.1440.877@0.23.1440.877" timestamp="1608544852119" />
-    <state width="1414" height="175" key="GridCell.Tab.3.center" timestamp="1608544852119">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1894" height="319" key="GridCell.Tab.3.center" timestamp="1610358970022">
+      <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
+    <state width="1894" height="319" key="GridCell.Tab.3.center/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1610358970022" />
     <state width="1414" height="175" key="GridCell.Tab.3.center/0.23.1440.877@0.23.1440.877" timestamp="1608544852119" />
-    <state width="1414" height="175" key="GridCell.Tab.3.left" timestamp="1608544852119">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1894" height="319" key="GridCell.Tab.3.left" timestamp="1610358970022">
+      <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
+    <state width="1894" height="319" key="GridCell.Tab.3.left/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1610358970022" />
     <state width="1414" height="175" key="GridCell.Tab.3.left/0.23.1440.877@0.23.1440.877" timestamp="1608544852119" />
-    <state width="1414" height="175" key="GridCell.Tab.3.right" timestamp="1608544852119">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1894" height="319" key="GridCell.Tab.3.right" timestamp="1610358970023">
+      <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
+    <state width="1894" height="319" key="GridCell.Tab.3.right/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1610358970023" />
     <state width="1414" height="175" key="GridCell.Tab.3.right/0.23.1440.877@0.23.1440.877" timestamp="1608544852119" />
-    <state x="-1335" y="118" key="RollbackChangesDialog" timestamp="1609839800914">
+    <state x="-1335" y="118" key="RollbackChangesDialog" timestamp="1610594866152">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state x="-1335" y="118" key="RollbackChangesDialog/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1609839800914" />
+    <state x="-1335" y="118" key="RollbackChangesDialog/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1610594866152" />
     <state x="439" y="102" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1608538303143" />
-    <state x="-1632" y="162" key="Vcs.Push.Dialog.v2" timestamp="1609839913975">
+    <state x="-1632" y="162" key="Vcs.Push.Dialog.v2" timestamp="1610593494351">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state x="-1632" y="162" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1609839913975" />
+    <state x="-1632" y="162" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1610593494351" />
+    <state x="216" y="138" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.23.1920.1057@0.23.1440.877" timestamp="1610003966629" />
     <state x="-1632" y="197" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608630974695" />
     <state x="216" y="138" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1608544840265" />
     <state x="-1309" y="203" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1609313077325">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
     <state x="-1309" y="203" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1609313077325" />
-    <state x="-1920" y="23" width="1511" height="996" key="dock-window-1" timestamp="1609121618065">
+    <state x="0" y="0" width="1440" height="900" key="dock-window-1" timestamp="1610520393055">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="0" y="0" width="1440" height="900" key="dock-window-1/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1610520393055" />
+    <state x="-1742" y="89" width="1040" height="816" key="dock-window-1/0.23.1440.877/-1920.23.1920.1057@0.23.1440.877" timestamp="1610006681895" />
+    <state x="-1639" y="163" width="1440" height="877" maximized="true" key="dock-window-2" timestamp="1610529029017">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state x="-1920" y="23" width="1511" height="996" key="dock-window-1/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1609121618065" />
-    <state x="-1379" y="48" width="838" height="1032" key="search.everywhere.popup" timestamp="1609308568857">
+    <state x="-1639" y="163" width="1440" height="877" maximized="true" key="dock-window-2/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1610529029017" />
+    <state x="-1304" y="323" key="jetbrains.nodejs.interpreters-dialog" timestamp="1610009960220">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
-    <state x="-1379" y="48" width="838" height="1032" key="search.everywhere.popup/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1609308568857" />
+    <state x="-1304" y="323" key="jetbrains.nodejs.interpreters-dialog/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1610009960220" />
+    <state x="-1379" y="48" width="838" height="1032" key="search.everywhere.popup" timestamp="1610519734098">
+      <screen x="-1920" y="23" width="1920" height="1057" />
+    </state>
+    <state x="-1379" y="48" width="838" height="1032" key="search.everywhere.popup/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1610519734098" />
     <state x="-1379" y="83" width="838" height="1032" key="search.everywhere.popup/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608621337752" />
   </component>
   <component name="XDebuggerManager">
@@ -829,5 +879,8 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Frontend_04_Template$3_html__1_.dat" NAME="3.html (1) Coverage Results" MODIFIED="1610421839588" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="WipCoverageRunner" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

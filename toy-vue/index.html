@@ -1,0 +1,13 @@
+<div id="app">
+    {{message}}
+</div>
+
+<script type="module">
+    import {ToyVue as Vue} from "./toy-vue.js";
+    let app = new Vue({
+        el:"#app",
+        data:{
+            message: 'Hello Vue!'
+        }
+    })
+</script>

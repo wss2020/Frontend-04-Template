@@ -64,7 +64,7 @@ function getStrDistance(a, b) {
 }
 
 
-console.log(getStrDistance("mouse", "mouuse"));
+console.log( getStrDistance("mouse", "mouuse") );
 //System.out.println(Lesson10_1.getStrDistanceByThreshold("mouse", "mouuse", 0));
 
 

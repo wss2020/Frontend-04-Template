@@ -106,11 +106,11 @@ function loggingIdentity2<T>(arg: Array<T>): Array<T> {
 
     泛型函数的类型与非泛型函数的类型没什么不同，只是有一个类型参数在最前面，像函数声明一样：
  */
-function identity<T>(arg: T): T {
+function identity_1<T>(arg: T): T {
     return arg;
 }
 
-let myIdentity: <T>(arg: T) => T = identity;
+let myIdentity_1: <T>(arg: T) => T = identity_1;
 
 
 

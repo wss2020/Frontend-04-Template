@@ -6,17 +6,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/toy-vue/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/toy-vue/toy-vue.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/toy-vue/笔记.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ts/1.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ts/2.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ts/3.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ts/4.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ts/5泛型.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ts/6泛型1.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/2 Array Types, Literal Types, and Intersection Types/1.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/2 Array Types, Literal Types, and Intersection Types/2.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/3 Union Types and Optional Properties/1.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/3 Union Types and Optional Properties/2.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/3 Union Types and Optional Properties/3.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/4 generics/1 Let’s talk about makeState()/1.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/4 generics/1 Let’s talk about makeState()/2 Use generics.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/4 generics/1 Let’s talk about makeState()/补充.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/4 generics/2 You can create a boolean state!/1.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/4 generics/3 Default type/1 Default type.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/4 generics/3 Default type/2 Quick recap.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/4 generics/3 Default type/3 Let’s talk about makePair.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/4 generics/3 Default type/4 Generic makePair.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/4 generics/3 Default type/5 Generic interfaces and type aliases.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/4 generics/3 Default type/6 Generic classes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/4 generics/4 Your Coding Tutorial Might Need Some Refactoring/1 Both code and coding tutorials can be refactored.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/泛型/2泛型类型.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/泛型/3泛型类.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/泛型/4 泛型约束.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/z 算法/编辑距离（实现查询推荐）/1 编辑距离（实现查询推荐）.js" beforeDir="false" afterPath="$PROJECT_DIR$/z 算法/编辑距离（实现查询推荐）/1 编辑距离（实现查询推荐）.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ts/1.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ts/1 Types, Read-only Properties, and Mapped Types/1.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ts/2.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ts/1 Types, Read-only Properties, and Mapped Types/2.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ts/3.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ts/1 Types, Read-only Properties, and Mapped Types/3.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ts/4.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ts/1 Types, Read-only Properties, and Mapped Types/4.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ts/5泛型.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ts/泛型/1使用泛型变量.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ts/6泛型1.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +68,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ts/2 Array Types, Literal Types, and Intersection Types" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -65,19 +80,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/ts" />
-      <recent name="$PROJECT_DIR$/z 算法" />
-      <recent name="$PROJECT_DIR$/z 算法/kmp" />
-      <recent name="$PROJECT_DIR$/Week_03--编程与算法/字符串分析算法/kmp " />
-      <recent name="$PROJECT_DIR$/z.js数据结构与算法/数学基础课/5 树的广度优先搜索/DataStructure" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ts/4 generics/3 Default type" />
+      <recent name="$PROJECT_DIR$/ts/Types, Read-only Properties, and Mapped Types" />
       <recent name="$PROJECT_DIR$/Week_10---重学CSS/1 CSS排版/6 Flex 排版" />
       <recent name="$PROJECT_DIR$/z.js数据结构与算法/数学基础课/4 树的深度优先搜索/DataStructure" />
       <recent name="$PROJECT_DIR$/z.js数据结构与算法/数学基础课/动态规划/2 钱币组合的新问题" />
-      <recent name="$PROJECT_DIR$/z.js数据结构与算法/数学基础课/动态规划/1 编辑距离（实现查询推荐）" />
-      <recent name="$PROJECT_DIR$/z.js数据结构与算法/数学基础课/组合/拓展" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ts/2 Array Types, Literal Types, and Intersection Types" />
+      <recent name="$PROJECT_DIR$/ts/范型" />
+      <recent name="$PROJECT_DIR$/ts" />
+      <recent name="$PROJECT_DIR$/z 算法" />
+      <recent name="$PROJECT_DIR$/z 算法/kmp" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.1 编辑距离（实现查询推荐）.js">
@@ -301,13 +316,8 @@
       <workItem from="1610588249535" duration="14299000" />
       <workItem from="1610675747787" duration="1282000" />
       <workItem from="1610701109898" duration="3071000" />
-    </task>
-    <task id="LOCAL-00203" summary="散列表">
-      <created>1609313021908</created>
-      <option name="number" value="00203" />
-      <option name="presentableId" value="LOCAL-00203" />
-      <option name="project" value="LOCAL" />
-      <updated>1609313021910</updated>
+      <workItem from="1610704549793" duration="64000" />
+      <workItem from="1610934637414" duration="16421000" />
     </task>
     <task id="LOCAL-00204" summary="散列表">
       <created>1609313084471</created>
@@ -645,11 +655,24 @@
       <option name="project" value="LOCAL" />
       <updated>1610613389163</updated>
     </task>
-    <option name="localTasksCounter" value="252" />
+    <task id="LOCAL-00252" summary="kmp">
+      <created>1610704576682</created>
+      <option name="number" value="00252" />
+      <option name="presentableId" value="LOCAL-00252" />
+      <option name="project" value="LOCAL" />
+      <updated>1610704576683</updated>
+    </task>
+    <option name="localTasksCounter" value="253" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/ts/4 generics/1 Let’s talk about makeState()/1.js" />
+        <option value="$PROJECT_DIR$/ts/4 generics/3 Default type/3 Let’s talk about makePair.js" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -734,13 +757,13 @@
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
     <state x="-1268" y="380" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1608775458911" />
-    <state x="-1554" y="122" width="1016" height="877" key="CommitChangelistDialog2" timestamp="1610613389031">
-      <screen x="-1920" y="23" width="1920" height="1057" />
+    <state x="237" y="23" width="1016" height="877" key="CommitChangelistDialog2" timestamp="1610704576372">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="-1554" y="122" width="1016" height="877" key="CommitChangelistDialog2/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1610613389031" />
     <state x="237" y="23" key="CommitChangelistDialog2/0.23.1440.877/-1920.23.1920.1057@0.23.1440.877" timestamp="1610003965152" />
     <state x="-1604" y="58" key="CommitChangelistDialog2/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608630973646" />
-    <state x="237" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1608544832909" />
+    <state x="237" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1610704576372" />
     <state width="661" height="582" key="DebuggerActiveHint" timestamp="1608536325563">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -851,13 +874,13 @@
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
     <state x="-1584" y="103" key="SettingsEditor/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1610613369532" />
-    <state x="-1632" y="162" key="Vcs.Push.Dialog.v2" timestamp="1610613390232">
-      <screen x="-1920" y="23" width="1920" height="1057" />
+    <state x="216" y="138" key="Vcs.Push.Dialog.v2" timestamp="1610704577862">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="-1632" y="162" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1610613390232" />
     <state x="216" y="138" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.23.1920.1057@0.23.1440.877" timestamp="1610003966629" />
     <state x="-1632" y="197" key="Vcs.Push.Dialog.v2/0.23.1440.877/-1920.58.1920.1057@-1920.58.1920.1057" timestamp="1608630974695" />
-    <state x="216" y="138" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1608544840265" />
+    <state x="216" y="138" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1610704577862" />
     <state x="-1309" y="203" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1609313077325">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>

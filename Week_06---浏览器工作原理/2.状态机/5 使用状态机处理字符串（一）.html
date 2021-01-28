@@ -2,64 +2,64 @@
 在一个字符串中，找到字符 "abcdef"
     要求：使用状态机
 -->
-<!--<script>-->
-<!--    function match(string){-->
-<!--        let state = start;-->
-<!--        for(let c of string){-->
-<!--            state = state(c);-->
-<!--        }-->
-<!--        return state === end;-->
-<!--    }-->
+<script>
+    function match(string){
+        let state = start;
+        for(let c of string){
+            state = state(c);
+        }
+        return state === end;
+    }
 
-<!--    function start(c){-->
-<!--        if(c === "a")-->
-<!--            return foundA;-->
-<!--        else-->
-<!--            return start;-->
-<!--    }-->
+    function start(c){
+        if(c === "a")
+            return foundA;
+        else
+            return start;
+    }
 
-<!--    function end(c){-->
-<!--        return end;-->
-<!--    }-->
+    function end(c){
+        return end;
+    }
 
-<!--    function foundA(c){-->
-<!--        if(c === "b")-->
-<!--            return foundB;-->
-<!--        else-->
-<!--            return start;-->
-<!--    }-->
+    function foundA(c){
+        if(c === "b")
+            return foundB;
+        else
+            return start;
+    }
 
-<!--    function foundB(c){-->
-<!--        if(c === "c")-->
-<!--            return foundC;-->
-<!--        else-->
-<!--            return start;-->
-<!--    }-->
+    function foundB(c){
+        if(c === "c")
+            return foundC;
+        else
+            return start;
+    }
 
-<!--    function foundC(c){-->
-<!--        if(c === "d")-->
-<!--            return foundD;-->
-<!--        else-->
-<!--            return start;-->
-<!--    }-->
+    function foundC(c){
+        if(c === "d")
+            return foundD;
+        else
+            return start;
+    }
 
-<!--    function foundD(c){-->
-<!--        if(c === "e")-->
-<!--            return foundE;-->
-<!--        else-->
-<!--            return start;-->
-<!--    }-->
+    function foundD(c){
+        if(c === "e")
+            return foundE;
+        else
+            return start;
+    }
 
-<!--    function foundE(c){-->
-<!--        if(c === "f")-->
-<!--            return end;-->
-<!--        else-->
-<!--            return start;-->
-<!--    }-->
+    function foundE(c){
+        if(c === "f")
+            return end;
+        else
+            return start;
+    }
 
-<!--    console.log( match("I ababcdef") )-->
+    console.log( match("I ababcdef") )
 
-<!--</script>-->
+</script>
 <!--
    我们考虑到找到字符 a 之前跟找到字符 a 之后，其实在 for 循环里面的逻辑是完全不一样的；
 所以我们可以考虑，每找到一个我们要的目标字符，我们就会去切换一个状态，状态机是非常适合处理
@@ -100,7 +100,10 @@ reConsume ,大概相当于重新使用的这样的一个逻辑，我们给每一
 
 
 -->
-
+<!--
+在一个字符串中，找到字符 "abcdef"
+    要求：使用状态机
+-->
 <script>
     function match1(string){
         let state = start;
@@ -160,14 +163,3 @@ reConsume ,大概相当于重新使用的这样的一个逻辑，我们给每一
 
 </script>
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>

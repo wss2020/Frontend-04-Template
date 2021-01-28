@@ -7,6 +7,7 @@ Type  Convertion
 a+b 是一定要用于字符串或者是作用于两个数字之间，那么一旦 a 和 b 属于别的类型，那么它就会发生一个
 类型转换，比如说如果我们一个字符串 和 一个数字相加，那么就要把这个数字转成字符串，如果说其中一个是
 布尔类型，那么我们要根据相加的关系进行一下转换；
+
 所以类型转换是一个比较复杂的这样的话题，对我们的表达式来说，类型转换也是一个重要的基础设施，在整个
 的 JavaScript 里面，最复杂的一个类型转换就是双等号，比如说这个字符串的 false ,它跟布尔变量的
 false ,它们两个相比较并不相等，这就是造成很多同学直觉上的一个错误，而事实上因为双等号的类型转换
@@ -36,18 +37,22 @@ Symbol          x             x              x          x           x        Box
 7种基本类型互相之间互相转换，它是有一个较为复杂的规则的，所以在这里我们暂且不提;
 我们再看第三排的布尔型的变量参与的转换，那么 Number 和 布尔型变量，Number 0 会转换为 false,
 其它的数字则会转成true;
+
 然后是我们的 Number 和 Object 之间的转换，这个地方会发生一个装箱转换（后面会详细讲解）；
 String 也非常的简单，它跟布尔变量就是一个空字符串会转成 false ，其它的 String 都转为 true;
 大家要注意这个是跟 == 的比较，结果会有很大的差异，所以说大家在潜意识里可以认为它是一个分开的体系。
 String 能和布尔变量相互转换，并不等于用双等号比较的时候一定会相等。
 接下来看， Boolean 布尔变量它转换成其他的，Boolean 转 Number ，那么它就会 true 转 1，
 false 转 0；虽然我们所有的非0的 Number 都会转成 true, 但是 true 转回去就都变成了 1，
+
 然后 String 很好理解，就是我们字符串的 true 和 false ,
+
 然后到 Object 同样存在一个装箱转换，布尔变量是没有办法转成 Undefined Null 和 Symbol 的，
 接下来我们来说 Undefined ，Undefined 它是一个特殊的类型，他转成 Number 的时候会得到 NaN
 这个值，NaN 这个值是 Not a  Number,然后它转成 String 那么就是 Undefined 这个值，但是极少
 有机会能够把它转成 String , 大部分时候 Undefined 是不会参与任何类型转换的，它转成布尔变量，
 那么就是 false;
+
 Null 跟 Undefined 不同，Null 如果要转成 Number 的话，它得到的结果是 0，转成 String 它同
 样也是 'Null' 的值，它转成布尔变量也是 false,这个也很好理解。
 Undefined 和 Null 都是没有办法转成 Object 的，所以说他们两个实际上是不存在装箱转换的，
@@ -77,6 +82,7 @@ Symbol.toPrimitive
 最主要的一个过程叫做 ToPremitive ,  ToPremitive 发生在我们的表达式定义的方方面面，
 比如说我们的加法，如果说遇到了 Object 加 Object ，或者 Object 参与运算的情况，他
 都会调用 ToPremitive 过程；
+
 我们一个对象 o 身上有三个方法的定义，会影响到 ToPremitive ，第一个是 toString 方法，
 第二个是 valueOf 方法，第三个是 Symbol 的 ToPrimitive ，这是一个 Symbol 的 key
 值，如果定义了 Symbol.toPrimitive ，那么它就会忽略 toString 和 valueOf，否则我们
@@ -85,6 +91,7 @@ Symbol.toPrimitive
 参与的这样的加法，x 加 o 这个时候也是会先调用 valueOf ，一看 valueOf 有这个方法，那么
 它就会得到1，如果我们把 valueOf 和 toPrimitive 这两个都注释掉，那么 x 加 o 的结果就会
 得到 x2，只要有 Symbol的toPrimitive 它就一定会得到 x3；
+
 来看一下，当这个 o 作为属性名的时候，则会优先调用他的toString 方法，
 所以说上面的例子，x 等于一个对象，然后 x[o] = 1,如果我们把 toPrimitive 给它注释掉，
 最后我们得到的结果就是 x2 发生了改变，而不是x1 发生了改变，我们的每一个表达式，它都有一个定
@@ -108,6 +115,7 @@ Number 既可以使用 new 去调用，又可以直接调用，如果直接调�
 就会返回一个值，如果使用 new 去调用它就会返回一个 Object,这个时候，我们
 就称这个 Number 对象和这个值 1 它存在着一个装箱关系；String 和 Boolean
 同理；
+
 我们需要注意的是 Symbol 构造器，它是没有办法被 new 调用的，所以我们要想
 创建一个 Symbol 对象，还需要用一个 Object 构造器给它再包一层，我们只能
 通过调用 Symbol 来获取一个 Symbol 类型的值，但是我们要加了new,它就会

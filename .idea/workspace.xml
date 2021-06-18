@@ -6,9 +6,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ts/TypeScript进阶/交叉类型/1.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ts/TypeScript进阶/交叉类型/2.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ts/TypeScript进阶/交叉类型/补充：知识点.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/1.region App/1.region App.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/2.region Page/1.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/2.region Page/2.Interface.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/3.region Compontent组件/3.region Compontent组件.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/原文档.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/小程序文档.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,7 +49,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ts/TypeScript进阶/交叉类型" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ts/小程序文档/3.region Compontent组件" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -58,19 +61,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ts/小程序文档/3.region Compontent组件" />
+      <recent name="$PROJECT_DIR$/ts/小程序文档/2.region Page" />
+      <recent name="$PROJECT_DIR$/ts/小程序文档" />
+      <recent name="$PROJECT_DIR$/ts" />
+      <recent name="$PROJECT_DIR$/ts/TypeScript进阶/交叉类型" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ts/小程序文档/2.region Page" />
+      <recent name="$PROJECT_DIR$/ts/小程序文档/3.region Compontent组件" />
+      <recent name="$PROJECT_DIR$/ts/小程序文档/1.region App" />
       <recent name="$PROJECT_DIR$/ts/TypeScript进阶/交叉类型" />
       <recent name="$PROJECT_DIR$/Week_06---浏览器工作原理/2.状态机/code/函数写法" />
-      <recent name="$PROJECT_DIR$/ts/4 generics/3 Default type" />
-      <recent name="$PROJECT_DIR$/ts/Types, Read-only Properties, and Mapped Types" />
-      <recent name="$PROJECT_DIR$/Week_10---重学CSS/1 CSS排版/6 Flex 排版" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/ts/TypeScript进阶/交叉类型" />
-      <recent name="$PROJECT_DIR$/Week_06---浏览器工作原理/2.状态机/code/状态模式写法" />
-      <recent name="$PROJECT_DIR$/Week_06---浏览器工作原理/2.状态机/code" />
-      <recent name="$PROJECT_DIR$/ts/2 Array Types, Literal Types, and Intersection Types" />
-      <recent name="$PROJECT_DIR$/ts/范型" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.1.js">
@@ -312,14 +315,8 @@
       <workItem from="1622787399407" duration="427000" />
       <workItem from="1623030008277" duration="38000" />
       <workItem from="1623051917356" duration="614000" />
-      <workItem from="1623906620102" duration="2252000" />
-    </task>
-    <task id="LOCAL-00208" summary="归并排序">
-      <created>1609407237161</created>
-      <option name="number" value="00208" />
-      <option name="presentableId" value="LOCAL-00208" />
-      <option name="project" value="LOCAL" />
-      <updated>1609407237161</updated>
+      <workItem from="1623906620102" duration="3110000" />
+      <workItem from="1623980332126" duration="4690000" />
     </task>
     <task id="LOCAL-00209" summary="15">
       <created>1609830232429</created>
@@ -657,7 +654,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611823147424</updated>
     </task>
-    <option name="localTasksCounter" value="257" />
+    <task id="LOCAL-00257" summary="ts 交叉类型">
+      <created>1623909133293</created>
+      <option name="number" value="00257" />
+      <option name="presentableId" value="LOCAL-00257" />
+      <option name="project" value="LOCAL" />
+      <updated>1623909133293</updated>
+    </task>
+    <option name="localTasksCounter" value="258" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -714,7 +718,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="重学" />
     <MESSAGE value="13周" />
     <MESSAGE value="14周" />
     <MESSAGE value="15周" />
@@ -739,9 +742,14 @@
     <MESSAGE value="ts" />
     <MESSAGE value="js" />
     <MESSAGE value="状态机" />
-    <option name="LAST_COMMIT_MESSAGE" value="状态机" />
+    <MESSAGE value="ts 交叉类型" />
+    <option name="LAST_COMMIT_MESSAGE" value="ts 交叉类型" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="1892" y="-32" key="CommitChangelistDialog2" timestamp="1623909133133">
+      <screen x="1440" y="-59" width="1920" height="1057" />
+    </state>
+    <state x="1892" y="-32" key="CommitChangelistDialog2/0.23.1440.877/1440.-59.1920.1057@1440.-59.1920.1057" timestamp="1623909133133" />
     <state width="1894" height="234" key="GridCell.Tab.0.bottom" timestamp="1623907092323">
       <screen x="1440" y="-59" width="1920" height="1057" />
     </state>
@@ -758,6 +766,10 @@
       <screen x="1440" y="-59" width="1920" height="1057" />
     </state>
     <state width="1894" height="234" key="GridCell.Tab.0.right/0.23.1440.877/1440.-59.1920.1057@1440.-59.1920.1057" timestamp="1623907092322" />
+    <state x="2131" y="148" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1623909118821">
+      <screen x="1440" y="-59" width="1920" height="1057" />
+    </state>
+    <state x="2131" y="148" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.23.1440.877/1440.-59.1920.1057@1440.-59.1920.1057" timestamp="1623909118821" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

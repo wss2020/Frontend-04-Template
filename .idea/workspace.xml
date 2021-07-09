@@ -6,13 +6,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ts/小程序文档/1.region App/1.region App.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ts/小程序文档/2.region Page/1.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ts/小程序文档/2.region Page/2.Interface.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ts/小程序文档/3.region Compontent组件/3.region Compontent组件.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ts/小程序文档/原文档.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ts/小程序文档/小程序文档.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/1.region App/2.AppOptions.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/1.region App/3.App.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/2.region Page/2.Page.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/2.region Page/3.PageOptions.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/3.region Compontent组件/3.PageLifetimes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/3.region Compontent组件/4.ThisTypedComponentOptionsWithRecordProps.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/3.region Compontent组件/5.Lifetimes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/3.region Compontent组件/6.ComponentRelation.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/3.region Compontent组件/7.DefaultData.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/3.region Compontent组件/8.DefaultMethods.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/3.region Compontent组件/9.PropsDefinition.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ts/小程序文档/2.region Page/2.Interface.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ts/小程序文档/3.region Compontent组件/3.region Compontent组件.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ts/小程序文档/3.region Compontent组件/1.Compontent.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ts/小程序文档/小程序文档.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ts/小程序文档/小程序文档.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -316,14 +324,18 @@
       <workItem from="1623030008277" duration="38000" />
       <workItem from="1623051917356" duration="614000" />
       <workItem from="1623906620102" duration="3110000" />
-      <workItem from="1623980332126" duration="4690000" />
-    </task>
-    <task id="LOCAL-00209" summary="15">
-      <created>1609830232429</created>
-      <option name="number" value="00209" />
-      <option name="presentableId" value="LOCAL-00209" />
-      <option name="project" value="LOCAL" />
-      <updated>1609830232430</updated>
+      <workItem from="1623980332126" duration="5498000" />
+      <workItem from="1624239625162" duration="706000" />
+      <workItem from="1624328310375" duration="150000" />
+      <workItem from="1624328490595" duration="546000" />
+      <workItem from="1624516842530" duration="2164000" />
+      <workItem from="1624586799363" duration="576000" />
+      <workItem from="1624625164717" duration="2142000" />
+      <workItem from="1624843960409" duration="537000" />
+      <workItem from="1625396886743" duration="499000" />
+      <workItem from="1625447493970" duration="4000" />
+      <workItem from="1625737670325" duration="773000" />
+      <workItem from="1625796997389" duration="11449000" />
     </task>
     <task id="LOCAL-00210" summary="15">
       <created>1609839912653</created>
@@ -661,7 +673,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623909133293</updated>
     </task>
-    <option name="localTasksCounter" value="258" />
+    <task id="LOCAL-00258" summary="ts 小程序文档.ts">
+      <created>1624001369226</created>
+      <option name="number" value="00258" />
+      <option name="presentableId" value="LOCAL-00258" />
+      <option name="project" value="LOCAL" />
+      <updated>1624001369228</updated>
+    </task>
+    <option name="localTasksCounter" value="259" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -718,7 +737,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="13周" />
     <MESSAGE value="14周" />
     <MESSAGE value="15周" />
     <MESSAGE value="散列表" />
@@ -743,13 +761,14 @@
     <MESSAGE value="js" />
     <MESSAGE value="状态机" />
     <MESSAGE value="ts 交叉类型" />
-    <option name="LAST_COMMIT_MESSAGE" value="ts 交叉类型" />
+    <MESSAGE value="ts 小程序文档.ts" />
+    <option name="LAST_COMMIT_MESSAGE" value="ts 小程序文档.ts" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1892" y="-32" key="CommitChangelistDialog2" timestamp="1623909133133">
+    <state x="1892" y="-32" key="CommitChangelistDialog2" timestamp="1624001369020">
       <screen x="1440" y="-59" width="1920" height="1057" />
     </state>
-    <state x="1892" y="-32" key="CommitChangelistDialog2/0.23.1440.877/1440.-59.1920.1057@1440.-59.1920.1057" timestamp="1623909133133" />
+    <state x="1892" y="-32" key="CommitChangelistDialog2/0.23.1440.877/1440.-59.1920.1057@1440.-59.1920.1057" timestamp="1624001369020" />
     <state width="1894" height="234" key="GridCell.Tab.0.bottom" timestamp="1623907092323">
       <screen x="1440" y="-59" width="1920" height="1057" />
     </state>
@@ -766,10 +785,19 @@
       <screen x="1440" y="-59" width="1920" height="1057" />
     </state>
     <state width="1894" height="234" key="GridCell.Tab.0.right/0.23.1440.877/1440.-59.1920.1057@1440.-59.1920.1057" timestamp="1623907092322" />
-    <state x="2131" y="148" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1623909118821">
+    <state x="432" y="124" key="RollbackChangesDialog" timestamp="1625798699088">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="432" y="124" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1625798699088" />
+    <state x="2131" y="148" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1624001353389">
       <screen x="1440" y="-59" width="1920" height="1057" />
     </state>
-    <state x="2131" y="148" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.23.1440.877/1440.-59.1920.1057@1440.-59.1920.1057" timestamp="1623909118821" />
+    <state x="2131" y="148" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.23.1440.877/1440.-59.1920.1057@1440.-59.1920.1057" timestamp="1624001353389" />
+    <state x="440" y="206" width="734" height="616" key="find.popup" timestamp="1625824334059">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="2027" y="161" width="745" height="616" key="find.popup/0.23.1440.877/1440.-59.1920.1057@1440.-59.1920.1057" timestamp="1625821563758" />
+    <state x="440" y="206" width="734" height="616" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1625824334059" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

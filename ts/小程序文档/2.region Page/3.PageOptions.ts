@@ -1,20 +1,9 @@
-// #region Page
-import {wx} from "../原文档";
-
-interface PageShareAppMessageOptions {
-    /** 转发事件来源。button：页面内转发按钮；menu：右上角转发菜单 */
-    from: "button" | "menu";
-    /** 如果 from 值是 button，则 target 是触发这次转发事件的 button，否则为 undefined */
-    target: object | undefined;
-}
 
 /**
  * Page 实现的接口对象
  */
 interface PageOptions {
-    /**
-     * 页面的初始数据
-     */
+    /** 页面的初始数据 */
     data?: any;
 
     /**
@@ -67,7 +56,7 @@ interface PageOptions {
      */
     onShareAppMessage?: (
         options?: PageShareAppMessageOptions
-    ) => wx.ShareAppMessage;
+    ) => ShareAppMessage;
 
     /**
      * 页面滚动触发事件的处理函数
@@ -82,35 +71,52 @@ interface PageOptions {
     onTabItemTap?: (item: any) => void;
 }
 
-interface Page<D = object, P = object> extends wx.Component<D, P> {
-    /**
-     * data
-     */
-    data: any;
-
-    /**
-     * 强制更新
-     */
-    forceUpdate(): void;
-
-    /**
-     * 字段可以获取到当前页面的路径。
-     */
-    route(): void;
-
-    /**
-     * 更新
-     */
-    update(): void;
-
-    /**
-     * 将页面滚动到目标位置。
-     *
-     * scrollTop 滚动到页面的目标位置（单位px）
-     * [duration] 滚动动画的时长，默认300ms，单位 ms
-     * @version 1.4.0
-     */
-    pageScrollTo(option?: wx.PageScrollToOptions): void;
+interface PageShareAppMessageOptions {
+    /** 转发事件来源。button：页面内转发按钮；menu：右上角转发菜单 */
+    from: "button" | "menu";
+    /** 如果 from 值是 button，则 target 是触发这次转发事件的 button，否则为 undefined */
+    target: object | undefined;
 }
 
-// #endregion
+// 开放接口-----分享
+interface ShareAppMessage extends BaseOptions {
+    /**
+     * 分享标题  默认为当前小程序名称
+     *
+     */
+    title?: string;
+
+    /**
+     * 分享描述, 默认为当前小程序名称
+     */
+    desc?: string;
+
+    /**
+     * 自定义图片路径，可以是本地文件路径、代码包文件路径或者网络图片路径，支持PNG及JPG
+     * 不传入 imageUrl 则使用默认截图。显示图片长宽比是 5:4
+     * @version 1.5.0
+     */
+    imageUrl?: string;
+
+    /**
+     * 分享路径  当默认为前页面 path ，
+     * 必须是以 / 开头的完整路径
+     */
+    path?: string;
+
+    success?(res: {
+        /** 每一项是一个 shareTicket ，对应一个转发对象 */
+        shareTickets: string[];
+    }): void;
+}
+
+interface BaseOptions<R = any, E = any> {
+    /** 接口调用成功的回调函数 */
+    success?(res: R): void;
+
+    /** 接口调用失败的回调函数 */
+    fail?(res: E): void;
+
+    /** 接口调用结束的回调函数（调用成功、失败都会执行） */
+    complete?(res: any): void;
+}

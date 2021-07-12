@@ -6,20 +6,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa9949ae-069f-488f-8e07-28e6e47b6307" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ts/小程序文档/1.region App/2.AppOptions.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ts/小程序文档/1.region App/3.App.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ts/小程序文档/2.region Page/2.Page.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ts/小程序文档/2.region Page/3.PageOptions.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ts/小程序文档/3.region Compontent组件/3.PageLifetimes.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ts/小程序文档/3.region Compontent组件/4.ThisTypedComponentOptionsWithRecordProps.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ts/小程序文档/3.region Compontent组件/5.Lifetimes.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ts/小程序文档/3.region Compontent组件/6.ComponentRelation.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ts/小程序文档/3.region Compontent组件/7.DefaultData.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ts/小程序文档/3.region Compontent组件/8.DefaultMethods.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ts/小程序文档/3.region Compontent组件/9.PropsDefinition.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/1.region App/5.LaunchOptions.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/1.region App/6.SceneValues.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/4.region Account/1.getAccountInfoSync.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/5.region 拓展接口/1.arrayBuffer  and Base64.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/5.region 拓展接口/2.hideKeyboard.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/5.region 拓展接口/3.touch.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/5.region 拓展接口/4.input and form.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/5.region 拓展接口/5.ScrollEvent.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/6.region 界面API列表/0.baseOpions.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/6.region 界面API列表/1.页面-----下拉刷新.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/6.region 界面API列表/10.界面-----动画.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/6.region 界面API列表/11.页面-----下拉刷新.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/6.region 界面API列表/12.位置API.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/6.region 界面API列表/13.界面-----绘图.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/6.region 界面API列表/2.界面-----导航.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/6.region 界面API列表/3.界面-----设置tabBar.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/6.region 界面API列表/4.界面-----设置导航条.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/6.region 界面API列表/5.界面-----设置置顶信息.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/6.region 界面API列表/6.显示操作菜单.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/6.region 界面API列表/7.显示模态弹窗.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/6.region 界面API列表/8.Loading.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/6.region 界面API列表/9.Toast.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/7.#region 网络API列表/0.baseOpions.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/7.#region 网络API列表/1.发起请求.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ts/小程序文档/7.#region 网络API列表/总体.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ts/小程序文档/2.region Page/2.Interface.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ts/小程序文档/3.region Compontent组件/3.region Compontent组件.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ts/小程序文档/3.region Compontent组件/1.Compontent.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ts/小程序文档/小程序文档.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ts/小程序文档/小程序文档.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +69,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ts/小程序文档/3.region Compontent组件" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ts/小程序文档/7.#region 网络API列表" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -70,18 +82,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ts/小程序文档/7.#region 网络API列表" />
+      <recent name="$PROJECT_DIR$/ts/小程序文档/6.region 界面API列表" />
       <recent name="$PROJECT_DIR$/ts/小程序文档/3.region Compontent组件" />
       <recent name="$PROJECT_DIR$/ts/小程序文档/2.region Page" />
       <recent name="$PROJECT_DIR$/ts/小程序文档" />
-      <recent name="$PROJECT_DIR$/ts" />
-      <recent name="$PROJECT_DIR$/ts/TypeScript进阶/交叉类型" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ts/小程序文档" />
       <recent name="$PROJECT_DIR$/ts/小程序文档/2.region Page" />
       <recent name="$PROJECT_DIR$/ts/小程序文档/3.region Compontent组件" />
       <recent name="$PROJECT_DIR$/ts/小程序文档/1.region App" />
       <recent name="$PROJECT_DIR$/ts/TypeScript进阶/交叉类型" />
-      <recent name="$PROJECT_DIR$/Week_06---浏览器工作原理/2.状态机/code/函数写法" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.1.js">
@@ -335,14 +347,9 @@
       <workItem from="1625396886743" duration="499000" />
       <workItem from="1625447493970" duration="4000" />
       <workItem from="1625737670325" duration="773000" />
-      <workItem from="1625796997389" duration="11449000" />
-    </task>
-    <task id="LOCAL-00210" summary="15">
-      <created>1609839912653</created>
-      <option name="number" value="00210" />
-      <option name="presentableId" value="LOCAL-00210" />
-      <option name="project" value="LOCAL" />
-      <updated>1609839912653</updated>
+      <workItem from="1625796997389" duration="11733000" />
+      <workItem from="1625833729758" duration="13804000" />
+      <workItem from="1626059845039" duration="3721000" />
     </task>
     <task id="LOCAL-00211" summary="15">
       <created>1609840726019</created>
@@ -680,7 +687,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624001369228</updated>
     </task>
-    <option name="localTasksCounter" value="259" />
+    <task id="LOCAL-00259" summary="ts 小程序文档.ts">
+      <created>1625824971295</created>
+      <option name="number" value="00259" />
+      <option name="presentableId" value="LOCAL-00259" />
+      <option name="project" value="LOCAL" />
+      <updated>1625824971296</updated>
+    </task>
+    <option name="localTasksCounter" value="260" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -765,10 +779,11 @@
     <option name="LAST_COMMIT_MESSAGE" value="ts 小程序文档.ts" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1892" y="-32" key="CommitChangelistDialog2" timestamp="1624001369020">
-      <screen x="1440" y="-59" width="1920" height="1057" />
+    <state x="339" y="23" key="CommitChangelistDialog2" timestamp="1625824971057">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="1892" y="-32" key="CommitChangelistDialog2/0.23.1440.877/1440.-59.1920.1057@1440.-59.1920.1057" timestamp="1624001369020" />
+    <state x="339" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1625824971057" />
     <state width="1894" height="234" key="GridCell.Tab.0.bottom" timestamp="1623907092323">
       <screen x="1440" y="-59" width="1920" height="1057" />
     </state>
@@ -785,19 +800,23 @@
       <screen x="1440" y="-59" width="1920" height="1057" />
     </state>
     <state width="1894" height="234" key="GridCell.Tab.0.right/0.23.1440.877/1440.-59.1920.1057@1440.-59.1920.1057" timestamp="1623907092322" />
-    <state x="432" y="124" key="RollbackChangesDialog" timestamp="1625798699088">
+    <state x="432" y="124" key="RollbackChangesDialog" timestamp="1625911730870">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="432" y="124" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1625798699088" />
+    <state x="432" y="124" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1625911730870" />
     <state x="2131" y="148" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1624001353389">
       <screen x="1440" y="-59" width="1920" height="1057" />
     </state>
     <state x="2131" y="148" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.23.1440.877/1440.-59.1920.1057@1440.-59.1920.1057" timestamp="1624001353389" />
-    <state x="440" y="206" width="734" height="616" key="find.popup" timestamp="1625824334059">
+    <state x="440" y="206" width="734" height="616" key="find.popup" timestamp="1625825130950">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="2027" y="161" width="745" height="616" key="find.popup/0.23.1440.877/1440.-59.1920.1057@1440.-59.1920.1057" timestamp="1625821563758" />
-    <state x="440" y="206" width="734" height="616" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1625824334059" />
+    <state x="440" y="206" width="734" height="616" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1625825130950" />
+    <state x="1981" y="-34" width="838" height="1032" key="search.everywhere.popup" timestamp="1626068823492">
+      <screen x="1440" y="-59" width="1920" height="1057" />
+    </state>
+    <state x="1981" y="-34" width="838" height="1032" key="search.everywhere.popup/0.23.1440.877/1440.-59.1920.1057@1440.-59.1920.1057" timestamp="1626068823492" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
